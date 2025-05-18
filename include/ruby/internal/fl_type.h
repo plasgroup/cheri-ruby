@@ -39,6 +39,10 @@
 #include "ruby/assert.h"
 #include "ruby/defines.h"
 
+
+#include <cheriintrin.h>
+
+
 /** @cond INTERNAL_MACRO */
 #if RBIMPL_HAS_EXTENSION(enumerator_attributes)
 # define RBIMPL_HAVE_ENUM_ATTRIBUTE 1
@@ -55,39 +59,39 @@
 #endif
 /** @endcond */
 
-#define FL_SINGLETON    RBIMPL_CAST((VALUE)RUBY_FL_SINGLETON)            /**< @old{RUBY_FL_SINGLETON} */
-#define FL_WB_PROTECTED RBIMPL_CAST((VALUE)RUBY_FL_WB_PROTECTED)         /**< @old{RUBY_FL_WB_PROTECTED} */
-#define FL_PROMOTED     RBIMPL_CAST((VALUE)RUBY_FL_PROMOTED)             /**< @old{RUBY_FL_PROMOTED} */
-#define FL_FINALIZE     RBIMPL_CAST((VALUE)RUBY_FL_FINALIZE)             /**< @old{RUBY_FL_FINALIZE} */
-#define FL_TAINT        RBIMPL_CAST((VALUE)RUBY_FL_TAINT)                /**< @old{RUBY_FL_TAINT} */
-#define FL_SHAREABLE    RBIMPL_CAST((VALUE)RUBY_FL_SHAREABLE)            /**< @old{RUBY_FL_SHAREABLE} */
-#define FL_UNTRUSTED    RBIMPL_CAST((VALUE)RUBY_FL_UNTRUSTED)            /**< @old{RUBY_FL_UNTRUSTED} */
-#define FL_SEEN_OBJ_ID  RBIMPL_CAST((VALUE)RUBY_FL_SEEN_OBJ_ID)          /**< @old{RUBY_FL_SEEN_OBJ_ID} */
-#define FL_EXIVAR       RBIMPL_CAST((VALUE)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
-#define FL_FREEZE       RBIMPL_CAST((VALUE)RUBY_FL_FREEZE)               /**< @old{RUBY_FL_FREEZE} */
+#define FL_SINGLETON    RBIMPL_CAST((unsigned long)RUBY_FL_SINGLETON)            /**< @old{RUBY_FL_SINGLETON} */
+#define FL_WB_PROTECTED RBIMPL_CAST((unsigned long)RUBY_FL_WB_PROTECTED)         /**< @old{RUBY_FL_WB_PROTECTED} */
+#define FL_PROMOTED     RBIMPL_CAST((unsigned long)RUBY_FL_PROMOTED)             /**< @old{RUBY_FL_PROMOTED} */
+#define FL_FINALIZE     RBIMPL_CAST((unsigned long)RUBY_FL_FINALIZE)             /**< @old{RUBY_FL_FINALIZE} */
+#define FL_TAINT        RBIMPL_CAST((unsigned long)RUBY_FL_TAINT)                /**< @old{RUBY_FL_TAINT} */
+#define FL_SHAREABLE    RBIMPL_CAST((unsigned long)RUBY_FL_SHAREABLE)            /**< @old{RUBY_FL_SHAREABLE} */
+#define FL_UNTRUSTED    RBIMPL_CAST((unsigned long)RUBY_FL_UNTRUSTED)            /**< @old{RUBY_FL_UNTRUSTED} */
+#define FL_SEEN_OBJ_ID  RBIMPL_CAST((unsigned long)RUBY_FL_SEEN_OBJ_ID)          /**< @old{RUBY_FL_SEEN_OBJ_ID} */
+#define FL_EXIVAR       RBIMPL_CAST((unsigned long)RUBY_FL_EXIVAR)               /**< @old{RUBY_FL_EXIVAR} */
+#define FL_FREEZE       RBIMPL_CAST((unsigned long)RUBY_FL_FREEZE)               /**< @old{RUBY_FL_FREEZE} */
 
-#define FL_USHIFT       RBIMPL_CAST((VALUE)RUBY_FL_USHIFT)               /**< @old{RUBY_FL_USHIFT} */
+#define FL_USHIFT       RBIMPL_CAST((unsigned long)RUBY_FL_USHIFT)               /**< @old{RUBY_FL_USHIFT} */
 
-#define FL_USER0        RBIMPL_CAST((VALUE)RUBY_FL_USER0)                /**< @old{RUBY_FL_USER0} */
-#define FL_USER1        RBIMPL_CAST((VALUE)RUBY_FL_USER1)                /**< @old{RUBY_FL_USER1} */
-#define FL_USER2        RBIMPL_CAST((VALUE)RUBY_FL_USER2)                /**< @old{RUBY_FL_USER2} */
-#define FL_USER3        RBIMPL_CAST((VALUE)RUBY_FL_USER3)                /**< @old{RUBY_FL_USER3} */
-#define FL_USER4        RBIMPL_CAST((VALUE)RUBY_FL_USER4)                /**< @old{RUBY_FL_USER4} */
-#define FL_USER5        RBIMPL_CAST((VALUE)RUBY_FL_USER5)                /**< @old{RUBY_FL_USER5} */
-#define FL_USER6        RBIMPL_CAST((VALUE)RUBY_FL_USER6)                /**< @old{RUBY_FL_USER6} */
-#define FL_USER7        RBIMPL_CAST((VALUE)RUBY_FL_USER7)                /**< @old{RUBY_FL_USER7} */
-#define FL_USER8        RBIMPL_CAST((VALUE)RUBY_FL_USER8)                /**< @old{RUBY_FL_USER8} */
-#define FL_USER9        RBIMPL_CAST((VALUE)RUBY_FL_USER9)                /**< @old{RUBY_FL_USER9} */
-#define FL_USER10       RBIMPL_CAST((VALUE)RUBY_FL_USER10)               /**< @old{RUBY_FL_USER10} */
-#define FL_USER11       RBIMPL_CAST((VALUE)RUBY_FL_USER11)               /**< @old{RUBY_FL_USER11} */
-#define FL_USER12       RBIMPL_CAST((VALUE)RUBY_FL_USER12)               /**< @old{RUBY_FL_USER12} */
-#define FL_USER13       RBIMPL_CAST((VALUE)RUBY_FL_USER13)               /**< @old{RUBY_FL_USER13} */
-#define FL_USER14       RBIMPL_CAST((VALUE)RUBY_FL_USER14)               /**< @old{RUBY_FL_USER14} */
-#define FL_USER15       RBIMPL_CAST((VALUE)RUBY_FL_USER15)               /**< @old{RUBY_FL_USER15} */
-#define FL_USER16       RBIMPL_CAST((VALUE)RUBY_FL_USER16)               /**< @old{RUBY_FL_USER16} */
-#define FL_USER17       RBIMPL_CAST((VALUE)RUBY_FL_USER17)               /**< @old{RUBY_FL_USER17} */
-#define FL_USER18       RBIMPL_CAST((VALUE)RUBY_FL_USER18)               /**< @old{RUBY_FL_USER18} */
-#define FL_USER19       RBIMPL_CAST((VALUE)(unsigned int)RUBY_FL_USER19) /**< @old{RUBY_FL_USER19} */
+#define FL_USER0        RBIMPL_CAST((unsigned long)RUBY_FL_USER0)                /**< @old{RUBY_FL_USER0} */
+#define FL_USER1        RBIMPL_CAST((unsigned long)RUBY_FL_USER1)                /**< @old{RUBY_FL_USER1} */
+#define FL_USER2        RBIMPL_CAST((unsigned long)RUBY_FL_USER2)                /**< @old{RUBY_FL_USER2} */
+#define FL_USER3        RBIMPL_CAST((unsigned long)RUBY_FL_USER3)                /**< @old{RUBY_FL_USER3} */
+#define FL_USER4        RBIMPL_CAST((unsigned long)RUBY_FL_USER4)                /**< @old{RUBY_FL_USER4} */
+#define FL_USER5        RBIMPL_CAST((unsigned long)RUBY_FL_USER5)                /**< @old{RUBY_FL_USER5} */
+#define FL_USER6        RBIMPL_CAST((unsigned long)RUBY_FL_USER6)                /**< @old{RUBY_FL_USER6} */
+#define FL_USER7        RBIMPL_CAST((unsigned long)RUBY_FL_USER7)                /**< @old{RUBY_FL_USER7} */
+#define FL_USER8        RBIMPL_CAST((unsigned long)RUBY_FL_USER8)                /**< @old{RUBY_FL_USER8} */
+#define FL_USER9        RBIMPL_CAST((unsigned long)RUBY_FL_USER9)                /**< @old{RUBY_FL_USER9} */
+#define FL_USER10       RBIMPL_CAST((unsigned long)RUBY_FL_USER10)               /**< @old{RUBY_FL_USER10} */
+#define FL_USER11       RBIMPL_CAST((unsigned long)RUBY_FL_USER11)               /**< @old{RUBY_FL_USER11} */
+#define FL_USER12       RBIMPL_CAST((unsigned long)RUBY_FL_USER12)               /**< @old{RUBY_FL_USER12} */
+#define FL_USER13       RBIMPL_CAST((unsigned long)RUBY_FL_USER13)               /**< @old{RUBY_FL_USER13} */
+#define FL_USER14       RBIMPL_CAST((unsigned long)RUBY_FL_USER14)               /**< @old{RUBY_FL_USER14} */
+#define FL_USER15       RBIMPL_CAST((unsigned long)RUBY_FL_USER15)               /**< @old{RUBY_FL_USER15} */
+#define FL_USER16       RBIMPL_CAST((unsigned long)RUBY_FL_USER16)               /**< @old{RUBY_FL_USER16} */
+#define FL_USER17       RBIMPL_CAST((unsigned long)RUBY_FL_USER17)               /**< @old{RUBY_FL_USER17} */
+#define FL_USER18       RBIMPL_CAST((unsigned long)RUBY_FL_USER18)               /**< @old{RUBY_FL_USER18} */
+#define FL_USER19       RBIMPL_CAST((unsigned long)(unsigned int)RUBY_FL_USER19) /**< @old{RUBY_FL_USER19} */
 
 #define ELTS_SHARED          RUBY_ELTS_SHARED     /**< @old{RUBY_ELTS_SHARED} */
 #define RB_OBJ_FREEZE        rb_obj_freeze_inline /**< @alias{rb_obj_freeze_inline} */
@@ -469,7 +473,8 @@ static inline VALUE
 RB_FL_TEST_RAW(VALUE obj, VALUE flags)
 {
     RBIMPL_ASSERT_OR_ASSUME(RB_FL_ABLE(obj));
-    return RBASIC(obj)->flags & flags;
+
+	return RBASIC(obj)->flags & flags;
 }
 
 RBIMPL_ATTR_PURE_UNLESS_DEBUG()

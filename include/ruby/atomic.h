@@ -40,6 +40,8 @@
 # include <atomic.h>
 #endif
 
+#include <stdatomic.h>         /* std::atomic */
+
 #include "ruby/assert.h"
 #include "ruby/backward/2/limits.h"
 #include "ruby/internal/attr/artificial.h"
@@ -747,6 +749,11 @@ rbimpl_atomic_ptr_exchange(void *volatile *ptr, const void *val)
 #elif defined(__sun) && defined(HAVE_ATOMIC_H)
     return atomic_swap_ptr(ptr, RBIMPL_CAST((void *)val));
 
+	#elif defined(__CHERI_PURE_CAPABILITY__) 
+	_Atomic(void *) *p = (_Atomic(void *) *)ptr;
+	void *v = (void *)val;
+	return atomic_exchange(p, v); // return old value
+
 #else
     RBIMPL_STATIC_ASSERT(sizeof_voidp, sizeof *ptr == sizeof(size_t));
 
@@ -764,12 +771,14 @@ RBIMPL_ATTR_NONNULL((1))
 static inline VALUE
 rbimpl_atomic_value_exchange(volatile VALUE *ptr, VALUE val)
 {
-    RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
+    // RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
+	// #if defined(__CHERI_PURE_CAPABILITY__) 
+	return atomic_exchange((_Atomic(VALUE) *)ptr, val);
 
-    const size_t sval = RBIMPL_CAST((size_t)val);
-    volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
-    const size_t sret = rbimpl_atomic_size_exchange(sptr, sval);
-    return RBIMPL_CAST((VALUE)sret);
+    // const size_t sval = RBIMPL_CAST((size_t)val);
+    // volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
+    // const size_t sret = rbimpl_atomic_size_exchange(sptr, sval);
+    // return RBIMPL_CAST((VALUE)sret);
 }
 
 RBIMPL_ATTR_ARTIFICIAL()
@@ -900,6 +909,16 @@ rbimpl_atomic_ptr_cas(void **ptr, const void *oldval, const void *newval)
     void *pnew = RBIMPL_CAST((void *)newval);
     return atomic_cas_ptr(ptr, pold, pnew);
 
+	#elif defined(__CHERI_PURE_CAPABILITY__) 
+	void *ret = *ptr; 
+	_Atomic(void*) *p = (_Atomic(void*) *)ptr;
+	void *pold = RBIMPL_CAST((void *)oldval);
+    void *pnew = RBIMPL_CAST((void *)newval);
+	if (atomic_compare_exchange_strong(p, &pold, pnew)) {
+		ret = pold;
+	}
+	return ret;
+
 
 #else
     RBIMPL_STATIC_ASSERT(sizeof_voidp, sizeof *ptr == sizeof(size_t));
@@ -935,6 +954,13 @@ RBIMPL_ATTR_NONNULL((1))
 static inline VALUE
 rbimpl_atomic_value_cas(volatile VALUE *ptr, VALUE oldval, VALUE newval)
 {
+	#if defined(__CHERI_PURE_CAPABILITY__) 
+	VALUE ret = *ptr;
+	if (atomic_compare_exchange_strong((_Atomic(VALUE) *)ptr, &oldval, newval)) {
+		ret = oldval;
+	}
+	return ret;
+	#else
     RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
 
     const size_t snew = RBIMPL_CAST((size_t)newval);
@@ -942,6 +968,7 @@ rbimpl_atomic_value_cas(volatile VALUE *ptr, VALUE oldval, VALUE newval)
     volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
     const size_t sret = rbimpl_atomic_size_cas(sptr, sold, snew);
     return RBIMPL_CAST((VALUE)sret);
+	#endif
 }
 /** @endcond */
 #endif /* RUBY_ATOMIC_H */

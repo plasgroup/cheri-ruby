@@ -27,7 +27,7 @@ typedef unsigned long parser_st_data_t;
 #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
 typedef unsigned LONG_LONG parser_st_data_t;
 #else
-# error ---->> parser_st.c requires sizeof(void*) == sizeof(long) or sizeof(LONG_LONG) to be compiled. <<----
+typedef unsigned long parser_st_data_t;
 #endif
 #define ST2_DATA_T_DEFINED
 
@@ -59,7 +59,7 @@ typedef parser_st_data_t parser_st_index_t;
 typedef int parser_st_compare_func(parser_st_data_t, parser_st_data_t);
 typedef parser_st_index_t parser_st_hash_func(parser_st_data_t);
 
-typedef char st_check_for_sizeof_parser_st_index_t[SIZEOF_VOIDP == (int)sizeof(parser_st_index_t) ? 1 : -1];
+// typedef char st_check_for_sizeof_parser_st_index_t[SIZEOF_VOIDP == (int)sizeof(parser_st_index_t) ? 1 : -1];
 #define SIZEOF_ST_INDEX_T SIZEOF_VOIDP
 
 struct parser_st_hash_type {

@@ -330,11 +330,12 @@ ary_memcpy0(VALUE ary, long beg, long argc, const VALUE *argv, VALUE buff_owner_
     }
     else {
         int i;
-        RARRAY_PTR_USE(ary, ptr, {
+		VALUE *ptr = rb_ary_ptr_use_start(ary);
+        // RARRAY_PTR_USE(ary, ptr, {
             for (i=0; i<argc; i++) {
                 RB_OBJ_WRITE(buff_owner_ary, &ptr[i+beg], argv[i]);
             }
-        });
+        // });
     }
 }
 
@@ -1238,6 +1239,8 @@ ary_make_partial(VALUE ary, VALUE klass, long offset, long len)
     size_t embed_capa = ary_embed_capa(result);
     if ((size_t)len <= embed_capa) {
         FL_SET_EMBED(result);
+		VALUE *ppp = RARRAY_CONST_PTR(ary);
+		VALUE *ppp2 = RARRAY_CONST_PTR(ary) + offset;
         ary_memcpy(result, 0, len, RARRAY_CONST_PTR(ary) + offset);
         ARY_SET_EMBED_LEN(result, len);
     }

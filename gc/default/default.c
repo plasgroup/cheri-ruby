@@ -37,6 +37,10 @@
 #include "debug_counter.h"
 #include "internal/sanitizers.h"
 
+#include <cheriintrin.h>
+#include <stdio.h>
+
+
 /* MALLOC_HEADERS_BEGIN */
 #ifndef HAVE_MALLOC_USABLE_SIZE
 # ifdef _WIN32
@@ -74,6 +78,36 @@
 # include <mach/mach_init.h>
 # include <mach/mach_port.h>
 #endif
+
+#include <cheriintrin.h>
+void pp_cap(void * ptr, const char *name)
+{
+    uint64_t length = cheri_length_get(ptr);
+    uint64_t address = cheri_address_get(ptr);
+    uint64_t base = cheri_base_get(ptr);
+    uint64_t flags = cheri_flags_get(ptr);
+    uint64_t perms = cheri_perms_get(ptr);
+    uint64_t type = cheri_type_get(ptr);
+    int tag = cheri_tag_get(ptr);
+
+    uint64_t offset = cheri_offset_get(ptr);
+
+	int is_executable = cheri_perms_get(ptr) & CHERI_PERM_EXECUTE;
+	int is_read = cheri_perms_get(ptr) & CHERI_PERM_LOAD;
+	int is_write = cheri_perms_get(ptr) & CHERI_PERM_STORE;
+	int is_invoke = cheri_perms_get(ptr) & CHERI_PERM_INVOKE;
+
+	int is_aligned = __builtin_is_aligned(ptr, 16);
+
+	printf("Executable: %d, Read: %d, Write: %d invoke: %d\n", is_executable, is_read, is_write, is_invoke);
+	printf("%s: %p\n", name, ptr);
+    printf("Capability: %#lp\n", ptr);
+	printf("Is aligned: %d\n", is_aligned);
+
+    printf("Tag: %d, Perms: %04lx, Type: %lx, Address: %04lx, Base: %04lx, End: %04lx, Flags: %lx, "
+           "Length: %04lx, Offset: %04lx\n\n",
+           tag, perms, type, address, base, base + length, flags, length, offset);
+}
 
 #ifndef VM_CHECK_MODE
 # define VM_CHECK_MODE RUBY_DEBUG
@@ -368,7 +402,7 @@ struct RMoved {
 
 #define RMOVED(obj) ((struct RMoved *)(obj))
 
-typedef uintptr_t bits_t;
+typedef unsigned long bits_t;
 enum {
     BITS_SIZE = sizeof(bits_t),
     BITS_BITLENGTH = ( BITS_SIZE * CHAR_BIT )
@@ -783,7 +817,7 @@ heap_page_in_global_empty_pages_pool(rb_objspace_t *objspace, struct heap_page *
     }
 }
 
-#define GET_PAGE_BODY(x)   ((struct heap_page_body *)((bits_t)(x) & ~(HEAP_PAGE_ALIGN_MASK)))
+#define GET_PAGE_BODY(x)   ((struct heap_page_body *)((uintptr_t)(x) & ~(HEAP_PAGE_ALIGN_MASK)))
 #define GET_PAGE_HEADER(x) (&GET_PAGE_BODY(x)->header)
 #define GET_HEAP_PAGE(x)   (GET_PAGE_HEADER(x)->page)
 
@@ -971,7 +1005,7 @@ total_final_slots_count(rb_objspace_t *objspace)
 # define obj_id_to_ref(objid) (FIXNUM_P(objid) ? \
    ((objid) ^ FIXNUM_FLAG) : (NUM2PTR(objid) << 1))
 #else
-# error not supported
+# define obj_id_to_ref(objid) ((objid) ^ FIXNUM_FLAG) /* unset FIXNUM_FLAG */
 #endif
 
 struct RZombie {
@@ -1160,6 +1194,12 @@ static inline int
 RVALUE_MARKED(rb_objspace_t *objspace, VALUE obj)
 {
     check_rvalue_consistency(objspace, obj);
+
+	void *b = (void *)(obj); 
+
+	struct heap_page_body *a = (struct heap_page_body *)((bits_t)(obj) & ~(HEAP_PAGE_ALIGN_MASK));
+
+
     return RVALUE_MARKED_BITMAP(obj) != 0;
 }
 
@@ -4307,7 +4347,9 @@ push_mark_stack(mark_stack_t *stack, VALUE obj)
         if (stack->index == stack->limit) {
             push_mark_stack_chunk(stack);
         }
+		VALUE *loc = &stack->chunk->data[stack->index]; 
         stack->chunk->data[stack->index++] = obj;
+		// printf("push_mark_stack: %p\n", (void *)obj);
         return;
 
       case T_NONE:
@@ -4343,6 +4385,7 @@ pop_mark_stack(mark_stack_t *stack, VALUE *data)
     else {
         *data = stack->chunk->data[--stack->index];
     }
+	// printf("pop_mark_stack: %p\n", (void *)*data);
     return TRUE;
 }
 

@@ -367,7 +367,7 @@ pathobj_realpath(VALUE pathobj)
 /* Forward declarations */
 struct rb_rjit_unit;
 
-typedef uintptr_t iseq_bits_t;
+typedef unsigned long iseq_bits_t;
 
 #define ISEQ_IS_SIZE(body) (body->ic_size + body->ivc_size + body->ise_size + body->icvarc_size)
 
@@ -1409,7 +1409,7 @@ static inline void VM_FORCE_WRITE_SPECIAL_CONST(const VALUE *ptr, VALUE special_
 static inline void
 VM_ENV_FLAGS_SET(const VALUE *ep, VALUE flag)
 {
-    VALUE flags = ep[VM_ENV_DATA_INDEX_FLAGS];
+    unsigned long flags = ep[VM_ENV_DATA_INDEX_FLAGS];
     VM_ASSERT(FIXNUM_P(flags));
     VM_FORCE_WRITE_SPECIAL_CONST(&ep[VM_ENV_DATA_INDEX_FLAGS], flags | flag);
 }
@@ -1417,7 +1417,7 @@ VM_ENV_FLAGS_SET(const VALUE *ep, VALUE flag)
 static inline void
 VM_ENV_FLAGS_UNSET(const VALUE *ep, VALUE flag)
 {
-    VALUE flags = ep[VM_ENV_DATA_INDEX_FLAGS];
+    ULVALUE flags = ep[VM_ENV_DATA_INDEX_FLAGS];
     VM_ASSERT(FIXNUM_P(flags));
     VM_FORCE_WRITE_SPECIAL_CONST(&ep[VM_ENV_DATA_INDEX_FLAGS], flags & ~flag);
 }

@@ -460,7 +460,7 @@ nlz_intptr(uintptr_t x)
         return nlz_long_long((unsigned long long)x);
     }
     else {
-        UNREACHABLE_RETURN(~0);
+        return nlz_long((unsigned long)x);
     }
 }
 
@@ -595,7 +595,7 @@ ntz_intptr(uintptr_t x)
         return ntz_int32((uint32_t)x);
     }
     else {
-        UNREACHABLE_RETURN(~0);
+        return ntz_int64((uint64_t)x);
     }
 }
 
@@ -619,7 +619,7 @@ RUBY_BIT_ROTL(VALUE v, int n)
 
 #else
     const int m = (sizeof(VALUE) * CHAR_BIT) - 1;
-    return (v << (n & m)) | (v >> (-n & m));
+    return (v << (n & m)) | (ULVALUE)(v >> (-n & m));
 #endif
 }
 
@@ -643,7 +643,7 @@ RUBY_BIT_ROTR(VALUE v, int n)
 
 #else
     const int m = (sizeof(VALUE) * CHAR_BIT) - 1;
-    return (v << (-n & m)) | (v >> (n & m));
+    return (v << (-n & m)) | (ULVALUE)(v >> (n & m));
 #endif
 }
 

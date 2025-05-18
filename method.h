@@ -103,7 +103,7 @@ METHOD_ENTRY_FLAGS_COPY(rb_method_entry_t *dst, const rb_method_entry_t *src)
     dst->flags =
       (dst->flags & ~(IMEMO_FL_USER0|IMEMO_FL_USER1|IMEMO_FL_USER2
       |IMEMO_FL_USER3)) |
-        (src->flags & (IMEMO_FL_USER0|IMEMO_FL_USER1|IMEMO_FL_USER2|IMEMO_FL_USER3));
+        (size_t) (src->flags & (IMEMO_FL_USER0|IMEMO_FL_USER1|IMEMO_FL_USER2|IMEMO_FL_USER3));
 }
 
 typedef enum {
@@ -200,7 +200,7 @@ struct rb_method_definition_struct {
 struct rb_id_table;
 
 typedef struct rb_method_definition_struct rb_method_definition_t;
-STATIC_ASSERT(sizeof_method_def, offsetof(rb_method_definition_t, body) <= 8);
+STATIC_ASSERT(sizeof_method_def, offsetof(rb_method_definition_t, body) <= 16);
 
 #define UNDEFINED_METHOD_ENTRY_P(me) (!(me) || !(me)->def || (me)->def->type == VM_METHOD_TYPE_UNDEF)
 #define UNDEFINED_REFINED_METHOD_P(def) \

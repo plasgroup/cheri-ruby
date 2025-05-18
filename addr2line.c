@@ -1942,7 +1942,7 @@ debug_info_read(DebugInfoReader *reader, int num_traces, void **traces,
         /* ranges_inspect(reader, &ranges, errout); */
         /* kprintf("%d:%tx: %x ",__LINE__,diepos,die.tag); */
         for (int i=offset; i < num_traces; i++) {
-            uintptr_t addr = (uintptr_t)traces[i];
+            ptraddr_t addr = (uintptr_t)traces[i];
             uintptr_t offset = addr - reader->obj->base_addr + reader->obj->vmaddr;
             uintptr_t saddr = ranges_include(reader, &ranges, offset, &rnglists_header, errout);
             if (saddr == UINTPTR_MAX) return false;
@@ -2235,7 +2235,7 @@ use_symtab:
                 uintptr_t saddr = (uintptr_t)sym->st_value + obj->base_addr;
                 if (ELF_ST_TYPE(sym->st_info) != STT_FUNC) continue;
                 for (i = offset; i < num_traces; i++) {
-                    uintptr_t d = (uintptr_t)traces[i] - saddr;
+                    ptraddr_t d = (ptraddr_t)traces[i] - (ptraddr_t)saddr;
                     if (lines[i].line > 0 || d > (uintptr_t)sym->st_size)
                         continue;
                     /* fill symbol name and addr from .symtab */
@@ -2565,8 +2565,8 @@ main_exe_path(FILE *errout)
 static void
 print_line0(line_info_t *line, void *address, FILE *errout)
 {
-    uintptr_t addr = (uintptr_t)address;
-    uintptr_t d = addr - line->saddr;
+    ptraddr_t addr = (ptraddr_t)address;
+    ptraddr_t d = addr - (ptraddr_t)line->saddr;
     if (!address) {
         /* inlined */
         if (line->dirname && line->dirname[0]) {
@@ -2594,7 +2594,7 @@ print_line0(line_info_t *line, void *address, FILE *errout)
                 d, addr, line->line);
     }
     else if (line->dirname && line->dirname[0]) {
-        kprintf("%s(%s+0x%"PRIxPTR") [0x%"PRIxPTR"] %s/%s:%d\n", line->path, line->sname,
+        kprintf("%s(%s+0x%ld) [0x%ld] %s/%s:%d\n", line->path, line->sname,
                 d, addr, line->dirname, line->filename, line->line);
     }
     else {

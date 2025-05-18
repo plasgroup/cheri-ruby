@@ -671,7 +671,7 @@ VALUE rb_fs;
 static inline const char *
 search_nonascii(const char *p, const char *e)
 {
-    const uintptr_t *s, *t;
+    const unsigned long *s, *t;
 
 #if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
 # if SIZEOF_UINTPTR_T == 8
@@ -679,7 +679,7 @@ search_nonascii(const char *p, const char *e)
 # elif SIZEOF_UINTPTR_T == 4
 #  define NONASCII_MASK UINT32_C(0x80808080)
 # else
-#  error "don't know what to do."
+#  define NONASCII_MASK UINT64_C(0x8080808080808080)
 # endif
 #else
 # if SIZEOF_UINTPTR_T == 8
@@ -691,14 +691,14 @@ search_nonascii(const char *p, const char *e)
 # endif
 #endif
 
-    if (UNALIGNED_WORD_ACCESS || e - p >= SIZEOF_VOIDP) {
+    if (UNALIGNED_WORD_ACCESS || e - p >= 8) {
 #if !UNALIGNED_WORD_ACCESS
-        if ((uintptr_t)p % SIZEOF_VOIDP) {
-            int l = SIZEOF_VOIDP - (uintptr_t)p % SIZEOF_VOIDP;
+        if ((unsigned long)p % 8) {
+            int l = 8 - (unsigned long)p % 8;
             p += l;
             switch (l) {
               default: UNREACHABLE;
-#if SIZEOF_VOIDP > 4
+#if 8 > 4
               case 7: if (p[-7]&0x80) return p-7;
               case 6: if (p[-6]&0x80) return p-6;
               case 5: if (p[-5]&0x80) return p-5;
@@ -715,10 +715,10 @@ search_nonascii(const char *p, const char *e)
 #define aligned_ptr(value) \
         __builtin_assume_aligned((value), sizeof(uintptr_t))
 #else
-#define aligned_ptr(value) (uintptr_t *)(value)
+#define aligned_ptr(value) (unsigned long *)(value)
 #endif
         s = aligned_ptr(p);
-        t = (uintptr_t *)(e - (SIZEOF_VOIDP-1));
+        t = (unsigned long *)(e - (8-1));
 #undef aligned_ptr
         for (;s < t; s++) {
             if (*s & NONASCII_MASK) {

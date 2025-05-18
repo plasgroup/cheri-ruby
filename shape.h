@@ -25,10 +25,10 @@ typedef uint32_t redblack_id_t;
 
 #define MAX_IVARS (attr_index_t)(-1)
 
-# define SHAPE_MASK (((uintptr_t)1 << SHAPE_ID_NUM_BITS) - 1)
-# define SHAPE_FLAG_MASK (((VALUE)-1) >> SHAPE_ID_NUM_BITS)
+# define SHAPE_MASK (((VALUE)1 << SHAPE_ID_NUM_BITS) - 1)
+# define SHAPE_FLAG_MASK (((ULVALUE)-1) >> SHAPE_ID_NUM_BITS)
 
-# define SHAPE_FLAG_SHIFT ((SIZEOF_VALUE * 8) - SHAPE_ID_NUM_BITS)
+# define SHAPE_FLAG_SHIFT ((8 * 8) - SHAPE_ID_NUM_BITS)
 
 # define SHAPE_MAX_VARIATIONS 8
 
@@ -100,7 +100,7 @@ set_shape_id_in_flags(VALUE obj, shape_id_t shape_id)
     // Ractors are occupying the upper 32 bits of flags, but only in debug mode
     // Object shapes are occupying top bits
     RBASIC(obj)->flags &= SHAPE_FLAG_MASK;
-    RBASIC(obj)->flags |= ((VALUE)(shape_id) << SHAPE_FLAG_SHIFT);
+    RBASIC(obj)->flags |= ((ULVALUE)(shape_id) << SHAPE_FLAG_SHIFT);
 }
 
 

@@ -2094,8 +2094,9 @@ st_numcmp(st_data_t x, st_data_t y)
 st_index_t
 st_numhash(st_data_t n)
 {
+	st_index_t h = (st_index_t)n;
     enum {s1 = 11, s2 = 3};
-    return (st_index_t)((n>>s1|(n<<s2)) ^ (n>>s2));
+    return (st_index_t)((h>>s1|(h<<s2)) ^ (h>>s2));
 }
 
 #ifdef RUBY

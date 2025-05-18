@@ -226,8 +226,8 @@ RB_NIL_OR_UNDEF_P(VALUE obj)
      *
      *  NIL_OR_UNDEF_P(v) can be true only when v is Qundef or Qnil.
      */
-    const VALUE mask = RBIMPL_CAST((VALUE)~(RUBY_Qundef ^ RUBY_Qnil));
-    const VALUE common_bits = RUBY_Qundef & RUBY_Qnil;
+    const unsigned long mask = RBIMPL_CAST((VALUE)~(RUBY_Qundef ^ RUBY_Qnil));
+    const unsigned long common_bits = RUBY_Qundef & RUBY_Qnil;
     return (obj & mask) == common_bits;
 }
 
@@ -267,7 +267,7 @@ static inline bool
 RB_STATIC_SYM_P(VALUE obj)
 {
     RBIMPL_ATTR_CONSTEXPR(CXX14)
-    const VALUE mask = ~(RBIMPL_VALUE_FULL << RUBY_SPECIAL_SHIFT);
+    const unsigned long mask = ~(RBIMPL_VALUE_FULL << RUBY_SPECIAL_SHIFT);
     return (obj & mask) == RUBY_SYMBOL_FLAG;
 }
 

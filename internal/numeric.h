@@ -211,7 +211,7 @@ rb_float_flonum_value(VALUE v)
         /* e: xx1... -> 011... */
         /*    xx0... -> 100... */
         /*      ^b63           */
-        t.v = RUBY_BIT_ROTR((2 - b63) | (v & ~(VALUE)0x03), 3);
+        t.v = RUBY_BIT_ROTR((2 - b63) | (ULVALUE)(v & ~(ULVALUE)0x03), 3);
         return t.d;
     }
 #endif

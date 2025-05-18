@@ -51,6 +51,8 @@
 # endif
 #endif
 
+#include <cheriintrin.h>
+
 /* MALLOC_HEADERS_END */
 
 #ifdef HAVE_SYS_TIME_H
@@ -80,6 +82,8 @@
 #endif
 
 #undef LIST_HEAD /* ccan/list conflicts with BSD-origin sys/queue.h. */
+
+#include <cheriintrin.h>
 
 #include "constant.h"
 #include "darray.h"
@@ -1785,11 +1789,11 @@ rb_gc_pointer_to_heap_p(VALUE obj)
 static VALUE
 id2ref(VALUE objid)
 {
-#if SIZEOF_LONG == SIZEOF_VOIDP
+// #if SIZEOF_LONG == SIZEOF_VOIDP
 #define NUM2PTR(x) NUM2ULONG(x)
-#elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
-#define NUM2PTR(x) NUM2ULL(x)
-#endif
+// #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
+// #define NUM2PTR(x) NUM2ULL(x)
+// #endif
     objid = rb_to_int(objid);
     if (FIXNUM_P(objid) || rb_big_size(objid) <= SIZEOF_VOIDP) {
         VALUE ptr = NUM2PTR(objid);
@@ -1852,7 +1856,7 @@ nonspecial_obj_id(void *_objspace, VALUE obj)
 #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
     return LL2NUM((SIGNED_VALUE)(obj) / 2);
 #else
-# error not supported
+    return (VALUE)((SIGNED_VALUE)(obj)|FIXNUM_FLAG);
 #endif
 }
 
@@ -2139,7 +2143,7 @@ count_objects(int argc, VALUE *argv, VALUE os)
     return hash;
 }
 
-#define SET_STACK_END SET_MACHINE_STACK_END(&ec->machine.stack_end)
+#define SET_STACK_END SET_MACHINE_STACK_END(&ec->machine.stack_end, ec->machine.stack_start)
 
 #define STACK_START (ec->machine.stack_start)
 #define STACK_END (ec->machine.stack_end)
@@ -2159,7 +2163,7 @@ int
 ruby_get_stack_grow_direction(volatile VALUE *addr)
 {
     VALUE *end;
-    SET_MACHINE_STACK_END(&end);
+    // SET_MACHINE_STACK_END(&end);
 
     if (end > addr) return ruby_stack_grow_direction = 1;
     return ruby_stack_grow_direction = -1;
@@ -2250,6 +2254,10 @@ rb_gc_mark_movable(VALUE obj)
 void
 rb_gc_mark_and_move(VALUE *ptr)
 {
+	VALUE obj = *ptr; 
+	if (cheri_perms_get(obj) & CHERI_PERM_EXECUTE) {
+		return;
+	}
     RB_GC_MARK_OR_TRAVERSE(rb_gc_impl_mark_and_move, ptr, *ptr, false);
 }
 
@@ -2307,8 +2315,15 @@ each_location(register const VALUE *x, register long n, void (*cb)(VALUE, void *
     VALUE v;
     while (n--) {
         v = *x;
+#if defined(__CHERI_PURE_CAPABILITY__) 
+		cheri_perms_t perms = cheri_perms_get((void *) v);
+		if (cheri_is_valid((void*)v) && (!(perms & CHERI_PERM_EXECUTE))) {
         cb(v, data);
-        x++;
+		}
+		#else 
+        cb(v, data);
+		#endif
+		 x++;
     }
 }
 

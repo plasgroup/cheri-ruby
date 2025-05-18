@@ -88,19 +88,24 @@ struct rb_callinfo {
 #define CI_EMBED_ARGC_bits  3
 #define CI_EMBED_FLAG_bits 13
 #define CI_EMBED_ID_bits   15
+#elif defined(__CHERI_PURE_CAPABILITY__) 
+#define CI_EMBED_TAG_bits   1
+#define CI_EMBED_ARGC_bits 15
+#define CI_EMBED_FLAG_bits 16
+#define CI_EMBED_ID_bits   32
 #endif
 
-#if (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits + CI_EMBED_FLAG_bits + CI_EMBED_ID_bits) != (SIZEOF_VALUE * 8)
+#if (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits + CI_EMBED_FLAG_bits + CI_EMBED_ID_bits) != (8 * 8)
 #error
 #endif
 
 #define CI_EMBED_FLAG 0x01
 #define CI_EMBED_ARGC_SHFT (CI_EMBED_TAG_bits)
-#define CI_EMBED_ARGC_MASK ((((VALUE)1)<<CI_EMBED_ARGC_bits) - 1)
+#define CI_EMBED_ARGC_MASK ((((ULVALUE)1)<<CI_EMBED_ARGC_bits) - 1)
 #define CI_EMBED_FLAG_SHFT (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits)
-#define CI_EMBED_FLAG_MASK ((((VALUE)1)<<CI_EMBED_FLAG_bits) - 1)
+#define CI_EMBED_FLAG_MASK ((((ULVALUE)1)<<CI_EMBED_FLAG_bits) - 1)
 #define CI_EMBED_ID_SHFT   (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits + CI_EMBED_FLAG_bits)
-#define CI_EMBED_ID_MASK   ((((VALUE)1)<<CI_EMBED_ID_bits) - 1)
+#define CI_EMBED_ID_MASK   ((((ULVALUE)1)<<CI_EMBED_ID_bits) - 1)
 
 static inline bool
 vm_ci_packed_p(const struct rb_callinfo *ci)

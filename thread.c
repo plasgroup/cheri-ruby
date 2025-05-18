@@ -100,6 +100,8 @@
 #include "vm_debug.h"
 #include "vm_sync.h"
 
+#include <cheriintrin.h>
+
 #if USE_RJIT && defined(HAVE_SYS_WAIT_H)
 #include <sys/wait.h>
 #endif
@@ -4571,14 +4573,14 @@ rb_thread_wait_for_single_fd(int fd, int events, struct timeval *timeout)
 
 #ifdef USE_CONSERVATIVE_STACK_END
 void
-rb_gc_set_stack_end(VALUE **stack_end_p)
+rb_gc_set_stack_end(VALUE **stack_end_p, VALUE *stack_start)
 {
     VALUE stack_end;
 COMPILER_WARNING_PUSH
 #if __has_warning("-Wdangling-pointer")
 COMPILER_WARNING_IGNORED(-Wdangling-pointer);
 #endif
-    *stack_end_p = &stack_end;
+    *stack_end_p = (VALUE *)cheri_address_set(stack_start, (ptraddr_t) &stack_end);
 COMPILER_WARNING_POP
 }
 #endif
@@ -5157,12 +5159,12 @@ recursive_list_access(VALUE sym)
 static bool
 recursive_check(VALUE list, VALUE obj, VALUE paired_obj_id)
 {
-#if SIZEOF_LONG == SIZEOF_VOIDP
+// #if SIZEOF_LONG == SIZEOF_VOIDP
   #define OBJ_ID_EQL(obj_id, other) ((obj_id) == (other))
-#elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
-  #define OBJ_ID_EQL(obj_id, other) (RB_BIGNUM_TYPE_P((obj_id)) ? \
-    rb_big_eql((obj_id), (other)) : ((obj_id) == (other)))
-#endif
+// #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
+//   #define OBJ_ID_EQL(obj_id, other) (RB_BIGNUM_TYPE_P((obj_id)) ? \
+//     rb_big_eql((obj_id), (other)) : ((obj_id) == (other)))
+// #endif
 
     VALUE pair_list = rb_hash_lookup2(list, obj, Qundef);
     if (UNDEF_P(pair_list))

@@ -18,7 +18,7 @@ struct rb_thread_struct;        /* in vm_core.h */
     do {							\
         FLUSH_REGISTER_WINDOWS;					\
         setjmp((th)->ec->machine.regs);				\
-        SET_MACHINE_STACK_END(&(th)->ec->machine.stack_end);	\
+        SET_MACHINE_STACK_END(&(th)->ec->machine.stack_end, (th)->ec->machine.stack_start);	\
     } while (0)
 
 /* thread.c */

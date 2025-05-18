@@ -1196,7 +1196,7 @@ cont_save_machine_stack(rb_thread_t *th, rb_context_t *cont)
 {
     size_t size;
 
-    SET_MACHINE_STACK_END(&th->ec->machine.stack_end);
+    SET_MACHINE_STACK_END(&th->ec->machine.stack_end, th->ec->machine.stack_start);
 
     if (th->ec->machine.stack_start > th->ec->machine.stack_end) {
         size = cont->machine.stack_size = th->ec->machine.stack_start - th->ec->machine.stack_end;
@@ -1547,7 +1547,7 @@ fiber_setcontext(rb_fiber_t *new_fiber, rb_fiber_t *old_fiber)
     /* save old_fiber's machine stack - to ensure efficient garbage collection */
     if (!FIBER_TERMINATED_P(old_fiber)) {
         STACK_GROW_DIR_DETECTION;
-        SET_MACHINE_STACK_END(&th->ec->machine.stack_end);
+        SET_MACHINE_STACK_END(&th->ec->machine.stack_end, th->ec->machine.stack_start);
         if (STACK_DIR_UPPER(0, 1)) {
             old_fiber->cont.machine.stack_size = th->ec->machine.stack_start - th->ec->machine.stack_end;
             old_fiber->cont.machine.stack = th->ec->machine.stack_end;
@@ -3383,7 +3383,7 @@ Init_Cont(void)
 #else /* not WIN32 */
     pagesize = sysconf(_SC_PAGESIZE);
 #endif
-    SET_MACHINE_STACK_END(&th->ec->machine.stack_end);
+    SET_MACHINE_STACK_END(&th->ec->machine.stack_end, th->ec->machine.stack_start);
 
     fiber_pool_initialize(&shared_fiber_pool, stack_size, FIBER_POOL_INITIAL_SIZE, vm_stack_size);
 

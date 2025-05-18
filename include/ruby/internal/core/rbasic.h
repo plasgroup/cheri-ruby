@@ -72,7 +72,7 @@ RBasic {
      * @note  This is ::VALUE rather than  an enum for alignment purposes.  Back
      *        in the 1990s there were no such thing like `_Alignas` in C.
      */
-    VALUE flags;
+    VALUE flags __attribute__((cheri_no_provenance));
 
     /**
      * Class of an object.  Every object has its class.  Also, everything is an

@@ -48,8 +48,8 @@
 #include "insns.inc"
 #include "insns_info.inc"
 
-#define FIXNUM_INC(n, i) ((n)+(INT2FIX(i)&~FIXNUM_FLAG))
-#define FIXNUM_OR(n, i) ((n)|INT2FIX(i))
+#define FIXNUM_INC(n, i) ((n)+(ULVALUE)(INT2FIX(i)&~FIXNUM_FLAG))
+#define FIXNUM_OR(n, i) ((n)|(ULVALUE)INT2FIX(i))
 
 typedef struct iseq_link_element {
     enum {
@@ -1033,9 +1033,9 @@ rb_iseq_original_iseq(const rb_iseq_t *iseq) /* cold path */
  * generate SPARCV8PLUS code with unaligned memory access instructions.
  * That is why the STRICT_ALIGNMENT is defined only with GCC.
  */
-#if defined(__sparc) && SIZEOF_VOIDP == 4 && defined(__GNUC__)
+// #if defined(__sparc) && SIZEOF_VOIDP == 4 && defined(__GNUC__)
   #define STRICT_ALIGNMENT
-#endif
+// #endif
 
 /*
  * Some OpenBSD platforms (including sparc64) require strict alignment.

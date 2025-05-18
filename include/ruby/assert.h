@@ -58,6 +58,7 @@
  * - `(!!0)-1` (== `0-1` == `-1`) when RUBY_DEBUG is defined as 0, and
  * - `(!!n)-1` (== `1-1` ==  `0`) when RUBY_DEBUG is defined as something else.
  */
+// #define RUBY_DEBUG 1
 #if ! defined(RUBY_DEBUG)
 # define RBIMPL_RUBY_DEBUG 0
 #elif !!RUBY_DEBUG-1 < 0

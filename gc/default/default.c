@@ -79,7 +79,6 @@
 # include <mach/mach_port.h>
 #endif
 
-#include <cheriintrin.h>
 void pp_cap(void * ptr, const char *name)
 {
     uint64_t length = cheri_length_get(ptr);

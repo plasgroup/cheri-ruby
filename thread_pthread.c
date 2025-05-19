@@ -95,6 +95,8 @@ static const void *const condattr_monotonic = NULL;
 
 #define NATIVE_MUTEX_LOCK_DEBUG 0
 
+#include <cheriintrin.h>
+
 static void
 mutex_debug(const char *msg, void *lock)
 {
@@ -2039,8 +2041,8 @@ native_thread_init_stack(rb_thread_t *th, void *local_in_parent_frame)
             size_t size;
 
             if (get_stack(&start, &size) == 0) {
-                uintptr_t diff = (uintptr_t)start - (uintptr_t)local_in_parent_frame;
-                th->ec->machine.stack_start = local_in_parent_frame;
+                ptraddr_t diff = (ptraddr_t)start - (ptraddr_t)local_in_parent_frame;
+                th->ec->machine.stack_start = cheri_address_set(start, (ptraddr_t)local_in_parent_frame);
                 th->ec->machine.stack_maxsize = size - diff;
             }
         }

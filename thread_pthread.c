@@ -2820,7 +2820,7 @@ static rb_thread_t *
 thread_sched_waiting_thread(struct rb_thread_sched_waiting *w)
 {
     if (w) {
-        return (rb_thread_t *)((size_t)w - offsetof(rb_thread_t, sched.waiting_reason));
+        return (rb_thread_t *)((uintptr_t)w - offsetof(rb_thread_t, sched.waiting_reason));
     }
     else {
         return NULL;

@@ -40,8 +40,6 @@
 #include "ruby/defines.h"
 
 
-#include <cheriintrin.h>
-
 
 /** @cond INTERNAL_MACRO */
 #if RBIMPL_HAS_EXTENSION(enumerator_attributes)

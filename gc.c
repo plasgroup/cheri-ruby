@@ -51,8 +51,6 @@
 # endif
 #endif
 
-#include <cheriintrin.h>
-
 /* MALLOC_HEADERS_END */
 
 #ifdef HAVE_SYS_TIME_H

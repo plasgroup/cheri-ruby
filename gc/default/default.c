@@ -1193,12 +1193,6 @@ static inline int
 RVALUE_MARKED(rb_objspace_t *objspace, VALUE obj)
 {
     check_rvalue_consistency(objspace, obj);
-
-	void *b = (void *)(obj); 
-
-	struct heap_page_body *a = (struct heap_page_body *)((bits_t)(obj) & ~(HEAP_PAGE_ALIGN_MASK));
-
-
     return RVALUE_MARKED_BITMAP(obj) != 0;
 }
 
@@ -4346,9 +4340,7 @@ push_mark_stack(mark_stack_t *stack, VALUE obj)
         if (stack->index == stack->limit) {
             push_mark_stack_chunk(stack);
         }
-		VALUE *loc = &stack->chunk->data[stack->index]; 
         stack->chunk->data[stack->index++] = obj;
-		// printf("push_mark_stack: %p\n", (void *)obj);
         return;
 
       case T_NONE:
@@ -4384,7 +4376,6 @@ pop_mark_stack(mark_stack_t *stack, VALUE *data)
     else {
         *data = stack->chunk->data[--stack->index];
     }
-	// printf("pop_mark_stack: %p\n", (void *)*data);
     return TRUE;
 }
 

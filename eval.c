@@ -95,9 +95,6 @@ ruby_setup(void)
 void
 ruby_init(void)
 {
-	// if (RTEST(ruby_debug)) {
-	// 	printf("RUBY_DEBUG: %s\n", RSTRING_PTR(ruby_debug));
-	// }
     int state = ruby_setup();
     if (state) {
         if (RTEST(ruby_debug)) {

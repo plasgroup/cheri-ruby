@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+				"/cheriv9/src/output/rootfs-riscv64-purecap/",
+				"/cheriv9/src/output/sdk/lib/clang/15.0.0/include",
+				"/cheriv9/src/output/rootfs-riscv64-purecap/usr/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+			"compilerPath": "/cheriv9/src/output/sdk/bin/clang",
+			"compilerArgs": [
+				"-target ",
+				"riscv64-unknown-freebsd",
+				"--sysroot=/cheriv9/src/output/rootfs-riscv64-purecap",
+				"-march=rv64gcxcheri ",
+				"-mabi=l64pc128d"
+			]
+        }
+    ],
+    "version": 4
+}

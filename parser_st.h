@@ -27,7 +27,7 @@ typedef unsigned long parser_st_data_t;
 #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
 typedef unsigned LONG_LONG parser_st_data_t;
 #else
-# error ---->> parser_st.c requires sizeof(void*) == sizeof(long) or sizeof(LONG_LONG) to be compiled. <<----
+typedef uintptr_t parser_st_data_t;
 #endif
 #define ST2_DATA_T_DEFINED
 

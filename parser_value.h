@@ -100,7 +100,16 @@ typedef unsigned LONG_LONG ID;
 # define RBIMPL_VALUE_FULL ULLONG_MAX
 
 #else
-# error ---->> ruby requires sizeof(void*) == sizeof(long) or sizeof(LONG_LONG) to be compiled. <<----
+typedef uintptr_t VALUE;
+typedef unsigned long ULVALUE; 
+typedef uintptr_t ID;
+# define SIGNED_VALUE long
+# define SIZEOF_VALUE SIZEOF_UINTPTR_T
+# define SIZEOF_ULVALUE SIZEOF_LONG
+# undef PRI_VALUE_PREFIX
+# define RBIMPL_VALUE_NULL ((VALUE)0)
+# define RBIMPL_VALUE_ONE  ((VALUE)1)
+# define RBIMPL_VALUE_FULL ULONG_MAX
 #endif
 
 #endif /* EXTERNAL_VALUE_H */

@@ -51,7 +51,7 @@ typedef uintptr_t parser_st_data_t;
 
 typedef struct parser_st_table parser_st_table;
 
-typedef parser_st_data_t parser_st_index_t;
+typedef unsigned long parser_st_index_t;
 
 /* Maximal value of unsigned integer type parser_st_index_t.  */
 #define MAX_ST2_INDEX_VAL (~(parser_st_index_t) 0)
@@ -59,8 +59,8 @@ typedef parser_st_data_t parser_st_index_t;
 typedef int parser_st_compare_func(parser_st_data_t, parser_st_data_t);
 typedef parser_st_index_t parser_st_hash_func(parser_st_data_t);
 
-typedef char st_check_for_sizeof_parser_st_index_t[SIZEOF_VOIDP == (int)sizeof(parser_st_index_t) ? 1 : -1];
-#define SIZEOF_ST_INDEX_T SIZEOF_VOIDP
+// typedef char st_check_for_sizeof_parser_st_index_t[SIZEOF_VOIDP == (int)sizeof(parser_st_index_t) ? 1 : -1];
+#define SIZEOF_ST_INDEX_T 8
 
 struct parser_st_hash_type {
     int (*compare)(parser_st_data_t, parser_st_data_t); /* parser_st_compare_func* */

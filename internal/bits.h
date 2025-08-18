@@ -460,7 +460,7 @@ nlz_intptr(uintptr_t x)
         return nlz_long_long((unsigned long long)x);
     }
     else {
-        UNREACHABLE_RETURN(~0);
+        return nlz_long((unsigned long)x);
     }
 }
 

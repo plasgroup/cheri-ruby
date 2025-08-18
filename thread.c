@@ -104,6 +104,8 @@
 #include <sys/wait.h>
 #endif
 
+#include <cheriintrin.h>
+
 #ifndef USE_NATIVE_THREAD_PRIORITY
 #define USE_NATIVE_THREAD_PRIORITY 0
 #define RUBY_THREAD_PRIORITY_MAX 3
@@ -4571,14 +4573,14 @@ rb_thread_wait_for_single_fd(int fd, int events, struct timeval *timeout)
 
 #ifdef USE_CONSERVATIVE_STACK_END
 void
-rb_gc_set_stack_end(VALUE **stack_end_p)
+rb_gc_set_stack_end(VALUE **stack_end_p, VALUE *stack_start)
 {
     VALUE stack_end;
 COMPILER_WARNING_PUSH
 #if __has_warning("-Wdangling-pointer")
 COMPILER_WARNING_IGNORED(-Wdangling-pointer);
 #endif
-    *stack_end_p = &stack_end;
+    *stack_end_p = (VALUE *)cheri_address_set(stack_start, (ptraddr_t) &stack_end);
 COMPILER_WARNING_POP
 }
 #endif

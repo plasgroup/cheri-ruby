@@ -1,0 +1,35 @@
+../configure CC=/cheriv92/src/output/sdk/bin/clang \
+LD=/cheriv92/src/output/sdk/bin/ld.lld \
+AR=/cheriv92/src/output/sdk/bin/llvm-ar \
+AS=/cheriv92/src/output/sdk/bin/llvm-as \
+CXX=/cheriv92/src/output/sdk/bin/clang++ \
+NM=/cheriv92/src/output/sdk/bin/llvm-nm \
+OBJCOPY=/cheriv92/src/output/sdk/bin/llvm-objcopy \
+OBJDUMP=/cheriv92/src/output/sdk/bin/llvm-objdump \
+RANLIB=/cheriv92/src/output/sdk/bin/llvm-ranlib \
+STRIP=/cheriv92/src/output/sdk/bin/llvm-strip \
+CFLAGS="-target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include" \
+LDFLAGS="-target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index" \
+CXXFLAGS="-target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -std=c++17 -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include/c++/v1" \
+--build=x86_64-pc-linux-gnu \
+--host=riscv64-unknown-freebsd \
+--target=riscv64-unknown-freebsd \
+--with-opt-dir="/cheriv92/src/output/rootfs-riscv64-purecap/usr" \
+--prefix="/cheriv92/src/output/rootfs-riscv64-purecap/.rubies/ruby-master" \
+--with-thread="pthread" \
+--enable-mkmf-verbose \
+--with-destdir="/cheriv92/src/output/rootfs-riscv64-purecap/.rubies/ruby-master" \
+--enable-debug-env \
+optflags="-O0 -fno-omit-frame-pointer"
+
+
+
+/cheriv92/src/output/sdk/bin/clang -E -DRUBY_EXPORT -I. -I.ext/include/riscv64-freebsd -I../include -I.. -I../prism -I../enc/unicode/15.0.0 -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include    "../version.c" | \
+/usr/bin/ruby --disable=gems  "../tool/generic_erb.rb" -o riscv64-freebsd-fake.rb "../template/fake.rb.in" \
+    i=- srcdir=".." BASERUBY="/usr/bin/ruby --disable=gems" \
+    LIBPATHENV="LD_LIBRARY_PATH" PRELOADENV="LD_PRELOAD" LIBRUBY_SO="libruby.so.3.4.1"
+
+# basic test runner 
+./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems "../basictest/runner.rb" --run-opt=--disable-gems 
+# bootstrap test runner
+./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems"

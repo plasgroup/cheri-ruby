@@ -1,4 +1,5 @@
-directory /rootfs/research/sakuranbo/build
+directory /rootfs/research/ruby-3.4.5/build
+directory /rootfs/research/ruby-3.4.5
 layout src 
 fs cmd
 b rb_main

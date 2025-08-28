@@ -554,6 +554,7 @@ BSD_vfprintf(FILE *fp, const char *fmt0, va_list ap)
 #ifdef _HAVE_SANE_QUAD_
 	u_quad_t MAYBE_UNUSED(uqval) = 0; /* %q integers */
 #endif /* _HAVE_SANE_QUAD_ */
+	uintptr_t MAYBE_UNUSED(cval) = 0; /* %P integers */
 	int base;		/* base for [diouxX] conversion */
 	int dprec;		/* a copy of prec if [diouxX], 0 otherwise */
 	long fieldsz;		/* field size expanded by sign, etc */
@@ -672,6 +673,8 @@ BSD_vfprintf(FILE *fp, const char *fmt0, va_list ap)
 
 rflag:		ch = *fmt++;
 reswitch:	switch (ch) {
+		case 'P':
+			goto rflag;
 		case ' ':
 			/*
 			 * ``If the space and + flags both appear, the space
@@ -826,8 +829,8 @@ reswitch:	switch (ch) {
 				uqval = va_arg(ap, u_quad_t);
 				cp = (*fp->vextra)(fp, sizeof(uqval), &uqval, &fieldsz, sign);
 #else
-				ulval = va_arg(ap, u_long);
-				cp = (*fp->vextra)(fp, sizeof(ulval), &ulval, &fieldsz, sign);
+				cval = va_arg(ap, uintptr_t);
+				cp = (*fp->vextra)(fp, sizeof(cval), &cval, &fieldsz, sign);
 #endif
 				sign = '\0';
 				if (!cp) goto error;

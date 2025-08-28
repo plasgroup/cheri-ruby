@@ -4519,11 +4519,6 @@ rb_gc_impl_mark_and_pin(void *objspace_ptr, VALUE obj)
 void
 rb_gc_impl_mark_maybe(void *objspace_ptr, VALUE obj)
 {
-	cheri_perms_t perms = cheri_perms_get((void *)obj);
-	if (cheri_is_invalid((void*)obj) || (perms & CHERI_PERM_EXECUTE)) {
-        return; 
-	}
-
     rb_objspace_t *objspace = objspace_ptr;
 
     (void)VALGRIND_MAKE_MEM_DEFINED(&obj, sizeof(obj));

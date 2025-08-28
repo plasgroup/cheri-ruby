@@ -130,6 +130,8 @@
 #include "builtin.h"
 #include "shape.h"
 
+#include <cheriintrin.h>
+
 unsigned int
 rb_gc_vm_lock(void)
 {
@@ -2326,7 +2328,10 @@ each_location(register const VALUE *x, register long n, void (*cb)(VALUE, void *
     VALUE v;
     while (n--) {
         v = *x;
-        cb(v, data);
+		cheri_perms_t perms = cheri_perms_get((void *)v);
+		if (cheri_is_valid((void *)v) && (!(perms & CHERI_PERM_EXECUTE))) {
+			cb(v, data);
+		}
         x++;
     }
 }

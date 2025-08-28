@@ -130,8 +130,6 @@
 #include "builtin.h"
 #include "shape.h"
 
-#include <cheriintrin.h>
-
 unsigned int
 rb_gc_vm_lock(void)
 {
@@ -1804,11 +1802,13 @@ rb_gc_pointer_to_heap_p(VALUE obj)
 static VALUE
 id2ref(VALUE objid)
 {
-// #if SIZEOF_LONG == SIZEOF_VOIDP
+#if SIZEOF_LONG == SIZEOF_VOIDP
 #define NUM2PTR(x) NUM2ULONG(x)
-// #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
-// #define NUM2PTR(x) NUM2ULL(x)
-// #endif
+#elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
+#define NUM2PTR(x) NUM2ULL(x)
+#else
+#define NUM2PTR(x) NUM2ULONG(x)
+#endif
     objid = rb_to_int(objid);
     if (FIXNUM_P(objid) || rb_big_size(objid) <= SIZEOF_VOIDP) {
         VALUE ptr = NUM2PTR(objid);
@@ -2326,9 +2326,6 @@ each_location(register const VALUE *x, register long n, void (*cb)(VALUE, void *
     VALUE v;
     while (n--) {
         v = *x;
-		if (cheri_is_invalid(v)) {
-			continue;
-		}
         cb(v, data);
         x++;
     }

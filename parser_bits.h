@@ -509,7 +509,7 @@ ntz_intptr(uintptr_t x)
         return ntz_int32((uint32_t)x);
     }
     else {
-        UNREACHABLE_RETURN(~0);
+        return ntz_int64((uint64_t)x);
     }
 }
 

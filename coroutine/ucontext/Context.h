@@ -56,6 +56,8 @@ static inline void coroutine_initialize(
     context->state.uc_link = NULL;
 
     makecontext(&context->state, (void(*)(void))coroutine_trampoline, 2, (void*)start, (void*)context);
+	context->state.uc_mcontext.mc_capregs.cp_ca[0] = (__uintcap_t) start;
+	context->state.uc_mcontext.mc_capregs.cp_ca[1] = (__uintcap_t) context;
 }
 
 static inline struct coroutine_context * coroutine_transfer(struct coroutine_context * current, struct coroutine_context * target)

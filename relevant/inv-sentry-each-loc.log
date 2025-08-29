@@ -1,0 +1,263 @@
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6a9aac [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6a9aac, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5a9aac
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x628dd4 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 628dd4, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 528dd4
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x48522e [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 48522e, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 38522e
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x476c3c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 476c3c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 376c3c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6cd6c6 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6cd6c6, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5cd6c6
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x5afbd0 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 1
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 5afbd0, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 4afbd0
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x48522e [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 48522e, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 38522e
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x476c3c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 476c3c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 376c3c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6cd6c6 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6cd6c6, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5cd6c6
+
+--
+Executable: 0, Read: 4, Write: 8 invoke: 256
+Capability: 0x465e98 [rwRW,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 6817d, Type: fffffffffffffffe, Address: 465e98, Base: 100000, End: 832000, Flags: 0,
+Length: 732000, Offset: 365e98
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x48522e [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 48522e, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 38522e
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x476c3c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 476c3c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 376c3c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6cd6c6 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6cd6c6, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5cd6c6
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x6aa84c [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 6aa84c, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 5aa84c
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 4, Write: 8 invoke: 256
+Capability: 0x465e98 [rwRW,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 6817d, Type: fffffffffffffffe, Address: 465e98, Base: 100000, End: 832000, Flags: 0,
+Length: 732000, Offset: 365e98
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+
+--
+Executable: 0, Read: 0, Write: 0 invoke: 0
+Capability: 0x477a24 [,0x100000-0x832000] (invalid,sentry)
+Is aligned: 0
+Is sealed: 1
+Tag: 0, Perms: 0000, Type: fffffffffffffffe, Address: 477a24, Base: 100000, End: 832000, Flags: 0, L
+ength: 732000, Offset: 377a24
+

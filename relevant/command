@@ -29,7 +29,13 @@ optflags="-O0 -fno-omit-frame-pointer"
     i=- srcdir=".." BASERUBY="/usr/bin/ruby --disable=gems" \
     LIBPATHENV="LD_LIBRARY_PATH" PRELOADENV="LD_PRELOAD" LIBRUBY_SO="libruby.so.3.4.1"
 
+gcc -E -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I.ext/include -I../include -I.. -I../prism -I../enc/unicode/15.0.0     "../version.c" | \
+/usr/bin/ruby --disable=gems  "../tool/generic_erb.rb" -o x86_64-linux-fake.rb "../template/fake.rb.in" \
+    i=- srcdir=".." BASERUBY="/usr/bin/ruby --disable=gems" \
+    LIBPATHENV="LD_LIBRARY_PATH" PRELOADENV="LD_PRELOAD" LIBRUBY_SO="libruby.so.3.4.5"
+
 # basic test runner 
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems "../basictest/runner.rb" --run-opt=--disable-gems 
 # bootstrap test runner
+./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems"
 ./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems"

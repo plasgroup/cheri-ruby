@@ -2154,10 +2154,10 @@ rb_str_s_new(int argc, VALUE *argv, VALUE klass)
  * in the argument word by concurrently using the above logic, and then
  * adds up the number of leading bytes in the word.
  */
-static inline uintptr_t
-count_utf8_lead_bytes_with_word(const uintptr_t *s)
+static inline unsigned long
+count_utf8_lead_bytes_with_word(const unsigned long *s)
 {
-    uintptr_t d = *s;
+    unsigned long d = *s;
 
     /* Transform so that bit0 indicates whether we have a UTF-8 leading byte or not. */
     d = (d>>6) | (~d>>7);
@@ -2170,9 +2170,9 @@ count_utf8_lead_bytes_with_word(const uintptr_t *s)
 #else
     d += (d>>8);
     d += (d>>16);
-# if SIZEOF_VOIDP == 8
+// # if SIZEOF_VOIDP == 8
     d += (d>>32);
-# endif
+// # endif
     return (d&0xF);
 #endif
 }
@@ -2190,12 +2190,11 @@ enc_strlen(const char *p, const char *e, rb_encoding *enc, int cr)
     }
 #ifdef NONASCII_MASK
     else if (cr == ENC_CODERANGE_VALID && enc == rb_utf8_encoding()) {
-        uintptr_t len = 0;
-        if ((int)sizeof(uintptr_t) * 2 < e - p) {
-            const uintptr_t *s, *t;
-            const uintptr_t lowbits = sizeof(uintptr_t) - 1;
-            s = (const uintptr_t*)(~lowbits & ((uintptr_t)p + lowbits));
-            t = (const uintptr_t*)(~lowbits & (uintptr_t)e);
+        unsigned long len = 0;
+        if ((int)sizeof(unsigned long) * 2 < e - p) {
+            const unsigned long *s, *t;
+            s = (const ULVALUE*)__builtin_align_up(p, 8); 
+            t = (const ULVALUE*)__builtin_align_down(e, 8);
             while (p < (const char *)s) {
                 if (is_utf8_lead_byte(*p)) len++;
                 p++;

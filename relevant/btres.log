@@ -1,0 +1,104 @@
+
+PASS all 360 tests
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./ruby --disable=gems  "../bootstraptest/runner.r
+b" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems"
+2025-08-30 07:50:33 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 75b91119d1) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 75b91119d1) +PRISM [riscv64-freebsd]
+last_commit=16 cast to int
+
+test_attr.rb              PASS 3
+test_autoload.rb          PASS 8
+test_block.rb             PASS 58
+test_class.rb             PASS 48
+test_constant_cache.rb    PASS 10
+test_env.rb               PASS 2
+#169 test_eval.rb:348:
+     hash = {}
+     ("aaaa".."matz").each_with_index do |s, i|
+       hash[s] = i
+     end
+     begin
+       eval "class C; @@h = #{hash.inspect}; end"
+     end
+  #=> killed by signal 34  [ruby-core:25714]
+test_eval.rb              FAIL 1/49
+test_exception.rb         PASS 34
+test_fiber.rb             PASS 6
+test_finalizer.rb         PASS 2
+test_flip.rb              PASS 1
+test_flow.rb              PASS 62
+#285 test_fork.rb:12:
+     begin
+       children = (1..10).map{
+         Thread.start{fork{}}.value
+       }
+       while !children.empty? and pid = Process.wait
+         children.delete(pid)
+       end
+     rescue NotImplementedError
+     end
+  #=> not finished in 10 seconds  [ruby-core:22158]
+test_fork.rb              FAIL 1/5
+test_gc.rb                PASS 2
+test_insns.rb             PASS 393
+test_io.rb                PASS 6
+test_jump.rb              PASS 29
+test_literal.rb           PASS 157
+test_literal_suffix.rb    PASS 48
+test_load.rb              PASS 2
+test_marshal.rb           PASS 1
+test_massign.rb           PASS 34
+test_method.rb            PASS 248
+test_objectspace.rb       PASS 6
+test_proc.rb              PASS 37
+#1269 test_ractor.rb:180:
+     n = 3
+     n.times.map{
+       Ractor.new{
+         10_000.times{ rand.to_s }
+         :ok
+       }
+     }.map(&:take)
+  #=> "" (expected "[:ok, :ok, :ok]")
+test_ractor.rb            FAIL 1/119
+test_rjit.rb              PASS 7
+test_string.rb            PASS 1
+test_struct.rb            PASS 1
+test_syntax.rb            PASS 164
+#1590 test_thread.rb:449:
+     require 'thread'
+
+     lock = Thread::Mutex.new
+     cond = Thread::ConditionVariable.new
+     t = Thread.new do
+       lock.synchronize do
+         cond.wait(lock)
+       end
+     end
+
+     begin
+       pid = fork do
+         # Child
+         STDOUT.write "This is the child process.\n"
+         STDOUT.write "Child process exiting.\n"
+       end
+       Process.waitpid(pid)
+     rescue NotImplementedError
+     end
+  #=> not finished in 3 seconds  [ruby-core:23572]
+test_thread.rb            FAIL 1/50
+test_yjit.rb              PASS 360
+test_yjit_30k_ifelse.rb   PASS 1
+test_yjit_30k_methods.rb  PASS 1
+test_yjit_rust_port.rb    PASS 38
+
+Finished in 8216.50 sec
+
+Fiber count: 10000 (skipping)
+FAIL 4/1993 tests failed
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

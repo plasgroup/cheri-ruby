@@ -1,0 +1,50 @@
+Usage: runner [options] tests...
+test-unit options:
+    -h, --help                       Display this help.
+>    -s, --seed SEED                  Sets random seed
+>    -v, --verbose                    Verbose. Show progress processing files.
+>    -n, --name PATTERN               Filter test method names on pattern: /REGEXP/, !/REGEXP/ or STRING
+>        --test-order=random|alpha|sorted|nosort
+status line options:
+        --jobs-status [TYPE]         Show status of jobs every file; Disabled when --jobs isn't specified.
+        --color[=WHEN]               colorize the output.  WHEN defaults to 'always'
+                                     or can be 'never' or 'auto'.
+        --tty[=WHEN]                 force to output tty control.  WHEN defaults to 'yes'
+                                     or can be 'no'.
+parallel test options:
+    -j, --jobs N                     Allow run tests with N jobs at once
+        --worker-timeout=N           Timeout workers not responding in N seconds
+        --separate                   Restart job process after one testcase has done
+        --retry                      Retry running testcase when --jobs specified
+        --no-retry                   Disable --retry
+        --ruby VAL                   Path to ruby which is used at -j option
+                                     Also used as EnvUtil.rubybin by some assertion methods
+        --timetable-data=FILE        Path to timetable data
+statistics options:
+        --longest=N                  Show longest N tests
+        --most-asserted=N            Show most asserted N tests
+skipping options:
+    -q, --hide-skip                  Hide skipped tests
+        --show-skip                  Show skipped tests
+globbing options:
+    -B, --base-directory DIR         Base directory to glob.
+>    -x, --exclude REGEXP             Exclude test files on pattern.
+output options:
+        --stderr-on-failure          Use stderr to print failure messages
+        --stdout-on-failure          Use stdout to print failure messages
+                                     (default)
+repeat options:
+        --repeat-count=NUM           Number of times to repeat
+load path options:
+    -Idirectory                      Add library load path
+GC options:
+        --[no-]gc-stress             Set GC.stress as true
+        --[no-]gc-compact            GC.compact every time
+excludes options:
+    -X, --excludes-dir DIRECTORY     Directory name of exclude files
+timeout options:
+>        --timeout-scale, --subprocess-timeout-scale NUM
+                                     Scale timeout
+Launchable options:
+        --launchable-test-reports=PATH
+                                     Report test results in Launchable JSON format

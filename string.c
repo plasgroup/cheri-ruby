@@ -2154,10 +2154,10 @@ rb_str_s_new(int argc, VALUE *argv, VALUE klass)
  * in the argument word by concurrently using the above logic, and then
  * adds up the number of leading bytes in the word.
  */
-static inline unsigned long
-count_utf8_lead_bytes_with_word(const unsigned long *s)
+static inline ULVALUE
+count_utf8_lead_bytes_with_word(const ULVALUE *s)
 {
-    unsigned long d = *s;
+    ULVALUE d = *s;
 
     /* Transform so that bit0 indicates whether we have a UTF-8 leading byte or not. */
     d = (d>>6) | (~d>>7);
@@ -2190,9 +2190,9 @@ enc_strlen(const char *p, const char *e, rb_encoding *enc, int cr)
     }
 #ifdef NONASCII_MASK
     else if (cr == ENC_CODERANGE_VALID && enc == rb_utf8_encoding()) {
-        unsigned long len = 0;
-        if ((int)sizeof(unsigned long) * 2 < e - p) {
-            const unsigned long *s, *t;
+        ULVALUE len = 0;
+        if ((int)sizeof(ULVALUE) * 2 < e - p) {
+            const ULVALUE *s, *t;
             s = (const ULVALUE*)__builtin_align_up(p, 8); 
             t = (const ULVALUE*)__builtin_align_down(e, 8);
             while (p < (const char *)s) {
@@ -2966,11 +2966,10 @@ static char *
 str_utf8_nth(const char *p, const char *e, long *nthp)
 {
     long nth = *nthp;
-    if ((int)SIZEOF_VOIDP * 2 < e - p && (int)SIZEOF_VOIDP * 2 < nth) {
-        const uintptr_t *s, *t;
-        const uintptr_t lowbits = SIZEOF_VOIDP - 1;
-        s = (const uintptr_t*)(~lowbits & ((uintptr_t)p + lowbits));
-        t = (const uintptr_t*)(~lowbits & (uintptr_t)e);
+    if ((int)8 * 2 < e - p && (int)8 * 2 < nth) {
+        const ULVALUE *s, *t;
+        s = (const ULVALUE*)__builtin_align_up(p, 8); 
+        t = (const ULVALUE*)__builtin_align_down(e, 8);
         while (p < (const char *)s) {
             if (is_utf8_lead_byte(*p)) nth--;
             p++;
@@ -2978,7 +2977,7 @@ str_utf8_nth(const char *p, const char *e, long *nthp)
         do {
             nth -= count_utf8_lead_bytes_with_word(s);
             s++;
-        } while (s < t && (int)SIZEOF_VOIDP <= nth);
+        } while (s < t && (int)8 <= nth);
         p = (char *)s;
     }
     while (p < e) {

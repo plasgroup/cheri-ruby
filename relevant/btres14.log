@@ -1,0 +1,2025 @@
+../bootstraptest/test_autoload.rb
+2025-08-28 23:54:27 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_autoload.rb  PASS 8
+
+Finished in 23.18 sec
+
+PASS all 8 tests
+../bootstraptest/test_block.rb
+2025-08-28 23:54:53 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#47 test_block.rb:458:
+     e = [1,2,3].each
+     10000.times {
+       e = [e].each
+     }
+     Thread.new { GC.start }.join
+  #=> killed by signal 34  [ruby-dev:32604]
+test_block.rb  FAIL 1/58
+
+Finished in 151.04 sec
+
+FAIL 1/58 tests failed
+../bootstraptest/test_class.rb
+2025-08-28 23:57:28 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_class.rb  PASS 48
+
+Finished in 118.66 sec
+
+PASS all 48 tests
+../bootstraptest/test_constant_cache.rb
+2025-08-28 23:59:30 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_constant_cache.rb  PASS 10
+
+Finished in 27.71 sec
+
+PASS all 10 tests
+../bootstraptest/test_env.rb
+2025-08-29 00:00:01 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_env.rb  PASS 2
+
+Finished in 7.98 sec
+
+PASS all 2 tests
+../bootstraptest/test_eval.rb
+2025-08-29 00:00:12 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_eval.rb  PASS 49
+
+Finished in 217.75 sec
+
+PASS all 49 tests
+../bootstraptest/test_exception.rb
+2025-08-29 00:03:53 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_exception.rb  PASS 34
+
+Finished in 85.10 sec
+
+PASS all 34 tests
+../bootstraptest/test_fiber.rb
+2025-08-29 00:05:21 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#2 test_fiber.rb:15:
+     Fiber.new{
+     }.resume
+     :ok
+  #=> "" (expected "ok")
+#4 test_fiber.rb:26:
+     fibers = 1000.times.collect{Fiber.new{Fiber.yield}}
+     fibers.each(&:resume)
+     fibers.each(&:resume)
+     :ok
+  #=> "" (expected "ok")
+#5 test_fiber.rb:33:
+     at_exit { Fiber.new{}.resume }
+  #=> killed by signal 34
+#6 test_fiber.rb:37:
+     Fiber.new(&Object.method(:class_eval)).resume("foo")
+  #=> killed by signal 34  [ruby-dev:34128]
+test_fiber.rb  FAIL 4/6
+
+Finished in 44.61 sec
+
+
+FAIL 4/6 tests failed
+../bootstraptest/test_finalizer.rb
+2025-08-29 00:06:09 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_finalizer.rb  PASS 2
+
+Finished in 8.00 sec
+
+PASS all 2 tests
+../bootstraptest/test_flip.rb
+2025-08-29 00:06:20 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_flip.rb  PASS 1
+
+Finished in 5.64 sec
+
+PASS all 1 tests
+../bootstraptest/test_flow.rb
+2025-08-29 00:06:29 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_flow.rb  PASS 62
+
+Finished in 151.63 sec
+
+PASS all 62 tests
+../bootstraptest/test_fork.rb
+2025-08-29 00:09:04 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#2 test_fork.rb:12:
+     begin
+       children = (1..10).map{
+         Thread.start{fork{}}.value
+       }
+       while !children.empty? and pid = Process.wait
+         children.delete(pid)
+       end
+     rescue NotImplementedError
+     end
+  #=> not finished in 10 seconds  [ruby-core:22158]
+test_fork.rb  FAIL 1/5
+
+Finished in 34.87 sec
+
+FAIL 1/5 tests failed
+../bootstraptest/test_gc.rb
+2025-08-29 00:09:42 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#1 test_gc.rb:1:
+   a = []
+   ms = "a".."k"
+   ("A".."Z").each do |mod|
+     mod = eval("module #{mod}; self; end")
+     ms.each do |meth|
+       iseq = RubyVM::InstructionSequence.compile("module #{mod}; def #{meth}; end; end")
+       GC.stress = true
+       iseq.eval
+       GC.stress = false
+     end
+     o = Object.new.extend(mod)
+     ms.each do |meth|
+       o.send(meth)
+     end
+   end
+  #=> killed by signal 9 (timeout)  [ruby-dev:39453]
+#2 test_gc.rb:19:
+   a = []
+   ms = "a".."k"
+   ("A".."Z").each do |mod|
+     mod = eval("module #{mod}; self; end")
+     ms.each do |meth|
+       GC.stress = true
+       mod.module_eval {define_method(meth) {}}
+       GC.stress = false
+     end
+     o = Object.new.extend(mod)
+     ms.each do |meth|
+       o.send(meth)
+     end
+   end
+  #=> killed by signal 9 (timeout)  [ruby-dev:39453]
+test_gc.rb  FAIL 2/2
+
+Finished in 364.01 sec
+
+FAIL 2/2 tests failed
+../bootstraptest/test_insns.rb
+2025-08-29 00:15:49 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_insns.rb  PASS 393
+
+Finished in 964.09 sec
+
+PASS all 393 tests
+../bootstraptest/test_io.rb
+2025-08-29 00:31:58 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_io.rb  PASS 6
+
+Finished in 22.12 sec
+
+PASS all 6 tests
+../bootstraptest/test_jump.rb
+2025-08-29 00:32:23 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_jump.rb  PASS 29
+
+Finished in 72.87 sec
+
+PASS all 29 tests
+../bootstraptest/test_literal.rb
+2025-08-29 00:33:39 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_literal.rb  PASS 157
+
+Finished in 399.06 sec
+
+PASS all 157 tests
+../bootstraptest/test_literal_suffix.rb
+2025-08-29 00:40:22 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_literal_suffix.rb  PASS 48
+
+Finished in 118.02 sec
+
+PASS all 48 tests
+../bootstraptest/test_load.rb
+2025-08-29 00:42:23 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_load.rb  PASS 2
+
+Finished in 8.36 sec
+
+PASS all 2 tests
+../bootstraptest/test_marshal.rb
+2025-08-29 00:42:35 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_marshal.rb  PASS 1
+
+Finished in 5.62 sec
+
+PASS all 1 tests
+../bootstraptest/test_massign.rb
+2025-08-29 00:42:43 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#33 test_massign.rb:165:
+     a,s=[],"aaa"
+     300.times { a<<s; s=s.succ }
+     eval <<-END__
+     GC.stress=true
+     Fiber.new do
+       #{ a.join(",") },*zzz=1
+     end.resume
+     END__
+     :ok
+  #=> "" (expected "ok")  [ruby-dev:32581]
+test_massign.rb  FAIL 1/34
+
+Finished in 93.64 sec
+
+FAIL 1/34 tests failed
+../bootstraptest/test_method.rb
+2025-08-29 00:44:20 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_method.rb  PASS 248
+
+Finished in 688.98 sec
+
+PASS all 248 tests
+../bootstraptest/test_objectspace.rb
+2025-08-29 00:55:54 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_objectspace.rb  PASS 6
+
+Finished in 22.53 sec
+
+PASS all 6 tests
+../bootstraptest/test_proc.rb
+2025-08-29 00:56:19 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_proc.rb  PASS 37
+
+Finished in 109.55 sec
+
+PASS all 37 tests
+../bootstraptest/test_ractor.rb
+2025-08-29 00:58:12 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#2 test_ractor.rb:7:
+     Ractor.new{}.class
+  #=> "" (expected "Ractor")
+#3 test_ractor.rb:12:
+     rs = []
+     begin
+       Ractor.allocate
+     rescue => e
+       rs << :ok if e.message == 'allocator undefined for Ractor'
+     end
+
+     begin
+       Ractor.new{}.dup
+     rescue
+       rs << :ok if e.message == 'allocator undefined for Ractor'
+     end
+
+     rs
+  #=> "" (expected "[:ok, :ok]")
+#4 test_ractor.rb:30:
+     r = Ractor.new name: 'test-name' do
+     end
+     r.name
+  #=> "" (expected "test-name")
+#5 test_ractor.rb:37:
+     r = Ractor.new do
+     end
+     r.name.inspect
+  #=> "" (expected "nil")
+#9 test_ractor.rb:68:
+     r = Ractor.new { '' }
+     r.take
+     sleep 0.1 until r.inspect =~ /terminated/
+     r.inspect
+  #=> /^#<Ractor:#([^ ]*?) .+:[0-9]+ terminated>$/ expected to be =~
+""
+#10 test_ractor.rb:76:
+     r = Ractor.new(name: 'Test Ractor') { '' }
+     r.take
+     sleep 0.1 until r.inspect =~ /terminated/
+     r.inspect
+  #=> /^#<Ractor:#([^ ]*?) Test Ractor .+:[0-9]+ terminated>$/ expected to be =~
+""
+#11 test_ractor.rb:84:
+     # join
+     r = Ractor.new do
+       'ok'
+     end
+     r.take
+  #=> "" (expected "ok")
+#12 test_ractor.rb:94:
+     # ping-pong with arg
+     r = Ractor.new 'ok' do |msg|
+       msg
+     end
+     r.take
+  #=> "" (expected "ok")
+#13 test_ractor.rb:103:
+     # ping-pong with two args
+     r =  Ractor.new 'ping', 'pong' do |msg, msg2|
+       [msg, msg2]
+     end
+     'ok' if r.take == ['ping', 'pong']
+  #=> "" (expected "ok")
+#14 test_ractor.rb:113:
+     r = Ractor.new do
+       msg = Ractor.receive
+     end
+     r.send 'ok'
+     r.take
+  #=> "" (expected "ok")
+#15 test_ractor.rb:122:
+     r = Ractor.new Ractor.current do |main|
+       main << 1
+       main << 2
+       main << 3
+     end
+     a = []
+     a << Ractor.receive_if{|msg| msg == 2}
+     a << Ractor.receive_if{|msg| msg == 3}
+     a << Ractor.receive
+  #=> "" (expected "[2, 3, 1]")
+#16 test_ractor.rb:135:
+     r = Ractor.new Ractor.current do |main|
+       main << 1
+       main << 2
+       main << 3
+     end
+
+     a = []
+     a << Ractor.receive_if{|msg| msg == 2}
+     a << Ractor.receive_if{|msg| break [msg, :break]}
+     a << Ractor.receive
+  #=> "" (expected "[2, [1, :break], 3]")
+#17 test_ractor.rb:149:
+     r = Ractor.new Ractor.current do |main|
+       main << 1
+       main << 2
+       main << 3
+     end
+
+     a = []
+
+     Ractor.receive_if do |msg|
+       begin
+         Ractor.receive
+       rescue Ractor::Error
+         a << [:e1, msg]
+       end
+       true # delete 1 from queue
+     end
+
+     Ractor.receive_if do |msg|
+       begin
+         Ractor.receive_if{}
+       rescue Ractor::Error
+   (...snip)
+  #=> "" (expected "[[:e1, 1], [:e2, 2]]")
+#18 test_ractor.rb:180:
+     n = 3
+     n.times.map{
+       Ractor.new{
+         10_000.times{ rand.to_s }
+         :ok
+       }
+     }.map(&:take)
+  #=> "" (expected "[:ok, :ok, :ok]")
+#21 test_ractor.rb:226:
+     # select 1
+     r1 = Ractor.new{'r1'}
+     r, obj = Ractor.select(r1)
+     'ok' if r == r1 and obj == 'r1'
+  #=> "" (expected "ok")
+#22 test_ractor.rb:234:
+     # select 2
+     r1 = Ractor.new{'r1'}
+     r2 = Ractor.new{'r2'}
+     rs = [r1, r2]
+     as = []
+     r, obj = Ractor.select(*rs)
+     rs.delete(r)
+     as << obj
+     r, obj = Ractor.select(*rs)
+     as << obj
+     as.sort #=> ["r1", "r2"]
+  #=> "" (expected "[\"r1\", \"r2\"]")
+#23 test_ractor.rb:249:
+     def test n
+       rs = (1..n).map do |i|
+         Ractor.new(i) do |i|
+           "r#{i}"
+         end
+       end
+       as = []
+       all_rs = rs.dup
+
+       n.times{
+         r, obj = Ractor.select(*rs)
+         as << [r, obj]
+         rs.delete(r)
+       }
+
+       if as.map{|r, o| r.object_id}.sort == all_rs.map{|r| r.object_id}.sort &&
+          as.map{|r, o| o}.sort == (1..n).map{|i| "r#{i}"}.sort
+         'ok'
+       else
+         'ng'
+       end
+   (...snip)
+  #=> "" (expected "[\"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\",
+ \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"o
+k\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\", \"ok\"]")
+#25 test_ractor.rb:288:
+     r = Ractor.new do
+       'finish'
+     end
+
+     r.take
+     sleep 0.1 until r.inspect =~ /terminated/
+
+     begin
+       o = r.take
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       "ng: #{o}"
+     end
+  #=> "" (expected "ok")
+#26 test_ractor.rb:306:
+     r = Ractor.new do
+     end
+
+     r.take # closed
+     sleep 0.1 until r.inspect =~ /terminated/
+
+     begin
+       r.send(1)
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#27 test_ractor.rb:323:
+     r = Ractor.new { Ractor.receive }
+     r.close_incoming
+
+     begin
+       r.send(1)
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#28 test_ractor.rb:337:
+     r = Ractor.new do
+       Ractor.yield 1
+       Ractor.receive
+     end
+
+     r.close_outgoing
+     begin
+       r.take
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#29 test_ractor.rb:354:
+     Ractor.new{
+       t = Thread.current
+       begin
+         Thread.new{ t.raise "err" }.join
+       rescue => e
+         e.message
+       end
+     }.take
+  #=> "" (expected "err")
+#30 test_ractor.rb:366:
+     Ractor.new{
+       t = Thread.current
+       Thread.new{ t.kill }.join
+     }.take.inspect #=> nil
+  #=> "" (expected "nil")
+#31 test_ractor.rb:374:
+     r = Ractor.new Ractor.current do |main|
+       Ractor.receive
+       main << true
+       Ractor.yield 1
+     end
+
+     r.close_outgoing
+     r << true
+     Ractor.receive
+
+     begin
+       r.take
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#32 test_ractor.rb:395:
+     r = Ractor.new { Ractor.receive }
+     r.close_incoming
+
+     begin
+       r.send(1)
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#33 test_ractor.rb:409:
+     r = Ractor.new do
+       Ractor.yield 1
+       2
+     end
+     r.close_incoming
+
+     [r.take, r.take]
+  #=> "" (expected "[1, 2]")
+#34 test_ractor.rb:420:
+     r = Ractor.new do
+       Ractor.yield 1
+       Ractor.receive
+     end
+
+     sleep 0.01 # wait for Ractor.yield in r
+     r.close_outgoing
+     begin
+       r.take
+     rescue Ractor::ClosedError
+       'ok'
+     else
+       'ng'
+     end
+  #=> "" (expected "ok")
+#35 test_ractor.rb:438:
+     r = Ractor.new do
+       Ractor.receive
+     end
+
+     r.close_outgoing
+     begin
+       r.send(1)
+     rescue Ractor::ClosedError
+       'ng'
+     else
+       'ok'
+     end
+  #=> "" (expected "ok")
+#36 test_ractor.rb:454:
+     Ractor.new{
+       Ractor.main
+     }.take == Ractor.current
+  #=> "" (expected "true")
+#37 test_ractor.rb:461:
+     Ractor.new do
+       close_outgoing
+     end
+
+     true until Ractor.count == 1
+     :ok
+  #=> "" (expected "ok")
+#38 test_ractor.rb:471:
+     pipe = Ractor.new do
+       loop do
+         Ractor.yield Ractor.receive
+       end
+     end
+
+     RN = 10
+     rs = RN.times.map{|i|
+       Ractor.new pipe, i do |pipe, i|
+         msg = pipe.take
+         msg # ping-pong
+       end
+     }
+     RN.times{|i|
+       pipe << i
+     }
+     RN.times.map{
+       r, n = Ractor.select(*rs)
+       rs.delete r
+       n
+     }.sort
+   (...snip)
+  #=> "" (expected "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]")
+#39 test_ractor.rb:496:
+     RN = 10
+     CR = Ractor.current
+
+     rs = (1..RN).map{
+       Ractor.new do
+         CR.send 'send' + CR.take #=> 'sendyield'
+         'take'
+       end
+     }
+     received = []
+     taken = []
+     yielded = []
+     until received.size == RN && taken.size == RN && yielded.size == RN
+       r, v = Ractor.select(CR, *rs, yield_value: 'yield')
+       case r
+       when :receive
+         received << v
+       when :yield
+         yielded << v
+       else
+         taken << v
+   (...snip)
+  #=> "" (expected "[true, true, true]")
+#40 test_ractor.rb:531:
+     pipe = Ractor.new do
+       loop do
+         Ractor.yield Ractor.receive
+       end
+     end
+
+     RN = 10
+     RN.times.map{|i|
+       Ractor.new pipe, i do |pipe, i|
+         pipe << i
+       end
+     }
+     RN.times.map{
+       pipe.take
+     }.sort
+  #=> "" (expected "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]")
+#41 test_ractor.rb:550:
+     r = Ractor.new do
+       raise 'ok' # exception will be transferred receiver
+     end
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       [e.cause.class,   #=> RuntimeError
+        e.cause.message, #=> 'ok'
+        e.ractor == r]   #=> true
+     end
+  #=> "" (expected "[RuntimeError, \"ok\", true]")
+#42 test_ractor.rb:564:
+     Ractor.new Ractor.current do |main|
+       q = Thread::Queue.new
+       Thread.new do
+         q << true
+         loop{}
+       ensure
+         main << :ok
+       end
+
+       Thread.new do
+         q << true
+         while true
+         end
+       ensure
+         main << :ok
+       end
+
+       Thread.new do
+         q << true
+         sleep 1
+       ensure
+   (...snip)
+  #=> "" (expected "{ok: 3}")
+#43 test_ractor.rb:597:
+     obj = 'str'.dup
+     r = Ractor.new obj do |msg|
+       msg.object_id
+     end
+
+     obj.object_id == r.take
+  #=> "" (expected "false")
+#45 test_ractor.rb:621:
+   echo_ractor = Ractor.new do
+     loop do
+       v = Ractor.receive
+       Ractor.yield v
+     end
+   end
+
+   class C; end
+   module M; end
+   S = Struct.new(:a, :b, :c, :d)
+
+   shareable_objects = [
+     true,
+     false,
+     nil,
+     1,
+     1.1,    # Float
+     1+2r,   # Rational
+     3+4i,   # Complex
+     2**128, # Bignum
+     :sym,   # Symbol
+   (...snip)
+  #=> "" (expected "ok")
+#46 test_ractor.rb:691:
+   class C
+     def initialize freeze
+       @a = 1
+       @b = :sym
+       @c = 'frozen_str'
+       @c.freeze if freeze
+       @d = true
+     end
+   end
+
+   def check obj1
+     obj2 = Ractor.new obj1 do |obj|
+       obj
+     end.take
+
+     obj1.object_id == obj2.object_id
+   end
+
+   results = []
+   results << check(C.new(true))         # false
+   results << check(C.new(true).freeze)  # true
+   (...snip)
+  #=> "" (expected "[false, true, false]")
+#47 test_ractor.rb:718:
+   # move
+   r = Ractor.new do
+     obj = Ractor.receive
+     obj << ' world'
+   end
+
+   str = 'hello'
+   r.send str, move: true
+   modified = r.take
+
+   begin
+     str << ' exception' # raise Ractor::MovedError
+   rescue Ractor::MovedError
+     modified #=> 'hello world'
+   else
+     raise 'unreachable'
+   end
+  #=> "" (expected "hello world")
+#48 test_ractor.rb:739:
+     r = Ractor.new do
+       ary = Ractor.receive
+       ary << 1
+     end
+
+     a1 = [0]
+     r.send a1, move: true
+     a2 = r.take
+     begin
+       a1 << 2 # raise Ractor::MovedError
+     rescue Ractor::MovedError
+       a2.inspect
+     end
+  #=> "" (expected "[0, 1]")
+#49 test_ractor.rb:756:
+   r = Ractor.new do
+     obj = receive
+     { frozen: obj.frozen? }
+   end
+   obj = [Object.new].freeze
+   r.send(obj, move: true)
+   r.take[:frozen]
+  #=> "" (expected "true")
+#50 test_ractor.rb:767:
+     r = Ractor.new do
+       Thread.current.report_on_exception = false
+       obj = 'hello'
+       Ractor.yield obj, move: true
+       obj << 'world'
+     end
+
+     str = r.take
+     begin
+       r.take
+     rescue Ractor::RemoteError
+       str #=> "hello"
+     end
+  #=> "" (expected "hello")
+#51 test_ractor.rb:784:
+     R = Ractor.new{}
+     M = Ractor.current
+     r = Ractor.new do
+       s = 'str'
+       selected_r, v = Ractor.select R, yield_value: s, move: true
+       raise if selected_r != R # taken from R
+       M.send s.inspect # s should not be a moved object
+     end
+
+     Ractor.receive
+  #=> "" (expected "\"str\"")
+#52 test_ractor.rb:798:
+     r = Ractor.new do
+       obj = Thread.new{}
+       Ractor.yield obj
+     rescue => e
+       e.message
+     end
+     r.take
+  #=> "" (expected "allocator undefined for Thread")
+#53 test_ractor.rb:809:
+     $gv = 1
+     r = Ractor.new do
+       $gv
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access global variables $gv from non-main Ractors")
+#54 test_ractor.rb:823:
+     r = Ractor.new do
+       $gv = 1
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access global variables $gv from non-main Ractors")
+#55 test_ractor.rb:836:
+     r = Ractor.new do
+       [$stdin, $stdout, $stderr].map{|io|
+         [io.object_id, io.fileno]
+       }
+     end
+
+     [$stdin, $stdout, $stderr].zip(r.take){|io, (oid, fno)|
+       raise "should not be different object" if io.object_id == oid
+       raise "fd should be same" unless io.fileno == fno
+     }
+     'ok'
+  #=> "" (expected "ok")
+#56 test_ractor.rb:851:
+     r = Ractor.new do
+       $stdin.itself
+       $stdout.itself
+       $stderr.itself
+       'ok'
+     end
+
+     r.take
+  #=> "" (expected "ok")
+#57 test_ractor.rb:863:
+     $DEBUG = true
+     $VERBOSE = true
+
+     def ractor_local_globals
+       /a(b)(c)d/ =~ 'abcd' # for $~
+       `echo foo` unless  /solaris/ =~ RUBY_PLATFORM
+
+       {
+        # ractor-local (derived from created ractor): debug
+        '$DEBUG' => $DEBUG,
+        '$-d' => $-d,
+
+        # ractor-local (derived from created ractor): verbose
+        '$VERBOSE' => $VERBOSE,
+        '$-w' => $-w,
+        '$-W' => $-W,
+        '$-v' => $-v,
+
+        # process-local (readonly): other commandline parameters
+        '$-p' => $-p,
+        '$-l' => $-l,
+   (...snip)
+  #=> "" (expected "true")
+#58 test_ractor.rb:922:
+     r = Ractor.new do
+       self.object_id
+     end
+     r.take == self.object_id #=> false
+  #=> "" (expected "false")
+#59 test_ractor.rb:930:
+     r = Ractor.new do
+       self.object_id
+     end
+     r.object_id == r.take #=> true
+  #=> "" (expected "true")
+#61 test_ractor.rb:950:
+   class C
+     @iv = 'str'
+   end
+
+   r = Ractor.new do
+     class C
+       p @iv
+     end
+   end
+
+   begin
+     r.take
+   rescue Ractor::RemoteError => e
+     e.cause.message
+   end
+  #=> "" (expected "can not get unshareable values from instance variables of classes/modules from n
+on-main Ractors")
+#62 test_ractor.rb:969:
+     shared = Ractor.new{}
+     shared.instance_variable_set(:@iv, 'str')
+
+     r = Ractor.new shared do |shared|
+       p shared.instance_variable_get(:@iv)
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access instance variables of shareable objects from non-main Ractors")
+#63 test_ractor.rb:985:
+     class Ractor
+       def setup
+         @foo = ''
+       end
+
+       def foo
+         @foo
+       end
+     end
+
+     shared = Ractor.new{}
+     shared.setup
+
+     r = Ractor.new shared do |shared|
+       p shared.foo
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+   (...snip)
+  #=> "" (expected "can not access instance variables of shareable objects from non-main Ractors")
+#64 test_ractor.rb:1011:
+     class Ractor
+       def setup
+         @foo = ''
+       end
+     end
+
+     shared = Ractor.new{}
+
+     r = Ractor.new shared do |shared|
+       p shared.setup
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access instance variables of shareable objects from non-main Ractors")
+#65 test_ractor.rb:1032:
+     [Object.new, [], ].map{|obj|
+       obj.instance_variable_set('@a', 1)
+       Ractor.make_shareable obj = obj.freeze
+
+       Ractor.new obj do |obj|
+         obj.instance_variable_get('@a')
+       end.take.to_s
+     }.join
+  #=> "" (expected "11")
+#66 test_ractor.rb:1044:
+     class C
+       @int = 1
+       @str = '-1000'.dup
+       @fstr = '100'.freeze
+
+       def self.int = @int
+       def self.str = @str
+       def self.fstr = @fstr
+     end
+
+     module M
+       @int = 2
+       @str = '-2000'.dup
+       @fstr = '200'.freeze
+
+       def self.int = @int
+       def self.str = @str
+       def self.fstr = @fstr
+     end
+
+     a = Ractor.new{ C.int }.take
+   (...snip)
+  #=> "" (expected "333")
+#67 test_ractor.rb:1090:
+     class C
+       @iv1 = ""
+       @iv2 = 42
+       def self.iv1 = defined?(@iv1) # "instance-variable"
+       def self.iv2 = defined?(@iv2) # "instance-variable"
+       def self.iv3 = defined?(@iv3) # nil
+     end
+
+     Ractor.new{
+       [C.iv1, C.iv2, C.iv3]
+     }.take
+  #=> "" (expected "[\"instance-variable\", \"instance-variable\", nil]")
+#68 test_ractor.rb:1105:
+   class Obj
+     attr_accessor :a, :b, :c, :d
+     def initialize
+       @a = 1
+       @b = 2
+       @c = 3
+     end
+   end
+   r = Ractor.new do
+     obj = receive
+     obj.d = 4
+     [obj.a, obj.b, obj.c, obj.d]
+   end
+   obj = Obj.new
+   r.send(obj, move: true)
+   values = r.take
+   values.join
+  #=> "" (expected "1234")
+#69 test_ractor.rb:1126:
+     class C
+       @@cv = 'str'
+     end
+
+     r = Ractor.new do
+       class C
+         p @@cv
+       end
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access class variables from non-main Ractors")
+#70 test_ractor.rb:1145:
+     class C
+       @@cv = 'str'
+       def self.cv
+         @@cv
+       end
+     end
+
+     C.cv # cache
+
+     r = Ractor.new do
+       C.cv
+     end
+
+     begin
+       r.take
+     rescue Ractor::RemoteError => e
+       e.cause.message
+     end
+  #=> "" (expected "can not access class variables from non-main Ractors")
+#71 test_ractor.rb:1167:
+   class C
+     CONST = 'str'
+   end
+   r = Ractor.new do
+     C::CONST
+   end
+   begin
+     r.take
+   rescue Ractor::RemoteError => e
+     e.cause.message
+   end
+  #=> "" (expected "can not access non-shareable objects in constant C::CONST by non-main Ractor.")
+
+#72 test_ractor.rb:1182:
+   STR = "hello"
+   def str; STR; end
+   s = str() # fill const cache
+   begin
+     Ractor.new{ str() }.take
+   rescue Ractor::RemoteError => e
+     e.cause.message
+   end
+  #=> "" (expected "can not access non-shareable objects in constant Object::STR by non-main Ractor.
+")
+#73 test_ractor.rb:1194:
+   class C
+   end
+   r = Ractor.new do
+     C::CONST = 'str'
+   end
+   begin
+     r.take
+   rescue Ractor::RemoteError => e
+     e.cause.message
+   end
+  #=> "" (expected "can not set constants with non-shareable objects by non-main Ractors")
+#74 test_ractor.rb:1208:
+     str = "foo"
+     define_method(:buggy){|i| str << "#{i}"}
+     begin
+       Ractor.new{buggy(10)}.take
+     rescue => e
+       e.cause.message
+     end
+  #=> "" (expected "defined with an un-shareable Proc in a different Ractor")
+#75 test_ractor.rb:1219:
+     A = Array.new(1000).freeze # [nil, ...]
+     H = {a: 1, b: 2, c: 3}.freeze
+
+     Ractor.new{ [A.size, H.size] }.take
+  #=> "" (expected "[1000, 3]")
+#76 test_ractor.rb:1227:
+     counts = []
+     counts << Ractor.count
+     ractors = (1..3).map { Ractor.new { Ractor.receive } }
+     counts << Ractor.count
+
+     ractors[0].send('End 0').take
+     sleep 0.1 until ractors[0].inspect =~ /terminated/
+     counts << Ractor.count
+
+     ractors[1].send('End 1').take
+     sleep 0.1 until ractors[1].inspect =~ /terminated/
+     counts << Ractor.count
+
+     ractors[2].send('End 2').take
+     sleep 0.1 until ractors[2].inspect =~ /terminated/
+     counts << Ractor.count
+
+     counts.inspect
+  #=> "" (expected "[1, 4, 3, 2, 1]")
+#77 test_ractor.rb:1249:
+     Ractor.new{
+       n = 0
+       ObjectSpace.each_object{|o| n += 1 unless Ractor.shareable?(o)}
+       n
+     }.take
+  #=> "" (expected "0")
+#78 test_ractor.rb:1258:
+   s = 'hello'
+
+   Ractor.new s.object_id do |id ;s|
+     begin
+       s = ObjectSpace._id2ref(id)
+     rescue => e
+       :ok
+     end
+   end.take
+  #=> "" (expected "ok")
+#80 test_ractor.rb:1345:
+     r = Ractor.new{}
+     Ractor.make_shareable(a = [r])
+     [a.frozen?, a[0].frozen?] == [true, false]
+  #=> "" (expected "true")
+#85 test_ractor.rb:1395:
+     class C
+       a = 1
+       define_method "foo", Ractor.make_shareable(Proc.new{ a })
+       a = 2
+     end
+
+     Ractor.new{ C.new.foo }.take
+  #=> "" (expected "1")
+#88 test_ractor.rb:1439:
+     rs = []
+     TracePoint.new(:line){|tp| rs << tp.lineno if tp.path == __FILE__}.enable do
+       Ractor.new{ # line 5
+         a = 1
+         b = 2
+       }.take
+       c = 3       # line 9
+     end
+     rs
+  #=> "" (expected "[6, 10]")
+#89 test_ractor.rb:1452:
+     Ractor.new([[]].freeze) { |ary|
+       [ary.frozen?, ary.first.frozen? ]
+     }.take
+  #=> "" (expected "[true, false]")
+#90 test_ractor.rb:1459:
+     s = String.new.instance_eval { @x = []; freeze}
+     Ractor.new(s) { |s|
+       [s.frozen?, s.instance_variable_get(:@x).frozen?]
+     }.take
+  #=> "" (expected "[true, false]")
+#91 test_ractor.rb:1467:
+     a = []
+     Ractor.new{
+       trap(:INT){p :ok}
+     }.take
+     a << :ok
+
+     begin
+       Ractor.new{
+         s = 'str'
+         trap(:INT){p s}
+       }.take
+     rescue => Ractor::RemoteError
+       a << :ok
+     end
+  #=> "" (expected "[:ok, :ok]")
+#92 test_ractor.rb:1485:
+     trap(:INT) do
+       exit
+     end
+
+     r = Ractor.new do
+       loop do
+         sleep 1
+       end
+     end
+
+     Thread.new do
+       sleep 0.5
+       Process.kill(:INT, Process.pid)
+     end
+     Ractor.select(r)
+  #=> killed by signal 34
+#93 test_ractor.rb:1504:
+     ans = []
+     Ractor.current[:key] = 'a'
+     r = Ractor.new{
+       Ractor.yield self[:key]
+       self[:key] = 'b'
+       self[:key]
+     }
+     ans << r.take
+     ans << r.take
+     ans << Ractor.current[:key]
+  #=> "" (expected "[nil, \"b\", \"a\"]")
+#94 test_ractor.rb:1517:
+     N = 1_000
+     Ractor.new{
+       a = []
+       1_000.times.map{|i|
+         Thread.new(i){|i|
+           Thread.pass if i < N
+           a << Ractor.store_if_absent(:i){ i }
+           a << Ractor.current[:i]
+         }
+       }.each(&:join)
+       a.uniq.size
+     }.take
+  #=> "" (expected "1")
+#95 test_ractor.rb:1539:
+     N = 100000
+     2.times.map{
+       Ractor.new{
+         N.times{|i| -(i.to_s)}
+       }
+     }.map{|r| r.take}.join
+  #=> "" (expected "100000100000")
+#96 test_ractor.rb:1550:
+     2.times.map{
+       Ractor.new do
+         50000.times do
+           obj = +''
+           obj.instance_variable_set("@a", 1)
+           obj.instance_variable_set("@b", 1)
+           obj.instance_variable_set("@c", 1)
+           obj.instance_variable_defined?("@a")
+         end
+       end
+     }.map{|r| r.take}.join
+  #=> "" (expected "5000050000")
+#97 test_ractor.rb:1565:
+     obj = "".freeze # NameError refers the receiver indirectly
+     begin
+       obj.bar
+     rescue => err
+     end
+     begin
+       Ractor.new{} << err
+     rescue TypeError
+       'ok'
+     end
+  #=> "" (expected "ok")
+#98 test_ractor.rb:1578:
+     GC.disable
+     Ractor.new {}
+     raise "not ok" unless GC.disable
+
+     foo = []
+     10.times { foo << 1 }
+
+     GC.start
+
+     'ok'
+  #=> "" (expected "ok")
+#103 test_ractor.rb:1643:
+     module M
+       def foo
+         @foo
+       end
+     end
+
+     class A
+       include M
+
+       def initialize
+         100.times { |i| instance_variable_set(:"@var_#{i}", "bad: #{i}") }
+         @foo = 2
+       end
+     end
+
+     class B
+       include M
+
+       def initialize
+         @foo = 1
+       end
+   (...snip)
+  #=> "" (expected "ok")
+#104 test_ractor.rb:1683:
+     class C1; def self.foo = 1; end
+     class C2; def self.foo = 2; end
+     class C3; def self.foo = 3; end
+     class C4; def self.foo = 5; end
+     class C5; def self.foo = 7; end
+     class C6; def self.foo = 11; end
+     class C7; def self.foo = 13; end
+     class C8; def self.foo = 17; end
+
+     LN = 10_000
+     RN = 10
+     CS = [C1, C2, C3, C4, C5, C6, C7, C8]
+     rs = RN.times.map{|i|
+       Ractor.new(CS.shuffle){|cs|
+         LN.times.sum{
+           cs.inject(1){|r, c| r * c.foo} # c.foo invalidates method cache entry
+         }
+       }
+     }
+
+     n = CS.inject(1){|r, c| r * c.foo} * LN
+   (...snip)
+  #=> "" (expected "true")
+#106 test_ractor.rb:1716:
+     r = Ractor.new do
+       Ractor.receive
+       GC.start
+       :ok
+     end
+
+     obj = begin
+     raise
+     rescue => e
+       e = Marshal.load(Marshal.dump(e))
+     end
+
+     r.send obj, move: true
+     r.take
+  #=> "" (expected "ok")
+#114 test_ractor.rb:1857:
+     Module.new do
+       def require feature
+         return Ractor._require(feature) unless Ractor.main?
+         super
+       end
+       Object.prepend self
+       set_temporary_name 'Ractor#require'
+     end
+
+     Ractor.new{
+       begin
+         require 'benchmark'
+         Benchmark.measure{}
+       rescue SystemStackError
+         # prism parser with -O0 build consumes a lot of machine stack
+         Data.define(:real).new(1)
+       end
+     }.take.real > 0
+  #=> "" (expected "true")
+#115 test_ractor.rb:1879:
+     dummyfile = File.join(__dir__, "dummy#{rand}.rb")
+     return true if File.exist?(dummyfile)
+
+     begin
+       File.write dummyfile, ''
+     rescue Exception
+       # skip on any errors
+       return true
+     end
+
+     begin
+       Ractor.new dummyfile do |f|
+         require_relative File.basename(f)
+       end.take
+     ensure
+       File.unlink dummyfile
+     end
+  #=> "" (expected "true")
+#116 test_ractor.rb:1900:
+     dummyfile = File.join(__dir__, "not_existed_dummy#{rand}.rb")
+     return true if File.exist?(dummyfile)
+
+     Ractor.new dummyfile do |f|
+       begin
+         require_relative File.basename(f)
+       rescue LoadError => e
+         e.class
+       end
+     end.take
+  #=> "" (expected "LoadError")
+#117 test_ractor.rb:1914:
+     autoload :Benchmark, 'benchmark'
+
+     r = Ractor.new do
+       begin
+         Benchmark.measure{}
+       rescue SystemStackError
+         # prism parser with -O0 build consumes a lot of machine stack
+         Data.define(:real).new(1)
+       end
+     end
+     r.take.real > 0
+  #=> "" (expected "true")
+#118 test_ractor.rb:1929:
+     dummyfile = File.join(__dir__, "not_existed_dummy#{rand}.rb")
+     autoload :Benchmark, dummyfile
+
+     r = Ractor.new do
+       begin
+         Benchmark.measure{}
+       rescue LoadError => e
+         e.class
+       end
+     end
+     r.take
+  #=> "" (expected "LoadError")
+#119 test_ractor.rb:1945:
+     :inspect.to_proc
+     Ractor.new do
+       # It should not use this cached proc, it should create a new one. If it used
+       # the cached proc, we would get a ractor_confirm_belonging error here.
+       :inspect.to_proc
+     end.take
+     'ok'
+  #=> "" (expected "ok")
+test_ractor.rb  FAIL 91/119
+
+Finished in 3714.76 sec
+
+FAIL 91/119 tests failed
+../bootstraptest/test_rjit.rb
+2025-08-29 02:00:11 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_rjit.rb  PASS 7
+
+Finished in 20.28 sec
+
+PASS all 7 tests
+../bootstraptest/test_string.rb
+2025-08-29 02:00:34 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_string.rb  PASS 1
+
+Finished in 5.60 sec
+
+PASS all 1 tests
+../bootstraptest/test_struct.rb
+2025-08-29 02:00:43 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_struct.rb  PASS 1
+
+Finished in 5.62 sec
+
+PASS all 1 tests
+../bootstraptest/test_syntax.rb
+2025-08-29 02:00:52 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+test_syntax.rb  PASS 164
+
+Finished in 407.04 sec
+
+PASS all 164 tests
+../bootstraptest/test_thread.rb
+2025-08-29 02:07:42 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#7 test_thread.rb:78:
+     100.times{
+       Thread.new{loop{Thread.pass}}
+     }
+  #=> "" (expected "100")
+#25 test_thread.rb:259:
+     File.write("zzz_t1.rb", <<-END)
+         begin
+           Thread.new { fork { GC.start } }.join
+           pid, status = Process.wait2
+           $result = status.success? ? :ok : :ng
+         rescue NotImplementedError
+           $result = :ok
+         end
+       END
+     require "./zzz_t1.rb"
+     $result
+  #=> "ng" (expected "ok")
+#29 test_thread.rb:294:
+     (0..10).map {
+       Thread.new {
+        10000.times {
+           Object.new.to_s
+         }
+       }
+     }.each {|t|
+       t.join
+     }
+  #=> killed by signal 34
+#31 test_thread.rb:323:
+     g = enum_for(:local_variables)
+     loop { g.next }
+  #=> killed by signal 34  [ruby-dev:34128]
+#32 test_thread.rb:328:
+     g = enum_for(:block_given?)
+     loop { g.next }
+  #=> killed by signal 34  [ruby-dev:34128]
+#33 test_thread.rb:333:
+     g = enum_for(:binding)
+     loop { g.next }
+  #=> killed by signal 34  [ruby-dev:34128]
+#34 test_thread.rb:338:
+     g = "abc".enum_for(:scan, /./)
+     loop { g.next }
+  #=> killed by signal 34  [ruby-dev:34128]
+#35 test_thread.rb:343:
+     g = Module.enum_for(:new)
+     loop { g.next }
+  #=> killed by signal 34  [ruby-dev:34128]
+#46 test_thread.rb:422:
+     File.write("zzz_t2.rb", <<-'end;') # do
+         begin
+           m = Thread::Mutex.new
+           parent = Thread.current
+           th1 = Thread.new { m.lock; sleep }
+           sleep 0.01 until th1.stop?
+           Thread.new do
+             sleep 0.01 until parent.stop?
+             begin
+               fork { GC.start }
+             rescue Exception
+               parent.raise $!
+             end
+             th1.run
+           end
+           m.lock
+           pid, status = Process.wait2
+           $result = status.success? ? :ok : :ng
+         rescue NotImplementedError
+           $result = :ok
+         end
+   (...snip)
+  #=> "ng" (expected "ok")
+#47 test_thread.rb:449:
+     require 'thread'
+
+     lock = Thread::Mutex.new
+     cond = Thread::ConditionVariable.new
+     t = Thread.new do
+       lock.synchronize do
+         cond.wait(lock)
+       end
+     end
+
+     begin
+       pid = fork do
+         # Child
+         STDOUT.write "This is the child process.\n"
+         STDOUT.write "Child process exiting.\n"
+       end
+       Process.waitpid(pid)
+     rescue NotImplementedError
+     end
+  #=> not finished in 3 seconds  [ruby-core:23572]
+#49 test_thread.rb:479:
+     i = 0
+     Thread.start {sleep 1; exit!}
+     f = proc {|s, c| /#{c.call; s}/o }
+     th2 = Thread.new {
+       sleep 0.01 until i == 1
+       i = 2
+       f.call("bar", proc {sleep 2});
+       nil
+     }
+     th1 = Thread.new {
+       f.call("foo", proc {i = 1; sleep 0.01 until i == 2; sleep 0.01})
+       nil
+     }
+     [th1, th2].each {|t| t.join }
+     GC.start
+     f.call.source
+  #=> "" (expected "foo")
+test_thread.rb  FAIL 11/50
+
+Finished in 728.52 sec
+
+FAIL 11/50 tests failed
+../bootstraptest/test_yjit.rb
+2025-08-29 02:19:54 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#187 test_yjit.rb:3030:
+     def traced_method
+       Fiber.yield
+       42
+     end
+
+     events = []
+     tp = TracePoint.new(:return) { events << [_1.event, _1.return_value] }
+     # assume first call compiles
+     fiber = Fiber.new { traced_method }
+     fiber.resume
+     tp.enable(target: method(:traced_method))
+     fiber.resume
+
+     events
+  #=> "" (expected "[[:return, 42]]")
+#188 test_yjit.rb:3048:
+     def traced_method
+       itself
+     end
+
+     tracing_ractor = Ractor.new do
+       # 1: start tracing
+       events = []
+       tp = TracePoint.new(:c_call) { events << _1.method_id }
+       tp.enable
+       Ractor.yield(nil)
+
+       # 3: run compiled method on tracing ractor
+       Ractor.yield(nil)
+       traced_method
+
+       events
+     ensure
+       tp&.disable
+     end
+
+     tracing_ractor.take
+   (...snip)
+  #=> "" (expected "[:itself]")
+#189 test_yjit.rb:3079:
+     def compiled(arg)
+       if arg
+         arg + 1
+       else
+         itself
+         itself
+       end
+     end
+
+     ractor = Ractor.new do
+       compiled(false)
+       Ractor.yield(nil)
+       compiled(41)
+     end
+
+     tp = TracePoint.new(:line) { itself }
+     ractor.take
+     tp.enable
+
+     ractor.take
+  #=> "" (expected "42")
+#194 test_yjit.rb:3159:
+     class A
+       def self.foo
+         _foo = 1
+         _bar = 2
+         begin
+           @bar = _foo + _bar
+         rescue Ractor::IsolationError
+           42
+         end
+       end
+     end
+
+     A.foo
+     A.foo
+
+     Ractor.new { A.foo }.take
+  #=> "" (expected "42")
+#222 test_yjit.rb:3493:
+     def new_media_drop(attributes:, product_drop:, context:, sources:)
+       nil.nomethod rescue nil # force YJIT to bail to side exit
+
+       [attributes, product_drop, context, sources]
+     end
+
+     def load_medias(product_drop: nil, raw_medias:, context:)
+       raw_medias.map do |raw_media|
+         case new_media_drop(context: context, attributes: raw_media, product_drop: product_drop, so
+urces: [])
+         in [Hash, ProductDrop, Context, Array]
+         else
+           raise "bad shuffle"
+         end
+       end
+     end
+
+     class Context; end
+
+     class ProductDrop
+       attr_reader :title
+       def initialize(title)
+   (...snip)
+  #=> "" (expected "ok")
+#242 test_yjit.rb:3895:
+     r = Ractor.new Ractor.current do |main|
+       main << 1
+       main << 2
+       main << 3
+       main << 4
+       main << 5
+       main << 6
+       main << 7
+       main << 8
+       main << 9
+       main << 10
+     end
+
+     a = []
+     a << Ractor.receive_if{|msg| msg == 10}
+     a << Ractor.receive_if{|msg| msg == 9}
+     a << Ractor.receive_if{|msg| msg == 8}
+     a << Ractor.receive_if{|msg| msg == 7}
+     a << Ractor.receive_if{|msg| msg == 6}
+     a << Ractor.receive_if{|msg| msg == 5}
+     a << Ractor.receive_if{|msg| msg == 4}
+   (...snip)
+  #=> "" (expected "10")
+test_yjit.rb  FAIL 6/360
+
+Finished in 1155.55 sec
+
+FAIL 6/360 tests failed
+../bootstraptest/test_yjit_30k_ifelse.rb
+2025-08-29 02:39:14 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#1 test_yjit_30k_ifelse.rb:3:
+   def fun_l0_n0(x)
+       if (x < 1)
+           fun_l1_n310(x)
+       else
+           fun_l1_n485(x)
+       end
+   end
+
+   def fun_l0_n1(x)
+       if (x < 1)
+           fun_l1_n930(x)
+       else
+           fun_l1_n418(x)
+       end
+   end
+
+   def fun_l0_n2(x)
+       if (x < 1)
+           fun_l1_n549(x)
+       else
+           fun_l1_n44(x)
+   (...snip)
+  #=> nil (expected "100000")
+test_yjit_30k_ifelse.rb  FAIL 1/1
+
+Finished in 216.41 sec
+
+FAIL 1/1 tests failed
+../bootstraptest/test_yjit_30k_methods.rb
+2025-08-29 02:42:55 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#1 test_yjit_30k_methods.rb:3:
+   def fun_l0_n0()
+       fun_l1_n758
+   end
+
+   def fun_l0_n1()
+       fun_l1_n491
+   end
+
+   def fun_l0_n2()
+       fun_l1_n804
+   end
+
+   def fun_l0_n3()
+       fun_l1_n253
+   end
+
+   def fun_l0_n4()
+       fun_l1_n409
+   end
+
+   def fun_l0_n5()
+   (...snip)
+  #=> nil (expected "1000000")
+test_yjit_30k_methods.rb  FAIL 1/1
+
+Finished in 199.85 sec
+
+FAIL 1/1 tests failed
+../bootstraptest/test_yjit_rust_port.rb
+2025-08-29 02:46:18 +0000
+Driver is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-08-29 revision 8cebe1cfcc) +PRISM [riscv64-freebsd]
+last_commit=13 gc rev
+
+#32 test_yjit_rust_port.rb:349:
+     Ractor.new{}.class
+  #=> "" (expected "Ractor")
+#33 test_yjit_rust_port.rb:354:
+     rs = []
+     begin
+       Ractor.allocate
+     rescue => e
+       rs << :ok if e.message == 'allocator undefined for Ractor'
+     end
+
+     begin
+       Ractor.new{}.dup
+     rescue
+       rs << :ok if e.message == 'allocator undefined for Ractor'
+     end
+
+     rs
+  #=> "" (expected "[:ok, :ok]")
+#34 test_yjit_rust_port.rb:372:
+     # join
+     r = Ractor.new do
+       'ok'
+     end
+     r.take
+  #=> "" (expected "ok")
+#35 test_yjit_rust_port.rb:382:
+     # ping-pong with arg
+     r = Ractor.new 'ok' do |msg|
+       msg
+     end
+     r.take
+  #=> "" (expected "ok")
+#36 test_yjit_rust_port.rb:391:
+     # ping-pong with two args
+     r =  Ractor.new 'ping', 'pong' do |msg, msg2|
+       [msg, msg2]
+     end
+     'ok' if r.take == ['ping', 'pong']
+  #=> "" (expected "ok")
+#37 test_yjit_rust_port.rb:401:
+     r = Ractor.new do
+       msg = Ractor.receive
+     end
+     r.send 'ok'
+     r.take
+  #=> "" (expected "ok")
+test_yjit_rust_port.rb  FAIL 6/38
+
+Finished in 312.45 sec
+
+FAIL 6/38 tests failed
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # vi ../bootstraptest/runner.rb
+    timeout&.*(timeout_scale)
+  end
+end.new
+
+BT_STATE = Struct.new(:count, :error).new
+
+def main
+  BT.ruby = File.expand_path('miniruby')
+  BT.verbose = false
+  $VERBOSE = false
+  $stress = false
+  BT.color = nil
+  BT.tty = nil
+  BT.quiet = false
+  BT.timeout = 1800
+  BT.timeout_scale = (defined?(RubyVM::RJIT) && RubyVM::RJIT.enabled? ? 3 : 1) # for --jit-wait
+  if (ts = (ENV["RUBY_TEST_TIMEOUT_SCALE"] || ENV["RUBY_TEST_SUBPROCESS_TIMEOUT_SCALE"]).to_i) > 1
+    BT.timeout_scale *= ts
+  end
+
+  # BT.wn = 1
+  dir = nil
+  quiet = false
+  tests = nil
+  ARGV.delete_if {|arg|
+    case arg
+    when /\A--ruby=(.*)/
+      ruby = $1
+../bootstraptest/runner.rb: 899 lines, 23169 characters.

@@ -1,0 +1,529 @@
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> --excludes-dir=../test/.excludes --name=!/memory_leak/ --timeout-scale 10 --worker-timeout=1000 -v
+
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/did_you_mean/test_tree_spell_checker.rb: cannot load such file -- psych
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+Run options:
+  --seed=33844
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[    1/31251] RDocMarkdownTest#test_parse_strong_emphasis_star = 4.26 s
+[    2/31251] RDocMarkdownTest#test_parse_note = 0.97 s
+[    3/31251] RDocMarkdownTest#test_parse_link_reference_implicit = 1.41 s
+[    4/31251] RDocMarkdownTest#test_parse_emphasis_star = 0.78 s
+[    5/31251] RDocMarkdownTest#test_parse_definition_list = 1.42 s
+[    6/31251] RDocMarkdownTest#test_parse_list_bullet_nest_continue = 1.97 s
+[    7/31251] RDocMarkdownTest#test_parse_paragraph_indent_two = 0.74 s
+[    8/31251] RDocMarkdownTest#test_parse_entity_hex = 0.79 s
+[    9/31251] RDocMarkdownTest#test_parse_paragraph_multiline = 0.77 s
+[   10/31251] RDocMarkdownTest#test_parse_verbatim_eof = 0.61 s
+[   11/31251] RDocMarkdownTest#test_parse_block_quote_separate = 1.49 s
+[   12/31251] RDocMarkdownTest#test_parse_entity_named = 0.79 s
+[   13/31251] RDocMarkdownTest#test_parse_list_bullet_nest = 1.41 s
+[   14/31251] RDocMarkdownTest#test_parse_plain = 0.78 s
+[   15/31251] RDocMarkdownTest#test_parse_link_reference_id = 1.36 s
+[   16/31251] RDocMarkdownTest#test_parse_code_github = 3.98 s
+[   17/31251] RDocMarkdownTest#test_parse_link_reference_id_adjacent = 1.09 s
+[   18/31251] RDocMarkdownTest#test_parse_auto_link_url = 0.79 s
+[   19/31251] RDocMarkdownTest#test_parse_heading_atx = 5.40 s
+[   20/31251] RDocMarkdownTest#test_parse_emphasis_underscore_embedded = 0.80 s
+[   21/31251] RDocMarkdownTest#test_parse_strong_star = 0.79 s
+[   22/31251] RDocMarkdownTest#test_parse_note_inline = 0.92 s
+[   23/31251] RDocMarkdownTest#test_parse_style = 0.82 s
+[   24/31251] RDocMarkdownTest#test_parse_code_github_format = 4.04 s
+[   25/31251] RDocMarkdownTest#test_parse_html_hr = 0.82 s
+[   26/31251] RDocMarkdownTest#test_parse_list_bullet_continue = 1.68 s
+[   27/31251] RDocMarkdownTest#test_gfm_table = 0.76 s
+[   28/31251] RDocMarkdownTest#test_parse_strong_emphasis_underscore = 0.86 s
+[   29/31251] RDocMarkdownTest#test_parse_block_quote = 1.11 s
+[   30/31251] RDocMarkdownTest#test_parse_style_disabled = 0.82 s
+[   31/31251] RDocMarkdownTest#test_parse_paragraph_two = 1.08 s
+[   32/31251] RDocMarkdownTest#test_parse_paragraph_html = 0.86 s
+[   33/31251] RDocMarkdownTest#test_parse_strike_words_tilde = 0.82 s
+[   34/31251] RDocMarkdownTest#test_parse_heading_setext_dash = 0.85 s
+[   35/31251] RDocMarkdownTest#test_parse_block_quote_continue = 1.12 s
+[   36/31251] RDocMarkdownTest#test_parse_reference_link_embedded_bracket = 1.12 s
+[   37/31251] RDocMarkdownTest#test_parse_link_reference_id_many = 1.80 s
+[   38/31251] RDocMarkdownTest#test_parse_rule_star = 0.56 s
+[   39/31251] RDocMarkdownTest#test_code_fence_with_unintended_array = 0.56 s
+[   40/31251] RDocMarkdownTest#test_parse_strike_tilde = 0.80 s
+[   41/31251] RDocMarkdownTest#test_parse_block_quote_list = 1.69 s
+[   42/31251] RDocMarkdownTest#test_parse_note_multiple = 1.49 s
+[   43/31251] RDocMarkdownTest#test_parse_definition_list_no = 1.57 s
+[   44/31251] RDocMarkdownTest#test_parse_definition_list_indents = 2.78 s
+[   45/31251] RDocMarkdownTest#test_parse_escape = 2.31 s
+[   46/31251] RDocMarkdownTest#test_parse_strike_tilde_no = 1.00 s
+[   47/31251] RDocMarkdownTest#test_gfm_table_2 = 0.65 s
+[   48/31251] RDocMarkdownTest#test_parse_list_bullet_auto_link = 0.96 s
+[   49/31251] RDocMarkdownTest#test_emphasis = 0.05 s
+[   50/31251] RDocMarkdownTest#test_parse_paragraph_stars = 0.80 s
+[   51/31251] RDocMarkdownTest#test_parse_image = 0.90 s
+[   52/31251] RDocMarkdownTest#test_parse_list_bullet = 1.23 s
+[   53/31251] RDocMarkdownTest#test_parse_paragraph_indent_one = 0.74 s
+[   54/31251] RDocMarkdownTest#test_parse_note_no_notes = 0.44 s
+[   55/31251] RDocMarkdownTest#test_parse_list_number_continue = 1.69 s
+[   56/31251] RDocMarkdownTest#test_parse_note_indent = 1.07 s
+[   57/31251] RDocMarkdownTest#test_parse_paragraph_indent_three = 0.76 s
+[   58/31251] RDocMarkdownTest#test_parse_auto_link_email = 0.81 s
+[   59/31251] RDocMarkdownTest#test_strong = 0.05 s
+[   60/31251] RDocMarkdownTest#test_class_parse = 1.10 s
+[   61/31251] RDocMarkdownTest#test_parse_heading_setext_equals = 0.84 s
+[   62/31251] RDocMarkdownTest#test_parse_emphasis_underscore_in_word = 0.78 s
+[   63/31251] RDocMarkdownTest#test_parse_entity_dec = 0.79 s
+[   64/31251] RDocMarkdownTest#test_parse_definition_list_rich_label = 1.38 s
+[   65/31251] RDocMarkdownTest#test_parse_line_break = 0.94 s
+[   66/31251] RDocMarkdownTest#test_parse_definition_list_multi_description = 1.29 s
+[   67/31251] RDocMarkdownTest#test_parse_image_link = 1.11 s
+[   68/31251] RDocMarkdownTest#test_parse_html_no_html = 0.93 s
+[   69/31251] RDocMarkdownTest#test_parse_list_bullet_multiline = 1.03 s
+[   70/31251] RDocMarkdownTest#test_parse_paragraph = 0.77 s
+[   71/31251] RDocMarkdownTest#test_parse_char_entity = 0.82 s
+[   72/31251] RDocMarkdownTest#test_parse_block_quote_newline = 1.12 s
+[   73/31251] RDocMarkdownTest#test_parse_rule_dash = 0.57 s
+[   74/31251] RDocMarkdownTest#test_parse_link_reference_id_eof = 1.36 s
+[   75/31251] RDocMarkdownTest#test_parse_list_number = 1.25 s
+[   76/31251] RDocMarkdownTest#test_parse_paragraph_break_on_newline = 1.68 s
+[   77/31251] RDocMarkdownTest#test_parse_paragraph_html_no_html = 0.87 s
+[   78/31251] RDocMarkdownTest#test_parse_strong_underscore = 0.79 s
+[   79/31251] RDocMarkdownTest#test_parse_code = 4.64 s
+[   80/31251] RDocMarkdownTest#test_parse_list_bullet_nest_loose = 1.57 s
+[   81/31251] RDocMarkdownTest#test_parse_rule_underscore = 0.57 s
+[   82/31251] RDocMarkdownTest#test_parse_verbatim = 4.24 s
+[   83/31251] RDocMarkdownTest#test_parse_html = 0.86 s
+[   84/31251] RDocMarkdownTest#test_parse_emphasis_underscore = 0.93 s
+[   85/31251] RDocMarkdownTest#test_parse_definition_list_multi_label = 1.03 s
+[   86/31251] RDocMarkdownTest#test_parse_definition_list_multi_line = 2.00 s
+[   87/31251] TestEnsureAndCallcc#test_bug20655_dir_chdir_using_rb_ensure = 0.06 s
+[   88/31251] TestEnsureAndCallcc#test_bug20655_extension_using_rb_ensure = 0.40 s
+[   89/31251] Emoji::TestSoftBank#test_to_sjis = 0.12 s
+[   90/31251] Emoji::TestSoftBank#test_from_sjis = 0.03 s
+[   91/31251] Emoji::TestSoftBank#test_encoding_name = 0.06 s
+[   92/31251] Emoji::TestSoftBank#test_from_utf8 = 0.02 s
+[   93/31251] Emoji::TestSoftBank#test_to_docomo = 0.12 s
+[   94/31251] Emoji::TestSoftBank#test_to_utf8 = 0.02 s
+[   95/31251] Emoji::TestSoftBank#test_comparison = 0.02 s
+[   96/31251] Emoji::TestSoftBank#test_softbank = 0.02 s
+[   97/31251] Emoji::TestSoftBank#test_to_kddi = 0.16 s
+[   98/31251] Emoji::TestSoftBank#test_to_eucjp = 0.03 s
+[   99/31251] TestMkmfHaveLibrary#test_not_have_library_with_name = 0.85 s
+[  100/31251] TestMkmfHaveLibrary#test_have_library = 0.61 s
+[  101/31251] TestMkmfHaveLibrary#test_not_have_library = 0.78 s
+[  102/31251] TestMkmfHaveLibrary#test_have_library_with_name = 0.61 s
+[  103/31251] TestGemResolverInstalledSpecification#test_install = 0.78 s
+[  104/31251] TestGemResolverInstalledSpecification#test_initialize = 0.54 s
+[  105/31251] TestGemResolverInstalledSpecification#test_installable_platform_eh = 1.03 s
+[  106/31251] TestGemPackageTarHeader#test_from_bad_octal = 0.81 s
+[  107/31251] TestGemPackageTarHeader#test_spaces_in_headers = 0.52 s
+[  108/31251] TestGemPackageTarHeader#test_big_uid_gid = 0.53 s
+[  109/31251] TestGemPackageTarHeader#test_self_from = 0.58 s
+[  110/31251] TestGemPackageTarHeader#test_initialize = 0.53 s
+[  111/31251] TestGemPackageTarHeader#test_update_checksum = 0.52 s
+[  112/31251] TestGemPackageTarHeader#test_to_s = 0.54 s
+[  113/31251] TestGemPackageTarHeader#test_initialize_bad = 0.53 s
+[  114/31251] TestGemPackageTarHeader#test_empty = 0.52 s
+[  115/31251] TestGemPackageTarHeader#test_equals2 = 0.52 s
+[  116/31251] TestGemPackageTarHeader#test_empty_eh = 0.52 s
+[  117/31251] TestGemPackageTarHeader#test_initialize_typeflag = 0.51 s
+[  118/31251] TestMarshal#test_object_subclass = 0.06 s
+[  119/31251] TestMarshal#test_undumpable_message = 0.05 s
+[  120/31251] TestMarshal#test_range_cyclic = 0.02 s
+[  121/31251] TestMarshal#test_anonymous = 0.03 s
+[  122/31251] TestMarshal#test_symbol2 = 0.02 s
+[  123/31251] TestMarshal#test_string_subclass = 0.04 s
+[  124/31251] TestMarshal#test_marshal = 0.04 s
+[  125/31251] TestMarshal#test_invalid_byte_sequence_symbol = 0.01 s
+[  126/31251] TestMarshal#test_change_class_name = 0.04 s
+[  127/31251] TestMarshal#test_symlink = 0.01 s
+[  128/31251] TestMarshal#test_marshal_nameerror = 0.06 s
+[  129/31251] TestMarshal#test_marshal_dump_excess_encoding = 0.02 s
+[  130/31251] TestMarshal#test_object_prepend = 0.05 s
+[  131/31251] TestMarshal#test_marshal_dump_struct_ivar = 0.02 s
+[  132/31251] TestMarshal#test_time = 0.27 s
+[  133/31251] TestMarshal#test_struct_subclass_extend = 0.06 s
+[  134/31251] TestMarshal#test_too_long_string = 0.02 s
+[  135/31251] TestMarshal#test_share = 0.01 s
+[  136/31251] TestMarshal#test_time_ivar = 0.04 s
+[  137/31251] TestMarshal#test_time_subclass = 0.05 s
+[  138/31251] TestMarshal#test_load_range_as_struct = 0.01 s
+[  139/31251] TestMarshal#test_gc = 192.02 s
+[  140/31251] TestMarshal#test_nil = 0.03 s
+[  141/31251] TestMarshal#test_false = 0.02 s
+[  142/31251] TestMarshal#test_exception = 0.08 s
+[  143/31251] TestMarshal#test_userdef_encoding = 0.01 s
+[  144/31251] TestMarshal#test_float = 0.06 s
+[  145/31251] TestMarshal#test_bignum = 0.07 s
+[  146/31251] TestMarshal#test_symbol = 0.50 s
+[  147/31251] TestMarshal#test_marshal_dump_extra_iv = 0.02 s
+[  148/31251] TestMarshal#test_regexp = 0.10 s
+[  149/31251] TestMarshal#test_marshal_load_ivar = 0.03 s
+[  150/31251] TestMarshal#test_marshal_regexp_encoding = 0.01 s
+[  151/31251] TestMarshal#test_fixnum = 0.11 s
+[  152/31251] TestMarshal#test_object = 0.04 s
+[  153/31251] TestMarshal#test_marshal_integers = 0.11 s
+[  154/31251] TestMarshal#test_unloadable_userdef = 0.03 s
+[  155/31251] TestMarshal#test_hash = 0.03 s
+[  156/31251] TestMarshal#test_marshal_load_r_prepare_reference_crash = 11.94 s
+[  157/31251] TestMarshal#test_dump_buffer = 0.03 s
+[  158/31251] TestMarshal#test_string = 0.03 s
+[  159/31251] TestMarshal#test_hash_compared_by_identity = 0.02 s
+[  160/31251] TestMarshal#test_extend = 0.07 s
+[  161/31251] TestMarshal#test_nonascii_class_module = 0.02 s
+[  162/31251] TestMarshal#test_array_subclass = 0.05 s
+[  163/31251] TestMarshal#test_hash_default_compared_by_identity = 0.02 s
+[  164/31251] TestMarshal#test_struct = 0.03 s
+[  165/31251] TestMarshal#test_exception_subclass = 0.05 s
+[  166/31251] TestMarshal#test_class = 0.02 s
+[  167/31251] TestMarshal#test_hash_extend = 0.06 s
+[  168/31251] TestMarshal#test_marshal_proc_freeze = 0.02 s
+[  169/31251] TestMarshal#test_module_ivar = 0.02 s
+[  170/31251] TestMarshal#test_array = 0.04 s
+[  171/31251] TestMarshal#test_symlink_in_ivar = 0.01 s
+[  172/31251] TestMarshal#test_true = 0.03 s
+[  173/31251] TestMarshal#test_object_subclass_extend = 0.08 s
+[  174/31251] TestMarshal#test_struct_subclass = 0.04 s
+[  175/31251] TestMarshal#test_marshal_with_ruby2_keywords_hash = 0.05 s
+[  176/31251] TestMarshal#test_string_crlf = 0.03 s
+[  177/31251] TestMarshal#test_marshal_dump_ivar = 0.02 s
+[  178/31251] TestMarshal#test_struct_ivar = 0.04 s
+[  179/31251] TestMarshal#test_marshal_honor_post_proc_value_for_link = 0.01 s
+[  180/31251] TestMarshal#test_float_inf_nan = 0.08 s
+[  181/31251] TestMarshal#test_method_missing_without_respond_to = 0.02 s
+[  182/31251] TestMarshal#test_hash_subclass = 0.05 s
+[  183/31251] TestMarshal#test_string_subclass_cycle = 0.04 s
+[  184/31251] TestMarshal#test_marshal_cloned_class = 0.02 s
+[  185/31251] TestMarshal#test_hash_subclass_extend = 0.08 s
+[  186/31251] TestMarshal#test_singleton = 0.04 s
+[  187/31251] TestMarshal#test_undumpable_data = 0.04 s
+[  188/31251] TestMarshal#test_struct_toplevel = 0.03 s
+[  189/31251] TestMarshal#test_array_ivar = 0.04 s
+[  190/31251] TestMarshal#test_struct_invalid_members = 0.02 s
+[  191/31251] TestMarshal#test_class_ivar = 0.02 s
+[  192/31251] TestMarshal#test_marshal_symbol_ascii8bit = 0.01 s
+[  193/31251] TestMarshal#test_unloadable_data = 0.03 s
+[  194/31251] TestMarshal#test_marshal_respond_to_arity = 0.01 s
+[  195/31251] TestMarshal#test_packed_string = 0.01 s
+[  196/31251] TestMarshal#test_string_subclass_extend = 0.04 s
+[  197/31251] TestMarshal#test_inconsistent_struct = 0.02 s
+[  198/31251] TestMarshal#test_marshal_encoding_encoding = 0.02 s
+[  199/31251] TestMarshal#test_marshal_exception = 0.04 s
+[  200/31251] TestMarshal#test_range_subclass = 0.04 s
+[  201/31251] TestMarshal#test_string_escape = 0.03 s
+[  202/31251] TestMarshal#test_string_ivar = 0.04 s
+[  203/31251] TestMarshal#test_range = 0.05 s
+[  204/31251] TestMarshal#test_marshal_proc_string_encoding = 0.01 s
+[  205/31251] TestMarshal#test_hash_default = 0.03 s
+[  206/31251] TestMarshal#test_limit = 0.02 s
+[  207/31251] TestMarshal#test_marshal_keyword_init_struct = 0.01 s
+[  208/31251] TestMarshal#test_userdef_invalid = 0.01 s
+[  209/31251] TestMarshal#test_marshal_complex = 0.02 s
+[  210/31251] TestMarshal#test_marshal_dump_removing_instance_variable = 0.03 s
+[  211/31251] TestMarshal#test_marshal_dump_recursion = 0.02 s
+[  212/31251] TestMarshal#test_pipe = 0.09 s
+[  213/31251] TestMarshal#test_context_switch = 19.61 s
+[  214/31251] TestMarshal#test_nonascii_class_instance = 0.05 s
+[  215/31251] TestMarshal#test_time_in_array = 0.01 s
+[  216/31251] TestMarshal#test_continuation = 0.09 s
+[  217/31251] TestMarshal#test_unloadable_usrmarshal = 0.03 s
+[  218/31251] TestMarshal#test_marshal_small_bignum_backref = 0.01 s
+[  219/31251] TestMarshal#test_marshal_private_class = 0.01 s
+[  220/31251] TestMarshal#test_hash_ivar = 0.04 s
+[  221/31251] TestMarshal#test_change_struct = 0.04 s
+[  222/31251] TestMarshal#test_no_internal_ids = 5.03 s
+[  223/31251] TestMarshal#test_regexp2 = 0.05 s
+[  224/31251] TestMarshal#test_recursive_userdef = 0.04 s
+[  225/31251] TestMarshal#test_marshal_string_encoding = 0.01 s
+[  226/31251] TestMarshal#test_marshal_flonum_reference = 0.01 s
+[  227/31251] TestMarshal#test_marshal_dump = 0.02 s
+[  228/31251] TestMarshal#test_object_extend = 0.06 s
+[  229/31251] TestMarshal#test_extend_string = 0.06 s
+[  230/31251] TestMarshal#test_string_empty = 0.03 s
+[  231/31251] TestMarshal#test_modify_array_during_dump = 0.02 s
+[  232/31251] TestMarshal#test_marshal_dump_adding_instance_variable = 0.02 s
+[  233/31251] TestMarshal#test_marshal_load_extended_class_crash = 11.85 s
+[  234/31251] TestMarshal#test_marshal_rational = 0.04 s
+[  235/31251] TestMarshal#test_regexp_subclass = 0.06 s
+[  236/31251] TestMarshal#test_hash_default_proc = 0.01 s
+[  237/31251] TestGemCommandsSourcesCommand#test_execute_add_redundant_source_trailing_slash = 2.66
+s
+[  238/31251] TestGemCommandsSourcesCommand#test_execute_add_http_rubygems_org = 2.17 s
+[  239/31251] TestGemCommandsSourcesCommand#test_execute_add_nonexistent_source = 2.07 s
+[  240/31251] TestGemCommandsSourcesCommand#test_execute_add_existent_source_invalid_uri_with_error_
+by_chance_including_the_uri_password = 12.21 s
+[  241/31251] TestGemCommandsSourcesCommand#test_execute_add_allow_typo_squatting_source = 2.46 s
+[  242/31251] TestGemCommandsSourcesCommand#test_execute_add_deny_typo_squatting_source = 2.18 s
+[  243/31251] TestGemCommandsSourcesCommand#test_execute = 1.80 s
+[  244/31251] TestGemCommandsSourcesCommand#test_execute_add_https_rubygems_org = 2.17 s
+[  245/31251] TestGemCommandsSourcesCommand#test_execute_add_redundant_source = 1.94 s
+[  246/31251] TestGemCommandsSourcesCommand#test_execute_remove_no_network = 1.93 s
+[  247/31251] TestGemCommandsSourcesCommand#test_execute_clear_all = 1.80 s
+[  248/31251] TestGemCommandsSourcesCommand#test_execute_update = 2.10 s
+[  249/31251] TestGemCommandsSourcesCommand#test_initialize_proxy = 1.76 s
+[  250/31251] TestGemCommandsSourcesCommand#test_execute_add = 2.29 s
+[  251/31251] TestGemCommandsSourcesCommand#test_execute_add_bad_uri = 1.80 s
+[  252/31251] TestGemCommandsSourcesCommand#test_execute_list = 1.78 s
+[  253/31251] TestGemCommandsSourcesCommand#test_execute_add_allow_typo_squatting_source_forced = 2.
+29 s
+[  254/31251] TestGemCommandsSourcesCommand#test_execute_add_existent_source_invalid_uri = 1.99 s
+[  255/31251] TestGemCommandsSourcesCommand#test_execute_add_http_rubygems_org_forced = 2.30 s
+[  256/31251] TestGemCommandsSourcesCommand#test_execute_remove = 1.83 s
+[  257/31251] RDocGeneratorPOTPOEntryTest#test_references_multiple = 0.04 s
+[  258/31251] RDocGeneratorPOTPOEntryTest#test_references_normal = 0.03 s
+[  259/31251] RDocGeneratorPOTPOEntryTest#test_extracted_comment_normal = 0.03 s
+[  260/31251] RDocGeneratorPOTPOEntryTest#test_msgid_back_slash = 0.03 s
+[  261/31251] RDocGeneratorPOTPOEntryTest#test_translator_comment_multiple_lines = 0.03 s
+[  262/31251] RDocGeneratorPOTPOEntryTest#test_translator_comment_normal = 0.03 s
+[  263/31251] RDocGeneratorPOTPOEntryTest#test_msgid_double_quote = 0.03 s
+[  264/31251] RDocGeneratorPOTPOEntryTest#test_msgid_multiple_lines = 0.03 s
+[  265/31251] RDocGeneratorPOTPOEntryTest#test_flags_multiple = 0.03 s
+[  266/31251] RDocGeneratorPOTPOEntryTest#test_msgid_normal = 0.03 s
+[  267/31251] RDocGeneratorPOTPOEntryTest#test_flags_normal = 0.03 s
+[  268/31251] RDocGeneratorPOTPOEntryTest#test_extracted_comment_multiple_lines = 0.03 s
+[  269/31251] RDocGeneratorPOTPOEntryTest#test_msgid_tab = 0.03 s
+[  270/31251] RDocGeneratorPOTPOEntryTest#test_full = 0.03 s
+[  271/31251] TestGemCommandsSignoutCommand#test_execute_when_user_is_signed_in = 0.80 s
+[  272/31251] TestGemCommandsSignoutCommand#test_execute_when_not_signed_in = 0.74 s
+[  273/31251] Reline::KillRing::Test#test_append_three_with_max_two = 0.05 s
+[  274/31251] Reline::KillRing::Test#test_append_complex_chain = 0.04 s
+[  275/31251] Reline::KillRing::Test#test_append_three = 0.03 s
+[  276/31251] Reline::KillRing::Test#test_append_after = 0.02 s
+[  277/31251] Reline::KillRing::Test#test_append_two = 0.02 s
+[  278/31251] Reline::KillRing::Test#test_append_chain_two = 0.03 s
+[  279/31251] Reline::KillRing::Test#test_append_four_with_max_two = 0.04 s
+[  280/31251] Reline::KillRing::Test#test_append_one = 0.02 s
+[  281/31251] Reline::KillRing::Test#test_enumerable = 0.02 s
+[  282/31251] Reline::KillRing::Test#test_append_before = 0.02 s
+[  283/31251] TestArray#test_shared_array_reject! = 0.03 s
+[  284/31251] TestArray#test_aset_error = 0.05 s
+[  285/31251] TestArray#test_cycle = 0.02 s
+[  286/31251] TestArray#test_replace_wb_variable_width_alloc = 89.04 s
+[  287/31251] TestArray#test_reverse = 0.01 s
+[  288/31251] TestArray#test_at = 0.02 s
+[  289/31251] TestArray#test_VERY_EQUAL = 0.01 s
+[  290/31251] TestArray#test_collect = 0.03 s
+[  291/31251] TestArray#test_times = 0.01 s
+[  292/31251] TestArray#test_sort_bang_with_freeze = 0.02 s
+[  293/31251] TestArray#test_prepend = 0.01 s
+[  294/31251] TestArray#test_first2 = 0.01 s
+[  295/31251] TestArray#test_pop = 0.01 s
+[  296/31251] TestArray#test_values_at2 = 0.01 s
+[  297/31251] TestArray#test_eql? = 0.01 s
+[  298/31251] TestArray#test_join_recheck_array_length = 0.13 s
+[  299/31251] TestArray#test_unshift_error = 0.01 s
+[  300/31251] TestArray#test_zip = 0.02 s
+[  301/31251] TestArray#test_bsearch_index_typechecks_return_values = 0.01 s
+[  302/31251] TestArray#test_zip_bug = 0.01 s
+[  303/31251] TestArray#test_fill2 = 0.01 s
+[  304/31251] TestArray#test_flatten! = 0.02 s
+[  305/31251] TestArray#test_slice_out_of_range = 0.03 s
+[  306/31251] TestArray#test_sample_statistics = 40.54 s
+[  307/31251] TestArray#test_slice! = 0.04 s
+[  308/31251] TestArray#test_flatten_respond_to_missing = 0.02 s
+[  309/31251] TestArray#test_PLUS = 0.01 s
+[  310/31251] TestArray#test_ary_new = 0.01 s
+[  311/31251] TestArray#test_drop_while = 0.01 s
+[  312/31251] TestArray#test_unshift_frozen = 0.02 s
+[  313/31251] TestArray#test_intersect_big_array = 0.02 s
+[  314/31251] TestArray#test_bsearch_index_in_find_any_mode = 0.02 s
+[  315/31251] TestArray#test_monkey_patch_include? = 11.95 s
+[  316/31251] TestArray#test_sort_by! = 0.01 s
+[  317/31251] TestArray#test_find_all_0 = 0.02 s
+[  318/31251] TestArray#test_uniq_bang_with_block = 0.02 s
+[  319/31251] TestArray#test_slice_gc_compact_stress = 920.66 s
+[  320/31251] TestArray#test_flatten_error = 0.02 s
+[  321/31251] TestArray#test_take_while = 0.01 s
+[  322/31251] TestArray#test_MUL = 0.02 s
+[  323/31251] TestArray#test_repeated_permutation = 5.64 s
+[  324/31251] TestArray#test_sample_random_generator_half = 0.23 s
+[  325/31251] TestArray#test_uniq = 0.04 s
+[  326/31251] TestArray#test_flatten_with_callcc = 0.04 s
+[  327/31251] TestArray#test_empty? = 0.01 s
+[  328/31251] TestArray#test_repeated_combination_stack_error = 14.12 s
+[  329/31251] TestArray#test_each_index = 0.02 s
+[  330/31251] TestArray#test_dig = 0.02 s
+[  331/31251] TestArray#test_hash = 0.01 s
+[  332/31251] TestArray#test_select! = 0.03 s
+[  333/31251] TestArray#test_flattern_singleton_class! = 0.01 s
+[  334/31251] TestArray#test_append = 0.01 s
+[  335/31251] TestArray#test_iseq_shared_array_reject! = 0.02 s
+[  336/31251] TestArray#test_intersection_big_array = 0.03 s
+[  337/31251] TestArray#test_delete_if = 0.02 s
+[  338/31251] TestArray#test_to_h_block = 0.06 s
+[  339/31251] TestArray#test_uniq_0 = 0.01 s
+[  340/31251] TestArray#test_rotate = 0.03 s
+[  341/31251] TestArray#test_shift2 = 0.02 s
+[  342/31251] TestArray#test_OR_in_order = 0.02 s
+[  343/31251] TestArray#test_array_safely_modified_by_sort_block = 0.04 s
+[  344/31251] TestArray#test_shift_shared_ary = 0.02 s
+[  345/31251] TestArray#test_assoc = 0.02 s
+[  346/31251] TestArray#test_01_square_brackets = 0.02 s
+[  347/31251] TestArray#test_ASET = 0.20 s
+[  348/31251] TestArray#test_00_new = 0.01 s
+[  349/31251] TestArray#test_sort_0 = 0.01 s
+[  350/31251] TestArray#test_drop = 0.02 s
+[  351/31251] TestArray#test_clear = 0.01 s
+[  352/31251] TestArray#test_shuffle_random = 0.02 s
+[  353/31251] TestArray#test_uniq! = 0.05 s
+[  354/31251] TestArray#test_replace_shared_ary = 0.01 s
+[  355/31251] TestArray#test_sort_with_callcc = 2.33 s
+[  356/31251] TestArray#test_first = 0.01 s
+[  357/31251] TestArray#test_minmax = 0.04 s
+[  358/31251] TestArray#test_join2 = 0.03 s
+[  359/31251] TestArray#test_product2 = 0.02 s
+[  360/31251] TestArray#test_min = 0.03 s
+[  361/31251] TestArray#test_dup = 0.02 s
+[  362/31251] TestArray#test_values_at = 0.01 s
+[  363/31251] TestArray#test_product = 282.32 s
+[  364/31251] TestArray#test_permutation_stack_error = 17.08 s
+[  365/31251] TestArray#test_shrink_shared_array = 9.99 s
+[  366/31251] TestArray#test_intersection = 0.02 s
+[  367/31251] TestArray#test_big_array_literal_with_kwsplat = 2.47 s
+[  368/31251] TestArray#test_intersect? = 0.01 s
+[  369/31251] TestArray#test_reverse_each2 = 0.01 s
+[  370/31251] TestArray#test_flatten_splat = 0.02 s
+[  371/31251] TestArray#test_bsearch_typechecks_return_values = 0.05 s
+[  372/31251] TestArray#test_sort! = 0.03 s
+[  373/31251] TestArray#test_clear2 = 0.01 s
+[  374/31251] TestArray#test_count = 5.15 s
+[  375/31251] TestArray#test_array_andor_0 = 0.01 s
+[  376/31251] TestArray#test_repeated_combination = 0.51 s
+[  377/31251] TestArray#test_insert = 0.06 s
+[  378/31251] TestArray#test_delete = 0.06 s
+[  379/31251] TestArray#test_flatten_splat! = 0.02 s
+[  380/31251] TestArray#test_compact_0 = 0.01 s
+[  381/31251] TestArray#test_reject! = 0.02 s
+[  382/31251] TestArray#test_rindex = 0.03 s
+[  383/31251] TestArray#test_combination2 = 0.01 s
+[  384/31251] TestArray#test_product_with_callcc = 1.26 s
+[  385/31251] TestArray#test_rotate! = 0.06 s
+[  386/31251] TestArray#test_to_h = 0.04 s
+[  387/31251] TestArray#test_equal = 0.01 s
+[  388/31251] TestArray#test_flatten = 0.03 s
+[  389/31251] TestArray#test_union_big_array = 0.04 s
+[  390/31251] TestArray#test_repeated_permutation_stack_error = 14.45 s
+[  391/31251] TestArray#test_bsearch_index_with_no_block = 0.02 s
+[  392/31251] TestArray#test_shuffle_random_invalid_generator = 0.02 s
+[  393/31251] TestArray#test_bsearch_with_no_block = 0.01 s
+[  394/31251] TestArray#test_sort = 0.02 s
+[  395/31251] TestArray#test_fill_0 = 0.04 s
+[  396/31251] TestArray#test_unshift = 0.01 s
+[  397/31251] TestArray#test_initialize2 = 0.01 s
+[  398/31251] TestArray#test_fill_negative_length = 0.01 s
+[  399/31251] TestArray#test_zip_with_enumerator = 0.03 s
+[  400/31251] TestArray#test_pack_format_mutation = 0.02 s
+[  401/31251] TestArray#test_flatten_recursive = 0.02 s
+[  402/31251] TestArray#test_splice_over_ary_max PID COMMAND          %CPU %MEM NLWP    RSS     VSZ
+WCHAN    STAT STARTED     TIME  ELAPSED  BLOCKED   CAUGHT  IGNORED PENDING        F
+   0 [kernel]          0.0  0.0   14    280       0 parked   DLs  05:52    0:06.54 02:17:54        0
+        0 18488000       0 10000284
+   1 /sbin/init        0.0  0.1    1   1076   16992 wait     ILs  05:52    0:00.29 02:17:54 967c9014
+ 69826eeb 10788000       0 10004200
+   2 [clock]           0.0  0.0    1     20       0 -        WL   05:52    0:37.32 02:17:54        0
+        0 18488000       0 10000204
+   3 [crypto]          0.0  0.0    2     40       0 crypto_w DL   05:52    0:00.00 02:17:54        0
+        0 18488000       0 10000284
+   4 [cam]             0.0  0.0    3     60       0 -        DL   05:52    0:00.00 02:17:54        0
+        0 18488000       0 10000284
+   5 [rand_harvestq]   0.0  0.0    1     20       0 -        DL   05:52    0:34.79 02:17:54        0
+        0 18488000       0 10000204
+   6 [cheri_revoke]    9.0  0.0    1     20       0 rvkslp   DL   05:52    6:09.80 02:17:54        0
+        0 18488000       0 10000204
+   7 [pagedaemon]      0.0  0.0    3     60       0 psleep   DL   05:52    1:29.82 02:17:54        0
+        0 18488000       0 10000284
+   8 [vmdaemon]        0.0  0.0    1     20       0 psleep   DL   05:52    0:00.00 02:17:54        0
+        0 18488000       0 10000204
+   9 [bufdaemon]       0.0  0.0    3     60       0 psleep   DL   05:52    0:11.12 02:17:54        0
+        0 18488000       0 10000284
+  10 [audit]           0.0  0.0    1     20       0 audit_wo DL   05:52    0:00.00 02:17:54        0
+        0 18488000       0 10000204
+  11 [idle]            0.0  0.0    1     20       0 -        RNL  05:52   67:04.60 02:17:54        0
+        0 18488000       0 10000204
+  12 [intr]            0.0  0.0    7    140       0 -        WL   05:52    0:20.56 02:17:54        0
+        0 18488000       0 10000284
+  13 [geom]            0.0  0.0    3     60       0 -        DL   05:52    0:00.12 02:17:54        0
+        0 18488000       0 10000284
+  14 [vnlru]           0.0  0.0    1     20       0 vlruwt   DL   05:52    0:02.53 02:17:54        0
+        0 18488000       0 10000204
+  15 [syncer]          0.0  0.0    1     20       0 syncer   DL   05:52    0:02.85 02:17:54        0
+        0 18488000       0 10000204
+ 770 dhclient: system  0.0  0.1    1   1864   18644 select   Is   05:53    0:00.07 02:16:30        0
+        0 187a9000       0 10000000
+ 773 dhclient: vtnet0  0.0  0.1    1   1560   18644 select   Is   05:53    0:00.10 02:16:30        0
+        0 187a9000       0 10000000
+ 834 /sbin/devd        0.0  0.1    1   2604   22792 select   Ss   05:53    0:00.17 02:16:26        0
+ 10004003  87a9000       0 10000000
+1048 /usr/sbin/syslog  0.0  0.1    1   2080   18256 kqread   Ss   05:54    0:00.39 02:16:07        0
+        0 187af007       0 10100000
+1136 sshd: /usr/sbin/  0.0  0.3    1   6428   29296 select   Is   05:54    0:00.45 02:15:52        0
+ 90084005  8729000       0 10000100
+1175 [smbiod0]         0.0  0.0    1     20       0 90idle   DL   05:55    0:14.89 02:15:17        0
+        0 18488000       0 10000204
+1179 [smbiod1]         0.0  0.0    1     20       0 90idle   DL   05:55    0:01.94 02:15:15        0
+        0 18488000       0 10000204
+1168 login [pam] (log  0.0  0.2    1   4100   18876 wait     Is   05:54    0:00.43 02:15:49        0
+     6001 18788006       0 10004102
+1169 -sh (sh)          0.0  0.2    1   3836   18988 wait     I    05:55    0:00.87 02:15:18        0
+        6 186ac000       0 10004002
+1208 ruby: ../test/ru  1.0 22.5    2 467232 1400168 wait     S+   07:27   38:35.00    42:46        0
+ e2087e0f 18408000       0 10004082
+1234 ps x -opid,args,  0.0  0.2    1   3640   18988 -        R+   08:10    0:00.30    00:01        0
+        0 18488000       0 10004002
+/root/ruby-3.4.5/test/ruby/test_array.rb:3484:in 'TestArray#test_splice_over_ary_max': failed to all
+ocate memory (NoMemoryError)
+        from /root/ruby-3.4.5/tool/lib/test/unit/testcase.rb:202:in 'Test::Unit::TestCase#run_test'
+        from /root/ruby-3.4.5/tool/lib/test/unit/testcase.rb:170:in 'Test::Unit::TestCase#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1671:in 'block in Test::Unit::Runner#_run_suite'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1658:in 'Array#map'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1658:in 'Test::Unit::Runner#_run_suite'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1362:in 'Test::Unit::ExcludesOption#_run_suite'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:823:in 'block in Test::Unit::Parallel#_run_suite
+s'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:821:in 'Array#each'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:821:in 'Test::Unit::Parallel#_run_suites'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:858:in 'Test::Unit::Skipping#_run_suites'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1604:in 'Test::Unit::Runner#_run_anything'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1299:in 'Test::Unit::RepeatOption#_run_anything'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1769:in 'Test::Unit::Runner#run_tests'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1756:in 'block in Test::Unit::Runner#_run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1755:in 'Array#each'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1755:in 'Test::Unit::Runner#_run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1799:in 'Test::Unit::Runner#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1046:in 'Test::Unit::StatusLine#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:891:in 'Test::Unit::Statistics#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:145:in 'Test::Unit::RunCount#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1283:in 'Test::Unit::RequireFiles#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1882:in 'Test::Unit::AutoRunner#run'
+        from /root/ruby-3.4.5/tool/lib/test/unit.rb:1886:in 'Test::Unit::AutoRunner.run'
+        from /root/ruby-3.4.5/tool/test/runner.rb:14:in '<top (required)>'
+        from ../test/runner.rb:5:in 'Kernel#require_relative'
+        from ../test/runner.rb:5:in '<main>'
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -v
+ruby 3.4.5 (2025-08-31 revision eaddb5dffc) +PRISM [riscv64-freebsd]
+last_commit=18
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

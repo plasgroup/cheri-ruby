@@ -61,13 +61,17 @@ gcc -E -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I.ext/include -I../include
 ## real 
 --timeout-scale 10 --worker-timeout=1000
 -v 
---test-order=sorted random|alpha|sorted|nosort
+--test-order=sorted random|alpha|sorted|nosort # defualt does not include whole file but a complete test in a file
+# nosort is interleaved not complete file 
+# random is random test case not test or file 
+
 -s 3216
 
 ## all 
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
 "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
 --excludes-dir=../test/.excludes --name=!/memory_leak/ --timeout-scale 10 --worker-timeout=1000 -v --test-order=random
+## file
 
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
 "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \

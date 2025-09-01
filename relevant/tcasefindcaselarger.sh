@@ -9,6 +9,7 @@ fi
 FILE=$1
 
 while read -r num; do
-	line=$(awk '$1 > 100' <<< "$num" | xargs -I{} grep -E '{}\.' "$FILE")
+	line=$(awk '$1 > 100' <<< "$num" | xargs -I{} grep -E '= {}\.[0-9]+ s' "$FILE")
+	# echo "$line"
 	grep -q '\[.*\] ' <<< "$line" && echo "$line" | grep -oE '\] .*#.* =' | sed 's/\] //; s/ =//'
 done

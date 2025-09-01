@@ -64,6 +64,8 @@ gcc -E -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I.ext/include -I../include
 --test-order=sorted random|alpha|sorted|nosort # defualt does not include whole file but a complete test in a file
 # nosort is interleaved not complete file 
 # random is random test case not test or file 
+# alpha more like but still not still each test 
+# sorted is maybe test based 
 
 -s 3216
 

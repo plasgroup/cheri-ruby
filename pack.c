@@ -515,12 +515,12 @@ pack_pack(rb_execution_context_t *ec, VALUE ary, VALUE fmt, VALUE buffer)
             goto pack_integer;
 
           case 'j':		/* j for intptr_t */
-            integer_size = sizeof(intptr_t);
+            integer_size = 8;
             bigendian_p = BIGENDIAN_P();
             goto pack_integer;
 
           case 'J':		/* J for uintptr_t */
-            integer_size = sizeof(uintptr_t);
+            integer_size = 8;
             bigendian_p = BIGENDIAN_P();
             goto pack_integer;
 
@@ -1204,13 +1204,13 @@ pack_unpack_internal(VALUE str, VALUE fmt, enum unpack_mode mode, long offset)
 
           case 'j':
             signed_p = 1;
-            integer_size = sizeof(intptr_t);
+            integer_size = 8;
             bigendian_p = BIGENDIAN_P();
             goto unpack_integer;
 
           case 'J':
             signed_p = 0;
-            integer_size = sizeof(uintptr_t);
+            integer_size = 8;
             bigendian_p = BIGENDIAN_P();
             goto unpack_integer;
 

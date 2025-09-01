@@ -532,7 +532,7 @@ RUBY_BIT_ROTL(VALUE v, int n)
     return _lrotl(v, n);
 
 #else
-    const int m = (sizeof(VALUE) * CHAR_BIT) - 1;
+    const int m = (sizeof(ULVALUE) * CHAR_BIT) - 1;
     return (v << (n & m)) | (v >> (-n & m));
 #endif
 }
@@ -556,7 +556,7 @@ RUBY_BIT_ROTR(VALUE v, int n)
     return _lrotr(v, n);
 
 #else
-    const int m = (sizeof(VALUE) * CHAR_BIT) - 1;
+    const int m = (sizeof(ULVALUE) * CHAR_BIT) - 1;
     return (v << (-n & m)) | (v >> (n & m));
 #endif
 }

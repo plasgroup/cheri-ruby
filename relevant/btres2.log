@@ -1,9 +1,17 @@
+(gdb) q
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby ../basictest/runner.rb
+`RubyGems' were not loaded.
+`error_highlight' was not loaded.
+`did_you_mean' was not loaded.
+`syntax_suggest' was not loaded.
+
+test succeeded
 root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./ruby --disable=gems  "../bootstraptest/runner.r
 b" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems"
-2025-08-30 07:50:33 +0000
-Driver is ruby 3.4.5 (2025-08-29 revision 75b91119d1) +PRISM [riscv64-freebsd]
-Target is ruby 3.4.5 (2025-08-29 revision 75b91119d1) +PRISM [riscv64-freebsd]
-last_commit=16 cast to int
+2025-09-01 07:49:22 +0000
+Driver is ruby 3.4.5 (2025-09-01 revision c3648febdf) +PRISM [riscv64-freebsd]
+Target is ruby 3.4.5 (2025-09-01 revision c3648febdf) +PRISM [riscv64-freebsd]
+last_commit=[other]
 
 test_attr.rb              PASS 3
 test_autoload.rb          PASS 8
@@ -50,16 +58,7 @@ test_massign.rb           PASS 34
 test_method.rb            PASS 248
 test_objectspace.rb       PASS 6
 test_proc.rb              PASS 37
-#1269 test_ractor.rb:180:
-     n = 3
-     n.times.map{
-       Ractor.new{
-         10_000.times{ rand.to_s }
-         :ok
-       }
-     }.map(&:take)
-  #=> "" (expected "[:ok, :ok, :ok]")
-test_ractor.rb            FAIL 1/119
+test_ractor.rb            PASS 119
 test_rjit.rb              PASS 7
 test_string.rb            PASS 1
 test_struct.rb            PASS 1
@@ -91,10 +90,13 @@ test_yjit_30k_ifelse.rb   PASS 1
 test_yjit_30k_methods.rb  PASS 1
 test_yjit_rust_port.rb    PASS 38
 
-Finished in 8216.50 sec
+Finished in 8246.54 sec
 
 Fiber count: 10000 (skipping)
-FAIL 4/1993 tests failed
+FAIL 3/1993 tests failed
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -v
+ruby 3.4.5 (2025-09-01 revision c3648febdf) +PRISM [riscv64-freebsd]
+last_commit=[other]
 root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
 FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
 :21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src

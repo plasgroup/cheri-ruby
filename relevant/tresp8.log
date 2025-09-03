@@ -1,0 +1,161 @@
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext
+ -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/ --timeout-scale 10 --worker-timeout=1000 -v -
+-test-order=random
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/did_you_mean/test_tree_spell_checker.rb: cannot load such file -- psych
+/root/ruby-3.4.5/test/optparse/test_acceptable.rb: cannot load such file -- /root/ruby-3.4.5/test/op
+tparse/test_optparse
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/psych/handlers/test_recorder.rb: cannot load such file -- psych/helper
+/root/ruby-3.4.5/test/psych/test_alias_and_anchor.rb: cannot load such file -- /root/ruby-3.4.5/test
+/psych/helper
+/root/ruby-3.4.5/test/ruby/test_pipe.rb: cannot load such file -- /root/ruby-3.4.5/test/ruby/ut_eof
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/rdoc/rdoc_alias_test.rb: cannot load such file -- /root/ruby-3.4.5/test/rdoc/s
+upport/formatter_test_case
+Run options:
+  --seed=56681
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+  --test-order=random
+
+# Running tests:
+
+[   1/4654] TestGemSilentUI#test_progress_reporter = 1.00 s
+[   2/4654] TestGemSilentUI#test_download_reporter = 0.63 s
+[   3/4654] TestGemSilentUI#test_new_without_dev_null = 0.54 s
+[   4/4654] TestGemSilentUI#test_choose_from_list = 0.54 s
+[   5/4654] TestGemSilentUI#test_ask_yes_no = 0.71 s
+[   6/4654] TestGemSilentUI#test_ask = 0.60 s
+[   7/4654] TestGemSilentUI#test_ask_for_password = 0.61 s
+[   8/4654] TestGemResolverGitSpecification#test_add_dependency = 0.58 s
+[   9/4654] TestGemResolverGitSpecification#test_install_installed = 0.47 s
+[  10/4654] TestGemResolverGitSpecification#test_install_extension = 0.46 s
+[  11/4654] TestGemResolverGitSpecification#test_install = 0.46 s
+[  12/4654] TestGemResolverGitSpecification#test_equals2 = 0.64 s
+[  13/4654] TestIntegerComb#test_pack_ber = 0.21 s
+[  14/4654] TestIntegerComb#test_allbits_p = 12.67 s
+[  15/4654] TestIntegerComb#test_and = 57.32 s
+[  16/4654] TestIntegerComb#test_pack_utf8 = 0.21 s
+[  17/4654] TestIntegerComb#test_rshift = 249.12 s
+[  18/4654] TestIntegerComb#test_plus = 84.01 s
+[  19/4654] TestIntegerComb#test_floor = 0.23 s
+[  20/4654] TestIntegerComb#test_truncate = 0.15 s
+[  21/4654] TestIntegerComb#test_nobits_p = 11.95 s
+[  22/4654] TestIntegerComb#test_remainder = 83.16 s
+[  23/4654] TestIntegerComb#test_even_odd = 0.53 s
+[  24/4654] TestIntegerComb#test_eq = 26.58 s
+[  25/4654] TestIntegerComb#test_or = 53.56 s
+[  26/4654] TestIntegerComb#test_mult = 90.84 s
+[  27/4654] TestIntegerComb#test_anybits_p = 11.98 s
+[  28/4654] TestIntegerComb#test_succ = 0.38 s
+[  29/4654] TestIntegerComb#test_cmp = 56.96 s
+[  30/4654] TestIntegerComb#test_marshal = 0.26 s
+[  31/4654] TestIntegerComb#test_printf_o_sign = 0.37 s
+[  32/4654] TestIntegerComb#test_printf_o = 0.17 s
+[  33/4654] TestIntegerComb#test_minus = 86.41 s
+[  34/4654] TestIntegerComb#test_xor = 42.83 s
+[  35/4654] TestIntegerComb#test_not = 0.52 s
+[  36/4654] TestIntegerComb#test_printf_b = 0.29 s
+[  37/4654] TestIntegerComb#test_unary_plus = 0.15 s
+[  38/4654] TestIntegerComb#test_pred = 0.40 s
+[  39/4654] TestIntegerComb#test_pow = 29.22 s
+[  40/4654] TestIntegerComb#test_printf_b_sign = 0.36 s
+[  41/4654] TestIntegerComb#test_lshift = 242.55 s
+[  42/4654] TestIntegerComb#test_printf_x = 0.28 s
+[  43/4654] TestIntegerComb#test_printf_x_sign = 0.26 s
+[  44/4654] TestIntegerComb#test_to_s = 4.43 s
+[  45/4654] TestIntegerComb#test_abs = 0.23 s
+[  46/4654] TestIntegerComb#test_zero_nonzero = 0.38 s
+[  47/4654] TestIntegerComb#test_divmod = 86.57 s
+[  48/4654] TestIntegerComb#test_round = 0.15 s
+[  49/4654] TestIntegerComb#test_unary_minus = 0.31 s
+[  50/4654] TestIntegerComb#test_printf_diu = 0.36 s
+[  51/4654] TestIntegerComb#test_ceil = 0.27 s
+[  52/4654] TestIntegerComb#test_aref = 40.87 s
+[  53/4654] TestIntegerComb#test_pack = 7.70 s
+[  54/4654] TestGemExit#test_status = 0.48 s
+[  55/4654] TestGemExit#test_exit = 10.35 s
+[  56/4654] TestFiberQueue#test_pop_with_timeout_and_value = 0.12 s
+[  57/4654] TestFiberQueue#test_pop_with_timeout = 0.07 s
+[  58/4654] Test_Class::Test_Class2Name#test_toplevel_module = 0.02 s
+[  59/4654] Test_Class::Test_Class2Name#test_toplevel_class = 0.01 s
+[  60/4654] Test_Class::Test_Class2Name#test_singleton_class = 0.01 s
+[  61/4654] TestBenchmark#test_tms_to_h = 0.02 s
+[  62/4654] TestBenchmark#test_report_item_shows_the_title__even_if_not_a_string = 5.59 s
+[  63/4654] TestBenchmark#test_benchmark_does_not_print_any_space_if_the_given_caption_is_empty = 0.
+08 s
+[  64/4654] TestBenchmark#test_bugs_ruby_dev_40906_can_add_in_place_the_time_of_execution_of_the_blo
+ck_given = 0.13 s
+[  65/4654] TestBenchmark#test_bmbm_correctly_guess_the_label_width_even_when_not_given = 10.69 s
+[  66/4654] TestBenchmark#test_benchmark_makes_extra_calculations_with_an_Array_at_the_end_of_the_be
+nchmark_and_show_the_result = 0.21 s
+[  67/4654] TestBenchmark#test_bm_returns_an_Array_of_the_times_with_the_labels = 10.77 s
+[  68/4654] TestBenchmark#test_realtime_output = 1.02 s
+[  69/4654] TestBenchmark#test_bmbm_correctly_output_when_the_label_width_is_given__bmbm_ignore_it__
+but_it_is_a_frequent_mistake = 10.67 s
+[  70/4654] TestBenchmark#test_bm_can_make_extra_calcultations_with_an_array_at_the_end_of_the_bench
+mark = 0.21 s
+[  71/4654] TestBenchmark#test_bm_correctly_output_when_no_label_is_given = 0.19 s
+[  72/4654] TestBenchmark#test_bm_correctly_output_when_the_label_width_is_given = 0.07 s
+[  73/4654] TestBenchmark#test_tms_wont_modify_the_format_String_given = 0.01 s
+[  74/4654] TestBenchmark#test_tms_outputs_nicely = 0.04 s
+[  75/4654] TestWindows1252#test_windows_1252 = 0.44 s
+[  76/4654] TestWindows1252#test_stset = 0.02 s
+[  77/4654] TestTimeExtension#test_encode_httpdate = 0.02 s
+[  78/4654] TestTimeExtension#test_strptime_s_N = 0.04 s
+[  79/4654] TestTimeExtension#test_rfc2616 = 0.06 s
+[  80/4654] TestTimeExtension#test_xmlschema = 0.09 s
+[  81/4654] TestTimeExtension#test_encode_rfc2822 = 0.01 s
+[  82/4654] TestTimeExtension#test_completion = 0.09 s
+[  83/4654] TestTimeExtension#test_parse_offset_hour_minute_second = 0.07 s
+[  84/4654] TestTimeExtension#test_strptime = 0.03 s
+[  85/4654] TestTimeExtension#test_rfc2822_utc_roundtrip_summer = 0.01 s
+[  86/4654] TestTimeExtension#test_ruby_talk_152866 = 0.02 s
+[  87/4654] TestTimeExtension#test_xmlschema_alias = 0.05 s
+[  88/4654] TestTimeExtension#test_xmlschema_encode = 0.06 s
+[  89/4654] TestTimeExtension#test_xmlschema_leap_second = 0.08 s
+[  90/4654] TestTimeExtension#test_completion_with_different_timezone = 0.02 s
+[  91/4654] TestTimeExtension#test_parse_fraction = 0.02 s
+[  92/4654] TestTimeExtension#test_strptime_s_z = 0.02 s
+[  93/4654] TestTimeExtension#test_iso8601_nsec = 0.01 s
+[  94/4654] TestTimeExtension#test_rfc2822 = 0.07 s
+[  95/4654] TestTimeExtension#test_strptime_wuvg = 0.07 s
+[  96/4654] TestTimeExtension#test_strptime_empty = 0.02 s
+[  97/4654] TestTimeExtension#test_parse_leap_second = 0.19 s
+[  98/4654] TestTimeExtension#test_strptime_j = 0.02 s
+[  99/4654] TestTimeExtension#test_invalid = 0.19 s
+[ 100/4654] TestTimeExtension#test_parse_now_nil = 0.02 s
+[ 101/4654] TestTimeExtension#test_rfc2822_utc_roundtrip_winter = 0.01 s
+[ 102/4654] TestTimeExtension#test_nsec = 0.02 s
+[ 103/4654] TestTimeExtension#test_huge_precision = 9.81 s
+[ 104/4654] TestTimeExtension#test_zone_0000 = 0.08 s
+[ 105/4654] TestTimeExtension#test_strptime_p = 0.04 s
+[ 106/4654] TestTimeExtension#test_rfc2822_nonlinearIn-address space security exception (core dumped
+)
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -v
+ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+last_commit=[other]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

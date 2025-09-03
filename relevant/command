@@ -73,6 +73,10 @@ gcc -E -DRUBY_EXPORT -I. -I.ext/include/x86_64-linux -I.ext/include -I../include
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
 "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
 --excludes-dir=../test/.excludes --name=!/memory_leak/ --timeout-scale 10 --worker-timeout=1000 -v --test-order=random
+## dir
+./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/ ../test/ --timeout-scale 10 --worker-timeout=1000 -v
 ## file
 
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \

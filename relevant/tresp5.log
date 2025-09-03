@@ -1,0 +1,222 @@
+../test/uri/test_ftp.rb
+../test/uri/test_ws.rb
+../test/zlib/test_zlib.rb
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> --excludes-dir=../test/.excludes --name=!/memory_leak/ --timeout-scale 10 --worker-timeout=1000 -v
+ --test-order=random
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/did_you_mean/test_tree_spell_checker.rb: cannot load such file -- psych
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/ruby/test_pipe.rb: cannot load such file -- /root/ruby-3.4.5/test/ruby/ut_eof
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML
+output).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+/root/ruby-3.4.5/test/rdoc/rdoc_alias_test.rb: cannot load such file -- /root/ruby-3.4.5/test/rdoc/s
+upport/formatter_test_case
+Run options:
+  --seed=10628
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+  --test-order=random
+
+# Running tests:
+
+[    1/10140] TestPatternMatching::TestPatternMatchingRefinements#test_refinements = 0.05 s
+[    2/10140] TestDateCompat#test_compat = 0.05 s
+[    3/10140] TestGemSourceSubpathProblem#test_dependency_resolver_set = 2.30 s
+[    4/10140] TestGemSourceSubpathProblem#test_fetch_spec = 1.69 s
+[    5/10140] TestGemSourceSubpathProblem#test_load_specs = 1.66 s
+[    6/10140] TestGemExtCmakeBuilder#test_self_build_fail = 0.98 s
+[    7/10140] TestGemExtCmakeBuilder#test_self_build_has_makefile = 0.95 s
+[    8/10140] TestGemExtCmakeBuilder#test_self_build = 0.94 s
+[    9/10140] TestGemValidator#test_alien = 1.05 s
+[   10/10140] TestGemValidator#test_alien_default = 0.90 s
+[   11/10140] TestFiberTimeout#test_timeout_after = 0.12 s
+[   12/10140] TestFiberTimeout#test_timeout_on_main_fiber = 0.08 s
+[   13/10140] URI::TestCommon#test_encode_www_form_component = 0.47 s
+[   14/10140] URI::TestCommon#test_regexp = 0.23 s
+[   15/10140] URI::TestCommon#test_parser_switch = 0.33 s
+[   16/10140] URI::TestCommon#test_decode_www_form_component = 1.14 s
+[   17/10140] URI::TestCommon#test_kernel_uri = 0.06 s
+[   18/10140] URI::TestCommon#test_parse_timeout = 160.02 s
+[   19/10140] URI::TestCommon#test_encode_www_form = 0.16 s
+[   20/10140] URI::TestCommon#test_fallback_constants = 0.02 s
+[   21/10140] URI::TestCommon#test_decode_www_form = 0.24 s
+[   22/10140] URI::TestCommon#test_extract = 0.11 s
+[   23/10140] URI::TestCommon#test_decode_uri_component = 1.02 s
+[   24/10140] URI::TestCommon#test_register_scheme_lowercase = 0.04 s
+[   25/10140] URI::TestCommon#test_encode_uri_component = 0.07 s
+[   26/10140] URI::TestCommon#test_ractor = 17.37 s
+[   27/10140] URI::TestCommon#test_register_scheme_with_symbols = 0.08 s
+[   28/10140] URI::TestCommon#test_register_scheme = 0.05 s
+[   29/10140] TestGemSourceVendor#test_spaceship = 0.68 s
+[   30/10140] TestGemSourceVendor#test_initialize = 0.50 s
+[   31/10140] TestMkmfSizeof#test_sizeof_builtin = 0.69 s
+[   32/10140] TestMkmfSizeof#test_sizeof_struct = 0.59 s
+[   33/10140] TestGemResolverInstalledSpecification#test_install = 0.58 s
+[   34/10140] TestGemResolverInstalledSpecification#test_initialize = 0.49 s
+[   35/10140] TestGemResolverInstalledSpecification#test_installable_platform_eh = 0.91 s
+[   36/10140] TestDigestRactor::TestSHA256Ractor#test_s_hexdigest = 3.00 s
+[   37/10140] TestGemSourceInstalled#test_pretty_print = 0.77 s
+[   38/10140] TestGemSourceInstalled#test_spaceship = 0.94 s
+[   39/10140] TestRubyPrimitive#test_aset = 0.02 s
+[   40/10140] TestRubyPrimitive#test_constatant_cache4 = 0.01 s
+[   41/10140] TestRubyPrimitive#test_cvar_from_instance_method = 0.02 s
+[   42/10140] TestRubyPrimitive#test_concatarray_ruby_dev_41933 = 0.02 s
+[   43/10140] TestRubyPrimitive#test_opassign = 0.03 s
+[   44/10140] TestRubyPrimitive#test_cvar_from_singleton_method2 = 0.02 s
+[   45/10140] TestRubyPrimitive#test_lvar = 0.01 s
+[   46/10140] TestRubyPrimitive#test_list_expand = 0.01 s
+[   47/10140] TestRubyPrimitive#test_fact = 0.08 s
+[   48/10140] TestRubyPrimitive#test_cvar_from_singleton_method = 0.01 s
+[   49/10140] TestRubyPrimitive#test_constant_cache2 = 0.01 s
+[   50/10140] TestRubyPrimitive#test_constant_cache = 0.01 s
+[   51/10140] TestRubyPrimitive#test_attr_setter = 0.01 s
+[   52/10140] TestRubyPrimitive#test_constant_cache5 = 0.01 s
+[   53/10140] TestRubyPrimitive#test_constant_cache3 = 0.01 s
+[   54/10140] TestRubyPrimitive#test_aref = 0.02 s
+[   55/10140] TestRubyPrimitive#test_gvar = 0.01 s
+[   56/10140] TestRubyPrimitive#test_mod = 0.01 s
+[   57/10140] TestRubyPrimitive#test_constant = 0.03 s
+[   58/10140] TestRubyPrimitive#test_backref = 0.03 s
+[   59/10140] TestRubyPrimitive#test_length = 0.02 s
+[   60/10140] TestRubyPrimitive#test_opassign_and_or = 0.01 s
+[   61/10140] TestRubyPrimitive#test_mul = 0.01 s
+[   62/10140] TestRubyPrimitive#test_div = 0.02 s
+[   63/10140] TestRubyPrimitive#test_not = 0.01 s
+[   64/10140] TestAst#"test_ranges:test/fiber/test_sleep.rb" = 0.49 s
+[   65/10140] TestAst#"test_ranges:test/did_you_mean/test_tree_spell_checker.rb" = 1.18 s
+[   66/10140] TestAst#"test_all_tokens:test/ruby/enc/test_case_options.rb" = 4.13 s
+[   67/10140] TestAst#"test_all_tokens:test/psych/test_date_time.rb" = 3.84 s
+[   68/10140] TestAst#"test_not_cared:test/stringio/test_stringio.rb" = 7.75 s
+[   69/10140] TestAst#"test_not_cared:test/win32ole/test_win32ole_param_event.rb" = 0.09 s
+[   70/10140] TestAst#"test_ranges:test/ruby/allpairs.rb" = 1.04 s
+[   71/10140] TestAst#"test_ranges:test/-ext-/arith_seq/test_arith_seq_extract.rb" = 0.09 s
+[   72/10140] TestAst#"test_not_cared:test/cgi/update_env.rb" = 0.05 s
+[   73/10140] TestAst#"test_not_cared:test/psych/visitors/test_yaml_tree.rb" = 0.92 s
+[   74/10140] TestAst#"test_not_cared:test/ruby/test_env.rb" = 6.37 s
+[   75/10140] TestAst#"test_ranges:test/rubygems/test_gem_request_connection_pools.rb" = 1.51 s
+[   76/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_safe_marshal.rb" = 39.23 s
+[   77/10140] TestAst#"test_not_cared:test/reline/yamatanooroti/termination_checker.rb" = 0.22 s
+[   78/10140] TestAst#test_args = 0.02 s
+[   79/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_remote_fetcher_local_server.rb" = 6.82
+ s
+[   80/10140] TestAst#"test_not_cared:test/rubygems/test_gem_resolver_dependency_request.rb" = 0.28
+s
+[   81/10140] TestAst#"test_not_cared:test/rubygems/test_gem_commands_build_command.rb" = 3.78 s
+[   82/10140] TestAst#"test_all_tokens:test/ruby/test_signal.rb" = 14.85 s
+[   83/10140] TestAst#"test_ranges:test/psych/test_nil.rb" = 0.21 s
+[   84/10140] TestAst#"test_ranges:test/test_extlibs.rb" = 0.52 s
+[   85/10140] TestAst#"test_all_tokens:test/fileutils/visibility_tests.rb" = 1.52 s
+[   86/10140] TestAst#"test_not_cared:test/ripper/test_lexer.rb" = 2.83 s
+[   87/10140] TestAst#"test_ranges:test/mkmf/test_sizeof.rb" = 0.49 s
+[   88/10140] TestAst#"test_ranges:test/ruby/test_optimization.rb" = 11.42 s
+[   89/10140] TestAst#"test_ranges:test/ruby/enc/test_utf16.rb" = 3.42 s
+[   90/10140] TestAst#"test_not_cared:test/-ext-/required.rb" = 0.06 s
+[   91/10140] TestAst#"test_ranges:test/rubygems/test_gem_package_old.rb" = 0.57 s
+[   92/10140] TestAst#"test_not_cared:test/-ext-/test_random.rb" = 0.20 s
+[   93/10140] TestAst#"test_all_tokens:test/irb/test_option.rb" = 15.21 s
+[   94/10140] TestAst#"test_all_tokens:test/win32ole/test_win32ole_variant_m.rb" = 1.49 s
+[   95/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_local_remote_options.rb" = 4.43 s
+[   96/10140] TestAst#"test_all_tokens:test/ruby/enc/test_utf16.rb" = 18.99 s
+[   97/10140] TestAst#"test_all_tokens:test/ruby/test_name_error.rb" = 6.94 s
+[   98/10140] TestAst#"test_not_cared:test/rubygems/test_gem_unsatisfiable_dependency_error.rb" = 0.
+17 s
+[   99/10140] TestAst#"test_all_tokens:test/ruby/test_optimization.rb" = 49.87 s
+[  100/10140] TestAst#"test_ranges:test/rubygems/test_gem_resolver_lock_specification.rb" = 0.74 s
+[  101/10140] TestAst#"test_all_tokens:test/rdoc/rdoc_task_test.rb" = 6.92 s
+[  102/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_commands_uninstall_command.rb" = 22.61
+ s
+[  103/10140] TestAst#"test_ranges:test/reline/windows/test_key_event_record.rb" = 0.33 s
+[  104/10140] TestAst#"test_all_tokens:test/irb/command/test_force_exit.rb" = 1.35 s
+[  105/10140] TestAst#"test_ranges:test/prism/test_helper.rb" = 4.79 s
+[  106/10140] TestAst#"test_all_tokens:test/psych/test_safe_load.rb" = 7.36 s
+[  107/10140] TestAst#"test_not_cared:test/ruby/lbtest.rb" = 0.16 s
+[  108/10140] TestAst#"test_ranges:test/rdoc/rdoc_task_test.rb" = 1.54 s
+[  109/10140] TestAst#"test_not_cared:test/psych/test_boolean.rb" = 0.21 s
+[  110/10140] TestAst#"test_not_cared:test/rdoc/rdoc_parser_rd_test.rb" = 0.17 s
+[  111/10140] TestAst#"test_ranges:test/-ext-/string/test_qsort.rb" = 0.16 s
+[  112/10140] TestAst#"test_ranges:test/rubygems/test_gem_resolver_vendor_set.rb" = 0.59 s
+[  113/10140] TestAst#"test_not_cared:test/win32ole/test_win32ole_typelib.rb" = 0.53 s
+[  114/10140] TestAst#"test_ranges:test/psych/test_yaml.rb" = 12.83 s
+[  115/10140] TestAst#test_error_tolerant_end_is_short_for_method_define = 0.19 s
+[  116/10140] TestAst#"test_not_cared:test/-ext-/string/test_external_new.rb" = 0.10 s
+[  117/10140] TestAst#"test_not_cared:test/rubygems/test_gem_config_file.rb" = 2.36 s
+[  118/10140] TestAst#"test_ranges:test/rdoc/rdoc_markup_hard_break_test.rb" = 0.16 s
+[  119/10140] TestAst#"test_not_cared:test/-ext-/string/test_too_many_dummy_encodings.rb" = 0.04 s
+[  120/10140] TestAst#"test_ranges:test/rubygems/bundler_test_gem.rb" = 2.72 s
+[  121/10140] TestAst#"test_all_tokens:test/test_tmpdir.rb" = 6.58 s
+[  122/10140] TestAst#"test_not_cared:test/ruby/test_yjit_exit_locations.rb" = 0.39 s
+[  123/10140] TestAst#"test_not_cared:test/psych/test_object_references.rb" = 0.21 s
+[  124/10140] TestAst#"test_not_cared:test/win32ole/test_thread.rb" = 0.16 s
+[  125/10140] TestAst#"test_ranges:test/rubygems/test_gem_doctor.rb" = 1.13 s
+[  126/10140] TestAst#"test_all_tokens:test/ruby/test_fnmatch.rb" = 9.61 s
+[  127/10140] TestAst#"test_not_cared:test/optparse/test_autoconf.rb" = 0.31 s
+[  128/10140] TestAst#"test_ranges:test/ruby/test_encoding.rb" = 0.90 s
+[  129/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_source_installed.rb" = 2.29 s
+[  130/10140] TestAst#"test_all_tokens:test/ripper/test_sexp.rb" = 33.45 s
+[  131/10140] TestAst#"test_not_cared:test/rdoc/rdoc_parser_markdown_test.rb" = 0.20 s
+[  132/10140] TestAst#test_error_tolerant_end_is_short_for_case = 0.50 s
+[  133/10140] TestAst#"test_ranges:test/rdoc/rdoc_markup_to_bs_test.rb" = 2.03 s
+[  134/10140] TestAst#"test_ranges:test/psych/test_array.rb" = 0.60 s
+[  135/10140] TestAst#"test_not_cared:test/ruby/test_thread.rb" = 5.54 s
+[  136/10140] TestAst#test_error_tolerant_expr_value_can_be_error = 0.18 s
+[  137/10140] TestAst#"test_not_cared:test/psych/test_yamldbm.rb" = 1.03 s
+[  138/10140] TestAst#"test_not_cared:test/mkmf/test_install.rb" = 0.14 s
+[  139/10140] TestAst#"test_all_tokens:test/rubygems/foo/discover.rb" = 0.02 s
+[  140/10140] TestAst#"test_ranges:test/fiber/test_backtrace.rb" = 0.16 s
+[  141/10140] TestAst#"test_not_cared:test/rubygems/test_gem_bundler_version_finder.rb" = 0.77 s
+[  142/10140] TestAst#"test_ranges:test/mkmf/test_constant.rb" = 0.48 s
+[  143/10140] TestAst#"test_not_cared:test/rubygems/test_webauthn_poller.rb" = 0.80 s
+[  144/10140] TestAst#"test_not_cared:test/date/test_date_parse.rb" = 20.60 s
+[  145/10140] TestAst#"test_all_tokens:test/lib/parser_support.rb" = 0.51 s
+[  146/10140] TestAst#"test_not_cared:test/rubygems/test_bundled_ca.rb" = 0.19 s
+[  147/10140] TestAst#"test_not_cared:test/-ext-/vm/test_at_exit.rb" = 0.03 s
+[  148/10140] TestAst#"test_not_cared:test/test_find.rb" = 2.42 s
+[  149/10140] TestAst#"test_not_cared:test/dtrace/test_require.rb" = 0.13 s
+[  150/10140] TestAst#"test_ranges:test/ruby/test_default_gems.rb" = 0.32 s
+[  151/10140] TestAst#"test_all_tokens:test/resolv/test_svcb_https.rb" = 13.22 s
+[  152/10140] TestAst#"test_all_tokens:test/erb/test_erb_m17n.rb" = 8.21 s
+[  153/10140] TestAst#"test_ranges:test/ruby/test_vm_dump.rb" = 0.16 s
+[  154/10140] TestAst#"test_all_tokens:test/irb/command/test_disable_irb.rb" = 0.76 s
+[  155/10140] TestAst#"test_ranges:test/date/test_date.rb" = 2.38 s
+[  156/10140] TestAst#"test_ranges:test/open-uri/test_ftp.rb" = 2.00 s
+[  157/10140] TestAst#"test_not_cared:test/ripper/test_scanner_events.rb" = 4.98 s
+[  158/10140] TestAst#"test_not_cared:test/-ext-/string/test_rb_str_dup.rb" = 0.11 s
+[  159/10140] TestAst#"test_ranges:test/rubygems/rubygems/commands/interrupt_command.rb" = 0.06 s
+[  160/10140] TestAst#"test_ranges:test/dtrace/test_function_entry.rb" = 0.46 s
+[  161/10140] TestAst#"test_all_tokens:test/ruby/test_default_gems.rb" = 1.05 s
+[  162/10140] TestAst#"test_all_tokens:test/fiber/test_mutex.rb" = 6.01 s
+[  163/10140] TestAst#"test_all_tokens:test/-ext-/thread/test_instrumentation_api.rb" = 17.07 s
+[  164/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_doctor.rb" = 5.56 s
+[  165/10140] TestAst#test_error_tolerant_end_is_short_for_do_block = 0.12 s
+[  166/10140] TestAst#"test_ranges:test/digest/digest/foo.rb" = 0.06 s
+[  167/10140] TestAst#"test_all_tokens:test/ruby/test_stringchar.rb" = 10.48 s
+[  168/10140] TestAst#"test_all_tokens:test/ruby/test_struct.rb" = 30.94 s
+[  169/10140] TestAst#"test_not_cared:test/ripper/test_files_ext.rb" = 0.04 s
+[  170/10140] TestAst#"test_all_tokens:test/rubygems/test_gem_commands_install_command.rb"In-address
+ space security exception (core dumped)
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -v
+ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+last_commit=[other]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

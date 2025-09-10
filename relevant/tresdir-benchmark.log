@@ -1,0 +1,58 @@
+error_highlight                 ripper                          test_time.rb
+etc                             ruby                            test_timeout.rb
+fiber                           rubygems                        test_tmpdir.rb
+fiddle                          runner.rb                       test_trick.rb
+fileutils                       set                             test_tsort.rb
+io                              socket                          test_unicode_normalize.rb
+irb                             stringio                        test_weakref.rb
+json                            strscan                         uri
+lib                             test_bundled_gems.rb            win32
+logger                          test_delegate.rb                win32ole
+mkmf                            test_extlibs.rb                 yaml
+monitor                         test_find.rb                    zlib
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext
+ -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/ ../test/benchmark/ --timeout-scale 10 --worke
+r-timeout=1000 -v
+Run options:
+  --seed=41906
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/14] TestBenchmark#test_tms_to_h = 0.04 s
+[ 2/14] TestBenchmark#test_report_item_shows_the_title__even_if_not_a_string = 0.57 s
+[ 3/14] TestBenchmark#test_benchmark_does_not_print_any_space_if_the_given_caption_is_empty = 0.05 s
+[ 4/14] TestBenchmark#test_bugs_ruby_dev_40906_can_add_in_place_the_time_of_execution_of_the_block_g
+iven = 0.13 s
+[ 5/14] TestBenchmark#test_bmbm_correctly_guess_the_label_width_even_when_not_given = 1.35 s
+[ 6/14] TestBenchmark#test_benchmark_makes_extra_calculations_with_an_Array_at_the_end_of_the_benchm
+ark_and_show_the_result = 0.18 s
+[ 7/14] TestBenchmark#test_bm_returns_an_Array_of_the_times_with_the_labels = 1.40 s
+[ 8/14] TestBenchmark#test_bm_can_make_extra_calcultations_with_an_array_at_the_end_of_the_benchmark
+ = 0.17 s
+[ 9/14] TestBenchmark#test_realtime_output = 1.01 s
+[10/14] TestBenchmark#test_bmbm_correctly_output_when_the_label_width_is_given__bmbm_ignore_it__but_
+it_is_a_frequent_mistake = 1.34 s
+[11/14] TestBenchmark#test_bm_correctly_output_when_no_label_is_given = 0.16 s
+[12/14] TestBenchmark#test_tms_wont_modify_the_format_String_given = 0.01 s
+[13/14] TestBenchmark#test_bm_correctly_output_when_the_label_width_is_given = 0.04 s
+[14/14] TestBenchmark#test_tms_outputs_nicely = 0.05 s
+Finished tests in 8.475050s, 1.6519 tests/s, 7.4336 assertions/s.
+14 tests, 63 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

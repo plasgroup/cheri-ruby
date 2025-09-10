@@ -1,0 +1,79 @@
+error_highlight                 ripper                          test_time.rb
+etc                             ruby                            test_timeout.rb
+fiber                           rubygems                        test_tmpdir.rb
+fiddle                          runner.rb                       test_trick.rb
+fileutils                       set                             test_tsort.rb
+io                              socket                          test_unicode_normalize.rb
+irb                             stringio                        test_weakref.rb
+json                            strscan                         uri
+lib                             test_bundled_gems.rb            win32
+logger                          test_delegate.rb                win32ole
+mkmf                            test_extlibs.rb                 yaml
+monitor                         test_find.rb                    zlib
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext
+ -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/ ../test/coverage/ --timeout-scale 10 --worker
+-timeout=1000 -v
+Run options:
+  --seed=25421
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/43] TestCoverage#test_restarting_coverage = 2.61 s
+[ 2/43] TestCoverage#test_clear_with_oneshot_lines = 2.48 s
+[ 3/43] TestCoverage#test_coverage_running? = 2.42 s
+[ 4/43] TestCoverage#test_clear_with_lines = 3.51 s
+[ 5/43] TestCoverage#test_result_with_nothing = 2.42 s
+[ 6/43] TestCoverage#test_method_coverage_for_alias = 5.16 s
+[ 7/43] TestCoverage#test_clear_with_branches = 2.57 s
+[ 8/43] TestCoverage#test_result_without_resume = 2.38 s
+[ 9/43] TestCoverage#test_eval_negative_lineno = 2.48 s
+[10/43] TestCoverage#test_big_code = 7.62 s
+[11/43] TestCoverage#test_resume_without_setup = 2.38 s
+[12/43] TestCoverage#test_stop_wrong_peephole_optimization = 2.48 s
+[13/43] TestCoverage#test_coverage_supported = 0.02 s
+[14/43] TestCoverage#test_method_coverage = 2.55 s
+[15/43] TestCoverage#test_eval = 5.42 s
+[16/43] TestCoverage#test_branch_coverage_for_while_statement = 2.56 s
+[17/43] TestCoverage#test_suspend_without_setup = 2.39 s
+[18/43] TestCoverage#test_oneshot_line_coverage = 2.53 s
+[19/43] TestCoverage#test_coverage_snapshot = 3.20 s
+[20/43] TestCoverage#test_coverage_suspendable = 35.74 s
+[21/43] TestCoverage#test_double_suspend = 2.38 s
+[22/43] TestCoverage#test_eval_coverage = 2.45 s
+[23/43] TestCoverage#test_branch_coverage_for_safe_method_invocation = 2.59 s
+[24/43] TestCoverage#test_line_coverage_for_multiple_lines = 2.52 s
+[25/43] TestCoverage#test_branch_coverage_for_if_statement = 2.59 s
+[26/43] TestCoverage#test_coverage_optimized_branch = 2.52 s
+[27/43] TestCoverage#test_nocoverage_optimized_line = 9.74 s
+[28/43] TestCoverage#test_line_stub = 0.09 s
+[29/43] TestCoverage#test_branch_coverage_in_ensure_clause = 2.81 s
+[30/43] TestCoverage#test_clear_with_methods = 3.29 s
+[31/43] TestCoverage#test_result_without_start = 2.37 s
+[32/43] TestCoverage#test_coverage_in_main_script = 2.51 s
+[33/43] TestCoverage#test_branch_coverage_for_case_statement = 2.57 s
+[34/43] TestCoverage#test_double_resume = 2.41 s
+[35/43] TestCoverage#test_coverage_ensure_if_return = 2.52 s
+[36/43] TestCoverage#test_peek_result_without_start = 2.38 s
+[37/43] TestCoverage#test_method_coverage_for_define_method = 2.63 s
+[38/43] TestCoverage#test_tag_break_with_branch_coverage = 3.21 s
+[39/43] TestCoverage#test_coverage_with_asan = 2.49 s
+[40/43] TestCoverage#test_branch_coverage_for_pattern_matching = 2.56 s
+[41/43] TestCoverage#test_method_coverage_for_singleton_class = 2.63 s
+[42/43] TestCoverage#test_coverage_state = 4.88 s
+[43/43] TestCoverage#test_result_after_suspend = 2.42 s
+Finished tests in 163.948431s, 0.2623 tests/s, 1.4212 assertions/s.
+43 tests, 233 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

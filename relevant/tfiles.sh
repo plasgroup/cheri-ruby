@@ -26,15 +26,17 @@ fi
 # Read input file line by line
 while IFS= read -r line; do
     # Process only lines matching pattern
-    if [[ "$line" =~ \[[^]]+\]\ (.+)#(.+)\ = ]]; then
-        test="${BASH_REMATCH[1]}"
+    if [[ "$line" =~ \[.+\]\ (.+)#(.+)(#.*)*\ = ]]; then
+# 	No file found for: class TestSprintfComb#"test_format_integer(% #+-0B)"
+# test: class TestSprintfComb#"test_format_integer(% 
+        test="${BASH_REMATCH[1]}" | sed 's/(/\\(/g; s/)/\\)/g; s/\[/\\[/g; s/\]/\\]/g; s/\+/\\+/g; s/\*/\\*/g; s/\./\\\./g; s/\$/\\\$/g; s/\^/\\^/g; s/\{/\\\{/g; s/\}/\\}/g; s/\|/\\|/g; s/\\/\\\\/g; s/\?/\\?/g; s/\-/\\-/g; s/\&/\\\&/g; s/\!/\\\!/g; s/\%/\\%/g;'
         case_name="${BASH_REMATCH[2]}"
-		test="class ${test}"
+		test="class\ ${test}\ "
 
 		last=""
         if [[ "$test" == *::* ]]; then
             last=${test##*::}
-			last="class ${last}"
+			last="class\ ${last}\ "
         fi
 
         # 1. Try searching for case
@@ -42,8 +44,8 @@ while IFS= read -r line; do
         if [[ -n "$files" ]]; then
             while IFS= read -r file; do
                 if egrep -q -- "$last" "$file" || egrep -q -- "$test" "$file"; then
-                    # echo "$file" 
-                    echo "$file" >> tfiles.txt
+                    echo "$file" 
+                    # echo "$file" >> tfiles.txt
                     continue 2
                 fi
             done <<< "$files"
@@ -52,8 +54,8 @@ while IFS= read -r line; do
         # 2. Try searching for test
         files=$(egrep -rl -- "$test" "$target_dir")
         if [[ -n "$files" ]] && [ "$(echo "$files" | wc -l)" -eq 1 ]; then
-            # echo "$files"
-            echo "$files" >> tfiles.txt
+            echo "$files"
+            # echo "$files" >> tfiles.txt
             continue
         fi
 
@@ -61,16 +63,17 @@ while IFS= read -r line; do
         if [[ "$test" == *::* ]]; then
             files=$(egrep -rl -- "$last" "$target_dir")
             if [[ -n "$files" ]] && [ "$(echo "$files" | wc -l)" -eq 1 ]; then
-                echo "$files" >> tfiles.txt
+                # echo "$files" >> tfiles.txt
                 continue
             fi
         fi
 
         # 4. If still nothing, print to stderr
-        echo "No file found for: $test#$case_name" >&2
-		echo "test: $test"
-        echo "case: $case_name"
-		echo "last: $last"
+        echo "No file found for: $test#$case_name" >> tnofindfile.txt 
+		echo "test: $test" >> tnofindfile.txt
+        echo "case: $case_name" >> tnofindfile.txt
+		echo "last: $last" >> tnofindfile.txt
+		echo "" >> tnofindfile.txt
     fi
 done < "$input_file"
 

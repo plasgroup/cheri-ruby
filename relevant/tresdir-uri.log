@@ -1,0 +1,129 @@
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/test/ruby # stat test_ast.rb
+61 642868 -rw-r--r-- 1 root wheel 1298408 44577 "Sep  3 01:52:19 2025" "Sep  3 01:52:19 2025" "Sep
+3 01:52:19 2025" "Sep  3 01:52:19 2025" 32768 88 0 test_ast.rb
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/test/ruby # cd -
+/root/ruby-3.4.5/build
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # pwd
+/root/ruby-3.4.5/build
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # man ktrace
+-sh: man: not found
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # info ktrace
+-sh: info: not found
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # help ktrace
+-sh: help: not found
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ktrace -f ktrace.out ./miniruby -I../lib -I. -I.e
+xt/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> --excludes-dir=../test/.excludes --name=!/memory_leak/ ../test/uri/ --timeout-scale 10 --worker-ti
+meout=1000 -v
+Run options:
+  --seed=29588
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/88] URI::TestWS#test_select = 0.08 s
+[ 2/88] URI::TestWS#test_normalize = 0.04 s
+[ 3/88] URI::TestWS#test_parse = 0.02 s
+[ 4/88] URI::TestWS#test_request_uri = 0.04 s
+[ 5/88] URI::TestWS#test_equal = 0.04 s
+[ 6/88] URI::TestWS#test_build = 0.03 s
+[ 7/88] URI::TestFTP#test_assemble = 0.04 s
+[ 8/88] URI::TestFTP#test_select = 0.04 s
+[ 9/88] URI::TestFTP#test_parse = 0.02 s
+[10/88] URI::TestFTP#test_paths = 0.03 s
+[11/88] URI::TestFTP#test_parse_invalid = 0.02 s
+[12/88] URI::TestMailTo#test_to_mailtext = 0.10 s
+[13/88] URI::TestMailTo#test_select = 0.03 s
+[14/88] URI::TestMailTo#test_to_s = 0.03 s
+[15/88] URI::TestMailTo#test_check_to = 0.03 s
+[16/88] URI::TestMailTo#test_initializer = 0.02 s
+[17/88] URI::TestMailTo#test_build = 0.50 s
+[18/88] URI::TestWSS#test_select = 0.04 s
+[19/88] URI::TestWSS#test_normalize = 0.04 s
+[20/88] URI::TestWSS#test_parse = 0.02 s
+[21/88] URI::TestWSS#test_request_uri = 0.04 s
+[22/88] URI::TestWSS#test_equal = 0.04 s
+[23/88] URI::TestWSS#test_build = 0.02 s
+[24/88] URI::TestHTTP#test_origin = 0.04 s
+[25/88] URI::TestHTTP#test_select = 0.03 s
+[26/88] URI::TestHTTP#test_normalize = 0.04 s
+[27/88] URI::TestHTTP#test_parse = 0.02 s
+[28/88] URI::TestHTTP#test_request_uri = 0.03 s
+[29/88] URI::TestHTTP#test_equal = 0.04 s
+[30/88] URI::TestHTTP#test_build = 0.02 s
+[31/88] URI::TestHTTP#test_authority = 0.02 s
+[32/88] URI::TestLDAP#test_select = 0.04 s
+[33/88] URI::TestLDAP#test_parse = 0.10 s
+[34/88] URI::TestLDAP#test_parse_invalid_uri = 0.02 s
+[35/88] URI::TestGeneric#test_set_scheme = 0.03 s
+[36/88] URI::TestGeneric#test_join = 0.31 s
+[37/88] URI::TestGeneric#test_find_proxy_no_proxy = 2.94 s
+[38/88] URI::TestGeneric#test_hierarchical = 0.03 s
+[39/88] URI::TestGeneric#test_absolute = 0.02 s
+[40/88] URI::TestGeneric#test_parse_scheme_with_symbols = 0.03 s
+[41/88] URI::TestGeneric#test_find_proxy_no_env = 0.05 s
+[42/88] URI::TestGeneric#test_find_proxy_get = 0.16 s
+[43/88] URI::TestGeneric#test_ipv6 = 0.04 s
+[44/88] URI::TestGeneric#test_to_s = 0.05 s
+[45/88] URI::TestGeneric#test_merge = 0.44 s
+[46/88] URI::TestGeneric#test_build2 = 0.04 s
+[47/88] URI::TestGeneric#test_parse = 0.14 s
+[48/88] URI::TestGeneric#test_use_proxy_p = 0.06 s
+[49/88] URI::TestGeneric#test_rfc3986_examples = 1.00 s
+[50/88] URI::TestGeneric#test_bad_password_component = 0.03 s
+[51/88] URI::TestGeneric#test_set_component = 0.11 s
+[52/88] URI::TestGeneric#test_find_proxy_bad_value = 0.09 s
+[53/88] URI::TestGeneric#test_find_proxy_case_sensitive_env = 0.18 s
+[54/88] URI::TestGeneric#test_route = 0.47 s
+[55/88] URI::TestGeneric#test_build = 0.11 s
+[56/88] URI::TestGeneric#test_merge_authority = 0.09 s
+[57/88] URI::TestGeneric#test_find_proxy_no_proxy_cidr = 0.39 s
+[58/88] URI::TestGeneric#test_find_proxy_bad_uri = 0.02 s
+[59/88] URI::TestGeneric#test_find_proxy = 0.18 s
+[60/88] URI::TestGeneric#test_split = 0.02 s
+[61/88] URI::TestCommon#test_encode_uri_component = 0.36 s
+[62/88] URI::TestCommon#test_register_scheme_lowercase = 0.04 s
+[63/88] URI::TestCommon#test_register_scheme = 0.04 s
+[64/88] URI::TestCommon#test_register_scheme_with_symbols = 0.03 s
+[65/88] URI::TestCommon#test_ractor = 16.75 s
+[66/88] URI::TestCommon#test_extract = 0.13 s
+[67/88] URI::TestCommon#test_decode_www_form = 0.16 s
+[68/88] URI::TestCommon#test_fallback_constants = 0.03 s
+[69/88] URI::TestCommon#test_decode_uri_component = 1.09 s
+[70/88] URI::TestCommon#test_kernel_uri = 0.04 s
+[71/88] URI::TestCommon#test_parse_timeout = 169.23 s
+[72/88] URI::TestCommon#test_encode_www_form = 0.12 s
+[73/88] URI::TestCommon#test_parser_switch = 0.29 s
+[74/88] URI::TestCommon#test_decode_www_form_component = 1.02 s
+[75/88] URI::TestCommon#test_encode_www_form_component = 0.08 s
+[76/88] URI::TestCommon#test_regexp = 0.18 s
+[77/88] URI::TestParser#test_rfc3986_port_check = 2.14 s
+[78/88] URI::TestParser#test_parse_rfc2396_parser = 0.52 s
+[79/88] URI::TestParser#test_rfc2822_unescape = 0.25 s
+[80/88] URI::TestParser#test_raise_bad_uri_for_integer = 0.02 s
+[81/88] URI::TestParser#test_inspect = 0.23 s
+[82/88] URI::TestParser#test_compare = 0.05 s
+[83/88] URI::TestParser#test_parse_query_pct_encoded = 0.03 s
+[84/88] URI::TestParser#test_rfc2822_parse_relative_uri = 7.07 s
+[85/88] URI::TestParser#test_parse_auth = 0.07 s
+[86/88] URI::TestParser#test_split = 0.03 s
+[87/88] URI::TestFile#test_parse = 0.06 s
+[88/88] URI::TestFile#test_build = 0.07 s
+Finished tests in 217.500849s, 0.4046 tests/s, 14.2850 assertions/s.
+88 tests, 3107 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

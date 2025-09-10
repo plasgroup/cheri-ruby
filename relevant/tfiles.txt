@@ -1,4 +1,3 @@
-
 ../test/-ext-/arith_seq/test_arith_seq_beg_len_step.rb
 ../test/-ext-/arith_seq/test_arith_seq_extract.rb
 ../test/-ext-/array/test_resize.rb
@@ -738,3 +737,7 @@
 ../test/uri/test_wss.rb
 ../test/win32/test_registry.rb
 ../test/zlib/test_zlib.rb
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/test/ruby/test_sprintf_comb.rb
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/test/-ext-/test_printf.rb
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/test/pathname/test_pathname.rb
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/test/rubygems/test_gem_safe_marshal.rb

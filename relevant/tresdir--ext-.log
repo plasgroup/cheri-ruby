@@ -1,0 +1,962 @@
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # ./miniruby -I../lib -I. -I.ext/common  ../tool/ru
+nruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> --excludes-dir=../test/.excludes --name=!/memory_leak/ ../test/-ext-/ --timeout-scale 10 --worker-
+timeout=1000 -v
+Run options:
+  --seed=1529
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[  1/803] Bug::Marshal::TestUsrMarshal#test_incompat = 9.96 s
+[  2/803] Bug::Marshal::TestUsrMarshal#test_marshal = 0.02 s
+[  3/803] Bug::Marshal::TestUsrMarshal#test_compat = 19.73 s
+[  4/803] TestFloatExt#"test_nextafter_294_other_1.0_1.0" = 0.03 s
+[  5/803] TestFloatExt#"test_nextafter_267_other_2.220446049250313e-16_-5.0e-324" = 0.01 s
+[  6/803] TestFloatExt#"test_nextafter_140_ruby_-5.0e-324_-Infinity" = 0.01 s
+[  7/803] TestFloatExt#"test_nextafter_14_other_-Infinity_1.0" = 0.01 s
+[  8/803] TestFloatExt#"test_nextafter_115_other_-2.220446049250313e-16_1.0000000000000002" = 0.01 s
+[  9/803] TestFloatExt#"test_nextafter_216_other_5.0e-324_100.0" = 0.01 s
+[ 10/803] TestFloatExt#"test_nextafter_351_other_1.7976931348623157e+308_1.1125369292536007e-308" =
+0.01 s
+[ 11/803] TestFloatExt#"test_nextafter_338_ruby_100.0_Infinity" = 0.01 s
+[ 12/803] TestFloatExt#"test_nextafter_73_other_-1.0000000000000002_2.220446049250313e-16" = 0.02 s
+[ 13/803] TestFloatExt#"test_nextafter_289_other_1.0_0.0" = 0.01 s
+[ 14/803] TestFloatExt#"test_nextafter_51_other_-100.0_1.1125369292536007e-308" = 0.01 s
+[ 15/803] TestFloatExt#"test_nextafter_342_other_1.7976931348623157e+308_-100.0" = 0.02 s
+[ 16/803] TestFloatExt#"test_nextafter_70_other_-1.0000000000000002_5.0e-324" = 0.01 s
+[ 17/803] TestFloatExt#"test_nextafter_324_other_100.0_-1.0" = 0.01 s
+[ 18/803] TestFloatExt#"test_nextafter_282_other_1.0_-100.0" = 0.01 s
+[ 19/803] TestFloatExt#"test_nextafter_252_other_2.2250738585072014e-308_2.2250738585072014e-308" =
+0.02 s
+[ 20/803] TestFloatExt#"test_nextafter_98_ruby_-1.0_Infinity" = 0.01 s
+[ 21/803] TestFloatExt#"test_nextafter_394_other_NaN_1.0" = 0.02 s
+[ 22/803] TestFloatExt#"test_nextafter_93_other_-1.0_2.220446049250313e-16" = 0.02 s
+[ 23/803] TestFloatExt#"test_nextafter_323_other_100.0_-1.0000000000000002" = 0.02 s
+[ 24/803] TestFloatExt#"test_nextafter_388_other_NaN_-0.0" = 0.01 s
+[ 25/803] TestFloatExt#"test_nextafter_139_other_-1.1125369292536007e-308_NaN" = 0.01 s
+[ 26/803] TestFloatExt#"test_nextafter_19_other_-Infinity_NaN" = 0.01 s
+[ 27/803] TestFloatExt#"test_nextafter_69_other_-1.0000000000000002_0.0" = 0.02 s
+[ 28/803] TestFloatExt#"test_nextafter_224_other_1.1125369292536007e-308_-1.0" = 0.01 s
+[ 29/803] TestFloatExt#"test_nextafter_2_other_-Infinity_-100.0" = 0.01 s
+[ 30/803] TestFloatExt#"test_nextafter_389_other_NaN_0.0" = 0.01 s
+[ 31/803] TestFloatExt#"test_nextafter_155_other_-5.0e-324_1.0000000000000002" = 0.02 s
+[ 32/803] TestFloatExt#"test_nextafter_126_other_-1.1125369292536007e-308_-1.1125369292536007e-308"
+= 0.01 s
+[ 33/803] TestFloatExt#"test_nextafter_242_other_2.2250738585072014e-308_-100.0" = 0.01 s
+[ 34/803] TestFloatExt#"test_nextafter_58_ruby_-100.0_Infinity" = 0.01 s
+[ 35/803] TestFloatExt#"test_nextafter_5_other_-Infinity_-2.220446049250313e-16" = 0.01 s
+[ 36/803] TestFloatExt#"test_nextafter_87_other_-1.0_-5.0e-324" = 0.01 s
+[ 37/803] TestFloatExt#"test_nextafter_196_other_0.0_100.0" = 0.01 s
+[ 38/803] TestFloatExt#"test_nextafter_43_other_-100.0_-1.0000000000000002" = 0.01 s
+[ 39/803] TestFloatExt#"test_nextafter_142_other_-5.0e-324_-100.0" = 0.01 s
+[ 40/803] TestFloatExt#"test_nextafter_163_other_-0.0_-1.0000000000000002" = 0.01 s
+[ 41/803] TestFloatExt#"test_nextafter_85_other_-1.0_-2.220446049250313e-16" = 0.01 s
+[ 42/803] TestFloatExt#"test_nextafter_368_other_Infinity_-0.0" = 0.01 s
+[ 43/803] TestFloatExt#"test_nextafter_174_other_-0.0_1.0" = 0.01 s
+[ 44/803] TestFloatExt#"test_nextafter_187_other_0.0_-5.0e-324" = 0.01 s
+[ 45/803] TestFloatExt#"test_nextafter_7_other_-Infinity_-5.0e-324" = 0.01 s
+[ 46/803] TestFloatExt#"test_nextafter_129_other_-1.1125369292536007e-308_0.0" = 0.01 s
+[ 47/803] TestFloatExt#"test_nextafter_118_ruby_-2.220446049250313e-16_Infinity" = 0.01 s
+[ 48/803] TestFloatExt#"test_nextafter_370_other_Infinity_5.0e-324" = 0.01 s
+[ 49/803] TestFloatExt#"test_nextafter_325_other_100.0_-2.220446049250313e-16" = 0.01 s
+[ 50/803] TestFloatExt#"test_nextafter_20_ruby_-1.7976931348623157e+308_-Infinity" = 0.02 s
+[ 51/803] TestFloatExt#"test_nextafter_52_other_-100.0_2.2250738585072014e-308" = 0.01 s
+[ 52/803] TestFloatExt#"test_nextafter_214_other_5.0e-324_1.0" = 0.01 s
+[ 53/803] TestFloatExt#"test_nextafter_247_other_2.2250738585072014e-308_-5.0e-324" = 0.01 s
+[ 54/803] TestFloatExt#"test_nextafter_31_other_-1.7976931348623157e+308_1.1125369292536007e-308" =
+0.01 s
+[ 55/803] TestFloatExt#"test_nextafter_25_other_-1.7976931348623157e+308_-2.220446049250313e-16" = 0
+.01 s
+[ 56/803] TestFloatExt#"test_nextafter_91_other_-1.0_1.1125369292536007e-308" = 0.01 s
+[ 57/803] TestFloatExt#"test_nextafter_202_other_5.0e-324_-100.0" = 0.01 s
+[ 58/803] TestFloatExt#"test_nextafter_146_other_-5.0e-324_-1.1125369292536007e-308" = 0.01 s
+[ 59/803] TestFloatExt#"test_nextafter_318_ruby_1.0000000000000002_Infinity" = 0.01 s
+[ 60/803] TestFloatExt#"test_nextafter_169_other_-0.0_0.0" = 0.01 s
+[ 61/803] TestFloatExt#"test_nextafter_190_other_0.0_5.0e-324" = 0.01 s
+[ 62/803] TestFloatExt#"test_nextafter_121_other_-1.1125369292536007e-308_-1.7976931348623157e+308"
+= 0.02 s
+[ 63/803] TestFloatExt#"test_nextafter_222_other_1.1125369292536007e-308_-100.0" = 0.01 s
+[ 64/803] TestFloatExt#"test_nextafter_297_other_1.0_1.7976931348623157e+308" = 0.01 s
+[ 65/803] TestFloatExt#"test_nextafter_94_other_-1.0_1.0" = 0.01 s
+[ 66/803] TestFloatExt#"test_nextafter_225_other_1.1125369292536007e-308_-2.220446049250313e-16" = 0
+.01 s
+[ 67/803] TestFloatExt#"test_nextafter_230_other_1.1125369292536007e-308_5.0e-324" = 0.01 s
+[ 68/803] TestFloatExt#"test_nextafter_217_other_5.0e-324_1.7976931348623157e+308" = 0.01 s
+[ 69/803] TestFloatExt#"test_nextafter_305_other_1.0000000000000002_-2.220446049250313e-16" = 0.01 s
+[ 70/803] TestFloatExt#"test_nextafter_209_other_5.0e-324_0.0" = 0.02 s
+[ 71/803] TestFloatExt#"test_nextafter_371_other_Infinity_1.1125369292536007e-308" = 0.02 s
+[ 72/803] TestFloatExt#"test_nextafter_359_other_1.7976931348623157e+308_NaN" = 0.01 s
+[ 73/803] TestFloatExt#"test_nextafter_380_ruby_NaN_-Infinity" = 0.01 s
+[ 74/803] TestFloatExt#test_nextafter_379_other_Infinity_NaN = 0.01 s
+[ 75/803] TestFloatExt#"test_nextafter_170_other_-0.0_5.0e-324" = 0.01 s
+[ 76/803] TestFloatExt#"test_nextafter_220_ruby_1.1125369292536007e-308_-Infinity" = 0.01 s
+[ 77/803] TestFloatExt#"test_nextafter_4_other_-Infinity_-1.0" = 0.01 s
+[ 78/803] TestFloatExt#"test_nextafter_15_other_-Infinity_1.0000000000000002" = 0.01 s
+[ 79/803] TestFloatExt#"test_nextafter_26_other_-1.7976931348623157e+308_-1.1125369292536007e-308" =
+ 0.01 s
+[ 80/803] TestFloatExt#"test_nextafter_192_other_0.0_2.2250738585072014e-308" = 0.01 s
+[ 81/803] TestFloatExt#"test_nextafter_386_other_NaN_-1.1125369292536007e-308" = 0.01 s
+[ 82/803] TestFloatExt#"test_nextafter_285_other_1.0_-2.220446049250313e-16" = 0.01 s
+[ 83/803] TestFloatExt#"test_nextafter_35_other_-1.7976931348623157e+308_1.0000000000000002" = 0.01
+s
+[ 84/803] TestFloatExt#"test_nextafter_89_other_-1.0_0.0" = 0.01 s
+[ 85/803] TestFloatExt#"test_nextafter_248_other_2.2250738585072014e-308_-0.0" = 0.02 s
+[ 86/803] TestFloatExt#"test_nextafter_141_other_-5.0e-324_-1.7976931348623157e+308" = 0.51 s
+[ 87/803] TestFloatExt#"test_nextafter_49_other_-100.0_0.0" = 0.01 s
+[ 88/803] TestFloatExt#"test_nextafter_334_other_100.0_1.0" = 0.01 s
+[ 89/803] TestFloatExt#"test_nextafter_117_other_-2.220446049250313e-16_1.7976931348623157e+308" = 0
+.01 s
+[ 90/803] TestFloatExt#"test_nextafter_18_ruby_-Infinity_Infinity" = 0.01 s
+[ 91/803] TestFloatExt#"test_nextafter_215_other_5.0e-324_1.0000000000000002" = 0.01 s
+[ 92/803] TestFloatExt#"test_nextafter_197_other_0.0_1.7976931348623157e+308" = 0.01 s
+[ 93/803] TestFloatExt#"test_nextafter_382_other_NaN_-100.0" = 0.01 s
+[ 94/803] TestFloatExt#"test_nextafter_55_other_-100.0_1.0000000000000002" = 0.01 s
+[ 95/803] TestFloatExt#"test_nextafter_256_other_2.2250738585072014e-308_100.0" = 0.01 s
+[ 96/803] TestFloatExt#"test_nextafter_360_ruby_Infinity_-Infinity" = 0.01 s
+[ 97/803] TestFloatExt#"test_nextafter_21_other_-1.7976931348623157e+308_-1.7976931348623157e+308" =
+ 0.01 s
+[ 98/803] TestFloatExt#"test_nextafter_272_other_2.220446049250313e-16_2.2250738585072014e-308" = 0.
+01 s
+[ 99/803] TestFloatExt#"test_nextafter_320_ruby_100.0_-Infinity" = 0.02 s
+[100/803] TestFloatExt#"test_nextafter_12_other_-Infinity_2.2250738585072014e-308" = 0.01 s
+[101/803] TestFloatExt#"test_nextafter_46_other_-100.0_-1.1125369292536007e-308" = 0.01 s
+[102/803] TestFloatExt#"test_nextafter_292_other_1.0_2.2250738585072014e-308" = 0.01 s
+[103/803] TestFloatExt#"test_nextafter_111_other_-2.220446049250313e-16_1.1125369292536007e-308" = 0
+.01 s
+[104/803] TestFloatExt#"test_nextafter_258_ruby_2.2250738585072014e-308_Infinity" = 0.01 s
+[105/803] TestFloatExt#"test_nextafter_10_other_-Infinity_5.0e-324" = 0.01 s
+[106/803] TestFloatExt#"test_nextafter_328_other_100.0_-0.0" = 0.01 s
+[107/803] TestFloatExt#"test_nextafter_218_ruby_5.0e-324_Infinity" = 0.01 s
+[108/803] TestFloatExt#"test_nextafter_364_other_Infinity_-1.0" = 0.01 s
+[109/803] TestFloatExt#"test_nextafter_176_other_-0.0_100.0" = 0.01 s
+[110/803] TestFloatExt#"test_nextafter_64_other_-1.0000000000000002_-1.0" = 0.01 s
+[111/803] TestFloatExt#"test_nextafter_231_other_1.1125369292536007e-308_1.1125369292536007e-308" =
+0.01 s
+[112/803] TestFloatExt#"test_nextafter_373_other_Infinity_2.220446049250313e-16" = 0.02 s
+[113/803] TestFloatExt#"test_nextafter_62_other_-1.0000000000000002_-100.0" = 0.01 s
+[114/803] TestFloatExt#"test_nextafter_259_other_2.2250738585072014e-308_NaN" = 0.01 s
+[115/803] TestFloatExt#"test_nextafter_53_other_-100.0_2.220446049250313e-16" = 0.01 s
+[116/803] TestFloatExt#"test_nextafter_361_other_Infinity_-1.7976931348623157e+308" = 0.08 s
+[117/803] TestFloatExt#"test_nextafter_27_other_-1.7976931348623157e+308_-5.0e-324" = 0.01 s
+[118/803] TestFloatExt#"test_nextafter_384_other_NaN_-1.0" = 0.01 s
+[119/803] TestFloatExt#"test_nextafter_374_other_Infinity_1.0" = 0.01 s
+[120/803] TestFloatExt#"test_nextafter_257_other_2.2250738585072014e-308_1.7976931348623157e+308" =
+0.01 s
+[121/803] TestFloatExt#"test_nextafter_133_other_-1.1125369292536007e-308_2.220446049250313e-16" = 0
+.01 s
+[122/803] TestFloatExt#"test_nextafter_397_other_NaN_1.7976931348623157e+308" = 0.01 s
+[123/803] TestFloatExt#"test_nextafter_148_other_-5.0e-324_-0.0" = 0.01 s
+[124/803] TestFloatExt#"test_nextafter_262_other_2.220446049250313e-16_-100.0" = 0.01 s
+[125/803] TestFloatExt#"test_nextafter_326_other_100.0_-1.1125369292536007e-308" = 0.01 s
+[126/803] TestFloatExt#"test_nextafter_244_other_2.2250738585072014e-308_-1.0" = 0.01 s
+[127/803] TestFloatExt#"test_nextafter_61_other_-1.0000000000000002_-1.7976931348623157e+308" = 0.01
+ s
+[128/803] TestFloatExt#"test_nextafter_110_other_-2.220446049250313e-16_5.0e-324" = 0.01 s
+[129/803] TestFloatExt#"test_nextafter_275_other_2.220446049250313e-16_1.0000000000000002" = 0.01 s
+[130/803] TestFloatExt#"test_nextafter_161_other_-0.0_-1.7976931348623157e+308" = 0.01 s
+[131/803] TestFloatExt#"test_nextafter_81_other_-1.0_-1.7976931348623157e+308" = 0.01 s
+[132/803] TestFloatExt#"test_nextafter_304_other_1.0000000000000002_-1.0" = 0.01 s
+[133/803] TestFloatExt#"test_nextafter_236_other_1.1125369292536007e-308_100.0" = 0.01 s
+[134/803] TestFloatExt#"test_nextafter_186_other_0.0_-1.1125369292536007e-308" = 0.01 s
+[135/803] TestFloatExt#"test_nextafter_213_other_5.0e-324_2.220446049250313e-16" = 0.01 s
+[136/803] TestFloatExt#"test_nextafter_147_other_-5.0e-324_-5.0e-324" = 0.01 s
+[137/803] TestFloatExt#"test_nextafter_307_other_1.0000000000000002_-5.0e-324" = 0.01 s
+[138/803] TestFloatExt#"test_nextafter_106_other_-2.220446049250313e-16_-1.1125369292536007e-308" =
+0.01 s
+[139/803] TestFloatExt#"test_nextafter_183_other_0.0_-1.0000000000000002" = 0.01 s
+[140/803] TestFloatExt#"test_nextafter_59_other_-100.0_NaN" = 0.01 s
+[141/803] TestFloatExt#"test_nextafter_44_other_-100.0_-1.0" = 0.01 s
+[142/803] TestFloatExt#"test_nextafter_339_other_100.0_NaN" = 0.01 s
+[143/803] TestFloatExt#"test_nextafter_97_other_-1.0_1.7976931348623157e+308" = 0.01 s
+[144/803] TestFloatExt#"test_nextafter_279_other_2.220446049250313e-16_NaN" = 0.01 s
+[145/803] TestFloatExt#test_nextafter_398_ruby_NaN_Infinity = 0.01 s
+[146/803] TestFloatExt#"test_nextafter_245_other_2.2250738585072014e-308_-2.220446049250313e-16" = 0
+.01 s
+[147/803] TestFloatExt#"test_nextafter_392_other_NaN_2.2250738585072014e-308" = 0.01 s
+[148/803] TestFloatExt#"test_nextafter_67_other_-1.0000000000000002_-5.0e-324" = 0.01 s
+[149/803] TestFloatExt#"test_nextafter_189_other_0.0_0.0" = 0.01 s
+[150/803] TestFloatExt#"test_nextafter_383_other_NaN_-1.0000000000000002" = 0.01 s
+[151/803] TestFloatExt#"test_nextafter_366_other_Infinity_-1.1125369292536007e-308" = 0.01 s
+[152/803] TestFloatExt#"test_nextafter_234_other_1.1125369292536007e-308_1.0" = 0.01 s
+[153/803] TestFloatExt#"test_nextafter_108_other_-2.220446049250313e-16_-0.0" = 0.01 s
+[154/803] TestFloatExt#"test_nextafter_143_other_-5.0e-324_-1.0000000000000002" = 0.01 s
+[155/803] TestFloatExt#"test_nextafter_273_other_2.220446049250313e-16_2.220446049250313e-16" = 0.01
+ s
+[156/803] TestFloatExt#"test_nextafter_71_other_-1.0000000000000002_1.1125369292536007e-308" = 0.01
+s
+[157/803] TestFloatExt#"test_nextafter_194_other_0.0_1.0" = 0.01 s
+[158/803] TestFloatExt#"test_nextafter_329_other_100.0_0.0" = 0.01 s
+[159/803] TestFloatExt#"test_nextafter_365_other_Infinity_-2.220446049250313e-16" = 0.01 s
+[160/803] TestFloatExt#"test_nextafter_120_ruby_-1.1125369292536007e-308_-Infinity" = 0.01 s
+[161/803] TestFloatExt#"test_nextafter_100_ruby_-2.220446049250313e-16_-Infinity" = 0.01 s
+[162/803] TestFloatExt#"test_nextafter_45_other_-100.0_-2.220446049250313e-16" = 0.01 s
+[163/803] TestFloatExt#"test_nextafter_390_other_NaN_5.0e-324" = 0.01 s
+[164/803] TestFloatExt#"test_nextafter_113_other_-2.220446049250313e-16_2.220446049250313e-16" = 0.0
+1 s
+[165/803] TestFloatExt#"test_nextafter_17_other_-Infinity_1.7976931348623157e+308" = 0.01 s
+[166/803] TestFloatExt#"test_nextafter_385_other_NaN_-2.220446049250313e-16" = 0.01 s
+[167/803] TestFloatExt#"test_nextafter_253_other_2.2250738585072014e-308_2.220446049250313e-16" = 0.
+01 s
+[168/803] TestFloatExt#"test_nextafter_164_other_-0.0_-1.0" = 0.01 s
+[169/803] TestFloatExt#"test_nextafter_337_other_100.0_1.7976931348623157e+308" = 0.01 s
+[170/803] TestFloatExt#"test_nextafter_316_other_1.0000000000000002_100.0" = 0.01 s
+[171/803] TestFloatExt#"test_nextafter_175_other_-0.0_1.0000000000000002" = 0.01 s
+[172/803] TestFloatExt#"test_nextafter_212_other_5.0e-324_2.2250738585072014e-308" = 0.01 s
+[173/803] TestFloatExt#"test_nextafter_356_other_1.7976931348623157e+308_100.0" = 0.01 s
+[174/803] TestFloatExt#"test_nextafter_112_other_-2.220446049250313e-16_2.2250738585072014e-308" = 0
+.02 s
+[175/803] TestFloatExt#"test_nextafter_387_other_NaN_-5.0e-324" = 0.01 s
+[176/803] TestFloatExt#"test_nextafter_335_other_100.0_1.0000000000000002" = 0.01 s
+[177/803] TestFloatExt#"test_nextafter_54_other_-100.0_1.0" = 0.01 s
+[178/803] TestFloatExt#"test_nextafter_302_other_1.0000000000000002_-100.0" = 0.01 s
+[179/803] TestFloatExt#"test_nextafter_295_other_1.0_1.0000000000000002" = 0.32 s
+[180/803] TestFloatExt#"test_nextafter_228_other_1.1125369292536007e-308_-0.0" = 0.01 s
+[181/803] TestFloatExt#"test_nextafter_246_other_2.2250738585072014e-308_-1.1125369292536007e-308" =
+ 0.01 s
+[182/803] TestFloatExt#"test_nextafter_29_other_-1.7976931348623157e+308_0.0" = 0.01 s
+[183/803] TestFloatExt#"test_nextafter_229_other_1.1125369292536007e-308_0.0" = 0.01 s
+[184/803] TestFloatExt#"test_nextafter_241_other_2.2250738585072014e-308_-1.7976931348623157e+308" =
+ 0.01 s
+[185/803] TestFloatExt#"test_nextafter_136_other_-1.1125369292536007e-308_100.0" = 0.01 s
+[186/803] TestFloatExt#"test_nextafter_23_other_-1.7976931348623157e+308_-1.0000000000000002" = 0.01
+ s
+[187/803] TestFloatExt#"test_nextafter_309_other_1.0000000000000002_0.0" = 0.01 s
+[188/803] TestFloatExt#"test_nextafter_83_other_-1.0_-1.0000000000000002" = 0.01 s
+[189/803] TestFloatExt#"test_nextafter_131_other_-1.1125369292536007e-308_1.1125369292536007e-308" =
+ 0.01 s
+[190/803] TestFloatExt#"test_nextafter_198_ruby_0.0_Infinity" = 0.01 s
+[191/803] TestFloatExt#"test_nextafter_280_ruby_1.0_-Infinity" = 0.01 s
+[192/803] TestFloatExt#"test_nextafter_317_other_1.0000000000000002_1.7976931348623157e+308" = 0.01
+s
+[193/803] TestFloatExt#"test_nextafter_269_other_2.220446049250313e-16_0.0" = 0.01 s
+[194/803] TestFloatExt#"test_nextafter_200_ruby_5.0e-324_-Infinity" = 0.01 s
+[195/803] TestFloatExt#"test_nextafter_40_ruby_-100.0_-Infinity" = 0.01 s
+[196/803] TestFloatExt#"test_nextafter_107_other_-2.220446049250313e-16_-5.0e-324" = 0.01 s
+[197/803] TestFloatExt#"test_nextafter_24_other_-1.7976931348623157e+308_-1.0" = 0.01 s
+[198/803] TestFloatExt#"test_nextafter_182_other_0.0_-100.0" = 0.01 s
+[199/803] TestFloatExt#"test_nextafter_105_other_-2.220446049250313e-16_-2.220446049250313e-16" = 0.
+01 s
+[200/803] TestFloatExt#"test_nextafter_286_other_1.0_-1.1125369292536007e-308" = 0.01 s
+[201/803] TestFloatExt#"test_nextafter_39_other_-1.7976931348623157e+308_NaN" = 0.01 s
+[202/803] TestFloatExt#"test_nextafter_42_other_-100.0_-100.0" = 0.01 s
+[203/803] TestFloatExt#"test_nextafter_180_ruby_0.0_-Infinity" = 0.01 s
+[204/803] TestFloatExt#"test_nextafter_96_other_-1.0_100.0" = 0.01 s
+[205/803] TestFloatExt#"test_nextafter_150_other_-5.0e-324_5.0e-324" = 0.01 s
+[206/803] TestFloatExt#"test_nextafter_72_other_-1.0000000000000002_2.2250738585072014e-308" = 0.01
+s
+[207/803] TestFloatExt#"test_nextafter_172_other_-0.0_2.2250738585072014e-308" = 0.01 s
+[208/803] TestFloatExt#"test_nextafter_219_other_5.0e-324_NaN" = 0.08 s
+[209/803] TestFloatExt#"test_nextafter_74_other_-1.0000000000000002_1.0" = 0.01 s
+[210/803] TestFloatExt#"test_nextafter_353_other_1.7976931348623157e+308_2.220446049250313e-16" = 0.
+01 s
+[211/803] TestFloatExt#"test_nextafter_369_other_Infinity_0.0" = 0.01 s
+[212/803] TestFloatExt#"test_nextafter_78_ruby_-1.0000000000000002_Infinity" = 0.01 s
+[213/803] TestFloatExt#"test_nextafter_128_other_-1.1125369292536007e-308_-0.0" = 0.01 s
+[214/803] TestFloatExt#"test_nextafter_151_other_-5.0e-324_1.1125369292536007e-308" = 0.01 s
+[215/803] TestFloatExt#"test_nextafter_84_other_-1.0_-1.0" = 0.01 s
+[216/803] TestFloatExt#"test_nextafter_16_other_-Infinity_100.0" = 0.01 s
+[217/803] TestFloatExt#"test_nextafter_101_other_-2.220446049250313e-16_-1.7976931348623157e+308" =
+0.01 s
+[218/803] TestFloatExt#"test_nextafter_358_ruby_1.7976931348623157e+308_Infinity" = 0.01 s
+[219/803] TestFloatExt#"test_nextafter_82_other_-1.0_-100.0" = 0.01 s
+[220/803] TestFloatExt#"test_nextafter_308_other_1.0000000000000002_-0.0" = 0.01 s
+[221/803] TestFloatExt#"test_nextafter_211_other_5.0e-324_1.1125369292536007e-308" = 0.01 s
+[222/803] TestFloatExt#"test_nextafter_341_other_1.7976931348623157e+308_-1.7976931348623157e+308" =
+ 0.01 s
+[223/803] TestFloatExt#"test_nextafter_391_other_NaN_1.1125369292536007e-308" = 0.08 s
+[224/803] TestFloatExt#"test_nextafter_346_other_1.7976931348623157e+308_-1.1125369292536007e-308" =
+ 0.01 s
+[225/803] TestFloatExt#"test_nextafter_132_other_-1.1125369292536007e-308_2.2250738585072014e-308" =
+ 0.01 s
+[226/803] TestFloatExt#"test_nextafter_28_other_-1.7976931348623157e+308_-0.0" = 0.01 s
+[227/803] TestFloatExt#"test_nextafter_79_other_-1.0000000000000002_NaN" = 0.01 s
+[228/803] TestFloatExt#"test_nextafter_152_other_-5.0e-324_2.2250738585072014e-308" = 0.02 s
+[229/803] TestFloatExt#"test_nextafter_50_other_-100.0_5.0e-324" = 0.01 s
+[230/803] TestFloatExt#"test_nextafter_168_other_-0.0_-0.0" = 0.02 s
+[231/803] TestFloatExt#"test_nextafter_343_other_1.7976931348623157e+308_-1.0000000000000002" = 0.01
+ s
+[232/803] TestFloatExt#"test_nextafter_226_other_1.1125369292536007e-308_-1.1125369292536007e-308" =
+ 0.01 s
+[233/803] TestFloatExt#"test_nextafter_377_other_Infinity_1.7976931348623157e+308" = 0.01 s
+[234/803] TestFloatExt#"test_nextafter_249_other_2.2250738585072014e-308_0.0" = 0.01 s
+[235/803] TestFloatExt#"test_nextafter_221_other_1.1125369292536007e-308_-1.7976931348623157e+308" =
+ 0.01 s
+[236/803] TestFloatExt#"test_nextafter_268_other_2.220446049250313e-16_-0.0" = 0.01 s
+[237/803] TestFloatExt#"test_nextafter_301_other_1.0000000000000002_-1.7976931348623157e+308" = 0.01
+ s
+[238/803] TestFloatExt#"test_nextafter_300_ruby_1.0000000000000002_-Infinity" = 0.01 s
+[239/803] TestFloatExt#"test_nextafter_265_other_2.220446049250313e-16_-2.220446049250313e-16" = 0.0
+1 s
+[240/803] TestFloatExt#"test_nextafter_195_other_0.0_1.0000000000000002" = 0.01 s
+[241/803] TestFloatExt#"test_nextafter_178_ruby_-0.0_Infinity" = 0.01 s
+[242/803] TestFloatExt#"test_nextafter_124_other_-1.1125369292536007e-308_-1.0" = 0.01 s
+[243/803] TestFloatExt#"test_nextafter_288_other_1.0_-0.0" = 0.01 s
+[244/803] TestFloatExt#"test_nextafter_92_other_-1.0_2.2250738585072014e-308" = 0.01 s
+[245/803] TestFloatExt#"test_nextafter_310_other_1.0000000000000002_5.0e-324" = 0.01 s
+[246/803] TestFloatExt#"test_nextafter_264_other_2.220446049250313e-16_-1.0" = 0.01 s
+[247/803] TestFloatExt#"test_nextafter_331_other_100.0_1.1125369292536007e-308" = 0.01 s
+[248/803] TestFloatExt#"test_nextafter_336_other_100.0_100.0" = 0.01 s
+[249/803] TestFloatExt#"test_nextafter_271_other_2.220446049250313e-16_1.1125369292536007e-308" = 0.
+01 s
+[250/803] TestFloatExt#"test_nextafter_162_other_-0.0_-100.0" = 0.01 s
+[251/803] TestFloatExt#"test_nextafter_0_ruby_-Infinity_-Infinity" = 0.01 s
+[252/803] TestFloatExt#"test_nextafter_290_other_1.0_5.0e-324" = 0.01 s
+[253/803] TestFloatExt#"test_nextafter_119_other_-2.220446049250313e-16_NaN" = 0.01 s
+[254/803] TestFloatExt#"test_nextafter_278_ruby_2.220446049250313e-16_Infinity" = 0.01 s
+[255/803] TestFloatExt#"test_nextafter_367_other_Infinity_-5.0e-324" = 0.01 s
+[256/803] TestFloatExt#"test_nextafter_344_other_1.7976931348623157e+308_-1.0" = 0.01 s
+[257/803] TestFloatExt#"test_nextafter_122_other_-1.1125369292536007e-308_-100.0" = 0.01 s
+[258/803] TestFloatExt#"test_nextafter_88_other_-1.0_-0.0" = 0.01 s
+[259/803] TestFloatExt#"test_nextafter_102_other_-2.220446049250313e-16_-100.0" = 0.01 s
+[260/803] TestFloatExt#"test_nextafter_37_other_-1.7976931348623157e+308_1.7976931348623157e+308" =
+0.01 s
+[261/803] TestFloatExt#"test_nextafter_283_other_1.0_-1.0000000000000002" = 0.01 s
+[262/803] TestFloatExt#"test_nextafter_103_other_-2.220446049250313e-16_-1.0000000000000002" = 0.01
+s
+[263/803] TestFloatExt#"test_nextafter_179_other_-0.0_NaN" = 0.01 s
+[264/803] TestFloatExt#"test_nextafter_199_other_0.0_NaN" = 0.01 s
+[265/803] TestFloatExt#"test_nextafter_376_other_Infinity_100.0" = 0.01 s
+[266/803] TestFloatExt#"test_nextafter_144_other_-5.0e-324_-1.0" = 0.01 s
+[267/803] TestFloatExt#"test_nextafter_57_other_-100.0_1.7976931348623157e+308" = 0.01 s
+[268/803] TestFloatExt#"test_nextafter_281_other_1.0_-1.7976931348623157e+308" = 0.01 s
+[269/803] TestFloatExt#"test_nextafter_65_other_-1.0000000000000002_-2.220446049250313e-16" = 0.01 s
+[270/803] TestFloatExt#"test_nextafter_232_other_1.1125369292536007e-308_2.2250738585072014e-308" =
+0.01 s
+[271/803] TestFloatExt#"test_nextafter_357_other_1.7976931348623157e+308_1.7976931348623157e+308" =
+0.01 s
+[272/803] TestFloatExt#"test_nextafter_125_other_-1.1125369292536007e-308_-2.220446049250313e-16" =
+0.01 s
+[273/803] TestFloatExt#"test_nextafter_319_other_1.0000000000000002_NaN" = 0.01 s
+[274/803] TestFloatExt#"test_nextafter_260_ruby_2.220446049250313e-16_-Infinity" = 0.01 s
+[275/803] TestFloatExt#"test_nextafter_330_other_100.0_5.0e-324" = 0.01 s
+[276/803] TestFloatExt#"test_nextafter_60_ruby_-1.0000000000000002_-Infinity" = 0.01 s
+[277/803] TestFloatExt#"test_nextafter_277_other_2.220446049250313e-16_1.7976931348623157e+308" = 0.
+01 s
+[278/803] TestFloatExt#"test_nextafter_181_other_0.0_-1.7976931348623157e+308" = 0.01 s
+[279/803] TestFloatExt#"test_nextafter_80_ruby_-1.0_-Infinity" = 0.01 s
+[280/803] TestFloatExt#"test_nextafter_235_other_1.1125369292536007e-308_1.0000000000000002" = 0.01
+s
+[281/803] TestFloatExt#"test_nextafter_206_other_5.0e-324_-1.1125369292536007e-308" = 0.01 s
+[282/803] TestFloatExt#"test_nextafter_327_other_100.0_-5.0e-324" = 0.01 s
+[283/803] TestFloatExt#"test_nextafter_396_other_NaN_100.0" = 0.01 s
+[284/803] TestFloatExt#"test_nextafter_177_other_-0.0_1.7976931348623157e+308" = 0.01 s
+[285/803] TestFloatExt#"test_nextafter_332_other_100.0_2.2250738585072014e-308" = 0.01 s
+[286/803] TestFloatExt#"test_nextafter_306_other_1.0000000000000002_-1.1125369292536007e-308" = 0.01
+ s
+[287/803] TestFloatExt#"test_nextafter_263_other_2.220446049250313e-16_-1.0000000000000002" = 0.01 s
+[288/803] TestFloatExt#"test_nextafter_99_other_-1.0_NaN" = 0.01 s
+[289/803] TestFloatExt#"test_nextafter_36_other_-1.7976931348623157e+308_100.0" = 0.01 s
+[290/803] TestFloatExt#"test_nextafter_298_ruby_1.0_Infinity" = 0.01 s
+[291/803] TestFloatExt#"test_nextafter_239_other_1.1125369292536007e-308_NaN" = 0.01 s
+[292/803] TestFloatExt#"test_nextafter_127_other_-1.1125369292536007e-308_-5.0e-324" = 0.01 s
+[293/803] TestFloatExt#"test_nextafter_134_other_-1.1125369292536007e-308_1.0" = 0.01 s
+[294/803] TestFloatExt#"test_nextafter_347_other_1.7976931348623157e+308_-5.0e-324" = 0.01 s
+[295/803] TestFloatExt#"test_nextafter_293_other_1.0_2.220446049250313e-16" = 0.01 s
+[296/803] TestFloatExt#"test_nextafter_233_other_1.1125369292536007e-308_2.220446049250313e-16" = 0.
+01 s
+[297/803] TestFloatExt#"test_nextafter_154_other_-5.0e-324_1.0" = 0.01 s
+[298/803] TestFloatExt#"test_nextafter_160_ruby_-0.0_-Infinity" = 0.01 s
+[299/803] TestFloatExt#"test_nextafter_95_other_-1.0_1.0000000000000002" = 0.01 s
+[300/803] TestFloatExt#"test_nextafter_315_other_1.0000000000000002_1.0000000000000002" = 0.01 s
+[301/803] TestFloatExt#"test_nextafter_30_other_-1.7976931348623157e+308_5.0e-324" = 0.01 s
+[302/803] TestFloatExt#"test_nextafter_254_other_2.2250738585072014e-308_1.0" = 0.01 s
+[303/803] TestFloatExt#"test_nextafter_188_other_0.0_-0.0" = 0.01 s
+[304/803] TestFloatExt#"test_nextafter_393_other_NaN_2.220446049250313e-16" = 0.01 s
+[305/803] TestFloatExt#"test_nextafter_201_other_5.0e-324_-1.7976931348623157e+308" = 0.01 s
+[306/803] TestFloatExt#"test_nextafter_90_other_-1.0_5.0e-324" = 0.01 s
+[307/803] TestFloatExt#"test_nextafter_321_other_100.0_-1.7976931348623157e+308" = 0.01 s
+[308/803] TestFloatExt#"test_nextafter_123_other_-1.1125369292536007e-308_-1.0000000000000002" = 0.0
+1 s
+[309/803] TestFloatExt#"test_nextafter_395_other_NaN_1.0000000000000002" = 0.01 s
+[310/803] TestFloatExt#"test_nextafter_41_other_-100.0_-1.7976931348623157e+308" = 0.01 s
+[311/803] TestFloatExt#"test_nextafter_261_other_2.220446049250313e-16_-1.7976931348623157e+308" = 0
+.01 s
+[312/803] TestFloatExt#"test_nextafter_114_other_-2.220446049250313e-16_1.0" = 0.01 s
+[313/803] TestFloatExt#"test_nextafter_255_other_2.2250738585072014e-308_1.0000000000000002" = 0.01
+s
+[314/803] TestFloatExt#"test_nextafter_227_other_1.1125369292536007e-308_-5.0e-324" = 0.01 s
+[315/803] TestFloatExt#"test_nextafter_204_other_5.0e-324_-1.0" = 0.01 s
+[316/803] TestFloatExt#"test_nextafter_159_other_-5.0e-324_NaN" = 0.01 s
+[317/803] TestFloatExt#"test_nextafter_138_ruby_-1.1125369292536007e-308_Infinity" = 0.01 s
+[318/803] TestFloatExt#"test_nextafter_77_other_-1.0000000000000002_1.7976931348623157e+308" = 0.01
+s
+[319/803] TestFloatExt#"test_nextafter_284_other_1.0_-1.0" = 0.01 s
+[320/803] TestFloatExt#"test_nextafter_9_other_-Infinity_0.0" = 0.08 s
+[321/803] TestFloatExt#"test_nextafter_363_other_Infinity_-1.0000000000000002" = 0.01 s
+[322/803] TestFloatExt#"test_nextafter_350_other_1.7976931348623157e+308_5.0e-324" = 0.01 s
+[323/803] TestFloatExt#"test_nextafter_299_other_1.0_NaN" = 0.01 s
+[324/803] TestFloatExt#"test_nextafter_205_other_5.0e-324_-2.220446049250313e-16" = 0.01 s
+[325/803] TestFloatExt#"test_nextafter_48_other_-100.0_-0.0" = 0.01 s
+[326/803] TestFloatExt#"test_nextafter_303_other_1.0000000000000002_-1.0000000000000002" = 0.01 s
+[327/803] TestFloatExt#"test_nextafter_1_other_-Infinity_-1.7976931348623157e+308" = 0.01 s
+[328/803] TestFloatExt#"test_nextafter_11_other_-Infinity_1.1125369292536007e-308" = 0.02 s
+[329/803] TestFloatExt#"test_nextafter_381_other_NaN_-1.7976931348623157e+308" = 0.01 s
+[330/803] TestFloatExt#"test_nextafter_210_other_5.0e-324_5.0e-324" = 0.01 s
+[331/803] TestFloatExt#"test_nextafter_372_other_Infinity_2.2250738585072014e-308" = 0.01 s
+[332/803] TestFloatExt#"test_nextafter_375_other_Infinity_1.0000000000000002" = 0.01 s
+[333/803] TestFloatExt#test_nextafter_399_other_NaN_NaN = 0.01 s
+[334/803] TestFloatExt#"test_nextafter_207_other_5.0e-324_-5.0e-324" = 0.01 s
+[335/803] TestFloatExt#"test_nextafter_250_other_2.2250738585072014e-308_5.0e-324" = 0.07 s
+[336/803] TestFloatExt#"test_nextafter_287_other_1.0_-5.0e-324" = 0.01 s
+[337/803] TestFloatExt#"test_nextafter_156_other_-5.0e-324_100.0" = 0.02 s
+[338/803] TestFloatExt#"test_nextafter_355_other_1.7976931348623157e+308_1.0000000000000002" = 0.01
+s
+[339/803] TestFloatExt#"test_nextafter_66_other_-1.0000000000000002_-1.1125369292536007e-308" = 0.01
+ s
+[340/803] TestFloatExt#"test_nextafter_47_other_-100.0_-5.0e-324" = 0.01 s
+[341/803] TestFloatExt#"test_nextafter_149_other_-5.0e-324_0.0" = 0.02 s
+[342/803] TestFloatExt#"test_nextafter_130_other_-1.1125369292536007e-308_5.0e-324" = 0.01 s
+[343/803] TestFloatExt#"test_nextafter_34_other_-1.7976931348623157e+308_1.0" = 0.05 s
+[344/803] TestFloatExt#"test_nextafter_322_other_100.0_-100.0" = 0.01 s
+[345/803] TestFloatExt#"test_nextafter_270_other_2.220446049250313e-16_5.0e-324" = 0.01 s
+[346/803] TestFloatExt#"test_nextafter_75_other_-1.0000000000000002_1.0000000000000002" = 0.01 s
+[347/803] TestFloatExt#"test_nextafter_116_other_-2.220446049250313e-16_100.0" = 0.01 s
+[348/803] TestFloatExt#"test_nextafter_354_other_1.7976931348623157e+308_1.0" = 0.01 s
+[349/803] TestFloatExt#"test_nextafter_109_other_-2.220446049250313e-16_0.0" = 0.01 s
+[350/803] TestFloatExt#"test_nextafter_33_other_-1.7976931348623157e+308_2.220446049250313e-16" = 0.
+01 s
+[351/803] TestFloatExt#"test_nextafter_185_other_0.0_-2.220446049250313e-16" = 0.01 s
+[352/803] TestFloatExt#"test_nextafter_166_other_-0.0_-1.1125369292536007e-308" = 0.04 s
+[353/803] TestFloatExt#"test_nextafter_86_other_-1.0_-1.1125369292536007e-308" = 0.04 s
+[354/803] TestFloatExt#test_nextafter_378_ruby_Infinity_Infinity = 0.01 s
+[355/803] TestFloatExt#"test_nextafter_352_other_1.7976931348623157e+308_2.2250738585072014e-308" =
+0.01 s
+[356/803] TestFloatExt#"test_nextafter_22_other_-1.7976931348623157e+308_-100.0" = 0.01 s
+[357/803] TestFloatExt#"test_nextafter_237_other_1.1125369292536007e-308_1.7976931348623157e+308" =
+0.01 s
+[358/803] TestFloatExt#"test_nextafter_345_other_1.7976931348623157e+308_-2.220446049250313e-16" = 0
+.01 s
+[359/803] TestFloatExt#"test_nextafter_56_other_-100.0_100.0" = 0.01 s
+[360/803] TestFloatExt#"test_nextafter_158_ruby_-5.0e-324_Infinity" = 0.01 s
+[361/803] TestFloatExt#"test_nextafter_145_other_-5.0e-324_-2.220446049250313e-16" = 0.01 s
+[362/803] TestFloatExt#"test_nextafter_68_other_-1.0000000000000002_-0.0" = 0.01 s
+[363/803] TestFloatExt#"test_nextafter_266_other_2.220446049250313e-16_-1.1125369292536007e-308" = 0
+.05 s
+[364/803] TestFloatExt#"test_nextafter_167_other_-0.0_-5.0e-324" = 0.01 s
+[365/803] TestFloatExt#"test_nextafter_157_other_-5.0e-324_1.7976931348623157e+308" = 0.02 s
+[366/803] TestFloatExt#"test_nextafter_104_other_-2.220446049250313e-16_-1.0" = 0.01 s
+[367/803] TestFloatExt#"test_nextafter_340_ruby_1.7976931348623157e+308_-Infinity" = 0.01 s
+[368/803] TestFloatExt#"test_nextafter_349_other_1.7976931348623157e+308_0.0" = 0.01 s
+[369/803] TestFloatExt#"test_nextafter_173_other_-0.0_2.220446049250313e-16" = 0.01 s
+[370/803] TestFloatExt#"test_nextafter_311_other_1.0000000000000002_1.1125369292536007e-308" = 0.01
+s
+[371/803] TestFloatExt#"test_nextafter_32_other_-1.7976931348623157e+308_2.2250738585072014e-308" =
+0.01 s
+[372/803] TestFloatExt#"test_nextafter_6_other_-Infinity_-1.1125369292536007e-308" = 0.01 s
+[373/803] TestFloatExt#"test_nextafter_238_ruby_1.1125369292536007e-308_Infinity" = 0.01 s
+[374/803] TestFloatExt#"test_nextafter_291_other_1.0_1.1125369292536007e-308" = 0.01 s
+[375/803] TestFloatExt#"test_nextafter_251_other_2.2250738585072014e-308_1.1125369292536007e-308" =
+0.01 s
+[376/803] TestFloatExt#"test_nextafter_165_other_-0.0_-2.220446049250313e-16" = 0.01 s
+[377/803] TestFloatExt#"test_nextafter_314_other_1.0000000000000002_1.0" = 0.08 s
+[378/803] TestFloatExt#"test_nextafter_208_other_5.0e-324_-0.0" = 0.01 s
+[379/803] TestFloatExt#"test_nextafter_333_other_100.0_2.220446049250313e-16" = 0.01 s
+[380/803] TestFloatExt#"test_nextafter_3_other_-Infinity_-1.0000000000000002" = 0.01 s
+[381/803] TestFloatExt#"test_nextafter_63_other_-1.0000000000000002_-1.0000000000000002" = 0.01 s
+[382/803] TestFloatExt#"test_nextafter_274_other_2.220446049250313e-16_1.0" = 0.01 s
+[383/803] TestFloatExt#"test_nextafter_171_other_-0.0_1.1125369292536007e-308" = 0.01 s
+[384/803] TestFloatExt#"test_nextafter_223_other_1.1125369292536007e-308_-1.0000000000000002" = 0.01
+ s
+[385/803] TestFloatExt#"test_nextafter_153_other_-5.0e-324_2.220446049250313e-16" = 0.01 s
+[386/803] TestFloatExt#"test_nextafter_203_other_5.0e-324_-1.0000000000000002" = 0.01 s
+[387/803] TestFloatExt#"test_nextafter_348_other_1.7976931348623157e+308_-0.0" = 0.01 s
+[388/803] TestFloatExt#"test_nextafter_137_other_-1.1125369292536007e-308_1.7976931348623157e+308" =
+ 0.01 s
+[389/803] TestFloatExt#"test_nextafter_362_other_Infinity_-100.0" = 0.01 s
+[390/803] TestFloatExt#"test_nextafter_240_ruby_2.2250738585072014e-308_-Infinity" = 0.01 s
+[391/803] TestFloatExt#"test_nextafter_38_ruby_-1.7976931348623157e+308_Infinity" = 0.01 s
+[392/803] TestFloatExt#"test_nextafter_135_other_-1.1125369292536007e-308_1.0000000000000002" = 0.01
+ s
+[393/803] TestFloatExt#"test_nextafter_184_other_0.0_-1.0" = 0.01 s
+[394/803] TestFloatExt#"test_nextafter_276_other_2.220446049250313e-16_100.0" = 0.01 s
+[395/803] TestFloatExt#"test_nextafter_313_other_1.0000000000000002_2.220446049250313e-16" = 0.01 s
+[396/803] TestFloatExt#"test_nextafter_193_other_0.0_2.220446049250313e-16" = 0.01 s
+[397/803] TestFloatExt#"test_nextafter_243_other_2.2250738585072014e-308_-1.0000000000000002" = 0.01
+ s
+[398/803] TestFloatExt#"test_nextafter_312_other_1.0000000000000002_2.2250738585072014e-308" = 0.01
+s
+[399/803] TestFloatExt#"test_nextafter_296_other_1.0_100.0" = 0.01 s
+[400/803] TestFloatExt#"test_nextafter_13_other_-Infinity_2.220446049250313e-16" = 0.01 s
+[401/803] TestFloatExt#"test_nextafter_8_other_-Infinity_-0.0" = 0.01 s
+[402/803] TestFloatExt#"test_nextafter_76_other_-1.0000000000000002_100.0" = 0.01 s
+[403/803] TestFloatExt#"test_nextafter_191_other_0.0_1.1125369292536007e-308" = 0.01 s
+[404/803] Test_Symbol::TestInadvertent#test_module_define_method_argument_error = 0.03 s
+[405/803] Test_Symbol::TestInadvertent#test_execopt_redirect_value = 0.02 s
+[406/803] Test_Symbol::TestInadvertent#test_struct_aref = 0.02 s
+[407/803] Test_Symbol::TestInadvertent#test_undefined_instance_variable = 0.02 s
+[408/803] Test_Symbol::TestInadvertent#test_undefined_method = 0.03 s
+[409/803] Test_Symbol::TestInadvertent#test_send_leak_symbol = 0.02 s
+[410/803] Test_Symbol::TestInadvertent#test___send__ = 0.02 s
+[411/803] Test_Symbol::TestInadvertent#test_struct_new = 0.01 s
+[412/803] Test_Symbol::TestInadvertent#test_send_leak_string_custom_method_missing = 0.02 s
+[413/803] Test_Symbol::TestInadvertent#test_execopt_redirect_path = 0.02 s
+[414/803] Test_Symbol::TestInadvertent#test_kwarg_symbol_leak_just_rest = 0.01 s
+[415/803] Test_Symbol::TestInadvertent#test_module_const_defined? = 0.02 s
+[416/803] Test_Symbol::TestInadvertent#test_gc_attrset = 25.10 s
+[417/803] Test_Symbol::TestInadvertent#test_send_leak_symbol_no_optimization = 0.02 s
+[418/803] Test_Symbol::TestInadvertent#test_send_leak_string = 0.01 s
+[419/803] Test_Symbol::TestInadvertent#test_undefined_const = 0.02 s
+[420/803] Test_Symbol::TestInadvertent#test_thread_variable_get = 0.02 s
+[421/803] Test_Symbol::TestInadvertent#test_thread_variable_set = 0.01 s
+[422/803] Test_Symbol::TestInadvertent#test_thread_key? = 0.01 s
+[423/803] Test_Symbol::TestInadvertent#test_invalid_attr = 0.02 s
+[424/803] Test_Symbol::TestInadvertent#test_const_missing = 0.02 s
+[425/803] Test_Symbol::TestInadvertent#test_kwarg_symbol_leak_no_rest = 0.03 s
+[426/803] Test_Symbol::TestInadvertent#test_invalid_attr_writer = 0.02 s
+[427/803] Test_Symbol::TestInadvertent#test_enumerable_inject_op = 0.02 s
+[428/803] Test_Symbol::TestInadvertent#test_public_send = 0.02 s
+[429/803] Test_Symbol::TestInadvertent#test_struct_aset = 0.02 s
+[430/803] Test_Symbol::TestInadvertent#test_send_leak_symbol_custom_method_missing_no_optimization =
+ 0.02 s
+[431/803] Test_Symbol::TestInadvertent#test_undefined_class_variable = 0.02 s
+[432/803] Test_Symbol::TestInadvertent#test_object_ivar_set = 0.02 s
+[433/803] Test_Symbol::TestInadvertent#test_send = 0.01 s
+[434/803] Test_Symbol::TestInadvertent#test_send_leak_string_no_optimization = 0.01 s
+[435/803] Test_Symbol::TestInadvertent#test_execopt_redirect_symbol = 0.01 s
+[436/803] Test_Symbol::TestInadvertent#test_module_const_get_toplevel = 0.02 s
+[437/803] Test_Symbol::TestInadvertent#test_missing_method = 0.08 s
+[438/803] Test_Symbol::TestInadvertent#test_module_const_get = 0.02 s
+[439/803] Test_Symbol::TestInadvertent#test_thread_aref = 0.01 s
+[440/803] Test_Symbol::TestInadvertent#test_module_const_set = 0.02 s
+[441/803] Test_Symbol::TestInadvertent#test_respond_to_missing = 0.03 s
+[442/803] Test_Symbol::TestInadvertent#test_iv_get = 0.01 s
+[443/803] Test_Symbol::TestInadvertent#test_invalid_attr_reader = 0.02 s
+[444/803] Test_Symbol::TestInadvertent#test_aliased_method = 0.05 s
+[445/803] Test_Symbol::TestInadvertent#test_thread_variable? = 0.01 s
+[446/803] Test_Symbol::TestInadvertent#test_module_define_method_type_error = 0.02 s
+[447/803] Test_Symbol::TestInadvertent#test_send_leak_symbol_custom_method_missing = 0.02 s
+[448/803] Test_Symbol::TestInadvertent#test_kwarg_symbol_leak_with_rest = 0.01 s
+[449/803] Test_Symbol::TestInadvertent#test_execopt_key = 0.02 s
+[450/803] Test_Symbol::TestInadvertent#test_send_leak_string_custom_method_missing_no_optimization =
+ 0.02 s
+[451/803] Test_Symbol::TestInadvertent#test_module_cvar_set = 0.02 s
+[452/803] Test_Symbol::TestInadvertent#test_invalid_attr_accessor = 0.02 s
+[453/803] Test_Load_Protect#test_load_protect = 0.03 s
+[454/803] TestThreadLockNativeThread#test_lock_native_thread = 11.79 s
+[455/803] TestThreadLockNativeThread#test_lock_native_thread_tls = 28.07 s
+[456/803] Test_Method::TestArity#test_base = 0.03 s
+[457/803] Test_Method::TestArity#test_zsuper = 0.01 s
+[458/803] Test_NotImplement#test_respond_to = 0.03 s
+[459/803] Test_NotImplement#test_funcall_notimplement = 0.02 s
+[460/803] Test_NotImplement#test_not_method_defined = 0.01 s
+[461/803] Test_NotImplement#test_method_inspect_notimplement = 0.02 s
+[462/803] Test_NotImplement#test_not_private_method_defined = 0.01 s
+[463/803] Test_NotImplement#test_not_protected_method_defined = 0.01 s
+[464/803] Test_StringCoderange#test_ascii8bit = 0.03 s
+[465/803] Test_StringCoderange#test_utf8 = 0.02 s
+[466/803] Test_StringCoderange#test_usascii = 0.01 s
+[467/803] TestRational#test_rb_rational_raw = 0.05 s
+[468/803] Test_Hash::TestDelete#test_delete = 0.02 s
+[469/803] Test_EConvAppend#test_econv_str_append_valid = 0.09 s
+[470/803] Test_EConvAppend#test_econv_str_append_broken = 0.01 s
+[471/803] TestNum2int#test_num2long = 0.17 s
+[472/803] TestNum2int#test_num2uint = 0.11 s
+[473/803] TestNum2int#test_num2int = 0.08 s
+[474/803] TestNum2int#test_num2ull = 0.18 s
+[475/803] TestNum2int#test_num2ushort = 0.11 s
+[476/803] TestNum2int#test_num2ll = 0.14 s
+[477/803] TestNum2int#test_num2short = 0.08 s
+[478/803] TestNum2int#test_fix2int = 0.04 s
+[479/803] TestNum2int#test_fix2short = 0.03 s
+[480/803] TestNum2int#test_fix2uint = 0.03 s
+[481/803] TestNum2int#test_fix2long = 0.02 s
+[482/803] TestNum2int#test_num2ulong = 0.16 s
+[483/803] TestNum2int#test_fix2ulong = 0.01 s
+[484/803] Test_MyInteger#test_my_integer_to_f = 0.02 s
+[485/803] Test_MyInteger#test_my_integer_cmp = 0.01 s
+[486/803] Bug::Test_ExceptionER#test_enc_raise = 0.34 s
+[487/803] TestEnumeratorKw#test_enumerator_kw = 0.02 s
+[488/803] Bug::Test_ExceptionDE#test_cleanup_data_error = 9.82 s
+[489/803] Test_StringEncStrBufCat#test_unknown = 0.03 s
+[490/803] Test_StringEncStrBufCat#test_str_conv_enc = 0.07 s
+[491/803] Test_SPrintf#"test_format_integer(% #-00.d)" = 0.09 s
+[492/803] Test_SPrintf#"test_format_integer(%+-05.0d)" = 0.08 s
+[493/803] Test_SPrintf#"test_format_integer(%#+05d)" = 0.08 s
+[494/803] Test_SPrintf#"test_format_integer(%#+05.d)" = 0.08 s
+[495/803] Test_SPrintf#"test_format_integer(% #0.d)" = 0.08 s
+[496/803] Test_SPrintf#"test_format_integer(% +-20d)" = 0.08 s
+[497/803] Test_SPrintf#"test_format_integer(%.0d)" = 0.08 s
+[498/803] Test_SPrintf#test_string_prec = 0.01 s
+[499/803] Test_SPrintf#"test_format_integer(%d)" = 0.08 s
+[500/803] Test_SPrintf#"test_format_integer(%5.0d)" = 0.08 s
+[501/803] Test_SPrintf#"test_format_integer(%#+0.d)" = 0.08 s
+[502/803] Test_SPrintf#"test_format_integer(% #-020.d)" = 0.09 s
+[503/803] Test_SPrintf#"test_format_integer(% +-0d)" = 0.09 s
+[504/803] Test_SPrintf#"test_format_integer(% +-20.0d)" = 0.08 s
+[505/803] Test_SPrintf#"test_format_integer(% #+-00.d)" = 0.08 s
+[506/803] Test_SPrintf#"test_format_integer(%+-0d)" = 0.08 s
+[507/803] Test_SPrintf#test_snprintf_count = 0.01 s
+[508/803] Test_SPrintf#"test_format_integer(% #-020d)" = 0.08 s
+[509/803] Test_SPrintf#"test_format_integer(%5d)" = 0.08 s
+[510/803] Test_SPrintf#test_quote = 0.02 s
+[511/803] Test_SPrintf#test_to_str = 0.01 s
+[512/803] Test_SPrintf#test_encoding = 0.02 s
+[513/803] Test_SPrintf#"test_format_integer(% #20d)" = 0.08 s
+[514/803] Test_SPrintf#"test_format_integer(% +-0.0d)" = 0.08 s
+[515/803] Test_SPrintf#"test_format_integer(%#+0d)" = 0.08 s
+[516/803] Test_SPrintf#"test_format_integer(% #-00d)" = 0.08 s
+[517/803] Test_SPrintf#"test_format_integer(% #+-020d)" = 0.08 s
+[518/803] Test_SPrintf#test_inspect = 0.01 s
+[519/803] TestIter::IterBreak#test_iter_break = 0.01 s
+[520/803] Test_Proc::TestBMethod#test_super_in_bmethod = 0.02 s
+[521/803] Test_Proc::TestBMethod#test_block_super = 0.01 s
+[522/803] Test_Proc::TestBMethod#test_receiver_in_bmethod = 0.01 s
+[523/803] Bug::Time::Test_New#test_timespec_now = 0.02 s
+[524/803] Bug::Time::Test_New#test_timespec_new = 0.06 s
+[525/803] Bug::Time::Test_New#test_nano_new = 0.02 s
+[526/803] Test_StrEncAssociate#test_dummy_encoding_index_UTF_16 = 11.73 s
+[527/803] Test_StrEncAssociate#test_dummy_encoding_index_UTF_7 = 11.72 s
+[528/803] Test_StrEncAssociate#test_dummy_encoding_index_ISO_2022_JP = 11.72 s
+[529/803] Test_StrEncAssociate#test_frozen = 0.04 s
+[530/803] Test_StrEncAssociate#test_dummy_encoding_index_CP50221 = 11.70 s
+[531/803] Test_StrEncAssociate#test_dummy_encoding_index_ISO_2022_JP_KDDI = 11.71 s
+[532/803] Test_StrEncAssociate#test_dummy_encoding_index_UTF_32 = 11.82 s
+[533/803] Test_StrEncAssociate#test_dummy_encoding_index_ISO_2022_JP_2 = 11.73 s
+[534/803] Test_StrEncAssociate#test_dummy_encoding_index_IBM037 = 11.74 s
+[535/803] Test_StrEncAssociate#test_dummy_encoding_index_CP50220 = 11.71 s
+[536/803] Test_StrSetLen#test_shared = 0.14 s
+[537/803] Test_StrSetLen#test_coderange_after_trunc = 0.02 s
+[538/803] Test_StrSetLen#test_valid_encoding_after_resized = 0.02 s
+[539/803] Test_StrSetLen#test_non_shared = 0.01 s
+[540/803] Test_StrSetLen#test_capacity_equals_to_new_size = 0.02 s
+[541/803] Test_StrSetLen#test_coderange_after_append = 0.02 s
+[542/803] Bug::StTable::Test_Update#test_pass_objects_in_st_table = 0.02 s
+[543/803] Bug::StTable::Test_Update#test_update = 0.01 s
+[544/803] Bug::StTable::Test_Update#test_continue = 0.01 s
+[545/803] Bug::StTable::Test_Update#test_notfound = 0.01 s
+[546/803] Bug::StTable::Test_Update#test_delete = 0.01 s
+[547/803] TestBignum_Big2str#test_big2str_poweroftwo = 0.02 s
+[548/803] TestBignum_Big2str#test_big2str_gmp = 0.01 s
+[549/803] TestBignum_Big2str#test_big2str_generic = 0.01 s
+[550/803] Test_TypedData#test_wrong_argtype = 0.07 s
+[551/803] Test_TypedData#test_deferred_free = 81.31 s
+[552/803] TestLastThread#test_last_thread = 12.84 s
+[553/803] TestConcatStress#test_concat = 35.14 s
+[554/803] TestBignum_Pack#test_pack_wordorder_and_endian = 0.02 s
+[555/803] TestBignum_Pack#test_pack_argument_check = 0.03 s
+[556/803] TestBignum_Pack#test_pack_fixed_buffer = 0.02 s
+[557/803] TestBignum_Pack#test_unpack_wordsize = 0.01 s
+[558/803] TestBignum_Pack#test_unpack2comp_negative_single_byte = 0.02 s
+[559/803] TestBignum_Pack#test_pack_nail = 0.01 s
+[560/803] TestBignum_Pack#test_pack_zero = 0.01 s
+[561/803] TestBignum_Pack#test_numbytes_2comp = 0.03 s
+[562/803] TestBignum_Pack#test_unpack_sign = 0.01 s
+[563/803] TestBignum_Pack#test_pack2comp_emptybuf = 0.02 s
+[564/803] TestBignum_Pack#test_pack2comp_zero = 0.01 s
+[565/803] TestBignum_Pack#test_unpack_wordorder_and_endian = 0.01 s
+[566/803] TestBignum_Pack#test_unpack_argument_check = 0.13 s
+[567/803] TestBignum_Pack#test_pack_sign = 0.01 s
+[568/803] TestBignum_Pack#test_pack2comp_overflow = 6.49 s
+[569/803] TestBignum_Pack#test_pack_native_endian = 0.01 s
+[570/803] TestBignum_Pack#test_pack_orders = 70.02 s
+[571/803] TestBignum_Pack#test_unpack2comp_negative_zero = 0.38 s
+[572/803] TestBignum_Pack#test_unpack2comp_sequence_of_ff = 0.02 s
+[573/803] TestBignum_Pack#test_unpack_orders = 20.53 s
+[574/803] TestBignum_Pack#test_pack2comp_nearly_zero = 0.01 s
+[575/803] TestBignum_Pack#test_pack_overflow = 7.05 s
+[576/803] TestBignum_Pack#test_unpack_native_endian = 0.01 s
+[577/803] TestBignum_Pack#test_unpack_nail = 0.01 s
+[578/803] TestBignum_Pack#test_unpack_zero = 0.01 s
+[579/803] TestBignum_Pack#test_numbits_2comp = 0.02 s
+[580/803] TestBignum_Pack#test_unpack2comp_single_byte = 0.01 s
+[581/803] TestBignum_Pack#test_pack_wordsize = 0.01 s
+[582/803] Test_StringEllipsize#test_negative_length = 0.02 s
+[583/803] Test_StringEllipsize#test_shorter = 0.01 s
+[584/803] Test_StringEllipsize#test_longer = 0.02 s
+[585/803] Test_StringEllipsize#test_nonascii = 0.98 s
+[586/803] Test_RbInternedStr#test_interned_str = 0.01 s
+[587/803] Test_PathToClass#test_path_to_class = 0.01 s
+[588/803] Test_Load_ResolveSymbol#test_load_resolve_symbol_resolver = 12.04 s
+[589/803] Test_StringCStr#test_wchar_lstrip! = 0.03 s
+[590/803] Test_StringCStr#test_shared = 1.82 s
+[591/803] Test_StringCStr#test_long = 0.74 s
+[592/803] Test_StringCStr#test_embed = 0.69 s
+[593/803] Test_StringCStr#test_frozen = 13.55 s
+[594/803] Test_StringCStr#test_rb_str_new_frozen_embed = 0.01 s
+[595/803] Test_StringCStr#test_wchar_long = 5.43 s
+[596/803] Test_StringCStr#test_wchar_replace = 0.02 s
+[597/803] Test_StringCStr#test_wchar_squeeze! = 0.01 s
+[598/803] Test_StringCStr#test_embedded_from_heap = 0.02 s
+[599/803] Test_StringCStr#test_wchar_chop! = 0.01 s
+[600/803] Test_StringCStr#test_wchar_tr_s! = 0.02 s
+[601/803] Test_StringCStr#test_wchar_embed = 5.44 s
+[602/803] Test_StringCStr#test_wchar_sub! = 0.02 s
+[603/803] Test_StringCStr#test_wchar_rstrip! = 0.01 s
+[604/803] Test_StringCStr#test_wchar_delete! = 0.02 s
+[605/803] Test_StringCStr#test_wchar_tr! = 0.02 s
+[606/803] Test_StringCStr#test_wchar_aset = 0.01 s
+[607/803] Test_StringCStr#test_wchar_chomp! = 0.01 s
+[608/803] TestBignum_Str2big#test_str2big_gmp = 0.02 s
+[609/803] TestBignum_Str2big#test_str2big_karatsuba = 0.01 s
+[610/803] TestBignum_Str2big#test_str2big_normal = 0.02 s
+[611/803] TestBignum_Str2big#test_str2big_poweroftwo = 0.01 s
+[612/803] TestUbfAsyncSafe#test_ubf_async_safe = 0.61 s
+[613/803] Test_String_Fstring#test_rb_enc_str_new_autoloaded_encoding = 11.78 s
+[614/803] Test_String_Fstring#test_subclass = 0.02 s
+[615/803] Test_String_Fstring#test_rb_enc_interned_str_null_encoding = 0.01 s
+[616/803] Test_String_Fstring#test_rb_enc_str_new_null_encoding = 0.01 s
+[617/803] Test_String_Fstring#test_rb_enc_interned_str_autoloaded_encoding = 11.77 s
+[618/803] Test_String_Fstring#test_fake_str = 0.02 s
+[619/803] Test_String_Fstring#test_singleton_class = 0.02 s
+[620/803] Test_String_Fstring#test_instance_variable = 0.01 s
+[621/803] Test_String_Fstring#test_singleton_method = 0.01 s
+[622/803] Test_BUG_14834#test = 9.87 s
+[623/803] Test_ArithSeq#test_extract_with_arith_seq = 11.76 s
+[624/803] Test_ArithSeq#test_extract_with_others = 11.73 s
+[625/803] Test_ArithSeq#test_extract_with_range = 11.74 s
+[626/803] Test_ArithSeq#test_beg_len_step = 11.83 s
+[627/803] TestScanArgs#test_var = 0.03 s
+[628/803] TestScanArgs#test_lead_opt_var_trail_hash = 0.03 s
+[629/803] TestScanArgs#test_lead_opt_trail_hash = 0.04 s
+[630/803] TestScanArgs#test_lead_opt_var_hash = 0.03 s
+[631/803] TestScanArgs#test_n_lead_opt_hash = 0.03 s
+[632/803] TestScanArgs#test_lead_opt = 0.02 s
+[633/803] TestScanArgs#test_opt_hash = 0.02 s
+[634/803] TestScanArgs#test_opt_var_hash = 0.02 s
+[635/803] TestScanArgs#test_var_hash = 0.02 s
+[636/803] TestScanArgs#test_opt_trail_hash = 0.02 s
+[637/803] TestScanArgs#test_lead_hash = 0.03 s
+[638/803] TestScanArgs#test_opt_var_trail_hash = 0.03 s
+[639/803] TestScanArgs#test_lead_var_trail = 0.01 s
+[640/803] TestScanArgs#test_lead_opt_trail = 0.02 s
+[641/803] TestScanArgs#test_opt_var_trail = 0.02 s
+[642/803] TestScanArgs#test_var_trail = 0.01 s
+[643/803] TestScanArgs#test_var_trail_hash = 0.03 s
+[644/803] TestScanArgs#test_lead_opt_var_trail = 0.02 s
+[645/803] TestScanArgs#test_opt_trail = 0.02 s
+[646/803] TestScanArgs#test_hash = 0.01 s
+[647/803] TestScanArgs#test_lead_opt_hash = 0.02 s
+[648/803] TestScanArgs#test_lead_var_hash = 0.02 s
+[649/803] TestScanArgs#test_lead = 0.01 s
+[650/803] TestScanArgs#test_lead_opt_var = 0.01 s
+[651/803] TestScanArgs#test_opt_var = 0.01 s
+[652/803] TestScanArgs#test_lead_var = 0.01 s
+[653/803] TestScanArgs#test_lead_var_trail_hash = 0.03 s
+[654/803] TestScanArgs#test_opt = 0.01 s
+[655/803] TestScanArgs#test_k_lead_opt_hash = 0.02 s
+[656/803] Test_Symbol::TestType#test_id2str_fstring_bug9171 = 0.03 s
+[657/803] Test_Symbol::TestType#test_const_name_type = 0.02 s
+[658/803] Test_Symbol::TestType#test_global = 0.03 s
+[659/803] Test_Symbol::TestType#test_instance = 0.02 s
+[660/803] Test_Symbol::TestType#test_check_symbol_invalid_type = 0.04 s
+[661/803] Test_Symbol::TestType#test_check_id_invalid_type = 0.02 s
+[662/803] Test_Symbol::TestType#test_attrset = 0.29 s
+[663/803] Test_Symbol::TestType#test_const = 0.02 s
+[664/803] Test_Symbol::TestType#test_local = 0.02 s
+[665/803] Test_Symbol::TestType#test_class = 0.02 s
+[666/803] Bug::Struct::Test_Member#test_member_get = 0.04 s
+[667/803] TestPostponed_job#test_legacy_register_one_same = 12.10 s
+[668/803] TestPostponed_job#test_legacy_register_in_c_thread = 11.73 s
+[669/803] TestPostponed_job#test_preregister_and_trigger = 11.72 s
+[670/803] TestPostponed_job#test_multiple_preregistration = 11.72 s
+[671/803] TestPostponed_job#test_multiple_preregistration_with_new_data = 11.71 s
+[672/803] TestPostponed_job#test_legacy_register = 13.61 s
+[673/803] Bug::Test_ExceptionE#test_ensured = 11.77 s
+[674/803] Test_StForeachUnpack#test_st_foreach_unpack = 0.03 s
+[675/803] Test_StForeachUnpack#test_st_foreach_check_unpack = 0.02 s
+[676/803] Bug::StNumHash::Test_NumHash#test_size_after_delete_safe = 0.05 s
+[677/803] Bug::StNumHash::Test_NumHash#test_delete_safe_on_iteration = 0.07 s
+[678/803] Bug::StNumHash::Test_NumHash#test_update = 0.01 s
+[679/803] Bug::StNumHash::Test_NumHash#test_check = 0.01 s
+[680/803] TestBugReporter#test_bug_reporter_add = 4.45 s
+[681/803] Bug::Test_ExceptionAT#test_exception_at_throwing = 11.84 s
+[682/803] TestThreadFdClose#test_thread_fd_close = 0.07 s
+[683/803] TestRational::TestGCD#test_gcd_gmp = 0.02 s
+[684/803] TestRational::TestGCD#test_gcd_gmp_brute_force = 0.01 s
+[685/803] TestRational::TestGCD#test_gcd_normal = 0.01 s
+[686/803] Test_Load_stringify_symbols#test_load_stringify_symbol_required_extensions = 0.15 s
+[687/803] Test_Load_stringify_symbols#test_load_stringify_symbol_statically_linked = 0.18 s
+[688/803] Test_Load_stringify_symbols#test_load_stringify_symbol_missing_target = 0.17 s
+[689/803] Bug::Struct::Test_Data#test_data_new_default = 0.02 s
+[690/803] Bug::Struct::Test_Data#test_data_new_superclass = 0.02 s
+[691/803] TestFuncall#test_with_funcallv_public_kw = 0.03 s
+[692/803] TestFuncall#test_with_funcall_passing_block = 0.01 s
+[693/803] TestFuncall#test_with_yield_splat_kw = 0.02 s
+[694/803] TestFuncall#test_with_funcall_passing_block_kw = 0.02 s
+[695/803] TestFuncall#test_funcall_extra_args = 0.01 s
+[696/803] TestFuncall#test_with_funcall2 = 0.01 s
+[697/803] Test_Array::TestResize#test_expand = 0.03 s
+[698/803] TestTracepointObj#test_teardown_with_active_GC_end_hook = 11.75 s
+[699/803] TestTracepointObj#test_after_gc_start_hook_with_GC_stress = 5.68 s
+[700/803] TestTracepointObj#test_tracks_objspace_count = 127.43 s
+[701/803] TestTracepointObj#test_not_available_from_ruby = 0.02 s
+[702/803] TestTracepointObj#test_tracks_objspace_events = 0.03 s
+[703/803] TestTracepointObj#test_tracepoint_specify_normal_and_internal_events = 0.01 s
+[704/803] Test_DotDot#test_load_dot_dot = 0.07 s
+[705/803] TestEnsureAndCallcc#test_bug20655_dir_chdir_using_rb_ensure = 0.10 s
+[706/803] TestEnsureAndCallcc#test_bug20655_extension_using_rb_ensure = 0.33 s
+[707/803] EvalTest#test_rb_eval_string = 0.02 s
+[708/803] Test_Integer#test_positive_pow = 11.78 s
+[709/803] Test_Integer#test_fixnum_range = 0.03 s
+[710/803] Test_StringExternalNew#test_buf_new = 0.02 s
+[711/803] Test_StringExternalNew#test_external_new_with_enc = 0.10 s
+[712/803] TestProfileFrames#test_matches_backtrace_locations_main_thread = 0.18 s
+[713/803] TestProfileFrames#test_start = 0.03 s
+[714/803] TestProfileFrames#test_profile_thread_frames = 0.16 s
+[715/803] TestProfileFrames#test_profile_frames = 0.15 s
+[716/803] TestProfileFrames#test_ifunc_frame = 9.83 s
+[717/803] Test_StringModifyExpand#test_integer_overflow = 0.03 s
+[718/803] TestWait#test_wait_for_invalid_fd = 11.74 s
+[719/803] TestWait#test_wait_for_valid_fd = 0.02 s
+[720/803] TestWait#test_wait_for_closed_pipe = 0.01 s
+[721/803] Bug::Struct::Test_Duplicate#test_new_duplicate = 0.06 s
+[722/803] Bug::Struct::Test_Duplicate#test_new_duplicate_under = 0.02 s
+[723/803] Bug::Marshal::TestInternalIVar#test_marshal = 0.05 s
+[724/803] Test_BUG_3571#test_block_call_id = 2.43 s
+[725/803] TestBignum_BigZero#test_zero? = 0.04 s
+[726/803] TestBignum_BigZero#test_equal_0 = 0.02 s
+[727/803] Bug::Struct::Test_Len#test_rstruct_len = 0.03 s
+[728/803] TestDebug#test_lazy_block = 0.04 s
+[729/803] TestDebug#test_inspector_open = 1.08 s
+[730/803] TestDebug#test_inspector_open_in_eval = 1.05 s
+[731/803] Test_RbStrDup#test_nested_shared_frozen = 0.02 s
+[732/803] Test_RbStrDup#test_nested_shared_non_frozen = 0.01 s
+[733/803] Test_Class::Test_Class2Name#test_toplevel_class = 0.01 s
+[734/803] Test_Class::Test_Class2Name#test_singleton_class = 0.01 s
+[735/803] Test_Class::Test_Class2Name#test_toplevel_module = 0.01 s
+[736/803] TestRandomExt::TestVersionMax#test_bad_version = 0.08 s
+[737/803] Test_TooManyDummyEncodings#test_exceed_encoding_table_size = 11.87 s
+[738/803] Test_BUG_5832#test_block_passing = 0.02 s
+[739/803] TestIter::YieldBlock#test_yield_lambda = 0.02 s
+[740/803] TestIter::YieldBlock#test_yield_block = 0.02 s
+[741/803] TestRandomExt::TestVersionZero#test_bad_version = 0.05 s
+[742/803] TestRecursion#test_recursive = 0.03 s
+[743/803] TestRecursion#test_recursive_outer = 0.01 s
+[744/803] Test_StringQSort#test_qsort = 0.02 s
+[745/803] Test_StringQSort#test_qsort_slice = 0.01 s
+[746/803] TestThreadInstrumentation#test_thread_blocked_forever_on_mutex = 0.25 s
+[747/803] TestThreadInstrumentation#test_multi_thread_timeline = 98.28 s
+[748/803] TestThreadInstrumentation#test_queue_releases_gvl = 0.12 s
+[749/803] TestThreadInstrumentation#test_blocking_on_ractor = 12.29 s
+[750/803] TestThreadInstrumentation#test_thread_instrumentation_fork_safe = 28.88 s
+[751/803] TestThreadInstrumentation#test_join_suspends = 0.43 s
+[752/803] TestThreadInstrumentation#test_thread_pass_single_thread = 0.04 s
+[753/803] TestThreadInstrumentation#test_sleeping_inside_ractor = 12.54 s
+[754/803] TestThreadInstrumentation#test_single_thread_timeline = 0.06 s
+[755/803] TestThreadInstrumentation#test_thread_pass_multi_thread = 0.16 s
+[756/803] TestThreadInstrumentation#test_thread_instrumentation_unregister = 0.04 s
+[757/803] TestThreadInstrumentation#test_io_release_gvl = 0.25 s
+[758/803] TestThreadInstrumentation#test_thread_blocked_temporarily_on_mutex = 0.31 s
+[759/803] Test_StringCapacity#test_capacity_shared = 0.02 s
+[760/803] Test_StringCapacity#test_capacity_normal = 0.01 s
+[761/803] Test_StringCapacity#test_capacity_frozen = 0.11 s
+[762/803] Test_StringCapacity#test_literal_capacity = 0.02 s
+[763/803] Test_StringCapacity#test_capacity_fstring = 0.01 s
+[764/803] Test_StringCapacity#test_io_read = 0.90 s
+[765/803] Test_StringCapacity#test_capacity_embedded = 0.01 s
+[766/803] Test_StringCapacity#test_s_new_capacity = 0.02 s
+[767/803] TestBignum_Mul#test_mul_karatsuba_carry2 = 0.02 s
+[768/803] TestBignum_Mul#test_mul_toom3 = 0.01 s
+[769/803] TestBignum_Mul#test_mul_normal_zero_in_x = 0.01 s
+[770/803] TestBignum_Mul#test_mul_balance = 0.01 s
+[771/803] TestBignum_Mul#test_mul_karatsuba_x1_gt_x0_and_y1_gt_y0 = 0.01 s
+[772/803] TestBignum_Mul#test_mul_karatsuba_borrow = 0.01 s
+[773/803] TestBignum_Mul#test_mul_karatsuba_odd_y = 0.01 s
+[774/803] TestBignum_Mul#test_mul_balance_2x17 = 0.01 s
+[775/803] TestBignum_Mul#test_mul_karatsuba = 0.01 s
+[776/803] TestBignum_Mul#test_mul_karatsuba_x1_gt_x0 = 0.01 s
+[777/803] TestBignum_Mul#test_sq_fast_zero_in_middle = 0.01 s
+[778/803] TestBignum_Mul#test_mul_gmp = 0.01 s
+[779/803] TestBignum_Mul#test_sq_fast = 0.01 s
+[780/803] TestBignum_Mul#test_sq_fast_max2 = 0.01 s
+[781/803] TestBignum_Mul#test_mul_normal_max_max = 0.01 s
+[782/803] TestBignum_Mul#test_mul_balance_2x16 = 0.01 s
+[783/803] TestBignum_Mul#test_mul_karatsuba_y1_gt_y0 = 0.01 s
+[784/803] TestBignum_Mul#test_mul_normal = 0.01 s
+[785/803] TestBignum_Mul#test_mul_karatsuba_odd_xy = 0.01 s
+[786/803] TestBignum_Mul#test_mul_normal_zero_in_y = 0.01 s
+[787/803] TestIseqLoad#test_case_when = 0.24 s
+[788/803] TestIseqLoad#test_stressful_roundtrip = 276.02 s
+[789/803] TestIseqLoad#test_kwarg = 0.11 s
+[790/803] TestIseqLoad#test_bug8543 = 0.09 s
+[791/803] TestIseqLoad#test_require_integration = 0.04 s
+[792/803] TestIseqLoad#test_break_ensure = 0.21 s
+[793/803] TestIseqLoad#test_splatsplat = 0.08 s
+[794/803] TestIseqLoad#test_next_in_block_in_block = 0.06 s
+[795/803] TestIseqLoad#test_hidden = 0.08 s
+[796/803] Test_FileStat#test_stat_for_fd = 0.02 s
+[797/803] Test_FileStat#test_stat_for_path = 0.01 s
+[798/803] TestBignum_Div#test_divrem_gmp = 0.02 s
+[799/803] TestBignum_Div#test_divrem_normal = 0.01 s
+[800/803] TestVM#test_at_exit = 4.82 s
+[801/803] TestRandomExt::TestLoop#test_bytes = 0.05 s
+[802/803] TestRandomExt::TestLoop#test_rand = 0.03 s
+[803/803] TestRandomExt::TestLoop#test_real = 0.04 s
+
+  1) Failure:
+Test_StrSetLen#test_shared [/root/ruby-3.4.5/test/-ext-/string/test_set_len.rb:24]:
+RuntimeError expected but nothing was raised.
+
+  2) Failure:
+TestBignum_Pack#test_unpack_argument_check [/root/ruby-3.4.5/test/-ext-/bignum/test_pack.rb:252]:
+[ArgumentError] exception expected, not #<RangeError: bignum too big to convert into 'unsigned long
+long'>.
+
+  3) Failure:
+TestBugReporter#test_bug_reporter_add [/root/ruby-3.4.5/test/-ext-/bug_reporter/test_bug_reporter.rb
+:30]:
+pid 1456 killed by signal 34
+| -:1: [BUG] Segmentation fault at 0x00000000000000000000000000000000
+| ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+|
+| -- Control frame information -----------------------------------------------
+| c:0003 p:---- s:0012 e:000011 CFUNC  :kill
+| c:0002 p:0022 s:0006 e:000005 EVAL   -:1 [FINISH]
+| c:0001 p:0000 s:0003 E:000190 DUMMY  [FINISH]
+|
+| -- Ruby level backtrace information ----------------------------------------
+| -:1:in '<main>'
+| -:1:in 'kill'
+|
+| -- Threading information ---------------------------------------------------
+| Total ractor count: 1
+| Ruby thread count for this ractor: 1
+|
+| -- C level backtrace information -------------------------------------------
+.
+
+1. [2/2] Assertion for "stderr"
+   | Expected /Sample bug reporter: 12345/
+   | to match
+   |   "-- Control frame information -----------------------------------------------\n"+
+   |   "c:0003 p:---- s:0012 e:000011 CFUNC  :kill\n"+
+   |   "c:0002 p:0022 s:0006 e:000005 EVAL   -:1 [FINISH]\n"+
+   |   "c:0001 p:0000 s:0003 E:000190 DUMMY  [FINISH]\n\n"+
+   |   "-- Ruby level backtrace information ----------------------------------------\n"+
+   |   "-:1:in '<main>'\n"+
+   |   "-:1:in 'kill'\n\n"+
+   |   "-- Threading information ---------------------------------------------------\n"+
+   |   "Total ractor count: 1\n"+
+   |   "Ruby thread count for this ractor: 1\n\n"+
+   |   "-- C level backtrace information -------------------------------------------\n"
+   | after 4 patterns with 138 characters.
+
+  4) Failure:
+Test_StringCapacity#test_capacity_frozen [/root/ruby-3.4.5/test/-ext-/string/test_capacity.rb:52]:
+<92> expected but was
+<1231>.
+
+Finished tests in 1376.667676s, 0.5833 tests/s, 22.4128 assertions/s.
+803 tests, 30855 assertions, 4 failures, 0 errors, 3 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

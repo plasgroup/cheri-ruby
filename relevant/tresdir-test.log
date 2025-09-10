@@ -1,0 +1,1358 @@
+../test/test_tsort.rb
+../test/test_unicode_normalize.rb
+../test/test_weakref.rb
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # for i in ../test/test_*.rb; do echo $i; done | wc
+ -l
+      23
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # for i in ../test/test_*.rb; do echo $i; ./minirub
+y -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmp
+dir \; done
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> for i in ../test/test_*.rb; do echo $i; done | wc -l
+-sh: Syntax error: "do" unexpected (expecting "done")
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # for i in ../test/test_*.rb; do echo $i; ./minirub
+y -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmp
+dir \
+> "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ex
+t  -- --disable-gems" \
+> --excludes-dir=../test/.excludes --name=!/memory_leak/ $i --timeout-scale 10 --worker-timeout=1000
+ -v; done
+../test/test_bundled_gems.rb
+Run options:
+  --seed=57400
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/4] TestBundlerGem#test_warning_libdir = 0.05 s
+[2/4] TestBundlerGem#test_warning_archdir = 0.02 s
+[3/4] TestBundlerGem#test_warning = 0.04 s
+[4/4] TestBundlerGem#test_no_warning_warning = 0.01 s
+Finished tests in 4.855006s, 0.8239 tests/s, 3.2956 assertions/s.
+4 tests, 16 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_delegate.rb
+Run options:
+  --seed=14827
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/35] TestDelegateClass#test_extend = 0.13 s
+[ 2/35] TestDelegateClass#test_instance_method = 0.03 s
+[ 3/35] TestDelegateClass#test_copy_frozen = 0.02 s
+[ 4/35] TestDelegateClass#test_DelegateClass_public_instance_method = 0.18 s
+[ 5/35] TestDelegateClass#test_dir_in_delegator_class = 0.01 s
+[ 6/35] TestDelegateClass#test_DelegateClass_instance_method = 0.77 s
+[ 7/35] TestDelegateClass#test_marshal = 0.02 s
+[ 8/35] TestDelegateClass#test_instance_methods = 0.06 s
+[ 9/35] TestDelegateClass#test_simpledelegator_clone = 0.02 s
+[10/35] TestDelegateClass#test_unset_simple_delegator = 0.03 s
+[11/35] TestDelegateClass#test_eql? = 0.01 s
+[12/35] TestDelegateClass#test_delegate_class_block = 0.11 s
+[13/35] TestDelegateClass#test_public_instance_methods = 0.06 s
+[14/35] TestDelegateClass#test_delegateclass_class = 0.01 s
+[15/35] TestDelegateClass#test_override = 0.02 s
+[16/35] TestDelegateClass#test_keyword_and_hash = 0.02 s
+[17/35] TestDelegateClass#test_keyword_argument = 0.03 s
+[18/35] TestDelegateClass#test_basicobject_respond_to = 0.01 s
+[19/35] TestDelegateClass#test_dir_in_simple_delegator = 0.01 s
+[20/35] TestDelegateClass#test_callee_in_delegator_class = 0.01 s
+[21/35] TestDelegateClass#test_global_function = 0.01 s
+[22/35] TestDelegateClass#test_method_in_delegator_class = 0.01 s
+[23/35] TestDelegateClass#test_methods = 0.01 s
+[24/35] TestDelegateClass#test_unset_delegate_class = 0.02 s
+[25/35] TestDelegateClass#test_send_method_in_delegator = 0.01 s
+[26/35] TestDelegateClass#test_method_in_simple_delegator = 0.01 s
+[27/35] TestDelegateClass#test_module_methods_vs_kernel_methods = 0.01 s
+[28/35] TestDelegateClass#test_callee_in_simple_delegator = 0.01 s
+[29/35] TestDelegateClass#test_private_method = 0.02 s
+[30/35] TestDelegateClass#test_systemcallerror_eq = 0.01 s
+[31/35] TestDelegateClass#test_frozen = 0.01 s
+[32/35] TestDelegateClass#test_global_method_if_no_target = 0.01 s
+[33/35] TestDelegateClass#test_basicobject = 0.01 s
+[34/35] TestDelegateClass#test_protected_instance_methods = 0.04 s
+[35/35] TestDelegateClass#test_simpledelegator_class = 0.01 s
+Finished tests in 4.552868s, 7.6875 tests/s, 35.1427 assertions/s.
+35 tests, 160 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_extlibs.rb
+Run options:
+  --seed=54833
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/29] TestExtLibs#test_existence_of_openssl = 17.39 s
+[ 2/29] TestExtLibs#test_existence_of_stringio = 11.55 s
+[ 3/29] TestExtLibs#test_existence_of_date = 11.65 s
+[ 4/29] TestExtLibs#test_existence_of_pty = 11.56 s
+[ 5/29] TestExtLibs#test_existence_of_pathname = 11.82 s
+[ 6/29] TestExtLibs#test_existence_of_thread = 11.50 s
+[ 7/29] TestExtLibs#"test_existence_of_rbconfig/sizeof" = 11.49 s
+[ 8/29] TestExtLibs#"test_existence_of_digest/sha2" = 12.64 s
+[ 9/29] TestExtLibs#test_existence_of_objspace = 11.60 s
+[10/29] TestExtLibs#test_existence_of_psych = 11.81 s
+[11/29] TestExtLibs#test_existence_of_json = 12.50 s
+[12/29] TestExtLibs#"test_existence_of_io/nonblock" = 11.53 s
+[13/29] TestExtLibs#"test_existence_of_io/wait" = 11.54 s
+[14/29] TestExtLibs#test_existence_of_zlib = 11.61 s
+[15/29] TestExtLibs#test_existence_of_digest = 11.63 s
+[16/29] TestExtLibs#test_existence_of_etc = 11.63 s
+[17/29] TestExtLibs#test_existence_of_fcntl = 11.55 s
+[18/29] TestExtLibs#test_existence_of_coverage = 11.58 s
+[19/29] TestExtLibs#"test_existence_of_digest/md5" = 11.62 s
+[20/29] TestExtLibs#test_existence_of_continuation = 11.56 s
+[21/29] TestExtLibs#"test_existence_of_io/console" = 11.66 s
+[22/29] TestExtLibs#test_existence_of_socket = 13.16 s
+[23/29] TestExtLibs#test_existence_of_strscan = 11.57 s
+[24/29] TestExtLibs#"test_existence_of_digest/sha1" = 11.64 s
+[25/29] TestExtLibs#"test_existence_of_digest/rmd160" = 11.61 s
+[26/29] TestExtLibs#test_existence_of_ripper = 13.90 s
+[27/29] TestExtLibs#test_existence_of_fiber = 11.51 s
+[28/29] TestExtLibs#"test_existence_of_digest/bubblebabble" = 11.61 s
+[29/29] TestExtLibs#test_existence_of_fiddle = 11.68 s
+
+  1) Failure:
+TestExtLibs#test_existence_of_psych [/root/ruby-3.4.5/test/test_extlibs.rb:20]:
+extension library `psych' is not found
+pkg_config: checking for pkg-config for yaml-0.1... -------------------- not found
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --exists yaml-0.1
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --libs yaml-0.1 |
+=> "-lyaml\n"
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/
+cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=
+/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -
+I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdec
+lspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-d
+eclarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointe
+r-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-funct
+ion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlengt
+h-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter
+ -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/cher
+iv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-pureca
+p/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+-fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/l
+ib -rdynamic     -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/build -l
+ruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/
+cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=
+/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -
+I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdec
+lspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-d
+eclarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointe
+r-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-funct
+ion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlengt
+h-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter
+ -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/cher
+iv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-pureca
+p/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+-fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/l
+ib -rdynamic -lyaml    -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/bu
+ild -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+riscv64-unknown-freebsd-ld.lld: error: unable to find library -lyaml
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+package configuration for yaml-0.1 is not found
+--------------------
+
+find_header: checking for yaml.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/cheriv92/src
+/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/sr
+c/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -
+fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+-Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wsh
+orten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wn
+o-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -W
+no-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused
+-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'yaml.h' file not found
+    3 | #include <yaml.h>
+      |          ^~~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <yaml.h>
+/* end */
+
+--------------------
+
+.
+Exception raised:
+<#<LoadError: cannot load such file -- psych>>
+Backtrace:
+  -:13:in 'Kernel#require'
+  -:13:in 'block in <main>'.
+
+  2) Failure:
+TestExtLibs#test_existence_of_fiddle [/root/ruby-3.4.5/test/test_extlibs.rb:20]:
+extension library `fiddle' is not found
+checking for --enable-debug-build option... -------------------- no
+
+--------------------
+
+pkg_config: checking for pkg-config for libffi... -------------------- not found
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --exists libffi
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --libs libffi |
+=> "-lffi\n"
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I
+/cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot
+=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri
+-I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fde
+clspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-
+declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpoint
+er-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-func
+tion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overleng
+th-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-paramete
+r -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/che
+riv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purec
+ap/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+ -fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/
+lib -rdynamic     -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/build -
+lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I
+/cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot
+=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri
+-I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fde
+clspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-
+declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpoint
+er-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-func
+tion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overleng
+th-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-paramete
+r -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/che
+riv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purec
+ap/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+ -fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/
+lib -rdynamic -lffi    -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/bu
+ild -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+riscv64-unknown-freebsd-ld.lld: error: unable to find library -lffi
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+package configuration for libffi is not found
+--------------------
+
+have_header: checking for ffi.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/s
+rc/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/
+src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0
+-fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+ -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Ws
+horten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -W
+no-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -
+Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unuse
+d-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'ffi.h' file not found
+    3 | #include <ffi.h>
+      |          ^~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_header: checking for ffi/ffi.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/426/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/s
+rc/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/
+src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0
+-fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+ -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Ws
+horten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -W
+no-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -
+Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unuse
+d-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'ffi/ffi.h' file not found
+    3 | #include <ffi/ffi.h>
+      |          ^~~~~~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <ffi/ffi.h>
+/* end */
+
+--------------------
+
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/ext/fiddle/extconf.rb:86: missing li
+bffi. Please install libffi or use --with-libffi-source-dir with libffi source location.
+        /cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/ext/fiddle/extconf.rb:86:in
+'<top (required)>'
+        ../ext/extmk.rb:231:in 'Kernel#load'
+        ../ext/extmk.rb:231:in 'block in Object#extmake'
+        /cheriv92/src/output/rootfs-riscv64-purecap/research/ruby-3.4.5/lib/mkmf.rb:340:in 'MakeMake
+file::Logging.open'
+        ../ext/extmk.rb:227:in 'Object#extmake'
+        ../ext/extmk.rb:659:in 'block in <main>'
+        ../ext/extmk.rb:653:in 'Array#each'
+        ../ext/extmk.rb:653:in '<main>'
+.
+Exception raised:
+<#<LoadError: cannot load such file -- fiddle>>
+Backtrace:
+  -:13:in 'Kernel#require'
+  -:13:in 'block in <main>'.
+
+Finished tests in 351.971189s, 0.0824 tests/s, 0.4063 assertions/s.
+29 tests, 143 assertions, 2 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_find.rb
+Run options:
+  --seed=5631
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/19] TestFind::TestInclude#test_functional_call = 0.09 s
+[ 2/19] TestFind#test_dangling_symlink_stat_error = 0.04 s
+[ 3/19] TestFind#test_unsearchable_dir = 0.10 s
+[ 4/19] TestFind#test_unreadable_dir = 0.03 s
+[ 5/19] TestFind#test_nonexistence = 0.05 s
+[ 6/19] TestFind#test_change_dir_to_symlink_loop = 0.09 s
+[ 7/19] TestFind#test_dont_follow_symlink = 0.07 s
+[ 8/19] TestFind#test_encoding_non_ascii = 0.09 s
+[ 9/19] TestFind#test_rec = 0.07 s
+[10/19] TestFind#test_empty = 0.03 s
+[11/19] TestFind#test_change_dir_to_file = 0.09 s
+[12/19] TestFind#test_relative = 0.07 s
+[13/19] TestFind#test_encoding_ascii = 0.04 s
+[14/19] TestFind#test_dangling_symlink = 0.03 s
+[15/19] TestFind#test_countup3 = 0.05 s
+[16/19] TestFind#test_countdown3 = 0.05 s
+[17/19] TestFind#test_to_path = 0.03 s
+[18/19] TestFind#test_enumerator = 0.07 s
+[19/19] TestFind#test_prune = 0.06 s
+Finished tests in 3.383725s, 5.6151 tests/s, 18.3230 assertions/s.
+19 tests, 62 assertions, 0 failures, 0 errors, 2 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_forwardable.rb
+Run options:
+  --seed=45139
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/27] TestForwardable#test_def_instance_delegators_using_block_method_as_receiver = 0.16 s
+[ 2/27] TestForwardable#test_def_instance_delegator_constant = 0.06 s
+[ 3/27] TestForwardable#test_obj_single_delegators = 0.10 s
+[ 4/27] TestForwardable#test_instance_delegate = 0.19 s
+[ 5/27] TestForwardable#test_obj_single_delegator = 0.70 s
+[ 6/27] TestForwardable#test_non_module = 0.04 s
+[ 7/27] TestForwardable#test_def_instance_delegator_using_args_method_as_receiver = 0.07 s
+[ 8/27] TestForwardable#test_obj_single_delegate = 0.18 s
+[ 9/27] TestForwardable#test_def_instance_delegator_kw = 0.05 s
+[10/27] TestForwardable#test_def_instance_delegator = 0.06 s
+[11/27] TestForwardable#test_aset = 0.03 s
+[12/27] TestForwardable#test_def_instance_delegator_using_block_method_as_receiver = 0.06 s
+[13/27] TestForwardable#test_on_private_method = 0.05 s
+[14/27] TestForwardable#test_backtrace_adjustment = 0.05 s
+[15/27] TestForwardable#test_basicobject_subclass = 0.03 s
+[16/27] TestForwardable#test_def_instance_delegators = 0.09 s
+[17/27] TestForwardable#test_binop = 0.03 s
+[18/27] TestForwardable#test_def_instance_delegate_using_block_method_as_receiver = 0.11 s
+[19/27] TestForwardable#test_uniop = 0.03 s
+[20/27] TestForwardable#test_def_instance_delegate_using_args_method_as_receiver = 0.09 s
+[21/27] TestForwardable#test_aref = 0.03 s
+[22/27] TestForwardable#test_class_single_delegator = 0.05 s
+[23/27] TestForwardable#test_obj_single_delegators_send_id = 0.02 s
+[24/27] TestForwardable#test_class_single_delegators = 0.10 s
+[25/27] TestForwardable#test_def_instance_delegators_using_args_method_as_receiver = 0.10 s
+[26/27] TestForwardable#test_def_instance_delegators_send_id = 0.02 s
+[27/27] TestForwardable#test_class_single_delegate = 0.17 s
+Finished tests in 5.147777s, 5.2450 tests/s, 28.3618 assertions/s.
+27 tests, 146 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_ipaddr.rb
+Run options:
+  --seed=58248
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/30] TC_Operator#test_carrot = 0.09 s
+[ 2/30] TC_Operator#test_mask = 0.09 s
+[ 3/30] TC_Operator#test_shift_right = 0.05 s
+[ 4/30] TC_Operator#test_include? = 0.07 s
+[ 5/30] TC_Operator#test_compare = 0.03 s
+[ 6/30] TC_Operator#test_loopback? = 0.08 s
+[ 7/30] TC_Operator#test_hash = 0.47 s
+[ 8/30] TC_Operator#test_link_local? = 0.11 s
+[ 9/30] TC_Operator#test_shift_left = 0.05 s
+[10/30] TC_Operator#test_or = 0.06 s
+[11/30] TC_Operator#test_native_coerce_mask_addr = 0.05 s
+[12/30] TC_Operator#test_equal = 0.06 s
+[13/30] TC_Operator#test_and = 0.06 s
+[14/30] TC_Operator#test_private? = 0.20 s
+[15/30] TC_IPAddr#test_ntop = 0.04 s
+[16/30] TC_IPAddr#test_netmask = 0.03 s
+[17/30] TC_IPAddr#test_ip6_arpa = 0.03 s
+[18/30] TC_IPAddr#test_ipv4_mapped = 0.05 s
+[19/30] TC_IPAddr#test_to_json = 0.07 s
+[20/30] TC_IPAddr#test_wildcard_mask = 0.05 s
+[21/30] TC_IPAddr#test_s_new = 2.44 s
+[22/30] TC_IPAddr#test_to_s = 0.03 s
+[23/30] TC_IPAddr#test_prefix_writer = 0.07 s
+[24/30] TC_IPAddr#test_ipv4_compat = 0.07 s
+[25/30] TC_IPAddr#test_to_range = 0.06 s
+[26/30] TC_IPAddr#test_s_new_ntoh = 0.05 s
+[27/30] TC_IPAddr#test_reverse = 0.03 s
+[28/30] TC_IPAddr#test_as_json = 0.06 s
+[29/30] TC_IPAddr#test_zone_id = 0.03 s
+[30/30] TC_IPAddr#test_ip6_int = 0.03 s
+Finished tests in 7.338186s, 4.0882 tests/s, 71.1348 assertions/s.
+30 tests, 522 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_open3.rb
+Run options:
+  --seed=2324
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/31] TestOpen3#test_capture2 = 9.86 s
+[ 2/31] TestOpen3#test_popen2 = 9.81 s
+[ 3/31] TestOpen3#test_env = 9.79 s
+[ 4/31] TestOpen3#test_commandline = 0.27 s
+[ 5/31] TestOpen3#test_pipeline_start = 70.25 s
+[ 6/31] TestOpen3#test_capture2e_stdin_data_io = 9.85 s
+[ 7/31] TestOpen3#test_numeric_file_descriptor3 = 9.83 s
+[ 8/31] TestOpen3#test_pipeline_start_noblock = 9.80 s
+[ 9/31] TestOpen3#test_capture2_stdin_data = 9.92 s
+[10/31] TestOpen3#test_popen2e = 9.87 s
+[11/31] TestOpen3#test_capture2e = 9.82 s
+[12/31] TestOpen3#test_stderr = 9.90 s
+[13/31] TestOpen3#test_pipeline_w = 60.35 s
+[14/31] TestOpen3#test_pipeline_rw = 19.65 s
+[15/31] TestOpen3#test_capture3_stdin_data_io = 9.88 s
+[16/31] TestOpen3#test_popen2e_noblock = 9.82 s
+[17/31] TestOpen3#test_capture2e_stdin_data = 9.89 s
+[18/31] TestOpen3#test_pid = 9.79 s
+[19/31] TestOpen3#test_stdin = 19.57 s
+[20/31] TestOpen3#test_pipeline_r = 19.61 s
+[21/31] TestOpen3#test_integer_and_symbol_key = 9.83 s
+[22/31] TestOpen3#test_capture3_flip = 14.66 s
+[23/31] TestOpen3#test_noblock = 9.79 s
+[24/31] TestOpen3#test_stdout = 9.80 s
+[25/31] TestOpen3#test_capture3_stdin_data = 9.92 s
+[26/31] TestOpen3#test_numeric_file_descriptor2 = 9.81 s
+[27/31] TestOpen3#test_block = 9.80 s
+[28/31] TestOpen3#test_capture3 = 9.84 s
+[29/31] TestOpen3#test_exit_status = 19.66 s
+[30/31] TestOpen3#test_capture2_stdin_data_io = 9.89 s
+[31/31] TestOpen3#test_pipeline = 69.44 s
+Finished tests in 513.126268s, 0.0604 tests/s, 0.3469 assertions/s.
+31 tests, 178 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_pp.rb
+Run options:
+  --seed=38548
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/31] PPTestModule::PPTest#test_list0123_11 = 0.07 s
+[ 2/31] PPTestModule::PPTest#test_range = 0.17 s
+[ 3/31] PPTestModule::PPTest#test_redefined_method = 0.02 s
+[ 4/31] PPTestModule::PPTest#test_struct_override_members = 0.05 s
+[ 5/31] PPTestModule::PPTest#test_list0123_12 = 0.03 s
+[ 6/31] PPTestModule::PPSingleLineTest#test_hash = 0.17 s
+[ 7/31] PPTestModule::PPSingleLineTest#test_hash_in_array = 0.02 s
+[ 8/31] PPTestModule::PPSingleLineTest#test_hash_symbol_colon_key = 0.14 s
+[ 9/31] PPTestModule::PPDelegateTest#test_delegate_cycle = 0.05 s
+[10/31] PPTestModule::PPDelegateTest#test_delegate = 0.03 s
+[11/31] PPTestModule::PPFileStatTest#test_nothing_raised = 0.14 s
+[12/31] PPTestModule::PPCycleTest#test_object = 0.12 s
+[13/31] PPTestModule::PPCycleTest#test_hash = 0.03 s
+[14/31] PPTestModule::PPCycleTest#test_withinspect = 0.05 s
+[15/31] PPTestModule::PPCycleTest#test_anonymous = 0.03 s
+[16/31] PPTestModule::PPCycleTest#test_array = 0.04 s
+[17/31] PPTestModule::PPCycleTest#test_share_nil = 0.03 s
+[18/31] PPTestModule::PPCycleTest#test_data = 0.10 s
+[19/31] PPTestModule::PPCycleTest#test_struct = 0.08 s
+[20/31] PPTestModule::PPCycleTest#test_data_removed_member = 0.03 s
+[21/31] PPTestModule::PPCycleTest#test_data_private_member = 0.04 s
+[22/31] PPTestModule::PPInheritedTest#test_hash_override = 0.07 s
+[23/31] PPTestModule::PPAbstractSyntaxTree#test_lasgn_literal = 0.04 s
+[24/31] PPTestModule::PPInspectTest#test_hasboth = 0.03 s
+[25/31] PPTestModule::PPInspectTest#test_hasprettyprint = 0.02 s
+[26/31] PPTestModule::PPInspectTest#test_to_s_without_iv = 0.03 s
+[27/31] PPTestModule::PPInspectTest#test_hasinspect = 0.02 s
+[28/31] PPTestModule::PPInspectTest#test_pretty_print_inspect = 0.02 s
+[29/31] PPTestModule::PPInspectTest#test_basic_object = 0.02 s
+[30/31] PPTestModule::PPInspectTest#test_proc = 0.03 s
+[31/31] PPTestModule::PPInspectTest#test_to_s_with_iv = 0.04 s
+
+  1) Failure:
+PPTestModule::PPCycleTest#test_object [/root/ruby-3.4.5/test/test_pp.rb:192]:
+<"#<Object:0x0000000000000000000000007691c000 @a=#<Object:0x0000000000000000000000007691c000 ...>>\n
+"> expected but was
+<"#<Object:0x0000000000000000000000007691c000\n" +
+" @a=#<Object:0x0000000000000000000000007691c000 ...>>\n">.
+
+Finished tests in 5.939530s, 5.2193 tests/s, 19.0251 assertions/s.
+31 tests, 113 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_prettyprint.rb
+Run options:
+  --seed=3245
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/32] PrettyPrintTest::NonString#test_7 = 0.05 s
+[ 2/32] PrettyPrintTest::NonString#test_6 = 0.02 s
+[ 3/32] PrettyPrintTest::StrictPrettyExample#test_00_04 = 0.08 s
+[ 4/32] PrettyPrintTest::StrictPrettyExample#test_11_31 = 0.11 s
+[ 5/32] PrettyPrintTest::StrictPrettyExample#test_08 = 0.04 s
+[ 6/32] PrettyPrintTest::StrictPrettyExample#test_06 = 0.04 s
+[ 7/32] PrettyPrintTest::StrictPrettyExample#test_09 = 0.04 s
+[ 8/32] PrettyPrintTest::StrictPrettyExample#test_05 = 0.04 s
+[ 9/32] PrettyPrintTest::StrictPrettyExample#test_07 = 0.04 s
+[10/32] PrettyPrintTest::StrictPrettyExample#test_10 = 0.04 s
+[11/32] PrettyPrintTest::StrictPrettyExample#test_32 = 0.04 s
+[12/32] PrettyPrintTest::TailGroup#test_1 = 0.02 s
+[13/32] PrettyPrintTest::WadlerExample#test_hello_13 = 0.03 s
+[14/32] PrettyPrintTest::WadlerExample#test_hello_07_08 = 0.03 s
+[15/32] PrettyPrintTest::WadlerExample#test_hello_09_10 = 0.04 s
+[16/32] PrettyPrintTest::WadlerExample#test_tree_alt_19_20 = 0.08 s
+[17/32] PrettyPrintTest::WadlerExample#test_tree_alt_50 = 0.04 s
+[18/32] PrettyPrintTest::WadlerExample#test_tree_23_43 = 0.06 s
+[19/32] PrettyPrintTest::WadlerExample#test_tree_00_19 = 0.05 s
+[20/32] PrettyPrintTest::WadlerExample#test_hello_00_06 = 0.04 s
+[21/32] PrettyPrintTest::WadlerExample#test_tree_alt_00_18 = 0.07 s
+[22/32] PrettyPrintTest::WadlerExample#test_tree_alt_20_49 = 0.08 s
+[23/32] PrettyPrintTest::WadlerExample#test_tree_44 = 0.04 s
+[24/32] PrettyPrintTest::WadlerExample#test_tree_20_22 = 0.06 s
+[25/32] PrettyPrintTest::WadlerExample#test_hello_11_12 = 0.04 s
+[26/32] PrettyPrintTest::Fill#test_00_06 = 0.06 s
+[27/32] PrettyPrintTest::Fill#test_23_26 = 0.05 s
+[28/32] PrettyPrintTest::Fill#test_19_22 = 0.05 s
+[29/32] PrettyPrintTest::Fill#test_15_18 = 0.05 s
+[30/32] PrettyPrintTest::Fill#test_11_14 = 0.05 s
+[31/32] PrettyPrintTest::Fill#test_07_10 = 0.05 s
+[32/32] PrettyPrintTest::Fill#test_27 = 0.03 s
+Finished tests in 4.628232s, 6.9141 tests/s, 24.8475 assertions/s.
+32 tests, 115 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_pstore.rb
+Run options:
+  --seed=26364
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/12] PStoreTest#test_keys = 0.10 s
+[ 2/12] PStoreTest#test_thread_safe = 0.10 s
+[ 3/12] PStoreTest#test_opening_new_file_in_readwrite_mode_should_result_in_empty_values = 0.02 s
+[ 4/12] PStoreTest#test_nested_transaction_raises_error = 0.04 s
+[ 5/12] PStoreTest#test_key_p = 0.04 s
+[ 6/12] PStoreTest#test_pstore_files_are_accessed_as_binary_files = 11.55 s
+[ 7/12] PStoreTest#test_writing_inside_readonly_transaction_raises_error = 0.03 s
+[ 8/12] PStoreTest#test_changes_after_commit_are_discarded = 0.03 s
+[ 9/12] PStoreTest#test_opening_new_file_in_readonly_mode_should_result_in_empty_values = 0.02 s
+[10/12] PStoreTest#test_data_should_be_loaded_correctly_when_in_readwrite_mode = 0.03 s
+[11/12] PStoreTest#test_changes_are_not_written_on_abort = 0.03 s
+[12/12] PStoreTest#test_data_should_be_loaded_correctly_when_in_readonly_mode = 0.02 s
+Finished tests in 13.954426s, 0.8599 tests/s, 3.5114 assertions/s.
+12 tests, 49 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_pty.rb
+Run options:
+  --seed=28926
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/15] TestPTY#test_open = 0.06 s
+[ 2/15] TestPTY#test_open_with_block = 0.04 s
+[ 3/15] TestPTY#test_close_in_block = 0.04 s
+[ 4/15] TestPTY#test_spawn_with_block = 9.76 s
+[ 5/15] TestPTY#test_pty_check_raise = 0.33 s
+[ 6/15] TestPTY#test_argv0 = 9.78 s
+[ 7/15] TestPTY#test_getpty_nonexistent = 0.22 s
+[ 8/15] TestPTY#test_close_slave = 0.03 s
+[ 9/15] TestPTY#test_spawn_without_block = 9.78 s
+[10/15] TestPTY#test_cloexec = 0.19 s
+[11/15] TestPTY#test_close_master = 0.03 s
+[12/15] TestPTY#test_stat_slave = 0.03 s
+[13/15] TestPTY#test_open_without_block = 0.03 s
+[14/15] TestPTY#test_pty_check_default = 0.46 s
+[15/15] TestPTY#test_commandline = 9.84 s
+Finished tests in 42.744687s, 0.3509 tests/s, 1.6142 assertions/s.
+15 tests, 69 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_rbconfig.rb
+Run options:
+  --seed=7284
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/5] TestRbConfig#test_vendordirs = 0.07 s
+[2/5] TestRbConfig#test_sitedirs = 0.04 s
+[3/5] TestRbConfig#test_archdirs = 0.04 s
+[4/5] TestRbConfig#test_sitearchdirs = 0.04 s
+[5/5] TestRbConfig#test_vendorarchdirs = 0.04 s
+Finished tests in 1.824386s, 2.7406 tests/s, 14.2514 assertions/s.
+5 tests, 26 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_securerandom.rb
+Run options:
+  --seed=51637
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/3] TestSecureRandom#test_with_openssl = 5.73 s
+[2/3] TestSecureRandom#test_repeated_gen_random = 0.01 s
+[3/3] TestSecureRandom#test_alphanumeric_with_chars = 0.01 s
+Finished tests in 7.286589s, 0.4117 tests/s, 10.1556 assertions/s.
+3 tests, 74 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_shellwords.rb
+Run options:
+  --seed=64193
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/11] TestShellwords#test_unmatched_single_quote = 0.05 s
+[ 2/11] TestShellwords#test_multibyte_characters = 0.01 s
+[ 3/11] TestShellwords#test_shellescape = 0.01 s
+[ 4/11] TestShellwords#test_shellwords = 0.02 s
+[ 5/11] TestShellwords#test_frozenness = 0.03 s
+[ 6/11] TestShellwords#test_backslashes = 0.05 s
+[ 7/11] TestShellwords#test_stringification = 0.02 s
+[ 8/11] TestShellwords#test_whitespace = 0.08 s
+[ 9/11] TestShellwords#test_unmatched_double_quote = 0.01 s
+[10/11] TestShellwords#test_nul_char = 0.01 s
+[11/11] TestShellwords#test_unmatched_quotes = 0.01 s
+Finished tests in 2.114849s, 5.2013 tests/s, 26.9523 assertions/s.
+11 tests, 57 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_singleton.rb
+Run options:
+  --seed=41164
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/13] TestSingleton#test_allocate_raises_exception = 0.04 s
+[ 2/13] TestSingleton#test_include_in_module_raises_exception = 0.02 s
+[ 3/13] TestSingleton#test_class_level_cloning_creates_separate_singleton = 0.01 s
+[ 4/13] TestSingleton#test_class_level_cloning_preserves_singleton_behavior = 0.01 s
+[ 5/13] TestSingleton#test_inheritance_instantiation = 0.02 s
+[ 6/13] TestSingleton#test_marshal = 0.01 s
+[ 7/13] TestSingleton#test_instance_never_changes = 0.01 s
+[ 8/13] TestSingleton#test_clone_raises_exception = 0.01 s
+[ 9/13] TestSingleton#test_dup_raises_exception = 0.01 s
+[10/13] TestSingleton#test_initialize_raises_exception = 0.01 s
+[11/13] TestSingleton#test_inheritance_works_with_overridden_inherited_method = 0.03 s
+[12/13] TestSingleton#test_inheritance_creates_separate_singleton = 0.01 s
+[13/13] TestSingleton#test_extending_singleton_raises_exception = 0.01 s
+Finished tests in 2.119564s, 6.1333 tests/s, 20.2872 assertions/s.
+13 tests, 43 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_tempfile.rb
+Run options:
+  --seed=1100
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/45] TestTempfile#test_basic = 0.08 s
+[ 2/45] TestTempfile#test_close_bang_does_not_unlink_if_already_unlinked = 0.03 s
+[ 3/45] TestTempfile#test_finalizer_removes_file = 6.26 s
+[ 4/45] TestTempfile#test_create_anonymous_without_block = 0.04 s
+[ 5/45] TestTempfile#test_default_basename = 0.03 s
+[ 6/45] TestTempfile#test_create_anonymous_path = 0.05 s
+[ 7/45] TestTempfile#test_close_with_unlink_now_true_works = 0.03 s
+[ 8/45] TestTempfile#test_create_with_block = 0.04 s
+[ 9/45] TestTempfile#test_create_without_block = 0.02 s
+[10/45] TestTempfile#test_close_with_unlink_now_true_does_not_unlink_if_already_unlinked = 0.02 s
+[11/45] TestTempfile#test_extend = 0.02 s
+[12/45] TestTempfile#test_create_anonymous_removes_file = 0.03 s
+[13/45] TestTempfile#test_create_anonymous_with_block = 0.02 s
+[14/45] TestTempfile#test_dup = 0.03 s
+[15/45] TestTempfile#test_finalizer_removes_file_when_dup = 6.22 s
+[16/45] TestTempfile#test_saves_in_given_directory = 0.03 s
+[17/45] TestTempfile#test_size_flushes_buffer_before_determining_file_size = 0.03 s
+[18/45] TestTempfile#test_concurrency = 6.82 s
+[19/45] TestTempfile#test_create_default_basename = 0.02 s
+[20/45] TestTempfile#test_tempfile_encoding_ascii8bit = 0.02 s
+[21/45] TestTempfile#test_tempfile_encoding_ascii8bit2 = 0.02 s
+[22/45] TestTempfile#test_unlink_silently_fails_on_windows = 0.02 s
+[23/45] TestTempfile#test_new_traversal_dir = 0.04 s
+[24/45] TestTempfile#test_unlink = 0.02 s
+[25/45] TestTempfile#test_close_flushes_buffer = 0.02 s
+[26/45] TestTempfile#test_create_traversal_dir = 0.03 s
+[27/45] TestTempfile#test_finalizer_removes_file_when_clone = 6.28 s
+[28/45] TestTempfile#test_open = 0.05 s
+[29/45] TestTempfile#test_close_and_close_p = 0.03 s
+[30/45] TestTempfile#test_finalizer_does_not_unlink_if_already_unlinked = 12.43 s
+[31/45] TestTempfile#test_unlink_before_close_works_on_posix_systems = 0.03 s
+[32/45] TestTempfile#test_binmode = 0.02 s
+[33/45] TestTempfile#test_tempfile_finalizer_does_not_run_if_unlinked = 6.23 s
+[34/45] TestTempfile#test_close_bang_works = 0.04 s
+[35/45] TestTempfile#test_create_anonymous_autoclose = 0.02 s
+[36/45] TestTempfile#test_tempfile_is_unlinked_when_ruby_exits = 6.24 s
+[37/45] TestTempfile#test_close_does_not_make_path_nil = 0.03 s
+[38/45] TestTempfile#test_leakchecker = 0.01 s
+[39/45] TestTempfile#test_basename_with_suffix = 0.03 s
+[40/45] TestTempfile#test_size_works_if_file_is_closed = 0.03 s
+[41/45] TestTempfile#test_tempfile_encoding_nooption = 0.02 s
+[42/45] TestTempfile#test_size_on_empty_file = 0.02 s
+[43/45] TestTempfile#test_basename = 0.02 s
+[44/45] TestTempfile#test_open_traversal_dir = 0.03 s
+[45/45] TestTempfile#test_clone = 0.02 s
+Finished tests in 59.289748s, 0.7590 tests/s, 2.4288 assertions/s.
+45 tests, 144 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_time.rb
+Run options:
+  --seed=12761
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/42] TestTimeExtension#test_rfc822 = 0.06 s
+[ 2/42] TestTimeExtension#test_iso8601 = 0.10 s
+[ 3/42] TestTimeExtension#test_iso8601_alias = 0.05 s
+[ 4/42] TestTimeExtension#test_rfc2822_ractor = 12.85 s
+[ 5/42] TestTimeExtension#test_iso8601_leap_second = 0.11 s
+[ 6/42] TestTimeExtension#test_xmlschema_fraction = 0.01 s
+[ 7/42] TestTimeExtension#test_parse_with_various_object = 0.08 s
+[ 8/42] TestTimeExtension#test_xmlschema_nsec = 0.01 s
+[ 9/42] TestTimeExtension#test_iso8601_fraction = 0.01 s
+[10/42] TestTimeExtension#test_rfc2822_leap_second = 0.09 s
+[11/42] TestTimeExtension#test_iso8601_encode = 0.07 s
+[12/42] TestTimeExtension#test_rfc2822_nonlinear = 5.21 s
+[13/42] TestTimeExtension#test_strptime_p = 0.04 s
+[14/42] TestTimeExtension#test_strptime_Ymd_z = 0.04 s
+[15/42] TestTimeExtension#test_huge_precision = 9.84 s
+[16/42] TestTimeExtension#test_zone_0000 = 0.12 s
+[17/42] TestTimeExtension#test_nsec = 0.02 s
+[18/42] TestTimeExtension#test_rfc2822_utc_roundtrip_winter = 0.02 s
+[19/42] TestTimeExtension#test_parse_now_nil = 0.02 s
+[20/42] TestTimeExtension#test_invalid = 0.20 s
+[21/42] TestTimeExtension#test_parse_leap_second = 0.63 s
+[22/42] TestTimeExtension#test_strptime_j = 0.02 s
+[23/42] TestTimeExtension#test_strptime_wuvg = 0.07 s
+[24/42] TestTimeExtension#test_rfc2822 = 0.07 s
+[25/42] TestTimeExtension#test_strptime_empty = 0.02 s
+[26/42] TestTimeExtension#test_parse_fraction = 0.02 s
+[27/42] TestTimeExtension#test_iso8601_nsec = 0.01 s
+[28/42] TestTimeExtension#test_strptime_s_z = 0.02 s
+[29/42] TestTimeExtension#test_completion_with_different_timezone = 0.02 s
+[30/42] TestTimeExtension#test_xmlschema_leap_second = 0.20 s
+[31/42] TestTimeExtension#test_strptime = 0.02 s
+[32/42] TestTimeExtension#test_rfc2822_utc_roundtrip_summer = 0.01 s
+[33/42] TestTimeExtension#test_xmlschema_encode = 0.06 s
+[34/42] TestTimeExtension#test_xmlschema_alias = 0.04 s
+[35/42] TestTimeExtension#test_ruby_talk_152866 = 0.02 s
+[36/42] TestTimeExtension#test_parse_offset_hour_minute_second = 0.04 s
+[37/42] TestTimeExtension#test_completion = 0.05 s
+[38/42] TestTimeExtension#test_encode_rfc2822 = 0.07 s
+[39/42] TestTimeExtension#test_encode_httpdate = 0.01 s
+[40/42] TestTimeExtension#test_xmlschema = 0.07 s
+[41/42] TestTimeExtension#test_strptime_s_N = 0.03 s
+[42/42] TestTimeExtension#test_rfc2616 = 0.05 s
+Finished tests in 33.550309s, 1.2519 tests/s, 26.3783 assertions/s.
+42 tests, 885 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_timeout.rb
+Run options:
+  --seed=12680
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/25] TestTimeout#test_queue = 0.09 s
+[ 2/25] TestTimeout#test_allows_zero_seconds = 0.01 s
+[ 3/25] TestTimeout#test_fork = 0.84 s
+[ 4/25] TestTimeout#test_yield_param = 0.03 s
+[ 5/25] TestTimeout#test_rescue_exit = 0.08 s
+[ 6/25] TestTimeout#test_enumerator_next = 0.04 s
+[ 7/25] TestTimeout#test_raises_exception_internally = 0.07 s
+[ 8/25] TestTimeout#test_nested_timeout_error_identity = 0.16 s
+[ 9/25] TestTimeout#test_skip_rescue_standarderror = 0.04 s
+[10/25] TestTimeout#test_work_is_done_in_same_fiber_as_caller = 0.02 s
+[11/25] TestTimeout#test_included = 0.02 s
+[12/25] TestTimeout#test_nested_timeout = 0.24 s
+[13/25] TestTimeout#test_raise_with_message = 0.01 s
+[14/25] TestTimeout#test_raise_for_neg_second = 0.01 s
+[15/25] TestTimeout#test_work_is_done_in_same_thread_as_caller = 0.01 s
+[16/25] TestTimeout#test_cannot_convert_into_time_interval = 0.01 s
+[17/25] TestTimeout#test_timeout = 0.21 s
+[18/25] TestTimeout#test_threadgroup = 11.63 s
+[19/25] TestTimeout#test_allows_nil_seconds = 0.01 s
+[20/25] TestTimeout#test_non_timing_out_code_is_successful = 0.02 s
+[21/25] TestTimeout#test_custom_exception = 0.08 s
+[22/25] TestTimeout#test_handling_enclosed_threadgroup = 11.59 s
+[23/25] TestTimeout#test_nested_timeout_which_error_bubbles_up = 0.05 s
+[24/25] TestTimeout#test_handle_interrupt = 0.23 s
+[25/25] TestTimeout#test_exit_exception = 0.02 s
+Finished tests in 27.943087s, 0.8947 tests/s, 3.5787 assertions/s.
+25 tests, 100 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_tmpdir.rb
+Run options:
+  --seed=59298
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/10] TestTmpdir#test_tmpdir_not_empty_parent = 0.08 s
+[ 2/10] TestTmpdir#test_mktmpdir_not_empty_parent = 0.05 s
+[ 3/10] TestTmpdir#test_mktmpdir_nil = 0.02 s
+[ 4/10] TestTmpdir#test_ractor = 14.58 s
+[ 5/10] TestTmpdir#test_mktmpdir_traversal_array = 0.05 s
+[ 6/10] TestTmpdir#test_tmpdir_modifiable = 0.02 s
+[ 7/10] TestTmpdir#test_no_homedir = 0.03 s
+[ 8/10] TestTmpdir#test_world_writable = 0.15 s
+[ 9/10] TestTmpdir#test_mktmpdir_traversal = 0.03 s
+[10/10] TestTmpdir#test_mktmpdir_mutate = 0.03 s
+
+  1) Failure:
+TestTmpdir#test_world_writable [/root/ruby-3.4.5/test/test_tmpdir.rb:31]:
+expected: /\ATMPDIR is not writable/
+actual: "".
+
+Finished tests in 16.849710s, 0.5935 tests/s, 2.4926 assertions/s.
+10 tests, 42 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_trick.rb
+Run options:
+  --seed=44539
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[ 1/22] TestRubyKaigi2023🥢#test_chopsticks_1 = 2.47 s
+[ 2/22] TestRubyKaigi2023🥢#test_chopsticks_1_0 = 2.36 s
+[ 3/22] TestRubyKaigi2023🥢#test_chopsticks_0 = 2.35 s
+[ 4/22] TestRubyKaigi2023🥢#test_chopsticks_0_1 = 3.39 s
+[ 5/22] TestTRICK2018#test_02_mame = 5.59 s
+[ 6/22] TestTRICK2018#test_05_tompng = 1.75 s
+[ 7/22] TestTRICK2018#test_04_colin = 2.42 s
+[ 8/22] TestTRICK2018#test_01_kinaba = 2.36 s
+[ 9/22] TestTRICK2018#test_03_tompng = 1.90 s
+[10/22] TestAllRubyQuine#test_all_ruby_quine = 0.79 s
+[11/22] TestTRICK2015#test_ksk_1 = 17.47 s
+[12/22] TestTRICK2015#test_kinaba = 336.27 s
+[13/22] TestTRICK2015#test_eregon = 8.03 s
+[14/22] TestTRICK2015#test_ksk_2 = 2.43 s
+[15/22] TestTRICK2015#test_monae = 4.18 s
+[16/22] TestTRICK2013#test_shinh = 2.40 s
+[17/22] TestTRICK2013#test_mame = 438.48 s
+[18/22] TestTRICK2013#test_kinaba = 2.45 s
+[19/22] TestTRICK2013#test_yhara = 2.54 s
+[20/22] TestTRICK2022#test_01_tompng = 1.72 s
+[21/22] TestTRICK2022#test_02_tompng = 1.73 s
+[22/22] TestTRICK2022#test_03_mame = 1.75 s
+Finished tests in 850.159078s, 0.0259 tests/s, 0.1294 assertions/s.
+22 tests, 110 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_tsort.rb
+Run options:
+  --seed=9267
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/8] TSortTest#test_array = 0.06 s
+[2/8] TSortTest#test_s_strongly_connected_components = 0.02 s
+[3/8] TSortTest#test_s_tsort = 0.03 s
+[4/8] TSortTest#test_s_each_strongly_connected_component = 0.03 s
+[5/8] TSortTest#test_cycle = 0.03 s
+[6/8] TSortTest#test_s_each_strongly_connected_component_from = 0.02 s
+[7/8] TSortTest#test_s_tsort_each = 0.03 s
+[8/8] TSortTest#test_dag = 0.02 s
+Finished tests in 1.944022s, 4.1152 tests/s, 16.9751 assertions/s.
+8 tests, 33 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_unicode_normalize.rb
+Run options:
+  --seed=14592
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/9] TestUnicodeNormalize#test_partial_jamo_decompose = 0.20 s
+[2/9] TestUnicodeNormalize#test_hangul_plus_accents = 0.04 s
+[3/9] TestUnicodeNormalize#test_us_ascii = 0.02 s
+[4/9] TestUnicodeNormalize#test_no_trailing_jamo = 0.02 s
+[5/9] TestUnicodeNormalize#test_reiwa = 0.21 s
+[6/9] TestUnicodeNormalize#test_partial_jamo_compose = 0.02 s
+[7/9] TestUnicodeNormalize#test_raise_exception_for_non_unicode_encoding = 0.04 s
+[8/9] TestUnicodeNormalize#test_non_UTF_8 = 0.05 s
+[9/9] TestUnicodeNormalize#test_singleton_with_accents = 0.01 s
+Finished tests in 2.631373s, 3.4203 tests/s, 17.8614 assertions/s.
+9 tests, 47 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+../test/test_weakref.rb
+Run options:
+  --seed=59261
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+  -v
+
+# Running tests:
+
+[1/4] TestWeakRef#test_weakref_finalize = 11.09 s
+[2/4] TestWeakRef#test_ref = 0.03 s
+[3/4] TestWeakRef#test_not_reference_different_object = 1.93 s
+[4/4] TestWeakRef#test_recycled = 0.86 s
+Finished tests in 15.497470s, 0.2581 tests/s, 1.0324 assertions/s.
+4 tests, 16 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.5 (2025-09-02 revision 71fe9338d2) +PRISM [riscv64-freebsd]
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build # uname -a
+FreeBSD cheribsd-riscv64-purecap 15.0-CURRENT FreeBSD 15.0-CURRENT #0 main-485c1c8195: Sun Aug 17 21
+:21:09 JST 2025     hanhaotian@assam:/cheriv92/src/build/cheribsd-riscv64-purecap-build/cheriv92/src
+/cheribsd/riscv.riscv64c/sys/CHERI-PURECAP-QEMU riscv
+root@cheribsd-riscv64-purecap:~/ruby-3.4.5/build #

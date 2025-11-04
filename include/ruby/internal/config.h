@@ -115,7 +115,7 @@
 # define UNALIGNED_WORD_ACCESS 1
 #elif defined(__POWERPC__) // __POWERPC__ is defined for ppc and ppc64 on Darwin
 # define UNALIGNED_WORD_ACCESS 1
-#elif defined(__aarch64__)
+#elif defined(__aarch64__) && !defined(__CHERI_PURE_CAPABILITY__)
 # define UNALIGNED_WORD_ACCESS 1
 #elif defined(__mc68020__)
 # define UNALIGNED_WORD_ACCESS 1

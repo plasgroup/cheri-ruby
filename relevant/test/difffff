@@ -1,0 +1,14 @@
+{vm_stack = 0x41c00000 [rwRW,0x41c00000-0x41e00000], vm_stack_size = 131072, 
+  cfp = 0x41dffeb0 [rwRW,0x41c00000-0x41e00000], 
+  tag = 0x3fffdfbf40 [rwRW,0x3fffdfbf40-0x3fffdfc180], interrupt_flag = 0, interrupt_mask = 0, 
+  fiber_ptr = 0x41462c00 [rwRW,0x41462c00-0x41463770], 
+  thread_ptr = 0x41456000 [rwRW,0x41456000-0x41456360], local_storage = 0x0, 
+  local_storage_recursive_hash = 4, local_storage_recursive_hash_for_trace = 4, storage = 4, 
+  root_lep = 0x0, root_svar = 0, trace_arg = 0x0, errinfo = 4, passed_block_handler = 0, 
+  raised_flag = 0 '\000', method_missing_reason = MISSING_NOENTRY, private_const_reference = 0, 
+  machine = {stack_start = 0x3fffe00000 [rwRW,0x3fbfe00000-0x3fffe00000], 
+    stack_end = 0x3fffdfbd20 [rwRW,0x3fbfe00000-0x3fffe00000], stack_maxsize = 1073741824, regs = {
+      {_jb = {13729220758898519809, -61824678693337234822749164275872318096, 
+          -61824678693337234822749164275872318016, -19289382827559213400978857539401681024, 
+          -19289382827636587604913245600111135008, -62353643934527981367357701675325019128, 0, 0, 
+          0, 0, 0, 0, 0, 0, -62353643934527981367357701675321830750, 0 <repeats 17 times>}}}}}

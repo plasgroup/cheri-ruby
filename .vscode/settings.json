@@ -1,0 +1,22 @@
+{
+	"files.associations": {
+		"cheriintrin.h": "c",
+		"assert.h": "c",
+		"cheric.h": "c",
+		"optional": "cpp",
+		"rbs_extension.h": "c",
+		"hash.h": "c",
+		"dlfcn.h": "c",
+		"inttypes.h": "c",
+		"stdint.h": "c",
+		"_stdint.h": "c",
+		"_inttypes.h": "c",
+		"pm_constant_pool.h": "c",
+		"defines.h": "c",
+		"*.rbinc": "c",
+		"stdio.h": "c",
+		"ucontext.h": "c",
+		"cheri.h": "c"
+	},
+	"git.ignoreLimitWarning": true
+}

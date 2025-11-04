@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+				"/morello/src/output/rootfs-morello-purecap",
+				"/morello/src/output/morello-sdk/lib/clang/17/include",
+				"/morello/src/output/rootfs-morello-purecap/usr/include"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+			"compilerPath": "/morello/src/output/morello-sdk/bin/clang",
+			"compilerArgs": [
+				"-target ",
+				"aarch64-unknown-freebsd",
+				"--sysroot=/morello/src/output/rootfs-morello-purecap",
+				"-march=morello",
+				"-mabi=purecap"
+			]
+        }
+    ],
+    "version": 4
+}

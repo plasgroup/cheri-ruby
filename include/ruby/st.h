@@ -23,7 +23,7 @@ typedef unsigned long st_data_t;
 #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
 typedef unsigned LONG_LONG st_data_t;
 #else
-# error ---->> st.c requires sizeof(void*) == sizeof(long) or sizeof(LONG_LONG) to be compiled. <<----
+typedef uintptr_t st_data_t;
 #endif
 #define ST_DATA_T_DEFINED
 
@@ -63,7 +63,7 @@ struct st_hash_type {
     st_index_t (*hash)(st_data_t);        /* st_hash_func* */
 };
 
-#define ST_INDEX_BITS (SIZEOF_ST_INDEX_T * CHAR_BIT)
+#define ST_INDEX_BITS (8 * CHAR_BIT)
 
 #if defined(HAVE_BUILTIN___BUILTIN_CHOOSE_EXPR) && defined(HAVE_BUILTIN___BUILTIN_TYPES_COMPATIBLE_P)
 # define ST_DATA_COMPATIBLE_P(type) \

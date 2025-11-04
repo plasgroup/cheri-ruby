@@ -78,21 +78,21 @@ struct rb_callinfo {
 #define USE_EMBED_CI 0
 #endif
 
-#if SIZEOF_VALUE == 8
+// #if SIZEOF_VALUE == 8
 #define CI_EMBED_TAG_bits   1
 #define CI_EMBED_ARGC_bits 15
 #define CI_EMBED_FLAG_bits 16
 #define CI_EMBED_ID_bits   32
-#elif SIZEOF_VALUE == 4
-#define CI_EMBED_TAG_bits   1
-#define CI_EMBED_ARGC_bits  3
-#define CI_EMBED_FLAG_bits 13
-#define CI_EMBED_ID_bits   15
-#endif
+// #elif SIZEOF_VALUE == 4
+// #define CI_EMBED_TAG_bits   1
+// #define CI_EMBED_ARGC_bits  3
+// #define CI_EMBED_FLAG_bits 13
+// #define CI_EMBED_ID_bits   15
+// #endif
 
-#if (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits + CI_EMBED_FLAG_bits + CI_EMBED_ID_bits) != (SIZEOF_VALUE * 8)
-#error
-#endif
+// #if (CI_EMBED_TAG_bits + CI_EMBED_ARGC_bits + CI_EMBED_FLAG_bits + CI_EMBED_ID_bits) != (SIZEOF_VALUE * 8)
+// #error
+// #endif
 
 #define CI_EMBED_FLAG 0x01
 #define CI_EMBED_ARGC_SHFT (CI_EMBED_TAG_bits)

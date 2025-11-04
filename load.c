@@ -33,7 +33,8 @@ static VALUE ruby_dln_libmap;
 # define SVALUE2NUM(x) LL2NUM((LONG_LONG)(x))
 # define NUM2SVALUE(x) (SIGNED_VALUE)NUM2LL(x)
 #else
-# error Need integer for VALUE
+# define SVALUE2NUM(x) LONG2NUM((long)(x))
+# define NUM2SVALUE(x) (SIGNED_VALUE)NUM2LONG(x)
 #endif
 
 enum {

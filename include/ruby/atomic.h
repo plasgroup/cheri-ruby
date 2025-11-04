@@ -40,6 +40,8 @@
 # include <atomic.h>
 #endif
 
+#include <stdatomic.h>         /* std::atomic */
+
 #include "ruby/assert.h"
 #include "ruby/backward/2/limits.h"
 #include "ruby/internal/attr/artificial.h"
@@ -747,6 +749,12 @@ rbimpl_atomic_ptr_exchange(void *volatile *ptr, const void *val)
 #elif defined(__sun) && defined(HAVE_ATOMIC_H)
     return atomic_swap_ptr(ptr, RBIMPL_CAST((void *)val));
 
+	#elif defined(__CHERI_PURE_CAPABILITY__) 
+	// _Atomic(void *) *p = (_Atomic(void *) *)ptr;
+	void *v = (void *)val;
+	// return atomic_exchange(p, v); // return old value
+    return __atomic_exchange_n(ptr, v, __ATOMIC_SEQ_CST);
+
 #else
     RBIMPL_STATIC_ASSERT(sizeof_voidp, sizeof *ptr == sizeof(size_t));
 
@@ -764,12 +772,16 @@ RBIMPL_ATTR_NONNULL((1))
 static inline VALUE
 rbimpl_atomic_value_exchange(volatile VALUE *ptr, VALUE val)
 {
-    RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
+    // RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
+	// #if defined(__CHERI_PURE_CAPABILITY__) 
+	// _Atomic(VALUE) *atomic_ptr = (_Atomic(VALUE) *)ptr;
+    // return atomic_exchange(atomic_ptr, val);
+    return __atomic_exchange_n(ptr, val, __ATOMIC_SEQ_CST);
 
-    const size_t sval = RBIMPL_CAST((size_t)val);
-    volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
-    const size_t sret = rbimpl_atomic_size_exchange(sptr, sval);
-    return RBIMPL_CAST((VALUE)sret);
+    // const size_t sval = RBIMPL_CAST((size_t)val);
+    // volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
+    // const size_t sret = rbimpl_atomic_size_exchange(sptr, sval);
+    // return RBIMPL_CAST((VALUE)sret);
 }
 
 RBIMPL_ATTR_ARTIFICIAL()
@@ -900,6 +912,29 @@ rbimpl_atomic_ptr_cas(void **ptr, const void *oldval, const void *newval)
     void *pnew = RBIMPL_CAST((void *)newval);
     return atomic_cas_ptr(ptr, pold, pnew);
 
+#elif defined(__CHERI_PURE_CAPABILITY__) 
+	// // Define an atomic pointer type compatible with *ptr
+    // _Atomic(void *) *atomic_ptr = (_Atomic(void *) *)ptr;
+
+    // void *expected = (void *)oldval;
+
+    // // atomic_compare_exchange_strong updates expected if the comparison fails
+    // atomic_compare_exchange_strong_explicit(
+    //     atomic_ptr,
+    //     &expected,
+    //     (void *)newval,
+    //     memory_order_seq_cst,
+    //     memory_order_seq_cst
+    // );
+
+    // // Return the previous value (whether or not the exchange succeeded)
+    // return expected;
+	void **pptr = RBIMPL_CAST((void **)ptr);
+	void *pold = RBIMPL_CAST((void *)oldval);
+    void *pnew = RBIMPL_CAST((void *)newval);
+	__atomic_compare_exchange_n(
+        pptr, &pold, pnew, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+    return pold;
 
 #else
     RBIMPL_STATIC_ASSERT(sizeof_voidp, sizeof *ptr == sizeof(size_t));
@@ -935,6 +970,28 @@ RBIMPL_ATTR_NONNULL((1))
 static inline VALUE
 rbimpl_atomic_value_cas(volatile VALUE *ptr, VALUE oldval, VALUE newval)
 {
+#if defined(__CHERI_PURE_CAPABILITY__) 
+    // // Treat ptr as an atomic VALUE pointer
+    // _Atomic(VALUE) *atomic_ptr = (_Atomic(VALUE) *)ptr;
+    // VALUE expected = oldval;
+
+    // // Attempt CAS operation and ignore the boolean result
+    // atomic_compare_exchange_strong_explicit(
+    //     atomic_ptr,
+    //     &expected,
+    //     newval,
+    //     memory_order_seq_cst,
+    //     memory_order_seq_cst
+    // );
+
+    // // Return the prior value (either oldval on success, or the current one on failure)
+    // return expected;
+	VALUE expected = oldval;
+
+	__atomic_compare_exchange_n(
+        ptr, &expected, newval, 0, __ATOMIC_SEQ_CST, __ATOMIC_SEQ_CST);
+    return expected;
+	#else
     RBIMPL_STATIC_ASSERT(sizeof_value, sizeof *ptr == sizeof(size_t));
 
     const size_t snew = RBIMPL_CAST((size_t)newval);
@@ -942,6 +999,7 @@ rbimpl_atomic_value_cas(volatile VALUE *ptr, VALUE oldval, VALUE newval)
     volatile size_t *const sptr = RBIMPL_CAST((volatile size_t *)ptr);
     const size_t sret = rbimpl_atomic_size_cas(sptr, sold, snew);
     return RBIMPL_CAST((VALUE)sret);
+	#endif
 }
 /** @endcond */
 #endif /* RUBY_ATOMIC_H */

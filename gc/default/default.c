@@ -971,7 +971,7 @@ total_final_slots_count(rb_objspace_t *objspace)
 # define obj_id_to_ref(objid) (FIXNUM_P(objid) ? \
    ((objid) ^ FIXNUM_FLAG) : (NUM2PTR(objid) << 1))
 #else
-# error not supported
+# define obj_id_to_ref(objid) ((objid) ^ FIXNUM_FLAG) /* unset FIXNUM_FLAG */
 #endif
 
 struct RZombie {

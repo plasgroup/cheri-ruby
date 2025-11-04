@@ -1785,11 +1785,11 @@ rb_gc_pointer_to_heap_p(VALUE obj)
 static VALUE
 id2ref(VALUE objid)
 {
-#if SIZEOF_LONG == SIZEOF_VOIDP
+// #if SIZEOF_LONG == SIZEOF_VOIDP
 #define NUM2PTR(x) NUM2ULONG(x)
-#elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
-#define NUM2PTR(x) NUM2ULL(x)
-#endif
+// #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
+// #define NUM2PTR(x) NUM2ULL(x)
+// #endif
     objid = rb_to_int(objid);
     if (FIXNUM_P(objid) || rb_big_size(objid) <= SIZEOF_VOIDP) {
         VALUE ptr = NUM2PTR(objid);
@@ -1852,7 +1852,7 @@ nonspecial_obj_id(void *_objspace, VALUE obj)
 #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
     return LL2NUM((SIGNED_VALUE)(obj) / 2);
 #else
-# error not supported
+    return (VALUE)((SIGNED_VALUE)(obj)|FIXNUM_FLAG);
 #endif
 }
 

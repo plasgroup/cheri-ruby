@@ -1,0 +1,1828 @@
+# Query: PRIsVALUE
+# Flags: CaseSensitive RegExp IgnoreExcludeSettings
+# Excluding: doc/ChangeLog,.py,.rb,.rs,.mk,Makefile,depend,.gdbinit,ChangeLog
+
+1785 results - 111 files
+
+array.c:
+  3077:             rb_raise(rb_eTypeError, "wrong element type %"PRIsVALUE" at %ld (expected array)",
+  3559:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE
+  4458:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+
+bignum.c:
+  3765:     rb_raise(rb_eArgError, "invalid value for Integer(): %+"PRIsVALUE, s);
+
+class.c:
+   347:         rb_raise(rb_eTypeError, "superclass must be an instance of Class (given an instance of %"PRIsVALUE")",
+   991:             rb_raise(rb_eTypeError, "%s is not a class (%"PRIsVALUE")",
+  1027:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::%"PRIsVALUE" is not a class"
+  1028:                      " (%"PRIsVALUE")",
+  1033:                      "%"PRIsVALUE"::%"PRIsVALUE""
+  1034:                      " (%"PRIsVALUE" is given but was %"PRIsVALUE")",
+  1041:         rb_raise(rb_eArgError, "no super class for '%"PRIsVALUE"::%"PRIsVALUE"'",
+  1106:             rb_raise(rb_eTypeError, "%s is not a module (%"PRIsVALUE")",
+  1134:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::%"PRIsVALUE" is not a module"
+  1135:                      " (%"PRIsVALUE")",
+  1720:         rb_raise(rb_eTypeError, "'%"PRIsVALUE"' is not a singleton class", klass);
+
+compar.c:
+  38:     rb_raise(rb_eArgError, "comparison of %"PRIsVALUE" with %"PRIsVALUE" failed",
+
+compile.c:
+    709:                           "%"PRIsVALUE": undefined label",
+   6260:         return rb_sprintf("block in %"PRIsVALUE, ISEQ_BODY(iseq)->location.label);
+   6263:         return rb_sprintf("block (%d levels) in %"PRIsVALUE, level, ISEQ_BODY(iseq)->location.label);
+   7534:                         ADD_INSN1(ret, line_node, putobject, rb_str_freeze(rb_sprintf("key not found: %+"PRIsVALUE, key))); // (4)
+   7651:                 COMPILE_ERROR(ERROR_ARGS "illegal variable in alternative pattern (%"PRIsVALUE")",
+   7670:                 COMPILE_ERROR(ERROR_ARGS "illegal variable in alternative pattern (%"PRIsVALUE")",
+   7677:             COMPILE_ERROR(ERROR_ARGS "NODE_DASGN: unknown id (%"PRIsVALUE")",
+  10764:             COMPILE_ERROR(ERROR_ARGS "NODE_DASGN: unknown id (%"PRIsVALUE")",
+  10886:                 COMPILE_ERROR(ERROR_ARGS "unknown dvar (%"PRIsVALUE")",
+  11231:                                                      rb_str_freeze(rb_sprintf("<class:%"PRIsVALUE">", rb_id2str(get_node_colon_nd_mid(RNODE_CLASS(node)->nd_cpath)))),
+  11248:                                                       rb_str_freeze(rb_sprintf("<module:%"PRIsVALUE">", rb_id2str(get_node_colon_nd_mid(RNODE_MODULE(node)->nd_cpath)))),
+  11496:                     if (vm_ci_mid(ci)) rb_str_catf(str, "%"PRIsVALUE, rb_id2str(vm_ci_mid(ci)));
+  11649:     rb_raise(rb_eSyntaxError, "invalid exception symbol: %+"PRIsVALUE, sym);
+  11837:                               "unknown instruction: %+"PRIsVALUE, insn);
+  11990:         rb_raise(rb_eTypeError, "invalid %+"PRIsVALUE" Fixnum: %+"PRIsVALUE,
+  12053:             rb_raise(rb_eTypeError, "keyword default has unsupported len %+"PRIsVALUE, key);
+  12188:         rb_raise(rb_eTypeError, ":opt param is not an array: %+"PRIsVALUE,
+  12196:         rb_raise(rb_eTypeError, ":keywords param is not an array: %+"PRIsVALUE,
+  13586:                              "(%x), path=%+"PRIsVALUE,
+  14068:         rb_raise(rb_eNotImpError, "ibf_dump_object_struct: unsupported class %"PRIsVALUE,
+
+complex.c:
+  1309:     rb_raise(rb_eTypeError, "%"PRIsVALUE" can't be coerced into %"PRIsVALUE,
+  1805:         rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Integer",
+  1829:         rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Float",
+  1862:             rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Rational",
+  1909:        rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Rational",
+  2235:         rb_raise(rb_eArgError, "invalid value for convert(): %+"PRIsVALUE,
+
+dir.c:
+  1178:                         "%" PRIsVALUE ":%d: note: previous chdir was here",
+
+encoding.c:
+   227:     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Encoding)",
+   311:         rb_raise(rb_eArgError, "unknown encoding name - %"PRIsVALUE, enc);
+  1284:                           "#<%"PRIsVALUE":%s%s%s>", rb_obj_class(self),
+
+enum.c:
+  3526:                 rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+
+enumerator.c:
+  1108:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(cname));
+  1112:         str = rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(cname));
+  1125:             str = rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(cname), eobj);
+  1128:             str = rb_sprintf("#<%"PRIsVALUE": %"PRIsVALUE, cname, str);
+  1141:     str = rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE, rb_class_path(cname), eobj);
+  1161:     rb_str_catf(str, "% "PRIsVALUE": %"PRIsVALUE", ", key, val);
+  1498:                      "wrong argument type %"PRIsVALUE" (expected Proc)",
+  2436:                     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+  3336:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(klass));
+  3340:         return rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(klass));
+  3343:     return rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(klass), ptr->enums);
+  3692:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(klass));
+  3696:         return rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(klass));
+  3699:     return rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(klass), ptr->enums);
+  3889:     rb_raise(rb_eRangeError, "%+"PRIsVALUE" out of range", obj);
+  4211:     str = rb_sprintf("(%s%"PRIsVALUE"%s.", range_p ? "(" : "", eobj, range_p ? ")" : "");
+
+error.c:
+   178:         rb_raise(rb_eArgError, "unknown category: %"PRIsVALUE, category);
+  1322:         mesg = rb_sprintf("wrong argument type %"PRIsVALUE" (expected %s)",
+  1416:     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected %s)",
+  1665:                         "order: %+"PRIsVALUE, order);
+  1851:         rb_str_catf(str, ":%+"PRIsVALUE, exc);
+  2787:     rb_raise(rb_eArgError, "invalid value for %s: %+"PRIsVALUE, type, s);
+  2965:                 rb_raise(rb_eArgError, "SyntaxError#path changed: %+"PRIsVALUE" (%p->%p)",
+  2969:                 rb_raise(rb_eArgError, "SyntaxError#path changed: %+"PRIsVALUE"(%s%s)->%+"PRIsVALUE"(%s)",
+  3136:         if (!NIL_P(func)) rb_str_catf(errmsg, " @ %"PRIsVALUE, func);
+  3137:         rb_str_catf(errmsg, " - %"PRIsVALUE, str);
+  3811:              "%"PRIsVALUE"() function is unimplemented on this machine",
+  4133:     VALUE mesg = rb_sprintf("can't modify frozen %"PRIsVALUE": ",
+  4143:         rb_str_catf(mesg, ", created at %"PRIsVALUE":%d", created_path, created_line);
+
+eval_error.c:
+   47:             return rb_sprintf("%"PRIsVALUE": ", sourcefile);
+   50:             return rb_sprintf("%"PRIsVALUE":%d:in '%"PRIsVALUE"': ",
+   55:             return rb_sprintf("%"PRIsVALUE":%d: ", sourcefile, sourceline);
+  259:                 write_warn_str(str, rb_str_catf(bt, "from %"PRIsVALUE"\n", line));
+
+eval.c:
+   461:         rb_frozen_error_raise(klass, "can't modify frozen %s: %"PRIsVALUE, desc, klass);
+   591:                 e = rb_sprintf("Exception '%"PRIsVALUE"' at %s:%d - %"PRIsVALUE"\n",
+   595:                 e = rb_sprintf("Exception '%"PRIsVALUE"' at %s - %"PRIsVALUE"\n",
+   599:                 e = rb_sprintf("Exception '%"PRIsVALUE"' - %"PRIsVALUE"\n",
+  1291:                  "wrong argument type %"PRIsVALUE" (expected Class or Module)",
+  1706:         rb_raise(rb_eArgError, "Can't import method which is not defined with Ruby code: %"PRIsVALUE"#%"PRIsVALUE, rb_class_path(arg->module), rb_id2str(key));
+  1728:             rb_warn("%"PRIsVALUE" has ancestors, but Refinement#import_methods doesn't import their methods", rb_class_path(argv[i]));
+
+file.c:
+   205:         rb_raise(rb_eEncCompatError, "path name must be ASCII-compatible (%s): %"PRIsVALUE,
+  3709:         rb_raise(rb_eArgError, "user %"PRIsVALUE" doesn't exist", user);
+  3731:         rb_raise(rb_eArgError, "user %"PRIsVALUE" doesn't exist", user);
+  3875:                 rb_enc_raise(enc, rb_eArgError, "non-absolute home of %.*s%.0"PRIsVALUE,
+
+gc.c:
+   290:             rb_warn("Exception in finalizer %+"PRIsVALUE, failed_final);
+  1076:         rb_warn("undefining the allocator of T_DATA class %"PRIsVALUE, klass);
+  1635:         rb_raise(rb_eArgError, "wrong type argument %"PRIsVALUE" (should be callable)",
+  1815:             rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_int2str(objid, 10));
+  1824:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is id of the unshareable object on multi-ractor", rb_int2str(objid, 10));
+  3018:         rb_warn("Object is assigned to registering address already: %"PRIsVALUE,
+  3742:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(key));
+  3763:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+  3781:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+  3818:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+
+hash.c:
+  2187:             rb_key_err_raise(rb_sprintf("key not found: %"PRIsVALUE, desc), hash, key);
+  5064:             rb_key_err_raise(rb_sprintf("key not found: \"%"PRIsVALUE"\"", key), envtbl, key);
+
+io.c:
+   2309:                 RB_WARN_CATEGORY_DEPRECATED, "%+"PRIsVALUE"%c""write is outdated interface"
+   2906:     rb_raise(rb_eTypeError, "expected IO or #fileno, %"PRIsVALUE" given", rb_obj_class(io));
+   6766:             rb_warn("Ignoring encoding parameter '%"PRIsVALUE"': %s_encoding is used",
+   8520:             rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   8524:                 rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   8528:                 rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   9196:         rb_raise(rb_eTypeError, "%"PRIsVALUE" must have %"PRIsVALUE" method, %"PRIsVALUE" given",
+   9676:         rb_warn("%"PRIsVALUE"::new() does not take block; use %"PRIsVALUE"::open() instead",
+   9870:     rb_raise(rb_eArgError, "unsupported mode: %"PRIsVALUE, mode);
+  10175:                             rb_warn("Can't rename %"PRIsVALUE" to %"PRIsVALUE": %s, skipping file",
+  10182:                             rb_warn("Can't rename %"PRIsVALUE" to %"PRIsVALUE": %s, skipping file",
+  10194:                             rb_warn("Can't remove %"PRIsVALUE": %s, skipping file",
+  10218:                             rb_warn("Can't set owner/group of %"PRIsVALUE" to same as %"PRIsVALUE": %s, skipping file",
+  10874:         VALUE message = rb_sprintf("%"PRIsVALUE" "
+  10877:                                    "%"PRIsVALUE")",
+  10899:         rb_raise(rb_eNotImpError, "Unsupported advice: %+"PRIsVALUE, advice);
+  11691:     if (!enc) rb_warn("Unsupported encoding %"PRIsVALUE" ignored", v);
+
+iseq.c:
+  1197:         rb_raise(rb_eTypeError, "unsupported type: :%"PRIsVALUE, rb_sym2str(type));
+  1500:             rb_raise(rb_eTypeError, "wrong iseq wrapper: %" PRIsVALUE " for %p",
+  1934:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", klass);
+  1937:         return rb_sprintf("<%"PRIsVALUE":%"PRIsVALUE"@%"PRIsVALUE":%d>",
+  2518:                 rb_ary_push(ary, rb_sprintf("mid:%"PRIsVALUE, rb_id2str(mid)));
+  2526:                 rb_ary_push(ary, rb_sprintf("kw:[%"PRIsVALUE"]", rb_ary_join(kw_ary, rb_str_new2(","))));
+  2549:             ret = rb_sprintf("<calldata!%"PRIsVALUE">", rb_ary_join(ary, rb_str_new2(", ")));
+  2700:         return rb_sprintf("#<ISeq:%"PRIsVALUE"@%"PRIsVALUE":%d (%d,%d)-(%d,%d)>",
+
+load.c:
+  949:         rb_warning("%"PRIsVALUE, warning);
+
+marshal.c:
+   185:         rb_raise(rb_eRuntimeError, "%"PRIsVALUE"#%s returned same class instance",
+   241:         rb_raise(rb_eTypeError, "can't dump non-ascii %s name % "PRIsVALUE,
+   245:         rb_raise(rb_eTypeError, "can't dump anonymous %s % "PRIsVALUE,
+   258:         rb_raise(rb_eTypeError, "% "PRIsVALUE" can't be referred to", path);
+   603:             rb_warn("instance variable '"name_s_encoding_short"' on class %"PRIsVALUE" is not dumped",
+   607:             rb_warn("instance variable '"name_s_ruby2_keywords_flag"' on class %"PRIsVALUE" is not dumped",
+   719:             rb_raise(rb_eRuntimeError, "instance variable removed from %"PRIsVALUE" instance",
+   723:             rb_raise(rb_eRuntimeError, "instance variable added to %"PRIsVALUE" instance",
+  1075:                              "no _dump_data is defined for class %"PRIsVALUE,
+  1085:             rb_raise(rb_eTypeError, "can't dump %"PRIsVALUE,
+  1560:             rb_raise(rb_eArgError, "invalid byte sequence in %s: %+"PRIsVALUE,
+  1684:                  "can't override instance variable of "type" '%"PRIsVALUE"'", \
+  1709:                     rb_raise(rb_eArgError, "%"PRIsVALUE" is not enc_capable", obj);
+  1718:                     rb_raise(rb_eArgError, "ruby2_keywords flag is given but %"PRIsVALUE" is not a Hash", obj);
+  1734:         rb_raise(rb_eArgError, "%"PRIsVALUE" does not refer to class", path);
+  1745:         rb_raise(rb_eArgError, "%"PRIsVALUE" does not refer to module", path);
+  1846:                              "prepended class %"PRIsVALUE" differs from class %"PRIsVALUE,
+  2078:                 rb_raise(rb_eTypeError, "class %"PRIsVALUE" not a struct", rb_class_name(klass));
+  2082:                 rb_raise(rb_eTypeError, "struct %"PRIsVALUE" not compatible (struct size differs)",
+  2101:                         rb_raise(rb_eTypeError, "struct %"PRIsVALUE" not compatible (:%"PRIsVALUE" for :%"PRIsVALUE")",
+  2128:                 rb_raise(rb_eTypeError, "class %"PRIsVALUE" needs to have method '_load'",
+  2164:                 rb_raise(rb_eTypeError, "instance of %"PRIsVALUE" needs to have method 'marshal_load'",
+  2210:                          "class %"PRIsVALUE" needs to have instance method '_load_data'",
+
+memory_view.c:
+  137:         rb_warning("Duplicated registration of memory view to %"PRIsVALUE, klass);
+
+node_dump.c:
+  119:                 str = rb_sprintf("<%"PRIsVALUE">", str);
+  147:             rb_str_catf(buf, "(internal variable: 0x%"PRIsVALUE")", id);
+
+numeric.c:
+  249:         rb_raise(rb_eArgError, "invalid rounding mode: % "PRIsVALUE, rounding);
+  338:             rb_name_error(func, "%"PRIsVALUE".%"PRIsVALUE,
+  342:             rb_name_error(func, "%c%"PRIsVALUE,
+  346:             rb_name_error(func, "%"PRIsVALUE"%"PRIsVALUE,
+  366:         rb_name_error(func, "%"PRIsVALUE".%"PRIsVALUE"(%"PRIsVALUE")",
+  370:         rb_name_error(func, "%"PRIsVALUE"%"PRIsVALUE"%"PRIsVALUE,
+  450:     rb_raise(rb_eTypeError, "%"PRIsVALUE" can't be coerced into %"PRIsVALUE,
+  527:              "can't define singleton method \"%"PRIsVALUE"\" for %"PRIsVALUE,
+
+object.c:
+   435:         rb_raise(rb_eArgError, "unexpected value for freeze: %"PRIsVALUE, rb_obj_class(freeze));
+   481:         rb_raise(rb_eArgError, "can't unfreeze %"PRIsVALUE,
+   733:     str = rb_sprintf("#<%"PRIsVALUE":%p>", cname, (void*)obj);
+   770:     rb_str_catf(str, "%"PRIsVALUE"=", rb_id2str(id));
+   825:         str = rb_sprintf("-<%"PRIsVALUE":%p", c, (void*)obj);
+  2075:     rb_raise(rb_eTypeError, "allocator undefined for %"PRIsVALUE,
+  2109:         rb_raise(rb_eTypeError, "calling %"PRIsVALUE".allocate is prohibited",
+  2518:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+  2731:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+  2873:                 rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+  3150:             rb_raise(rb_eTypeError, "%s %"PRIsVALUE" into %s", msg,
+  3175:              "can't convert %"PRIsVALUE" to %s (%"PRIsVALUE"#%s gives %"PRIsVALUE")",
+  3375:         static const char message[] = "expected true or false as %s: %+"PRIsVALUE;
+  3517:         rb_raise(rb_eArgError, "invalid value for Float(): %+"PRIsVALUE, s);
+  3709:         rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into Float",
+  3950:         rb_raise(rb_eTypeError, "%"PRIsVALUE" does not have #dig method",
+
+pack.c:
+  172:     rb_raise(rb_eArgError, "unknown %s directive '%s' in '%"PRIsVALUE"'",
+
+parse.c:
+    680:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+    699:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+    703:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+    724:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+   1804: # define PRIsWARN PRIsVALUE
+   1825: # define PRIsWARN PRIsVALUE
+   7680:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7688:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7696:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7704:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7712:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7720:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7728:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7736:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7744:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7752:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7760:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7768:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7776:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7784:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7792:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7800:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7808:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7816:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7824:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7832:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7840:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7848:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7856:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7864:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7872:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7880:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7888:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7896:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7904:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7912:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7920:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7928:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7936:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7944:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7952:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7960:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7968:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7976:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7984:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7992:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8000:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8008:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8016:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8024:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8032:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8040:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8048:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8056:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8064:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8072:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8080:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8088:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8096:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8104:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8112:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8120:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8130:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8133:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8136:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8139:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8153:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8156:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8159:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8162:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8176:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8179:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8182:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8185:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8199:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8202:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8205:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8208:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8222:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8225:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8228:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8231:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8261:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8264:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8267:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8270:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8282:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8290:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8298:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8306:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8314:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8322:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8330:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8338:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8346:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8549:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8778:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8799:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8833:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8841:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8875:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9247:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9281:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9367:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9375:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9383:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9404:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9802:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9810:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9818:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9826:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10302:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10349:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10357:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10365:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10542:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10550:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10558:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10566:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10600:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10634:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10642:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10650:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10658:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10666:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10726:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10734:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10742:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10750:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10758:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10766:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  15975:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str((yyvsp[0].id)));
+  20097:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  23774:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  23996:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  24110:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  24113:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  24116:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  24244:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  24319:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  26086:         compile_error(p, "%"PRIsVALUE, err);
+  26191:         compile_error(p, "%"PRIsVALUE, m);
+
+parse.y:
+    623:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+    642:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+    646:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+    667:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+   1747: # define PRIsWARN PRIsVALUE
+   1768: # define PRIsWARN PRIsVALUE
+   2621:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str($$));
+   2626:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val($$));
+   2629:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val($$));
+   2632:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val($$));
+   2635:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val($$));
+   5890:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str($2));
+   9403:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  13080:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  13302:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  13416:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  13419:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  13422:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  13550:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  13625:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  15392:         compile_error(p, "%"PRIsVALUE, err);
+  15497:         compile_error(p, "%"PRIsVALUE, m);
+
+prism_compile.c:
+   360:     VALUE error = rb_syntax_error_append(Qnil, rb_iseq_path(iseq), line_number, -1, NULL, "%" PRIsVALUE, args);
+   388:     if (error != Qnil) parse_regexp_error(iseq, pm_node_line_number(scope_node->parser, node), "%" PRIsVALUE, rb_obj_as_string(error));
+   410:                     if (error != Qnil) parse_regexp_error(iseq, pm_node_line_number(scope_node->parser, part), "%" PRIsVALUE, rb_obj_as_string(error));
+   534:         parse_regexp_error(iseq, line_number, "%" PRIsVALUE, message);
+  2870:                         VALUE operand = rb_str_freeze(rb_sprintf("key not found: %+"PRIsVALUE, symbol));
+  2995:                 COMPILE_ERROR(iseq, location.line, "illegal variable in alternative pattern (%"PRIsVALUE")", rb_id2str(id));
+  8429:         VALUE class_name = rb_str_freeze(rb_sprintf("<class:%"PRIsVALUE">", rb_id2str(class_id)));
+  9449:         VALUE module_name = rb_str_freeze(rb_sprintf("<module:%"PRIsVALUE">", rb_id2str(module_id)));
+
+proc.c:
+  1565:     VALUE str = rb_sprintf("#<%"PRIsVALUE":", cname);
+  1575:             rb_str_catf(str, "%p %"PRIsVALUE":%d", (void *)self,
+  1581:         rb_str_catf(str, "%p(&%+"PRIsVALUE")", (void *)self, block->as.symbol);
+  2281:                          "bind argument must be a subclass of % "PRIsVALUE,
+  2637:             rb_raise(rb_eTypeError, "bind argument must be an instance of % "PRIsVALUE,
+  3175:     str = rb_sprintf("#<% "PRIsVALUE": ", rb_obj_class(method));
+  3233:             rb_str_catf(str, "(% "PRIsVALUE")", defined_class);
+  3239:         rb_str_catf(str, "(%"PRIsVALUE")",
+  3294:                 rb_str_catf(str, "%"PRIsVALUE, name);
+  3297:                 rb_str_catf(str, "%"PRIsVALUE"=...", name);
+  3300:                 rb_str_catf(str, "%"PRIsVALUE":", name);
+  3303:                 rb_str_catf(str, "%"PRIsVALUE": ...", name);
+  3310:                     rb_str_catf(str, "*%"PRIsVALUE, name);
+  3315:                     rb_str_catf(str, "**%"PRIsVALUE, name);
+  3334:                     rb_str_catf(str, "&%"PRIsVALUE, name);
+  3351:             rb_str_catf(str, " %"PRIsVALUE":%"PRIsVALUE,
+
+process.c:
+  2042:             rb_raise(rb_eArgError, "wrong exec redirect symbol: %"PRIsVALUE,
+  2308:             rb_raise(rb_eArgError, "wrong exec option symbol: % "PRIsVALUE,
+  2444:         rb_raise(rb_eArgError, "environment name contains a equal : %"PRIsVALUE, key);
+  5539:     rb_raise(rb_eArgError, "invalid resource name: % "PRIsVALUE, rtype);
+  5580:     rb_raise(rb_eArgError, "invalid resource value: %"PRIsVALUE, rval);
+  6073:             rb_raise(rb_eArgError, "can't find user for %"PRIsVALUE, id);
+  6174:             rb_raise(rb_eArgError, "can't find group for %"PRIsVALUE, id);
+  8159:         rb_raise(rb_eArgError, "unexpected unit: %"PRIsVALUE, unit);
+  8193:         rb_syserr_fail_str(clock_error, rb_sprintf("clock_" name "(%+"PRIsVALUE")", (arg))); \
+
+ractor.c:
+  3088:             rb_raise(rb_eRactorError, "can not make shareable object for %"PRIsVALUE, obj);
+  3134:         VALUE message = rb_sprintf("cannot assign unshareable object to %"PRIsVALUE,
+  3505:             rb_raise(rb_eRactorError, "can not %s %"PRIsVALUE" object.",
+
+random.c:
+  1410:     rb_raise(rb_eArgError, "invalid argument - %"PRIsVALUE, arg0);
+
+range.c:
+   740:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE \
+  1897:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" out of range", range);
+  2505:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Range)",
+
+rational.c:
+  2490:         rb_raise(rb_eArgError, "invalid value for convert(): %+"PRIsVALUE,
+
+re.c:
+   687:     rb_raise(rb_eRegexpError, "%s: %"PRIsVALUE, err, desc);
+  1196:     rb_raise(rb_eIndexError, "undefined group name reference: % "PRIsVALUE,
+  2602:         return rb_sprintf("#<%"PRIsVALUE":%p>", cname, (void*)match);
+  2605:         return rb_sprintf("#<%"PRIsVALUE": %"PRIsVALUE">",
+  3902:             rb_raise(rb_eArgError, "unknown regexp option: %"PRIsVALUE, str);
+  3914:         rb_raise(rb_eArgError, "invalid timeout: %"PRIsVALUE, timeout);
+
+ruby.c:
+  1169:                  "%s already set to %"PRIsVALUE, type, *name);
+
+shape.c:
+  739:                         "The class %"PRIsVALUE" reached %d shape variations, instance variables accesses will be slower and memory usage increased.\n"
+
+signal.c:
+  237:             rb_raise(rb_eArgError, "negative signal name: % "PRIsVALUE, vsig);
+  277:     rb_raise(rb_eArgError, "unsupported signal '%.*s%"PRIsVALUE"'",
+
+sprintf.c:
+  375:                     rb_enc_raise(enc, rb_eArgError, "named%.*s after <%"PRIsVALUE">",
+
+string.c:
+   3792:                 "wrong argument type %"PRIsVALUE" (expected String or Integer)",
+  11314:         rb_raise(rb_eTypeError, "value of %"PRIsVALUE" must be String", rb_id2str(id));
+  11325:                  "value of %"PRIsVALUE" must be String or Regexp",
+  11492:         rb_raise(rb_eArgError, "replacement must be valid byte sequence '%+"PRIsVALUE"'", str);
+  12455:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+
+struct.c:
+   273:         rb_warn("redefining constant %"PRIsVALUE"::%"PRIsVALUE, super, name);
+   676:             rb_raise(rb_eArgError, "invalid struct member: %"PRIsVALUE, mem);
+   679:             rb_raise(rb_eArgError, "duplicate member: %"PRIsVALUE, mem);
+  1101:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+  1679:             rb_raise(rb_eArgError, "invalid data member: %"PRIsVALUE, mem);
+  1682:             rb_raise(rb_eArgError, "duplicate member: %"PRIsVALUE, mem);
+
+symbol.c:
+   131:         rb_name_error(id, "cannot make operator ID :%"PRIsVALUE" attrset",
+   145:                     rb_name_error(id, "cannot make unknown type ID %d:%"PRIsVALUE" attrset",
+   529:         rb_fatal("symbol :% "PRIsVALUE" is already registered with %"PRIxVALUE,
+   608:         rb_raise(rb_eEncodingError, "invalid symbol in encoding %s :%+"PRIsVALUE,
+   708:             rb_bug("non-symbol object %s:%"PRIxVALUE" for %"PRIsVALUE" in symbol table",
+   807:         rb_raise(rb_eRuntimeError, "symbol table overflow (symbol %"PRIsVALUE")",
+  1137:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+  1198:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+
+thread_sync.c:
+   828:         rb_raise(rb_eTypeError, "%+"PRIsVALUE" not initialized", obj);
+  1179:     rb_raise(rb_eTypeError, "cannot freeze " "%+"PRIsVALUE, self);
+  1590:     rb_raise(rb_eTypeError, "can't dump %"PRIsVALUE, rb_obj_class(obj));
+
+thread.c:
+   919:         rb_raise(rb_eThreadError, "uninitialized thread - check '%"PRIsVALUE"#initialize'",
+   970:                      "already initialized thread - %"PRIsVALUE":%"PRIsVALUE,
+  3538:     str = rb_sprintf("#<%"PRIsVALUE":%p", cname, (void *)thread);
+  3540:         rb_str_catf(str, "@%"PRIsVALUE, target_th->name);
+  3543:         rb_str_catf(str, " %"PRIsVALUE":%"PRIsVALUE,
+  3689:         rb_key_err_raise(rb_sprintf("key not found: %+"PRIsVALUE, key), self, key);
+  5322:              "for %+"PRIsVALUE" in %+"PRIsVALUE,
+  5581:         rb_str_catf(msg, "* %+"PRIsVALUE"\n   rb_thread_t:%p "
+
+time.c:
+   201:         rb_raise(rb_eTypeError, "unexpected divmod result: into %"PRIsVALUE,
+   562:     rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into an exact number",
+  1882:         rb_raise(rb_eTypeError, "uninitialized %"PRIsVALUE, rb_obj_class(obj));
+  1893:         rb_raise(rb_eTypeError, "already initialized %"PRIsVALUE, rb_obj_class(obj));
+  2154:              "\"A\"..\"I\",\"K\"..\"Z\" expected for utc_offset: %"PRIsVALUE,
+  2578:         rb_raise(rb_eArgError, "can't parse: %+"PRIsVALUE, str);
+  2582:         rb_raise(rb_eArgError, "can't parse: %+"PRIsVALUE, str);
+  2870:             rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into %s",
+  2947:         rb_raise(rb_eArgError, "unexpected unit: %"PRIsVALUE, unit);
+  5124:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+  5218:         if (!str) rb_raise(rb_eArgError, "invalid format: %"PRIsVALUE, format);
+  5441:             rb_raise(rb_eArgError, "year too %s to marshal: %"PRIsVALUE" UTC",
+
+transcode.c:
+  2528:             rb_raise(rb_eArgError, "unexpected value for xml option: %"PRIsVALUE, rb_sym2str(v));
+  2553:             rb_raise(rb_eArgError, "unexpected value for newline option: %"PRIsVALUE,
+
+variable.c:
+   260:         path = rb_sprintf("#<%"PRIsVALUE":%p>", klass, (void*)obj);
+   374:         rb_raise(rb_eArgError, "can't retrieve anonymous class %"PRIsVALUE,
+   391:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+   400:     rb_raise(rb_eArgError, "undefined class/module % "PRIsVALUE,
+   556:     rb_warning("global variable '%"PRIsVALUE"' not initialized", QUOTE_ID(id));
+   635:     rb_name_error(id, "%"PRIsVALUE" is a read-only variable", QUOTE_ID(id));
+   823:         rb_name_error_str(var, "undefined global variable %"PRIsVALUE"", QUOTE(var));
+   826:         rb_name_error(id, "undefined global variable %"PRIsVALUE"", QUOTE_ID(id));
+  2667:         rb_raise(rb_eNameError, "autoload must be constant name: %"PRIsVALUE"", QUOTE_ID(name));
+  2975:                 "Expected %"PRIsVALUE" to define %"PRIsVALUE" but it didn't",
+  2982:                 "Expected %"PRIsVALUE" to define %"PRIsVALUE"::%"PRIsVALUE" but it didn't",
+  3063:             rb_category_warn(RB_WARN_CATEGORY_DEPRECATED, "constant ::%"PRIsVALUE" is deprecated", QUOTE_ID(id));
+  3066:             rb_category_warn(RB_WARN_CATEGORY_DEPRECATED, "constant %"PRIsVALUE"::%"PRIsVALUE" is deprecated",
+  3079:                 rb_raise(rb_eRactorIsolationError, "can not access non-shareable objects in constant %"PRIsVALUE"::%s by non-main Ractor.", rb_class_path(klass), rb_id2name(id));
+  3570:         rb_raise(rb_eTypeError, "no class/module to define constant %"PRIsVALUE"",
+  3698:                 rb_warn("already initialized constant %"PRIsVALUE"", name);
+  3700:                 rb_warn("already initialized constant %"PRIsVALUE"::%"PRIsVALUE"",
+  3704:                                 "previous definition of %"PRIsVALUE" was here", name);
+  3758:         rb_warning("%"PRIsVALUE" with no argument is just ignored",
+  3907:                      "class variable % "PRIsVALUE" of %"PRIsVALUE" is overtaken by %"PRIsVALUE"",
+
+vm_backtrace.c:
+   214:                     return rb_sprintf("%"PRIsVALUE".%"PRIsVALUE, v, name);
+   221:                 return rb_sprintf("%"PRIsVALUE"#%"PRIsVALUE, owner, name);
+   252:             return rb_sprintf("block in %"PRIsVALUE, calculate_iseq_label(owner, iseq));
+   255:             return rb_sprintf("block (%d levels) in %"PRIsVALUE, level, calculate_iseq_label(owner, iseq));
+  1163:     VALUE str = rb_sprintf("\tfrom %"PRIsVALUE":%d:in ", file, lineno);
+  1169:         rb_str_catf(str, " '%"PRIsVALUE"'\n", name);
+  1954:             return rb_sprintf("%"PRIsVALUE"%s%"PRIsVALUE,
+  1996:         return rb_sprintf("%.*s%"PRIsVALUE, prefix_len, RSTRING_PTR(label), qualified_method_name);
+
+vm_eval.c:
+   777:                  "method '%"PRIsVALUE"' called on unexpected immediate object (%p)",
+   782:                  "method '%"PRIsVALUE"' called on terminated object (%p)",
+   787:                  "method '%"PRIsVALUE"' called on broken T_?""?""?(0x%02x) object"
+   793:                  "method '%"PRIsVALUE"' called on hidden %s object"
+   799:                  "method '%"PRIsVALUE"' called on unexpected %s object"
+   956:         rb_raise(e, "method name must be a Symbol but %"PRIsVALUE" is given",
+  1643:         return rb_fstring(rb_sprintf("("EVAL_LOCATION_MARK"%"PRIsVALUE":%d)",
+
+vm_insnhelper.c:
+  1046:         rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a class/module", klass);
+  1112:                                              "can not access non-shareable objects in constant %"PRIsVALUE"::%s by non-main ractor.", rb_class_path(klass), rb_id2name(id));
+  3087:             rb_warn("the block passed to '%"PRIsVALUE"' defined at %"PRIsVALUE":%"PRIsVALUE" may be ignored",
+  3091:             rb_warn("the block may be ignored because '%"PRIsVALUE"' does not use a block", name);
+  5025:                      "%"PRIsVALUE" (expected %"PRIsVALUE")",
+  5731:                      "superclass mismatch for class %"PRIsVALUE"",
+  5785:     VALUE message = rb_sprintf("%"PRIsVALUE" is not a %s",
+  5789:         rb_str_catf(message, "\n%"PRIsVALUE":%"PRIsVALUE":"
+  5790:                     " previous definition of %"PRIsVALUE" was here",
+  5803:                  "superclass must be an instance of Class (given an instance of %"PRIsVALUE")",
+
+vm_method.c:
+  1042:                     "method redefined; discarding old %"PRIsVALUE"\n%s:%d: warning: previous definition of %"PRIsVALUE" was here",
+  1050:                 rb_warning("method redefined; discarding old %"PRIsVALUE, rb_id2str(mid));
+  1896:     attriv = rb_intern_str(rb_sprintf("@%"PRIsVALUE, rb_id2str(id)));
+  2406:         rb_warning("%"PRIsVALUE" with no argument is just ignored",
+  2608:                     rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method accepts keywords or method does not accept argument splat)", QUOTE_ID(name));
+  2627:                         rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method accepts keywords or method does not accept argument splat)", QUOTE_ID(name));
+  2634:                 rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method not defined in Ruby)", QUOTE_ID(name));
+  2639:             rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (can only set in method defining module)", QUOTE_ID(name));
+  2922:                         "%"PRIsVALUE"%c""respond_to?(:%"PRIsVALUE") uses"
+
+vm_trace.c:
+   834:     rb_raise(rb_eArgError, "unknown event: %"PRIsVALUE, rb_sym2str(sym));
+  1533:                 return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE":%d in '%"PRIsVALUE"'>",
+  1543:             return rb_sprintf("#<TracePoint:%"PRIsVALUE" '%"PRIsVALUE"' %"PRIsVALUE":%d>",
+  1550:             return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE">",
+  1556:         return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE":%d>",
+
+vm.c:
+   749:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(key));
+  1291:                                                " unshareable object %+" PRIsVALUE " from ", v);
+  1293:                             rb_str_catf(msg, "variable '%" PRIsVALUE "'", name);
+  1402:                      "Proc's self is not shareable: %" PRIsVALUE,
+
+weakmap.c:
+   293:     VALUE str = rb_sprintf("-<%"PRIsVALUE":%p", c, (void *)self);
+  1027:     const char * format = "#<%"PRIsVALUE":%p size=%lu>";
+  1029:     const char * format = "#<%"PRIsVALUE":%p size=%llu>";
+
+.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal/bigdecimal.c:
+   103: #ifdef PRIsVALUE
+   107: # define PRIsVALUE "s"
+   872:     rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", mode);
+   891:         rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", v);
+   896:             rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", v);
+  3090: 		 "wrong argument type %"PRIsVALUE" (expected scalar Numeric)",
+  3295:         rb_raise(rb_eArgError, "true or false is expected as exception: %+"PRIsVALUE,
+  3463:                  "can't omit precision for a %"PRIsVALUE".",
+  3598:                  "can't omit precision for a %"PRIsVALUE".",
+  3689:                      "can't convert %"PRIsVALUE" into BigDecimal", rb_obj_class(val));
+  5470:         rb_raise(rb_eArgError, "invalid value for BigDecimal(): \"%"PRIsVALUE"\"", str);
+
+.bundle/gems/racc-1.8.1/ext/racc/cparse/cparse.c:
+  424:                  "%s() %s %"PRIsVALUE" (must be Array[2])",
+
+.bundle/gems/rbs-3.8.0/ext/rbs_extension/parser.c:
+  213:       "expected one of %"PRIsVALUE,
+
+.bundle/gems/rbs-3.8.0/ext/rbs_extension/parserstate.c:
+  344:                "wrong argument type %"PRIsVALUE" (must be array or nil)",
+
+.bundle/gems/syslog-0.2.0/ext/syslog/syslog.c:
+  312:         rb_raise(rb_eTypeError, "type mismatch: %"PRIsVALUE" given", rb_obj_class(pri));
+  327:         return rb_sprintf("<#%"PRIsVALUE": opened=false>", self);
+  329:     return rb_sprintf("<#%"PRIsVALUE": opened=true, ident=\"%s\", options=%d, facility=%d, mask=%d>",
+
+doc/extension.ja.rdoc:
+   228:   注意: "%"PRIsVALUEがObject#to_s('+'フラグが指定されている
+  1596: 注意: "%"PRIsVALUEがObject#to_s('+'フラグが指定されていると
+
+doc/extension.rdoc:
+   200:   Note: In the format string, "%"PRIsVALUE can be used for Object#to_s
+  1805: Note: In the format string, "%"PRIsVALUE can be used for Object#to_s
+
+ext/-test-/printf/printf.c:
+   7:     return rb_enc_sprintf(rb_usascii_encoding(), "<%"PRIsVALUE">", obj);
+  13:     return rb_enc_sprintf(rb_usascii_encoding(), "{%+"PRIsVALUE"}", obj);
+  19:     return rb_enc_sprintf(rb_usascii_encoding(), "[% "PRIsVALUE"]", obj);
+
+ext/-test-/st/foreach/foreach.c:
+   72:     rb_raise(rb_eArgError, "unexpected arg: %+"PRIsVALUE, c->test);
+  133:     rb_raise(rb_eArgError, "unexpected arg: %+"PRIsVALUE, c->test);
+
+ext/-test-/struct/member.c:
+  9:         rb_name_error_str(name, "'%"PRIsVALUE"' is not a struct member", name);
+
+ext/date/date_core.c:
+  6988: 			      "#<%"PRIsVALUE": "
+  6989: 			      "(%+"PRIsVALUE"th,%dj),+0s,%.0fj; "
+  7003: 			      "#<%"PRIsVALUE": "
+  7004: 			      "(%+"PRIsVALUE"th,%dj,%ds,%+"PRIsVALUE"n),"
+  7036: 			  "#<%"PRIsVALUE": %"PRIsVALUE" "
+  7037: 			  "((%+"PRIsVALUE"j,%ds,%+"PRIsVALUE"n),%+ds,%.0fj)>",
+  7442:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+
+ext/digest/digest.c:
+  590:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::metadata is not initialized properly",
+  593:             rb_raise(rb_eTypeError, "%"PRIsVALUE"(%"PRIsVALUE")::metadata is not initialized properly",
+
+ext/etc/etc.c:
+  270:     if (pwd == 0) rb_raise(rb_eArgError, "can't find user for %"PRIsVALUE, nam);
+  524:     if (grp == 0) rb_raise(rb_eArgError, "can't find group for %"PRIsVALUE, nam);
+  831:     version = rb_sprintf("%s Version %"PRIsVALUE": %"PRIsVALUE, sysname, release,
+
+ext/fiddle/closure.c:
+  260:         rb_raise(rb_eArgError, "already freed: %+"PRIsVALUE, self);
+
+ext/fiddle/function.c:
+    6: #ifdef PRIsVALUE
+   10: # define PRIsVALUE "s"
+  109:                          "%"PRIsVALUE,
+  254:                      "%"PRIsVALUE,
+
+ext/fiddle/handle.c:
+  438: 	rb_raise(rb_eFiddleDLError, "unknown symbol \"%"PRIsVALUE"\"", symbol);
+
+ext/fiddle/memory_view.c:
+  116:         rb_raise(rb_eArgError, "Unable to get a memory view from %+"PRIsVALUE, target);
+
+ext/fiddle/pointer.c:
+   16: #ifdef PRIsVALUE
+   20: # define PRIsVALUE "s"
+  572:     return rb_sprintf("#<%"PRIsVALUE":%p ptr=%p size=%ld free=%p>",
+
+ext/io/console/console.c:
+   239: 	    rb_raise(rb_eArgError, "true or false expected as intr: %"PRIsVALUE,
+  1040: 	rb_raise(rb_eArgError, "wrong %s mode: %"PRIsVALUE, modename, val);
+  1122: 	    rb_raise(rb_eArgError, "unknown virtual key code: % "PRIsVALUE, k);
+
+ext/io/wait/wait.c:
+  296:     rb_raise(rb_eArgError, "unsupported mode: %"PRIsVALUE, mode);
+
+ext/json/generator/generator.c:
+   997:             raise_generator_error(obj, "%"PRIsVALUE" not allowed in JSON", tmp);
+  1045:                     raise_generator_error(obj, "%"PRIsVALUE" not allowed in JSON", CLASS_OF(obj));
+
+ext/objspace/objspace.c:
+  557:     return rb_sprintf("#<InternalObject:%p %"PRIsVALUE">", (void *)obj, rb_sym2str(type));
+
+ext/openssl/ossl_asn1.c:
+  258:     if(!a1obj) ossl_raise(eASN1Error, "invalid OBJECT ID %"PRIsVALUE, obj);
+
+ext/openssl/ossl_cipher.c:
+   68: 		       "unsupported cipher algorithm: %"PRIsVALUE, obj);
+  125: 	ossl_raise(rb_eRuntimeError, "unsupported cipher algorithm (%"PRIsVALUE")", str);
+  214: 	rb_warn("arguments for %"PRIsVALUE"#encrypt and %"PRIsVALUE"#decrypt were deprecated; "
+  215:                 "use %"PRIsVALUE"#pkcs5_keyivgen to derive key and IV",
+
+ext/openssl/ossl_digest.c:
+  60:             ossl_raise(rb_eRuntimeError, "Unsupported digest algorithm (%"PRIsVALUE").", obj);
+
+ext/openssl/ossl_engine.c:
+  150:     rb_warning("no such builtin loader for `%"PRIsVALUE"'", name);
+  312:     if(!tmp) ossl_raise(eEngineError, "no such cipher `%"PRIsVALUE"'", name);
+  344:     if(!tmp) ossl_raise(eEngineError, "no such digest `%"PRIsVALUE"'", name);
+  513:     return rb_sprintf("#<%"PRIsVALUE" id=\"%s\" name=\"%s\">",
+
+ext/openssl/ossl_pkcs7.c:
+  441: 	    ossl_raise(ePKCS7Error, "unknown type \"%"PRIsVALUE"\"", sym);
+
+ext/openssl/ossl_pkcs12.c:
+  124: 	    ossl_raise(rb_eArgError, "Unknown PBE algorithm %"PRIsVALUE, key_nid);
+  128: 	    ossl_raise(rb_eArgError, "Unknown PBE algorithm %"PRIsVALUE, cert_nid);
+  138:         ossl_raise(rb_eArgError, "Unknown key usage type %"PRIsVALUE, INT2NUM(ktype));
+
+ext/openssl/ossl_pkey_ec.c:
+  659:                     ossl_raise(eEC_GROUP, "unknown curve name (%"PRIsVALUE")", arg1);
+  663:                     ossl_raise(eEC_GROUP, "unable to create curve (%"PRIsVALUE")", arg1);
+  985: 	ossl_raise(rb_eArgError, "unsupported point conversion form %+"PRIsVALUE
+
+ext/openssl/ossl_pkey.c:
+  256:         ossl_raise(ePKeyError, "EVP_PKEY_CTX_ctrl_str(ctx, %+"PRIsVALUE", %+"PRIsVALUE")",
+  395:             ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", alg);
+  658:         ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", type);
+  691:         ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", type);
+  735:     return rb_sprintf("#<%"PRIsVALUE":%p oid=%s>",
+
+ext/openssl/ossl_provider.c:
+  179:         return rb_sprintf("#<%"PRIsVALUE" unloaded provider>", rb_obj_class(self));
+  183:     return rb_sprintf("#<%"PRIsVALUE" name=\"%s\">",
+
+ext/openssl/ossl_ssl.c:
+   150:     rb_raise(rb_eArgError, "unrecognized version %+"PRIsVALUE, str);
+  1818:                          "%s%s returned=%d errno=%d peeraddr=%"PRIsVALUE" state=%s%"PRIsVALUE,
+
+ext/openssl/ossl_x509cert.c:
+  683:     return rb_sprintf("#<%"PRIsVALUE": subject=%+"PRIsVALUE", "
+  684: 		      "issuer=%+"PRIsVALUE", serial=%+"PRIsVALUE", "
+  685: 		      "not_before=%+"PRIsVALUE", not_after=%+"PRIsVALUE">",
+
+ext/openssl/ossl_x509ext.c:
+  240: 	ossl_raise(eX509ExtError, "%"PRIsVALUE" = %"PRIsVALUE, oid, valstr);
+
+ext/openssl/ossl_x509name.c:
+  333:     return rb_enc_sprintf(rb_utf8_encoding(), "#<%"PRIsVALUE" %"PRIsVALUE">",
+
+ext/openssl/ossl.h:
+  91:     ossl_raise(rb_eTypeError, "wrong argument (%"PRIsVALUE")! (Expected kind of %"PRIsVALUE")",\
+
+ext/pathname/pathname.c:
+  226:     return rb_sprintf("#<%s:%"PRIsVALUE">", c, str);
+
+ext/ripper/ripper_init.c:
+   88:                  "gets returned %"PRIsVALUE" (expected String or nil)",
+  528:         rb_raise(rb_eArgError, "%"PRIsVALUE, msg);
+
+ext/ripper/ripper_init.c.tmpl:
+   89:                  "gets returned %"PRIsVALUE" (expected String or nil)",
+  529:         rb_raise(rb_eArgError, "%"PRIsVALUE, msg);
+
+ext/ripper/ripper.c:
+    680:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+    699:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+    703:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+    724:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+   1804: # define PRIsWARN PRIsVALUE
+   1825: # define PRIsWARN PRIsVALUE
+   7886:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7894:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7902:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7910:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7918:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7926:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7934:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7942:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7950:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7958:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7966:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7974:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7982:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7990:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   7998:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8006:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8014:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8022:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8030:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8038:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8046:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8054:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8062:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8070:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8078:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8086:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8094:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8102:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8110:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8118:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8126:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8134:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8142:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8150:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8158:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8166:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8174:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8182:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8190:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8198:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8206:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8214:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8222:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8230:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8238:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8246:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8254:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8262:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8270:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8278:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8286:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8294:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8302:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8310:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8318:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8326:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8336:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8339:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8342:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8345:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8359:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8362:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8365:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8368:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8382:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8385:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8388:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8391:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8405:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8408:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8411:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8414:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8428:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8431:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8434:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8437:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8467:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   8470:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   8473:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   8476:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   8488:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8496:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8504:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8512:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8520:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8528:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8536:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8544:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8552:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8755:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   8984:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9005:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9039:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9047:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9081:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9453:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9487:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9573:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9581:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9589:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   9610:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10008:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10016:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10024:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10032:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10508:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10555:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10563:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10571:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10748:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10756:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10764:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10772:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10806:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10840:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10848:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10856:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10864:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10872:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10932:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10940:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10948:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10956:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10964:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  10972:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  16205:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str((yyvsp[0].id)));
+  20351:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  24028:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  24250:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  24364:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  24367:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  24370:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  24498:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  24573:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  26340:         compile_error(p, "%"PRIsVALUE, err);
+  26445:         compile_error(p, "%"PRIsVALUE, m);
+
+ext/ripper/ripper.y:
+    623:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+    642:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+    646:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+    667:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+   1747: # define PRIsWARN PRIsVALUE
+   1768: # define PRIsWARN PRIsVALUE
+   2621:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str($$));
+   2626:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val($$));
+   2629:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val($$));
+   2632:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val($$));
+   2635:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val($$));
+   5890:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str($2));
+   9403:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  13080:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  13302:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  13416:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  13419:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  13422:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  13550:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  13625:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  15392:         compile_error(p, "%"PRIsVALUE, err);
+  15497:         compile_error(p, "%"PRIsVALUE, m);
+
+ext/socket/ancdata.c:
+  1000:             rb_str_catf(ret, " %"PRIsVALUE, rb_sym2str(vtype));
+
+ext/socket/option.c:
+  1252:             rb_str_catf(ret, " %"PRIsVALUE, rb_sym2str(v));
+
+ext/socket/socket.c:
+  30:     message = rb_sprintf("%s for %+"PRIsVALUE" port % "PRIsVALUE"",
+  52:         message = rb_sprintf("%s for % "PRIsVALUE"", mesg, path);
+  88:     message = rb_sprintf("%s for %"PRIsVALUE"", mesg, str);
+
+ext/stringio/stringio.c:
+   375: 	rb_warn("%"PRIsVALUE"::new() does not take block; use %"PRIsVALUE"::open() instead",
+  1650: 	rb_raise(rb_eArgError, "negative string size (or size too big): %" PRIsVALUE, rb_len);
+  1661: 	rb_syserr_fail_str(EINVAL, rb_sprintf("pread: Invalid offset argument: %" PRIsVALUE, rb_offset));
+
+ext/strscan/strscan.c:
+  2113: 	a = rb_sprintf("#<%"PRIsVALUE" (uninitialized)>", rb_obj_class(self));
+  2117: 	a = rb_sprintf("#<%"PRIsVALUE" fin>", rb_obj_class(self));
+  2122: 	a = rb_sprintf("#<%"PRIsVALUE" %ld/%ld @ %"PRIsVALUE">",
+  2130:     a = rb_sprintf("#<%"PRIsVALUE" %ld/%ld %"PRIsVALUE" @ %"PRIsVALUE">",
+
+ext/win32ole/win32ole_event.c:
+  472:     error = rb_sprintf("%"PRIsVALUE": %"PRIsVALUE" (%s)\n", bt, msg, rb_obj_classname(e));
+  844:     mid = rb_to_id(rb_sprintf("on%"PRIsVALUE, ev));
+
+ext/win32ole/win32ole_record.c:
+  587:     return rb_sprintf("#<WIN32OLE::Record(%"PRIsVALUE") %"PRIsVALUE">",
+
+ext/win32ole/win32ole_variable.c:
+  364:     VALUE detail = rb_sprintf("%"PRIsVALUE"=%"PRIsVALUE, n, v);
+
+ext/win32ole/win32ole_variant.c:
+  159:         rb_raise(eWIN32OLERuntimeError, "failed to convert VT_ERROR VARIANT:`%"PRIsVALUE"'", rb_inspect(v));
+
+gc/default/default.c:
+  1579:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  1582:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is recycled object", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+
+gc/mmtk/mmtk.c:
+  1148:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  1151:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is recycled object", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+
+include/ruby/backward/2/inttypes.h:
+  69: # define PRIsVALUE PRIiPTR"" RUBY_PRI_VALUE_MARK
+  76: # define PRIsVALUE PRI_VALUE_PREFIX"i" RUBY_PRI_VALUE_MARK
+
+include/ruby/internal/intern/sprintf.h:
+  66:  * `I`.   And additionally,  it  supports magical  `PRIsVALUE`  macro that  can
+  70:  * rb_sprintf("|%"PRIsVALUE"|", RUBY_Qtrue); // => "|true|"
+  71:  * rb_sprintf("%+"PRIsVALUE, rb_stdin);      // => "#<IO:<STDIN>>"
+
+prism/extension.c:
+   53:         rb_raise(rb_eTypeError, "wrong argument type %" PRIsVALUE " (expected String)", rb_obj_class(value));
+   67:         rb_raise(rb_eTypeError, "wrong argument type %" PRIsVALUE " (expected String)", rb_obj_class(string));
+   84:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Array)", rb_obj_class(scopes));
+  100:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Array)", rb_obj_class(scope));
+  117:                 rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Symbol)", rb_obj_class(local));
+  155:                 rb_raise(rb_eArgError, "invalid version: %" PRIsVALUE, value);
+  184:         rb_raise(rb_eArgError, "unknown keyword: %" PRIsVALUE, key);
+  234:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected String)", rb_obj_class(filepath));
+
+relevant/PRIsVALUE.code-search:
+     1: # Query: PRIsVALUE
+    10:   3077:             rb_raise(rb_eTypeError, "wrong element type %"PRIsVALUE" at %ld (expected array)",
+    14:   3559:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE
+    18:   4458:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+    23:   3765:     rb_raise(rb_eArgError, "invalid value for Integer(): %+"PRIsVALUE, s);
+    28:    347:         rb_raise(rb_eTypeError, "superclass must be an instance of Class (given an instance of %"PRIsVALUE")",
+    32:    991:             rb_raise(rb_eTypeError, "%s is not a class (%"PRIsVALUE")",
+    36:   1027:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::%"PRIsVALUE" is not a class"
+    37:   1028:                      " (%"PRIsVALUE")",
+    41:   1033:                      "%"PRIsVALUE"::%"PRIsVALUE""
+    42:   1034:                      " (%"PRIsVALUE" is given but was %"PRIsVALUE")",
+    46:   1041:         rb_raise(rb_eArgError, "no super class for '%"PRIsVALUE"::%"PRIsVALUE"'",
+    50:   1106:             rb_raise(rb_eTypeError, "%s is not a module (%"PRIsVALUE")",
+    54:   1134:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::%"PRIsVALUE" is not a module"
+    55:   1135:                      " (%"PRIsVALUE")",
+    59:   1720:         rb_raise(rb_eTypeError, "'%"PRIsVALUE"' is not a singleton class", klass);
+    64:   38:     rb_raise(rb_eArgError, "comparison of %"PRIsVALUE" with %"PRIsVALUE" failed",
+    69:     709:                           "%"PRIsVALUE": undefined label",
+    73:    6260:         return rb_sprintf("block in %"PRIsVALUE, ISEQ_BODY(iseq)->location.label);
+    76:    6263:         return rb_sprintf("block (%d levels) in %"PRIsVALUE, level, ISEQ_BODY(iseq)->location.label);
+    80:    7534:                         ADD_INSN1(ret, line_node, putobject, rb_str_freeze(rb_sprintf("key not found: %+"PRIsVALUE, key))); // (4)
+    84:    7651:                 COMPILE_ERROR(ERROR_ARGS "illegal variable in alternative pattern (%"PRIsVALUE")",
+    88:    7670:                 COMPILE_ERROR(ERROR_ARGS "illegal variable in alternative pattern (%"PRIsVALUE")",
+    92:    7677:             COMPILE_ERROR(ERROR_ARGS "NODE_DASGN: unknown id (%"PRIsVALUE")",
+    96:   10764:             COMPILE_ERROR(ERROR_ARGS "NODE_DASGN: unknown id (%"PRIsVALUE")",
+   100:   10886:                 COMPILE_ERROR(ERROR_ARGS "unknown dvar (%"PRIsVALUE")",
+   104:   11231:                                                      rb_str_freeze(rb_sprintf("<class:%"PRIsVALUE">", rb_id2str(get_node_colon_nd_mid(RNODE_CLASS(node)->nd_cpath)))),
+   108:   11248:                                                       rb_str_freeze(rb_sprintf("<module:%"PRIsVALUE">", rb_id2str(get_node_colon_nd_mid(RNODE_MODULE(node)->nd_cpath)))),
+   112:   11496:                     if (vm_ci_mid(ci)) rb_str_catf(str, "%"PRIsVALUE, rb_id2str(vm_ci_mid(ci)));
+   116:   11649:     rb_raise(rb_eSyntaxError, "invalid exception symbol: %+"PRIsVALUE, sym);
+   120:   11837:                               "unknown instruction: %+"PRIsVALUE, insn);
+   124:   11990:         rb_raise(rb_eTypeError, "invalid %+"PRIsVALUE" Fixnum: %+"PRIsVALUE,
+   128:   12053:             rb_raise(rb_eTypeError, "keyword default has unsupported len %+"PRIsVALUE, key);
+   132:   12188:         rb_raise(rb_eTypeError, ":opt param is not an array: %+"PRIsVALUE,
+   136:   12196:         rb_raise(rb_eTypeError, ":keywords param is not an array: %+"PRIsVALUE,
+   140:   13586:                              "(%x), path=%+"PRIsVALUE,
+   144:   14068:         rb_raise(rb_eNotImpError, "ibf_dump_object_struct: unsupported class %"PRIsVALUE,
+   149:   1309:     rb_raise(rb_eTypeError, "%"PRIsVALUE" can't be coerced into %"PRIsVALUE,
+   153:   1805:         rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Integer",
+   157:   1829:         rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Float",
+   161:   1862:             rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Rational",
+   165:   1909:        rb_raise(rb_eRangeError, "can't convert %"PRIsVALUE" into Rational",
+   169:   2235:         rb_raise(rb_eArgError, "invalid value for convert(): %+"PRIsVALUE,
+   174:   1178:                         "%" PRIsVALUE ":%d: note: previous chdir was here",
+   179:    227:     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Encoding)",
+   183:    311:         rb_raise(rb_eArgError, "unknown encoding name - %"PRIsVALUE, enc);
+   187:   1284:                           "#<%"PRIsVALUE":%s%s%s>", rb_obj_class(self),
+   192:   3526:                 rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+   197:   1108:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(cname));
+   201:   1112:         str = rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(cname));
+   205:   1125:             str = rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(cname), eobj);
+   208:   1128:             str = rb_sprintf("#<%"PRIsVALUE": %"PRIsVALUE, cname, str);
+   212:   1141:     str = rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE, rb_class_path(cname), eobj);
+   216:   1161:     rb_str_catf(str, "% "PRIsVALUE": %"PRIsVALUE", ", key, val);
+   220:   1498:                      "wrong argument type %"PRIsVALUE" (expected Proc)",
+   224:   2436:                     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (must respond to :each)",
+   228:   3336:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(klass));
+   232:   3340:         return rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(klass));
+   235:   3343:     return rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(klass), ptr->enums);
+   239:   3692:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", rb_class_path(klass));
+   243:   3696:         return rb_sprintf("#<%"PRIsVALUE": ...>", rb_class_path(klass));
+   246:   3699:     return rb_sprintf("#<%"PRIsVALUE": %+"PRIsVALUE">", rb_class_path(klass), ptr->enums);
+   250:   3889:     rb_raise(rb_eRangeError, "%+"PRIsVALUE" out of range", obj);
+   254:   4211:     str = rb_sprintf("(%s%"PRIsVALUE"%s.", range_p ? "(" : "", eobj, range_p ? ")" : "");
+   259:    178:         rb_raise(rb_eArgError, "unknown category: %"PRIsVALUE, category);
+   263:   1322:         mesg = rb_sprintf("wrong argument type %"PRIsVALUE" (expected %s)",
+   267:   1416:     rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected %s)",
+   271:   1665:                         "order: %+"PRIsVALUE, order);
+   275:   1851:         rb_str_catf(str, ":%+"PRIsVALUE, exc);
+   279:   2787:     rb_raise(rb_eArgError, "invalid value for %s: %+"PRIsVALUE, type, s);
+   283:   2965:                 rb_raise(rb_eArgError, "SyntaxError#path changed: %+"PRIsVALUE" (%p->%p)",
+   287:   2969:                 rb_raise(rb_eArgError, "SyntaxError#path changed: %+"PRIsVALUE"(%s%s)->%+"PRIsVALUE"(%s)",
+   291:   3136:         if (!NIL_P(func)) rb_str_catf(errmsg, " @ %"PRIsVALUE, func);
+   292:   3137:         rb_str_catf(errmsg, " - %"PRIsVALUE, str);
+   296:   3811:              "%"PRIsVALUE"() function is unimplemented on this machine",
+   300:   4133:     VALUE mesg = rb_sprintf("can't modify frozen %"PRIsVALUE": ",
+   304:   4143:         rb_str_catf(mesg, ", created at %"PRIsVALUE":%d", created_path, created_line);
+   309:    47:             return rb_sprintf("%"PRIsVALUE": ", sourcefile);
+   312:    50:             return rb_sprintf("%"PRIsVALUE":%d:in '%"PRIsVALUE"': ",
+   316:    55:             return rb_sprintf("%"PRIsVALUE":%d: ", sourcefile, sourceline);
+   320:   259:                 write_warn_str(str, rb_str_catf(bt, "from %"PRIsVALUE"\n", line));
+   325:    461:         rb_frozen_error_raise(klass, "can't modify frozen %s: %"PRIsVALUE, desc, klass);
+   329:    591:                 e = rb_sprintf("Exception '%"PRIsVALUE"' at %s:%d - %"PRIsVALUE"\n",
+   333:    595:                 e = rb_sprintf("Exception '%"PRIsVALUE"' at %s - %"PRIsVALUE"\n",
+   337:    599:                 e = rb_sprintf("Exception '%"PRIsVALUE"' - %"PRIsVALUE"\n",
+   341:   1291:                  "wrong argument type %"PRIsVALUE" (expected Class or Module)",
+   345:   1706:         rb_raise(rb_eArgError, "Can't import method which is not defined with Ruby code: %"PRIsVALUE"#%"PRIsVALUE, rb_class_path(arg->module), rb_id2str(key));
+   349:   1728:             rb_warn("%"PRIsVALUE" has ancestors, but Refinement#import_methods doesn't import their methods", rb_class_path(argv[i]));
+   354:    205:         rb_raise(rb_eEncCompatError, "path name must be ASCII-compatible (%s): %"PRIsVALUE,
+   358:   3709:         rb_raise(rb_eArgError, "user %"PRIsVALUE" doesn't exist", user);
+   362:   3731:         rb_raise(rb_eArgError, "user %"PRIsVALUE" doesn't exist", user);
+   366:   3875:                 rb_enc_raise(enc, rb_eArgError, "non-absolute home of %.*s%.0"PRIsVALUE,
+   371:    290:             rb_warn("Exception in finalizer %+"PRIsVALUE, failed_final);
+   375:   1076:         rb_warn("undefining the allocator of T_DATA class %"PRIsVALUE, klass);
+   379:   1635:         rb_raise(rb_eArgError, "wrong type argument %"PRIsVALUE" (should be callable)",
+   383:   1815:             rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_int2str(objid, 10));
+   387:   1824:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is id of the unshareable object on multi-ractor", rb_int2str(objid, 10));
+   391:   3018:         rb_warn("Object is assigned to registering address already: %"PRIsVALUE,
+   395:   3742:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(key));
+   399:   3763:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+   403:   3781:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+   407:   3818:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(arg));
+   412:   2187:             rb_key_err_raise(rb_sprintf("key not found: %"PRIsVALUE, desc), hash, key);
+   416:   5064:             rb_key_err_raise(rb_sprintf("key not found: \"%"PRIsVALUE"\"", key), envtbl, key);
+   421:    2309:                 RB_WARN_CATEGORY_DEPRECATED, "%+"PRIsVALUE"%c""write is outdated interface"
+   425:    2906:     rb_raise(rb_eTypeError, "expected IO or #fileno, %"PRIsVALUE" given", rb_obj_class(io));
+   429:    6766:             rb_warn("Ignoring encoding parameter '%"PRIsVALUE"': %s_encoding is used",
+   433:    8520:             rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   437:    8524:                 rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   441:    8528:                 rb_warn("setvbuf() can't be honoured for %"PRIsVALUE, fptr->pathv);
+   445:    9196:         rb_raise(rb_eTypeError, "%"PRIsVALUE" must have %"PRIsVALUE" method, %"PRIsVALUE" given",
+   449:    9676:         rb_warn("%"PRIsVALUE"::new() does not take block; use %"PRIsVALUE"::open() instead",
+   453:    9870:     rb_raise(rb_eArgError, "unsupported mode: %"PRIsVALUE, mode);
+   457:   10175:                             rb_warn("Can't rename %"PRIsVALUE" to %"PRIsVALUE": %s, skipping file",
+   461:   10182:                             rb_warn("Can't rename %"PRIsVALUE" to %"PRIsVALUE": %s, skipping file",
+   465:   10194:                             rb_warn("Can't remove %"PRIsVALUE": %s, skipping file",
+   469:   10218:                             rb_warn("Can't set owner/group of %"PRIsVALUE" to same as %"PRIsVALUE": %s, skipping file",
+   473:   10874:         VALUE message = rb_sprintf("%"PRIsVALUE" "
+   476:   10877:                                    "%"PRIsVALUE")",
+   480:   10899:         rb_raise(rb_eNotImpError, "Unsupported advice: %+"PRIsVALUE, advice);
+   484:   11691:     if (!enc) rb_warn("Unsupported encoding %"PRIsVALUE" ignored", v);
+   489:   1197:         rb_raise(rb_eTypeError, "unsupported type: :%"PRIsVALUE, rb_sym2str(type));
+   493:   1500:             rb_raise(rb_eTypeError, "wrong iseq wrapper: %" PRIsVALUE " for %p",
+   497:   1934:         return rb_sprintf("#<%"PRIsVALUE": uninitialized>", klass);
+   500:   1937:         return rb_sprintf("<%"PRIsVALUE":%"PRIsVALUE"@%"PRIsVALUE":%d>",
+   504:   2518:                 rb_ary_push(ary, rb_sprintf("mid:%"PRIsVALUE, rb_id2str(mid)));
+   508:   2526:                 rb_ary_push(ary, rb_sprintf("kw:[%"PRIsVALUE"]", rb_ary_join(kw_ary, rb_str_new2(","))));
+   512:   2549:             ret = rb_sprintf("<calldata!%"PRIsVALUE">", rb_ary_join(ary, rb_str_new2(", ")));
+   516:   2700:         return rb_sprintf("#<ISeq:%"PRIsVALUE"@%"PRIsVALUE":%d (%d,%d)-(%d,%d)>",
+   521:   949:         rb_warning("%"PRIsVALUE, warning);
+   526:    185:         rb_raise(rb_eRuntimeError, "%"PRIsVALUE"#%s returned same class instance",
+   530:    241:         rb_raise(rb_eTypeError, "can't dump non-ascii %s name % "PRIsVALUE,
+   534:    245:         rb_raise(rb_eTypeError, "can't dump anonymous %s % "PRIsVALUE,
+   538:    258:         rb_raise(rb_eTypeError, "% "PRIsVALUE" can't be referred to", path);
+   542:    603:             rb_warn("instance variable '"name_s_encoding_short"' on class %"PRIsVALUE" is not dumped",
+   546:    607:             rb_warn("instance variable '"name_s_ruby2_keywords_flag"' on class %"PRIsVALUE" is not dumped",
+   550:    719:             rb_raise(rb_eRuntimeError, "instance variable removed from %"PRIsVALUE" instance",
+   554:    723:             rb_raise(rb_eRuntimeError, "instance variable added to %"PRIsVALUE" instance",
+   558:   1075:                              "no _dump_data is defined for class %"PRIsVALUE,
+   562:   1085:             rb_raise(rb_eTypeError, "can't dump %"PRIsVALUE,
+   566:   1560:             rb_raise(rb_eArgError, "invalid byte sequence in %s: %+"PRIsVALUE,
+   570:   1684:                  "can't override instance variable of "type" '%"PRIsVALUE"'", \
+   574:   1709:                     rb_raise(rb_eArgError, "%"PRIsVALUE" is not enc_capable", obj);
+   578:   1718:                     rb_raise(rb_eArgError, "ruby2_keywords flag is given but %"PRIsVALUE" is not a Hash", obj);
+   582:   1734:         rb_raise(rb_eArgError, "%"PRIsVALUE" does not refer to class", path);
+   586:   1745:         rb_raise(rb_eArgError, "%"PRIsVALUE" does not refer to module", path);
+   590:   1846:                              "prepended class %"PRIsVALUE" differs from class %"PRIsVALUE,
+   594:   2078:                 rb_raise(rb_eTypeError, "class %"PRIsVALUE" not a struct", rb_class_name(klass));
+   598:   2082:                 rb_raise(rb_eTypeError, "struct %"PRIsVALUE" not compatible (struct size differs)",
+   602:   2101:                         rb_raise(rb_eTypeError, "struct %"PRIsVALUE" not compatible (:%"PRIsVALUE" for :%"PRIsVALUE")",
+   606:   2128:                 rb_raise(rb_eTypeError, "class %"PRIsVALUE" needs to have method '_load'",
+   610:   2164:                 rb_raise(rb_eTypeError, "instance of %"PRIsVALUE" needs to have method 'marshal_load'",
+   614:   2210:                          "class %"PRIsVALUE" needs to have instance method '_load_data'",
+   619:   137:         rb_warning("Duplicated registration of memory view to %"PRIsVALUE, klass);
+   624:   119:                 str = rb_sprintf("<%"PRIsVALUE">", str);
+   628:   147:             rb_str_catf(buf, "(internal variable: 0x%"PRIsVALUE")", id);
+   633:   249:         rb_raise(rb_eArgError, "invalid rounding mode: % "PRIsVALUE, rounding);
+   637:   338:             rb_name_error(func, "%"PRIsVALUE".%"PRIsVALUE,
+   641:   342:             rb_name_error(func, "%c%"PRIsVALUE,
+   645:   346:             rb_name_error(func, "%"PRIsVALUE"%"PRIsVALUE,
+   649:   366:         rb_name_error(func, "%"PRIsVALUE".%"PRIsVALUE"(%"PRIsVALUE")",
+   653:   370:         rb_name_error(func, "%"PRIsVALUE"%"PRIsVALUE"%"PRIsVALUE,
+   657:   450:     rb_raise(rb_eTypeError, "%"PRIsVALUE" can't be coerced into %"PRIsVALUE,
+   661:   527:              "can't define singleton method \"%"PRIsVALUE"\" for %"PRIsVALUE,
+   666:    435:         rb_raise(rb_eArgError, "unexpected value for freeze: %"PRIsVALUE, rb_obj_class(freeze));
+   670:    481:         rb_raise(rb_eArgError, "can't unfreeze %"PRIsVALUE,
+   674:    733:     str = rb_sprintf("#<%"PRIsVALUE":%p>", cname, (void*)obj);
+   678:    770:     rb_str_catf(str, "%"PRIsVALUE"=", rb_id2str(id));
+   682:    825:         str = rb_sprintf("-<%"PRIsVALUE":%p", c, (void*)obj);
+   686:   2075:     rb_raise(rb_eTypeError, "allocator undefined for %"PRIsVALUE,
+   690:   2109:         rb_raise(rb_eTypeError, "calling %"PRIsVALUE".allocate is prohibited",
+   694:   2518:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+   698:   2731:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+   702:   2873:                 rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+   706:   3150:             rb_raise(rb_eTypeError, "%s %"PRIsVALUE" into %s", msg,
+   710:   3175:              "can't convert %"PRIsVALUE" to %s (%"PRIsVALUE"#%s gives %"PRIsVALUE")",
+   714:   3375:         static const char message[] = "expected true or false as %s: %+"PRIsVALUE;
+   718:   3517:         rb_raise(rb_eArgError, "invalid value for Float(): %+"PRIsVALUE, s);
+   722:   3709:         rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into Float",
+   726:   3950:         rb_raise(rb_eTypeError, "%"PRIsVALUE" does not have #dig method",
+   731:   172:     rb_raise(rb_eArgError, "unknown %s directive '%s' in '%"PRIsVALUE"'",
+   736:     680:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+   740:     699:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+   744:     703:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+   748:     724:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+   752:    1804: # define PRIsWARN PRIsVALUE
+   756:    1825: # define PRIsWARN PRIsVALUE
+   760:    7680:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   764:    7688:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   768:    7696:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   772:    7704:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   776:    7712:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   780:    7720:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   784:    7728:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   788:    7736:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   792:    7744:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   796:    7752:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   800:    7760:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   804:    7768:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   808:    7776:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   812:    7784:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   816:    7792:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   820:    7800:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   824:    7808:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   828:    7816:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   832:    7824:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   836:    7832:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   840:    7840:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   844:    7848:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   848:    7856:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   852:    7864:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   856:    7872:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   860:    7880:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   864:    7888:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   868:    7896:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   872:    7904:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   876:    7912:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   880:    7920:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   884:    7928:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   888:    7936:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   892:    7944:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   896:    7952:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   900:    7960:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   904:    7968:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   908:    7976:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   912:    7984:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   916:    7992:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   920:    8000:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   924:    8008:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   928:    8016:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   932:    8024:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   936:    8032:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   940:    8040:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   944:    8048:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   948:    8056:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   952:    8064:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   956:    8072:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   960:    8080:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   964:    8088:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   968:    8096:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   972:    8104:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   976:    8112:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   980:    8120:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+   984:    8130:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+   987:    8133:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+   990:    8136:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+   993:    8139:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+   997:    8153:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  1000:    8156:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  1003:    8159:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  1006:    8162:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  1010:    8176:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  1013:    8179:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  1016:    8182:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  1019:    8185:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  1023:    8199:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  1026:    8202:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  1029:    8205:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  1032:    8208:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  1036:    8222:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  1039:    8225:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  1042:    8228:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  1045:    8231:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  1049:    8261:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  1052:    8264:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  1055:    8267:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  1058:    8270:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  1062:    8282:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1066:    8290:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1070:    8298:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1074:    8306:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1078:    8314:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1082:    8322:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1086:    8330:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1090:    8338:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1094:    8346:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1098:    8549:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1102:    8778:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1106:    8799:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1110:    8833:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1114:    8841:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1118:    8875:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1122:    9247:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1126:    9281:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1130:    9367:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1134:    9375:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1138:    9383:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1142:    9404:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1146:    9802:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1150:    9810:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1154:    9818:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1158:    9826:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1162:   10302:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1166:   10349:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1170:   10357:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1174:   10365:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1178:   10542:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1182:   10550:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1186:   10558:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1190:   10566:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1194:   10600:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1198:   10634:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1202:   10642:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1206:   10650:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1210:   10658:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1214:   10666:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1218:   10726:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1222:   10734:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1226:   10742:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1230:   10750:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1234:   10758:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1238:   10766:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  1242:   15975:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str((yyvsp[0].id)));
+  1246:   20097:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  1250:   23774:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  1254:   23996:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  1258:   24110:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  1261:   24113:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  1264:   24116:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  1268:   24244:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  1272:   24319:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  1276:   26086:         compile_error(p, "%"PRIsVALUE, err);
+  1280:   26191:         compile_error(p, "%"PRIsVALUE, m);
+  1285:     623:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+  1289:     642:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+  1293:     646:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+  1297:     667:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+  1301:    1747: # define PRIsWARN PRIsVALUE
+  1305:    1768: # define PRIsWARN PRIsVALUE
+  1309:    2621:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str($$));
+  1313:    2626:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val($$));
+  1316:    2629:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val($$));
+  1319:    2632:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val($$));
+  1322:    2635:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val($$));
+  1326:    5890:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str($2));
+  1330:    9403:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  1334:   13080:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  1338:   13302:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  1342:   13416:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  1345:   13419:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  1348:   13422:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  1352:   13550:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  1356:   13625:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  1360:   15392:         compile_error(p, "%"PRIsVALUE, err);
+  1364:   15497:         compile_error(p, "%"PRIsVALUE, m);
+  1369:    360:     VALUE error = rb_syntax_error_append(Qnil, rb_iseq_path(iseq), line_number, -1, NULL, "%" PRIsVALUE, args);
+  1373:    388:     if (error != Qnil) parse_regexp_error(iseq, pm_node_line_number(scope_node->parser, node), "%" PRIsVALUE, rb_obj_as_string(error));
+  1377:    410:                     if (error != Qnil) parse_regexp_error(iseq, pm_node_line_number(scope_node->parser, part), "%" PRIsVALUE, rb_obj_as_string(error));
+  1381:    534:         parse_regexp_error(iseq, line_number, "%" PRIsVALUE, message);
+  1385:   2870:                         VALUE operand = rb_str_freeze(rb_sprintf("key not found: %+"PRIsVALUE, symbol));
+  1389:   2995:                 COMPILE_ERROR(iseq, location.line, "illegal variable in alternative pattern (%"PRIsVALUE")", rb_id2str(id));
+  1393:   8429:         VALUE class_name = rb_str_freeze(rb_sprintf("<class:%"PRIsVALUE">", rb_id2str(class_id)));
+  1397:   9449:         VALUE module_name = rb_str_freeze(rb_sprintf("<module:%"PRIsVALUE">", rb_id2str(module_id)));
+  1402:   1565:     VALUE str = rb_sprintf("#<%"PRIsVALUE":", cname);
+  1406:   1575:             rb_str_catf(str, "%p %"PRIsVALUE":%d", (void *)self,
+  1410:   1581:         rb_str_catf(str, "%p(&%+"PRIsVALUE")", (void *)self, block->as.symbol);
+  1414:   2281:                          "bind argument must be a subclass of % "PRIsVALUE,
+  1418:   2637:             rb_raise(rb_eTypeError, "bind argument must be an instance of % "PRIsVALUE,
+  1422:   3175:     str = rb_sprintf("#<% "PRIsVALUE": ", rb_obj_class(method));
+  1426:   3233:             rb_str_catf(str, "(% "PRIsVALUE")", defined_class);
+  1430:   3239:         rb_str_catf(str, "(%"PRIsVALUE")",
+  1434:   3294:                 rb_str_catf(str, "%"PRIsVALUE, name);
+  1437:   3297:                 rb_str_catf(str, "%"PRIsVALUE"=...", name);
+  1440:   3300:                 rb_str_catf(str, "%"PRIsVALUE":", name);
+  1443:   3303:                 rb_str_catf(str, "%"PRIsVALUE": ...", name);
+  1447:   3310:                     rb_str_catf(str, "*%"PRIsVALUE, name);
+  1451:   3315:                     rb_str_catf(str, "**%"PRIsVALUE, name);
+  1455:   3334:                     rb_str_catf(str, "&%"PRIsVALUE, name);
+  1459:   3351:             rb_str_catf(str, " %"PRIsVALUE":%"PRIsVALUE,
+  1464:   2042:             rb_raise(rb_eArgError, "wrong exec redirect symbol: %"PRIsVALUE,
+  1468:   2308:             rb_raise(rb_eArgError, "wrong exec option symbol: % "PRIsVALUE,
+  1472:   2444:         rb_raise(rb_eArgError, "environment name contains a equal : %"PRIsVALUE, key);
+  1476:   5539:     rb_raise(rb_eArgError, "invalid resource name: % "PRIsVALUE, rtype);
+  1480:   5580:     rb_raise(rb_eArgError, "invalid resource value: %"PRIsVALUE, rval);
+  1484:   6073:             rb_raise(rb_eArgError, "can't find user for %"PRIsVALUE, id);
+  1488:   6174:             rb_raise(rb_eArgError, "can't find group for %"PRIsVALUE, id);
+  1492:   8159:         rb_raise(rb_eArgError, "unexpected unit: %"PRIsVALUE, unit);
+  1496:   8193:         rb_syserr_fail_str(clock_error, rb_sprintf("clock_" name "(%+"PRIsVALUE")", (arg))); \
+  1501:   3088:             rb_raise(rb_eRactorError, "can not make shareable object for %"PRIsVALUE, obj);
+  1505:   3134:         VALUE message = rb_sprintf("cannot assign unshareable object to %"PRIsVALUE,
+  1509:   3505:             rb_raise(rb_eRactorError, "can not %s %"PRIsVALUE" object.",
+  1514:   1410:     rb_raise(rb_eArgError, "invalid argument - %"PRIsVALUE, arg0);
+  1519:    740:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE \
+  1523:   1897:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" out of range", range);
+  1527:   2505:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Range)",
+  1532:   2490:         rb_raise(rb_eArgError, "invalid value for convert(): %+"PRIsVALUE,
+  1537:    687:     rb_raise(rb_eRegexpError, "%s: %"PRIsVALUE, err, desc);
+  1541:   1196:     rb_raise(rb_eIndexError, "undefined group name reference: % "PRIsVALUE,
+  1545:   2602:         return rb_sprintf("#<%"PRIsVALUE":%p>", cname, (void*)match);
+  1548:   2605:         return rb_sprintf("#<%"PRIsVALUE": %"PRIsVALUE">",
+  1552:   3902:             rb_raise(rb_eArgError, "unknown regexp option: %"PRIsVALUE, str);
+  1556:   3914:         rb_raise(rb_eArgError, "invalid timeout: %"PRIsVALUE, timeout);
+  1561:   1169:                  "%s already set to %"PRIsVALUE, type, *name);
+  1566:   739:                         "The class %"PRIsVALUE" reached %d shape variations, instance variables accesses will be slower and memory usage increased.\n"
+  1571:   237:             rb_raise(rb_eArgError, "negative signal name: % "PRIsVALUE, vsig);
+  1575:   277:     rb_raise(rb_eArgError, "unsupported signal '%.*s%"PRIsVALUE"'",
+  1580:   375:                     rb_enc_raise(enc, rb_eArgError, "named%.*s after <%"PRIsVALUE">",
+  1585:    3792:                 "wrong argument type %"PRIsVALUE" (expected String or Integer)",
+  1589:   11314:         rb_raise(rb_eTypeError, "value of %"PRIsVALUE" must be String", rb_id2str(id));
+  1593:   11325:                  "value of %"PRIsVALUE" must be String or Regexp",
+  1597:   11492:         rb_raise(rb_eArgError, "replacement must be valid byte sequence '%+"PRIsVALUE"'", str);
+  1601:   12455:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+  1606:    273:         rb_warn("redefining constant %"PRIsVALUE"::%"PRIsVALUE, super, name);
+  1610:    676:             rb_raise(rb_eArgError, "invalid struct member: %"PRIsVALUE, mem);
+  1613:    679:             rb_raise(rb_eArgError, "duplicate member: %"PRIsVALUE, mem);
+  1617:   1101:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+  1621:   1679:             rb_raise(rb_eArgError, "invalid data member: %"PRIsVALUE, mem);
+  1624:   1682:             rb_raise(rb_eArgError, "duplicate member: %"PRIsVALUE, mem);
+  1629:    131:         rb_name_error(id, "cannot make operator ID :%"PRIsVALUE" attrset",
+  1633:    145:                     rb_name_error(id, "cannot make unknown type ID %d:%"PRIsVALUE" attrset",
+  1637:    529:         rb_fatal("symbol :% "PRIsVALUE" is already registered with %"PRIxVALUE,
+  1641:    608:         rb_raise(rb_eEncodingError, "invalid symbol in encoding %s :%+"PRIsVALUE,
+  1645:    708:             rb_bug("non-symbol object %s:%"PRIxVALUE" for %"PRIsVALUE" in symbol table",
+  1649:    807:         rb_raise(rb_eRuntimeError, "symbol table overflow (symbol %"PRIsVALUE")",
+  1653:   1137:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+  1657:   1198:             rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a symbol nor a string",
+  1662:    828:         rb_raise(rb_eTypeError, "%+"PRIsVALUE" not initialized", obj);
+  1666:   1179:     rb_raise(rb_eTypeError, "cannot freeze " "%+"PRIsVALUE, self);
+  1670:   1590:     rb_raise(rb_eTypeError, "can't dump %"PRIsVALUE, rb_obj_class(obj));
+  1675:    919:         rb_raise(rb_eThreadError, "uninitialized thread - check '%"PRIsVALUE"#initialize'",
+  1679:    970:                      "already initialized thread - %"PRIsVALUE":%"PRIsVALUE,
+  1683:   3538:     str = rb_sprintf("#<%"PRIsVALUE":%p", cname, (void *)thread);
+  1685:   3540:         rb_str_catf(str, "@%"PRIsVALUE, target_th->name);
+  1688:   3543:         rb_str_catf(str, " %"PRIsVALUE":%"PRIsVALUE,
+  1692:   3689:         rb_key_err_raise(rb_sprintf("key not found: %+"PRIsVALUE, key), self, key);
+  1696:   5322:              "for %+"PRIsVALUE" in %+"PRIsVALUE,
+  1700:   5581:         rb_str_catf(msg, "* %+"PRIsVALUE"\n   rb_thread_t:%p "
+  1705:    201:         rb_raise(rb_eTypeError, "unexpected divmod result: into %"PRIsVALUE,
+  1709:    562:     rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into an exact number",
+  1713:   1882:         rb_raise(rb_eTypeError, "uninitialized %"PRIsVALUE, rb_obj_class(obj));
+  1717:   1893:         rb_raise(rb_eTypeError, "already initialized %"PRIsVALUE, rb_obj_class(obj));
+  1721:   2154:              "\"A\"..\"I\",\"K\"..\"Z\" expected for utc_offset: %"PRIsVALUE,
+  1725:   2578:         rb_raise(rb_eArgError, "can't parse: %+"PRIsVALUE, str);
+  1729:   2582:         rb_raise(rb_eArgError, "can't parse: %+"PRIsVALUE, str);
+  1733:   2870:             rb_raise(rb_eTypeError, "can't convert %"PRIsVALUE" into %s",
+  1737:   2947:         rb_raise(rb_eArgError, "unexpected unit: %"PRIsVALUE, unit);
+  1741:   5124:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+  1745:   5218:         if (!str) rb_raise(rb_eArgError, "invalid format: %"PRIsVALUE, format);
+  1749:   5441:             rb_raise(rb_eArgError, "year too %s to marshal: %"PRIsVALUE" UTC",
+  1754:   2528:             rb_raise(rb_eArgError, "unexpected value for xml option: %"PRIsVALUE, rb_sym2str(v));
+  1758:   2553:             rb_raise(rb_eArgError, "unexpected value for newline option: %"PRIsVALUE,
+  1763:    260:         path = rb_sprintf("#<%"PRIsVALUE":%p>", klass, (void*)obj);
+  1767:    374:         rb_raise(rb_eArgError, "can't retrieve anonymous class %"PRIsVALUE,
+  1771:    391:             rb_raise(rb_eTypeError, "%"PRIsVALUE" does not refer to class/module",
+  1775:    400:     rb_raise(rb_eArgError, "undefined class/module % "PRIsVALUE,
+  1779:    556:     rb_warning("global variable '%"PRIsVALUE"' not initialized", QUOTE_ID(id));
+  1783:    635:     rb_name_error(id, "%"PRIsVALUE" is a read-only variable", QUOTE_ID(id));
+  1787:    823:         rb_name_error_str(var, "undefined global variable %"PRIsVALUE"", QUOTE(var));
+  1790:    826:         rb_name_error(id, "undefined global variable %"PRIsVALUE"", QUOTE_ID(id));
+  1794:   2667:         rb_raise(rb_eNameError, "autoload must be constant name: %"PRIsVALUE"", QUOTE_ID(name));
+  1798:   2975:                 "Expected %"PRIsVALUE" to define %"PRIsVALUE" but it didn't",
+  1802:   2982:                 "Expected %"PRIsVALUE" to define %"PRIsVALUE"::%"PRIsVALUE" but it didn't",
+  1806:   3063:             rb_category_warn(RB_WARN_CATEGORY_DEPRECATED, "constant ::%"PRIsVALUE" is deprecated", QUOTE_ID(id));
+  1809:   3066:             rb_category_warn(RB_WARN_CATEGORY_DEPRECATED, "constant %"PRIsVALUE"::%"PRIsVALUE" is deprecated",
+  1813:   3079:                 rb_raise(rb_eRactorIsolationError, "can not access non-shareable objects in constant %"PRIsVALUE"::%s by non-main Ractor.", rb_class_path(klass), rb_id2name(id));
+  1817:   3570:         rb_raise(rb_eTypeError, "no class/module to define constant %"PRIsVALUE"",
+  1821:   3698:                 rb_warn("already initialized constant %"PRIsVALUE"", name);
+  1823:   3700:                 rb_warn("already initialized constant %"PRIsVALUE"::%"PRIsVALUE"",
+  1827:   3704:                                 "previous definition of %"PRIsVALUE" was here", name);
+  1831:   3758:         rb_warning("%"PRIsVALUE" with no argument is just ignored",
+  1835:   3907:                      "class variable % "PRIsVALUE" of %"PRIsVALUE" is overtaken by %"PRIsVALUE"",
+  1840:    214:                     return rb_sprintf("%"PRIsVALUE".%"PRIsVALUE, v, name);
+  1844:    221:                 return rb_sprintf("%"PRIsVALUE"#%"PRIsVALUE, owner, name);
+  1848:    252:             return rb_sprintf("block in %"PRIsVALUE, calculate_iseq_label(owner, iseq));
+  1851:    255:             return rb_sprintf("block (%d levels) in %"PRIsVALUE, level, calculate_iseq_label(owner, iseq));
+  1855:   1163:     VALUE str = rb_sprintf("\tfrom %"PRIsVALUE":%d:in ", file, lineno);
+  1859:   1169:         rb_str_catf(str, " '%"PRIsVALUE"'\n", name);
+  1863:   1954:             return rb_sprintf("%"PRIsVALUE"%s%"PRIsVALUE,
+  1867:   1996:         return rb_sprintf("%.*s%"PRIsVALUE, prefix_len, RSTRING_PTR(label), qualified_method_name);
+  1872:    777:                  "method '%"PRIsVALUE"' called on unexpected immediate object (%p)",
+  1876:    782:                  "method '%"PRIsVALUE"' called on terminated object (%p)",
+  1880:    787:                  "method '%"PRIsVALUE"' called on broken T_?""?""?(0x%02x) object"
+  1884:    793:                  "method '%"PRIsVALUE"' called on hidden %s object"
+  1888:    799:                  "method '%"PRIsVALUE"' called on unexpected %s object"
+  1892:    956:         rb_raise(e, "method name must be a Symbol but %"PRIsVALUE" is given",
+  1896:   1643:         return rb_fstring(rb_sprintf("("EVAL_LOCATION_MARK"%"PRIsVALUE":%d)",
+  1901:   1046:         rb_raise(rb_eTypeError, "%+"PRIsVALUE" is not a class/module", klass);
+  1905:   1112:                                              "can not access non-shareable objects in constant %"PRIsVALUE"::%s by non-main ractor.", rb_class_path(klass), rb_id2name(id));
+  1909:   3087:             rb_warn("the block passed to '%"PRIsVALUE"' defined at %"PRIsVALUE":%"PRIsVALUE" may be ignored",
+  1913:   3091:             rb_warn("the block may be ignored because '%"PRIsVALUE"' does not use a block", name);
+  1917:   5025:                      "%"PRIsVALUE" (expected %"PRIsVALUE")",
+  1921:   5731:                      "superclass mismatch for class %"PRIsVALUE"",
+  1925:   5785:     VALUE message = rb_sprintf("%"PRIsVALUE" is not a %s",
+  1929:   5789:         rb_str_catf(message, "\n%"PRIsVALUE":%"PRIsVALUE":"
+  1930:   5790:                     " previous definition of %"PRIsVALUE" was here",
+  1934:   5803:                  "superclass must be an instance of Class (given an instance of %"PRIsVALUE")",
+  1939:   1042:                     "method redefined; discarding old %"PRIsVALUE"\n%s:%d: warning: previous definition of %"PRIsVALUE" was here",
+  1943:   1050:                 rb_warning("method redefined; discarding old %"PRIsVALUE, rb_id2str(mid));
+  1947:   1896:     attriv = rb_intern_str(rb_sprintf("@%"PRIsVALUE, rb_id2str(id)));
+  1951:   2406:         rb_warning("%"PRIsVALUE" with no argument is just ignored",
+  1955:   2608:                     rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method accepts keywords or method does not accept argument splat)", QUOTE_ID(name));
+  1959:   2627:                         rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method accepts keywords or method does not accept argument splat)", QUOTE_ID(name));
+  1963:   2634:                 rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (method not defined in Ruby)", QUOTE_ID(name));
+  1967:   2639:             rb_warn("Skipping set of ruby2_keywords flag for %"PRIsVALUE" (can only set in method defining module)", QUOTE_ID(name));
+  1971:   2922:                         "%"PRIsVALUE"%c""respond_to?(:%"PRIsVALUE") uses"
+  1976:    834:     rb_raise(rb_eArgError, "unknown event: %"PRIsVALUE, rb_sym2str(sym));
+  1980:   1533:                 return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE":%d in '%"PRIsVALUE"'>",
+  1984:   1543:             return rb_sprintf("#<TracePoint:%"PRIsVALUE" '%"PRIsVALUE"' %"PRIsVALUE":%d>",
+  1988:   1550:             return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE">",
+  1992:   1556:         return rb_sprintf("#<TracePoint:%"PRIsVALUE" %"PRIsVALUE":%d>",
+  1997:    749:         rb_raise(rb_eArgError, "unknown key: %"PRIsVALUE, rb_sym2str(key));
+  2001:   1291:                                                " unshareable object %+" PRIsVALUE " from ", v);
+  2003:   1293:                             rb_str_catf(msg, "variable '%" PRIsVALUE "'", name);
+  2007:   1402:                      "Proc's self is not shareable: %" PRIsVALUE,
+  2012:    293:     VALUE str = rb_sprintf("-<%"PRIsVALUE":%p", c, (void *)self);
+  2016:   1027:     const char * format = "#<%"PRIsVALUE":%p size=%lu>";
+  2018:   1029:     const char * format = "#<%"PRIsVALUE":%p size=%llu>";
+  2023:    103: #ifdef PRIsVALUE
+  2027:    107: # define PRIsVALUE "s"
+  2031:    872:     rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", mode);
+  2035:    891:         rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", v);
+  2039:    896:             rb_raise(rb_eArgError, "invalid rounding mode (%"PRIsVALUE")", v);
+  2043:   3090: 		 "wrong argument type %"PRIsVALUE" (expected scalar Numeric)",
+  2047:   3295:         rb_raise(rb_eArgError, "true or false is expected as exception: %+"PRIsVALUE,
+  2051:   3463:                  "can't omit precision for a %"PRIsVALUE".",
+  2055:   3598:                  "can't omit precision for a %"PRIsVALUE".",
+  2059:   3689:                      "can't convert %"PRIsVALUE" into BigDecimal", rb_obj_class(val));
+  2063:   5470:         rb_raise(rb_eArgError, "invalid value for BigDecimal(): \"%"PRIsVALUE"\"", str);
+  2068:   424:                  "%s() %s %"PRIsVALUE" (must be Array[2])",
+  2073:   213:       "expected one of %"PRIsVALUE,
+  2078:   344:                "wrong argument type %"PRIsVALUE" (must be array or nil)",
+  2083:   312:         rb_raise(rb_eTypeError, "type mismatch: %"PRIsVALUE" given", rb_obj_class(pri));
+  2087:   327:         return rb_sprintf("<#%"PRIsVALUE": opened=false>", self);
+  2089:   329:     return rb_sprintf("<#%"PRIsVALUE": opened=true, ident=\"%s\", options=%d, facility=%d, mask=%d>",
+  2094:    228:   注意: "%"PRIsVALUEがObject#to_s('+'フラグが指定されている
+  2098:   1596: 注意: "%"PRIsVALUEがObject#to_s('+'フラグが指定されていると
+  2103:    200:   Note: In the format string, "%"PRIsVALUE can be used for Object#to_s
+  2107:   1805: Note: In the format string, "%"PRIsVALUE can be used for Object#to_s
+  2112:    7:     return rb_enc_sprintf(rb_usascii_encoding(), "<%"PRIsVALUE">", obj);
+  2116:   13:     return rb_enc_sprintf(rb_usascii_encoding(), "{%+"PRIsVALUE"}", obj);
+  2120:   19:     return rb_enc_sprintf(rb_usascii_encoding(), "[% "PRIsVALUE"]", obj);
+  2125:    72:     rb_raise(rb_eArgError, "unexpected arg: %+"PRIsVALUE, c->test);
+  2129:   133:     rb_raise(rb_eArgError, "unexpected arg: %+"PRIsVALUE, c->test);
+  2134:   9:         rb_name_error_str(name, "'%"PRIsVALUE"' is not a struct member", name);
+  2139:   6988: 			      "#<%"PRIsVALUE": "
+  2140:   6989: 			      "(%+"PRIsVALUE"th,%dj),+0s,%.0fj; "
+  2144:   7003: 			      "#<%"PRIsVALUE": "
+  2145:   7004: 			      "(%+"PRIsVALUE"th,%dj,%ds,%+"PRIsVALUE"n),"
+  2149:   7036: 			  "#<%"PRIsVALUE": %"PRIsVALUE" "
+  2150:   7037: 			  "((%+"PRIsVALUE"j,%ds,%+"PRIsVALUE"n),%+ds,%.0fj)>",
+  2154:   7442:                  "wrong argument type %"PRIsVALUE" (expected Array or nil)",
+  2159:   590:             rb_raise(rb_eTypeError, "%"PRIsVALUE"::metadata is not initialized properly",
+  2162:   593:             rb_raise(rb_eTypeError, "%"PRIsVALUE"(%"PRIsVALUE")::metadata is not initialized properly",
+  2167:   270:     if (pwd == 0) rb_raise(rb_eArgError, "can't find user for %"PRIsVALUE, nam);
+  2171:   524:     if (grp == 0) rb_raise(rb_eArgError, "can't find group for %"PRIsVALUE, nam);
+  2175:   831:     version = rb_sprintf("%s Version %"PRIsVALUE": %"PRIsVALUE, sysname, release,
+  2180:   260:         rb_raise(rb_eArgError, "already freed: %+"PRIsVALUE, self);
+  2185:     6: #ifdef PRIsVALUE
+  2189:    10: # define PRIsVALUE "s"
+  2193:   109:                          "%"PRIsVALUE,
+  2197:   254:                      "%"PRIsVALUE,
+  2202:   438: 	rb_raise(rb_eFiddleDLError, "unknown symbol \"%"PRIsVALUE"\"", symbol);
+  2207:   116:         rb_raise(rb_eArgError, "Unable to get a memory view from %+"PRIsVALUE, target);
+  2212:    16: #ifdef PRIsVALUE
+  2216:    20: # define PRIsVALUE "s"
+  2220:   572:     return rb_sprintf("#<%"PRIsVALUE":%p ptr=%p size=%ld free=%p>",
+  2225:    239: 	    rb_raise(rb_eArgError, "true or false expected as intr: %"PRIsVALUE,
+  2229:   1040: 	rb_raise(rb_eArgError, "wrong %s mode: %"PRIsVALUE, modename, val);
+  2233:   1122: 	    rb_raise(rb_eArgError, "unknown virtual key code: % "PRIsVALUE, k);
+  2238:   296:     rb_raise(rb_eArgError, "unsupported mode: %"PRIsVALUE, mode);
+  2243:    997:             raise_generator_error(obj, "%"PRIsVALUE" not allowed in JSON", tmp);
+  2247:   1045:                     raise_generator_error(obj, "%"PRIsVALUE" not allowed in JSON", CLASS_OF(obj));
+  2252:   557:     return rb_sprintf("#<InternalObject:%p %"PRIsVALUE">", (void *)obj, rb_sym2str(type));
+  2257:   258:     if(!a1obj) ossl_raise(eASN1Error, "invalid OBJECT ID %"PRIsVALUE, obj);
+  2262:    68: 		       "unsupported cipher algorithm: %"PRIsVALUE, obj);
+  2266:   125: 	ossl_raise(rb_eRuntimeError, "unsupported cipher algorithm (%"PRIsVALUE")", str);
+  2270:   214: 	rb_warn("arguments for %"PRIsVALUE"#encrypt and %"PRIsVALUE"#decrypt were deprecated; "
+  2271:   215:                 "use %"PRIsVALUE"#pkcs5_keyivgen to derive key and IV",
+  2276:   60:             ossl_raise(rb_eRuntimeError, "Unsupported digest algorithm (%"PRIsVALUE").", obj);
+  2281:   150:     rb_warning("no such builtin loader for `%"PRIsVALUE"'", name);
+  2285:   312:     if(!tmp) ossl_raise(eEngineError, "no such cipher `%"PRIsVALUE"'", name);
+  2289:   344:     if(!tmp) ossl_raise(eEngineError, "no such digest `%"PRIsVALUE"'", name);
+  2293:   513:     return rb_sprintf("#<%"PRIsVALUE" id=\"%s\" name=\"%s\">",
+  2298:   441: 	    ossl_raise(ePKCS7Error, "unknown type \"%"PRIsVALUE"\"", sym);
+  2303:   124: 	    ossl_raise(rb_eArgError, "Unknown PBE algorithm %"PRIsVALUE, key_nid);
+  2307:   128: 	    ossl_raise(rb_eArgError, "Unknown PBE algorithm %"PRIsVALUE, cert_nid);
+  2311:   138:         ossl_raise(rb_eArgError, "Unknown key usage type %"PRIsVALUE, INT2NUM(ktype));
+  2316:   659:                     ossl_raise(eEC_GROUP, "unknown curve name (%"PRIsVALUE")", arg1);
+  2320:   663:                     ossl_raise(eEC_GROUP, "unable to create curve (%"PRIsVALUE")", arg1);
+  2324:   985: 	ossl_raise(rb_eArgError, "unsupported point conversion form %+"PRIsVALUE
+  2329:   256:         ossl_raise(ePKeyError, "EVP_PKEY_CTX_ctrl_str(ctx, %+"PRIsVALUE", %+"PRIsVALUE")",
+  2333:   395:             ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", alg);
+  2337:   658:         ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", type);
+  2341:   691:         ossl_raise(ePKeyError, "algorithm %"PRIsVALUE" not found", type);
+  2345:   735:     return rb_sprintf("#<%"PRIsVALUE":%p oid=%s>",
+  2350:   179:         return rb_sprintf("#<%"PRIsVALUE" unloaded provider>", rb_obj_class(self));
+  2354:   183:     return rb_sprintf("#<%"PRIsVALUE" name=\"%s\">",
+  2359:    150:     rb_raise(rb_eArgError, "unrecognized version %+"PRIsVALUE, str);
+  2363:   1818:                          "%s%s returned=%d errno=%d peeraddr=%"PRIsVALUE" state=%s%"PRIsVALUE,
+  2368:   683:     return rb_sprintf("#<%"PRIsVALUE": subject=%+"PRIsVALUE", "
+  2369:   684: 		      "issuer=%+"PRIsVALUE", serial=%+"PRIsVALUE", "
+  2370:   685: 		      "not_before=%+"PRIsVALUE", not_after=%+"PRIsVALUE">",
+  2375:   240: 	ossl_raise(eX509ExtError, "%"PRIsVALUE" = %"PRIsVALUE, oid, valstr);
+  2380:   333:     return rb_enc_sprintf(rb_utf8_encoding(), "#<%"PRIsVALUE" %"PRIsVALUE">",
+  2385:   91:     ossl_raise(rb_eTypeError, "wrong argument (%"PRIsVALUE")! (Expected kind of %"PRIsVALUE")",\
+  2390:   226:     return rb_sprintf("#<%s:%"PRIsVALUE">", c, str);
+  2395:    88:                  "gets returned %"PRIsVALUE" (expected String or nil)",
+  2399:   528:         rb_raise(rb_eArgError, "%"PRIsVALUE, msg);
+  2404:    89:                  "gets returned %"PRIsVALUE" (expected String or nil)",
+  2408:   529:         rb_raise(rb_eArgError, "%"PRIsVALUE, msg);
+  2413:     680:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+  2417:     699:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+  2421:     703:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+  2425:     724:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+  2429:    1804: # define PRIsWARN PRIsVALUE
+  2433:    1825: # define PRIsWARN PRIsVALUE
+  2437:    7886:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2441:    7894:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2445:    7902:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2449:    7910:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2453:    7918:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2457:    7926:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2461:    7934:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2465:    7942:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2469:    7950:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2473:    7958:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2477:    7966:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2481:    7974:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2485:    7982:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2489:    7990:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2493:    7998:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2497:    8006:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2501:    8014:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2505:    8022:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2509:    8030:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2513:    8038:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2517:    8046:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2521:    8054:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2525:    8062:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2529:    8070:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2533:    8078:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2537:    8086:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2541:    8094:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2545:    8102:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2549:    8110:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2553:    8118:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2557:    8126:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2561:    8134:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2565:    8142:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2569:    8150:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2573:    8158:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2577:    8166:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2581:    8174:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2585:    8182:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2589:    8190:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2593:    8198:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2597:    8206:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2601:    8214:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2605:    8222:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2609:    8230:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2613:    8238:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2617:    8246:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2621:    8254:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2625:    8262:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2629:    8270:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2633:    8278:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2637:    8286:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2641:    8294:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2645:    8302:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2649:    8310:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2653:    8318:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2657:    8326:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2661:    8336:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2664:    8339:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2667:    8342:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2670:    8345:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2674:    8359:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2677:    8362:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2680:    8365:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2683:    8368:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2687:    8382:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2690:    8385:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2693:    8388:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2696:    8391:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2700:    8405:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2703:    8408:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2706:    8411:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2709:    8414:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2713:    8428:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2716:    8431:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2719:    8434:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2722:    8437:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2726:    8467:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val(((*yyvaluep).node)));
+  2729:    8470:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val(((*yyvaluep).node)));
+  2732:    8473:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val(((*yyvaluep).node)));
+  2735:    8476:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val(((*yyvaluep).node)));
+  2739:    8488:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2743:    8496:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2747:    8504:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2751:    8512:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2755:    8520:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2759:    8528:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2763:    8536:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2767:    8544:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2771:    8552:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2775:    8755:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2779:    8984:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2783:    9005:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2787:    9039:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2791:    9047:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2795:    9081:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2799:    9453:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2803:    9487:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2807:    9573:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2811:    9581:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2815:    9589:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2819:    9610:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2823:   10008:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2827:   10016:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2831:   10024:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2835:   10032:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2839:   10508:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2843:   10555:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2847:   10563:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2851:   10571:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2855:   10748:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2859:   10756:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2863:   10764:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2867:   10772:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2871:   10806:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2875:   10840:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2879:   10848:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2883:   10856:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2887:   10864:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2891:   10872:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2895:   10932:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2899:   10940:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2903:   10948:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2907:   10956:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2911:   10964:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2915:   10972:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str(((*yyvaluep).id)));
+  2919:   16205:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str((yyvsp[0].id)));
+  2923:   20351:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  2927:   24028:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  2931:   24250:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  2935:   24364:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  2938:   24367:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  2941:   24370:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  2945:   24498:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  2949:   24573:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  2953:   26340:         compile_error(p, "%"PRIsVALUE, err);
+  2957:   26445:         compile_error(p, "%"PRIsVALUE, m);
+  2962:     623:         rb_parser_printf(p, "after-shift: %+"PRIsVALUE"\n", p->s_value);
+  2966:     642:             rb_parser_printf(p, "after-reduce pop: %+"PRIsVALUE"\n", tos);
+  2970:     646:         rb_parser_printf(p, "after-reduce push: %+"PRIsVALUE"\n", p->s_lvalue);
+  2974:     667:             rb_parser_printf(p, "after-pop-stack pop: %+"PRIsVALUE"\n", tos);
+  2978:    1747: # define PRIsWARN PRIsVALUE
+  2982:    1768: # define PRIsWARN PRIsVALUE
+  2986:    2621:     rb_parser_printf(p, "%"PRIsVALUE, rb_id2str($$));
+  2990:    2626:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_integer_literal_val($$));
+  2993:    2629:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_float_literal_val($$));
+  2996:    2632:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_rational_literal_val($$));
+  2999:    2635:         rb_parser_printf(p, "%+"PRIsVALUE, rb_node_imaginary_literal_val($$));
+  3003:    5890:                             compile_error(p, "%"PRIsVALUE": no such local variable", rb_id2str($2));
+  3007:    9403:         rb_ary_unshift(excargs[2], rb_sprintf("%"PRIsVALUE":%d", p->ruby_sourcefile_string, p->ruby_sourceline));
+  3011:   13080:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  3015:   13302:     compile_error(p, "identifier %"PRIsVALUE" is not valid to get", rb_id2str(id));
+  3019:   13416:     compile_error(p, "lex.state: %"PRIsVALUE, mesg);
+  3022:   13419:     compile_error(p, "cond_stack: %"PRIsVALUE, mesg);
+  3025:   13422:     compile_error(p, "cmdarg_stack: %"PRIsVALUE, mesg);
+  3029:   13550:         compile_error(p, "identifier %"PRIsVALUE" is not valid to set", rb_id2str(id));
+  3033:   13625:         compile_error(p, "invalid local variable - %"PRIsVALUE,
+  3037:   15392:         compile_error(p, "%"PRIsVALUE, err);
+  3041:   15497:         compile_error(p, "%"PRIsVALUE, m);
+  3046:   1000:             rb_str_catf(ret, " %"PRIsVALUE, rb_sym2str(vtype));
+  3051:   1252:             rb_str_catf(ret, " %"PRIsVALUE, rb_sym2str(v));
+  3056:   30:     message = rb_sprintf("%s for %+"PRIsVALUE" port % "PRIsVALUE"",
+  3060:   52:         message = rb_sprintf("%s for % "PRIsVALUE"", mesg, path);
+  3064:   88:     message = rb_sprintf("%s for %"PRIsVALUE"", mesg, str);
+  3069:    375: 	rb_warn("%"PRIsVALUE"::new() does not take block; use %"PRIsVALUE"::open() instead",
+  3073:   1650: 	rb_raise(rb_eArgError, "negative string size (or size too big): %" PRIsVALUE, rb_len);
+  3077:   1661: 	rb_syserr_fail_str(EINVAL, rb_sprintf("pread: Invalid offset argument: %" PRIsVALUE, rb_offset));
+  3082:   2113: 	a = rb_sprintf("#<%"PRIsVALUE" (uninitialized)>", rb_obj_class(self));
+  3086:   2117: 	a = rb_sprintf("#<%"PRIsVALUE" fin>", rb_obj_class(self));
+  3090:   2122: 	a = rb_sprintf("#<%"PRIsVALUE" %ld/%ld @ %"PRIsVALUE">",
+  3094:   2130:     a = rb_sprintf("#<%"PRIsVALUE" %ld/%ld %"PRIsVALUE" @ %"PRIsVALUE">",
+  3099:   472:     error = rb_sprintf("%"PRIsVALUE": %"PRIsVALUE" (%s)\n", bt, msg, rb_obj_classname(e));
+  3103:   844:     mid = rb_to_id(rb_sprintf("on%"PRIsVALUE, ev));
+  3108:   587:     return rb_sprintf("#<WIN32OLE::Record(%"PRIsVALUE") %"PRIsVALUE">",
+  3113:   364:     VALUE detail = rb_sprintf("%"PRIsVALUE"=%"PRIsVALUE, n, v);
+  3118:   159:         rb_raise(eWIN32OLERuntimeError, "failed to convert VT_ERROR VARIANT:`%"PRIsVALUE"'", rb_inspect(v));
+  3123:   1579:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  3126:   1582:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is recycled object", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  3131:   1148:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is not id value", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  3134:   1151:         rb_raise(rb_eRangeError, "%+"PRIsVALUE" is recycled object", rb_funcall(object_id, rb_intern("to_s"), 1, INT2FIX(10)));
+  3139:   69: # define PRIsVALUE PRIiPTR"" RUBY_PRI_VALUE_MARK
+  3143:   76: # define PRIsVALUE PRI_VALUE_PREFIX"i" RUBY_PRI_VALUE_MARK
+  3148:   66:  * `I`.   And additionally,  it  supports magical  `PRIsVALUE`  macro that  can
+  3152:   70:  * rb_sprintf("|%"PRIsVALUE"|", RUBY_Qtrue); // => "|true|"
+  3153:   71:  * rb_sprintf("%+"PRIsVALUE, rb_stdin);      // => "#<IO:<STDIN>>"
+  3158:    53:         rb_raise(rb_eTypeError, "wrong argument type %" PRIsVALUE " (expected String)", rb_obj_class(value));
+  3162:    67:         rb_raise(rb_eTypeError, "wrong argument type %" PRIsVALUE " (expected String)", rb_obj_class(string));
+  3166:    84:         rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Array)", rb_obj_class(scopes));
+  3170:   100:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Array)", rb_obj_class(scope));
+  3174:   117:                 rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected Symbol)", rb_obj_class(local));
+  3178:   155:                 rb_raise(rb_eArgError, "invalid version: %" PRIsVALUE, value);
+  3182:   184:         rb_raise(rb_eArgError, "unknown keyword: %" PRIsVALUE, key);
+  3186:   234:             rb_raise(rb_eTypeError, "wrong argument type %"PRIsVALUE" (expected String)", rb_obj_class(filepath));
+  3191:   458:   return rb_sprintf("Result: %" PRIsVALUE ".", str);
+  3195:   462:   return rb_sprintf("Result: %+" PRIsVALUE ".", str);
+  3199:   470:   return rb_sprintf("Result: %*.*" PRIsVALUE ".", FIX2INT(width), FIX2INT(precision), str);
+
+spec/ruby/optional/capi/ext/string_spec.c:
+  458:   return rb_sprintf("Result: %" PRIsVALUE ".", str);
+  462:   return rb_sprintf("Result: %+" PRIsVALUE ".", str);
+  470:   return rb_sprintf("Result: %*.*" PRIsVALUE ".", FIX2INT(width), FIX2INT(precision), str);

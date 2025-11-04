@@ -17,6 +17,7 @@ CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -
 --with-opt-dir="/morello/src/output/rootfs-morello-purecap/usr" \
 --prefix="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master" \
 --with-thread="pthread" \
+--with-coroutine="ucontext" \
 --enable-mkmf-verbose \
 --with-destdir="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master" \
 --enable-debug-env \

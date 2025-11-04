@@ -1,0 +1,157 @@
+#!/root/ruby341e/build/ruby
+$:.unshift File.expand_path('../lib', __dir__)
+
+require 'benchmark_driver'
+require 'optparse'
+require 'shellwords'
+require 'yaml'
+
+# Parse command line options
+config = BenchmarkDriver::Config.new.tap do |c|
+  executables = []
+  bundler = false
+  timeout = false
+
+  parser = OptionParser.new do |o|
+    o.version = BenchmarkDriver::VERSION
+    o.banner = "Usage: #{File.basename($0, '.*')} [options] RUBY|YAML..."
+    o.on('-r', '--runner TYPE', String, 'Specify runner type: ips, time, memory, once, block (default: ips)') do |d|
+      c.runner_type = d
+    end
+    o.on('-o', '--output TYPE', String, 'Specify output type: compare, simple, markdown, record, all (default: compare)') do |out|
+      c.output_type = out
+      begin
+        plugin_options = BenchmarkDriver::Output.get(out).const_get('OPTIONS', false)
+      rescue ArgumentError, LoadError, NameError
+      else
+        plugin_options.each do |name, args|
+          unless args.first.start_with?('--output-')
+            raise ArgumentError.new("#{args.first.dump} must start with '--output-'")
+          end
+          o.on(*args) do |opt|
+            c.output_opts[name] = opt
+          end
+        end
+      end
+    end
+    o.on('-e', '--executables EXECS', String, 'Ruby executables (e1::path1 arg1; e2::path2 arg2;...)') do |e|
+      e.split(';').each do |name_path|
+        name, path = name_path.split('::', 2)
+        path ||= name # if `::` is not given, regard whole string as path
+        command = path.shellsplit
+        command[0] = File.expand_path(command[0])
+        executables << BenchmarkDriver::Config::Executable.new(name: name, command: command)
+      end
+    end
+    o.on('--rbenv VERSIONS', String, 'Ruby executables in rbenv (x.x.x arg1;y.y.y arg2;...)') do |r|
+      r.split(';').each do |version|
+        executables << BenchmarkDriver::Rbenv.parse_spec(version)
+      end
+    end if system("which rbenv > #{File::NULL} 2>&1")
+    o.on('--chruby VERSIONS', String, 'Ruby executables in chruby (x.x.x arg1;y.y.y arg2;...)') do |r|
+      r.split(';').each do |version|
+        executables << BenchmarkDriver::Chruby.parse_spec(version)
+      end
+    end if Dir.exist?('/opt/rubies') || Dir.exist?("#{ENV['HOME']}/.rubies")
+    o.on('--rvm VERSIONS', String, 'Ruby executables in rvm (x.x.x arg1;y.y.y arg2;...)') do |r|
+      r.split(';').each do |version|
+        executables << BenchmarkDriver::Rvm.parse_spec(version)
+      end
+    end if system("which rvm > #{File::NULL} 2>&1")
+    o.on('--ridkuse VERSIONS', String, 'Ruby executables in ridk use (x.x.x arg1;y.y.y arg2;...) for RubyInstaller2 on Windows') do |r|
+      r.split(';').each do |version|
+        executables << BenchmarkDriver::RidkUse.parse_spec(version)
+      end
+    end if system("ridk version > #{File::NULL} 2>&1")
+    o.on('--repeat-count NUM', Integer, 'Try benchmark NUM times and use the fastest result or the worst memory usage') do |v|
+      c.repeat_count = v
+    end
+    o.on('--repeat-result TYPE', String, 'Yield "best", "average" or "worst" result with --repeat-count (default: best)') do |v|
+      unless BenchmarkDriver::Repeater::VALID_TYPES.include?(v)
+        raise ArgumentError.new("--repeat-result must be #{BenchmarkDriver::Repeater::VALID_TYPES.join(', ')} but got #{v.inspect}")
+      end
+      c.repeat_result = v
+    end
+    o.on('--alternate', 'Alternate executables instead of running the same executable in a row with --repeat-count') do |v|
+      c.alternate = v
+    end
+    o.on('--bundler', 'Install and use gems specified in Gemfile') do |v|
+      bundler = v
+    end
+    o.on('--filter REGEXP', String, 'Filter out benchmarks with given regexp') do |v|
+      c.filters << Regexp.compile(v)
+    end
+    o.on('--run-duration SECONDS', Float, 'Warmup estimates loop_count to run for this duration (default: 3)') do |v|
+      c.run_duration = v
+    end
+    o.on('--timeout SECONDS', Float, 'Timeout ruby command execution with timeout(1)') do |v|
+      timeout = v
+    end if (os = RbConfig::CONFIG['host_os']) && os.match(/linux/) && system("which timeout > #{File::NULL}") # depending on coreutils for now...
+    o.on('-v', '--verbose', 'Verbose mode. Multiple -v options increase visilibity (max: 2)') do |v|
+      c.verbose += 1
+    end
+  end
+  begin
+    c.args = parser.parse!(ARGV)
+  rescue OptionParser::InvalidArgument => e
+    abort e.message
+  end
+  if c.args.empty?
+    abort "No YAML file is specified!\n\n#{parser.help}"
+  end
+
+  # Configs that need to be set lazily
+  unless executables.empty?
+    c.executables = executables
+  end
+  c.executables.each do |exec|
+    if bundler
+      exec.command << '-rbundler/setup'
+    end
+    if timeout
+      exec.command = ['timeout', timeout.to_s, *exec.command]
+    end
+  end
+
+  c.freeze
+end
+
+# Parse benchmark job definitions
+jobs = config.args.flat_map do |arg|
+  job = { 'type' => config.runner_type }
+
+  # Three types of input:
+  #   * YAML file (*.yml, *.yaml): a regular benchmark with various params
+  #   * Ruby file (*.rb): a single-execution benchmark
+  #   * Ruby inline (any other argument): a multi-execution benchmark
+  if arg.end_with?('.yml') || arg.end_with?('.yaml')
+    yaml = File.read(arg)
+    job.merge!(YAML.respond_to?(:unsafe_load) ? YAML.unsafe_load(yaml) : YAML.load(yaml))
+  elsif arg.end_with?('.rb')
+    name = File.basename(arg).sub(/\.rb\z/, '')
+    script = File.read(arg)
+    prelude = script.slice!(/\A(^#[^\n]+\n)+/m) || '' # preserve magic comment
+    job.merge!('prelude' => prelude, 'benchmark' => { name => script }, 'loop_count' => 1)
+  else # Ruby inline
+    job.merge!('benchmark' => { arg => arg })
+    working_directory = Dir.pwd
+  end
+  working_directory ||= File.expand_path(File.dirname(arg))
+
+  begin
+    # `working_directory` is YAML-specific special parameter, mainly for "command_stdout"
+    BenchmarkDriver::JobParser.parse(job, working_directory: working_directory)
+  rescue ArgumentError
+    $stderr.puts "benchmark-driver: Failed to parse #{arg.dump}."
+    $stderr.puts '  YAML format may be wrong. See error below:'
+    $stderr.puts
+    raise
+  end
+end.select do |job|
+  config.filters.all? do |filter|
+    job.name.match(filter)
+  end
+end
+
+# Run jobs
+BenchmarkDriver::Runner.run(jobs, config: config)

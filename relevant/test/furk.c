@@ -1,0 +1,109 @@
+#include <cheriintrin.h>
+// #include <cheri.h>
+// #include <cheri/cheri.h>
+#include <cheri/cheric.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#include <limits.h>
+#include <assert.h>
+// #include <stdatomic.h>
+#include <unistd.h>
+
+#define VALUE uintptr_t
+#define ULVALUE unsigned long 
+#define CULONG(x) ((ULVALUE) (x))
+
+
+#ifndef _PP_CAP 
+#define _PP_CAP
+#include <cheriintrin.h>
+void pp_cap(void * ptr, const char *name)
+{
+    uint64_t length = cheri_length_get(ptr);
+    uint64_t address = cheri_address_get(ptr);
+    uint64_t base = cheri_base_get(ptr);
+    uint64_t flags = cheri_flags_get(ptr);
+    uint64_t perms = cheri_perms_get(ptr);
+    uint64_t type = cheri_type_get(ptr);
+    int tag = cheri_tag_get(ptr);
+
+    uint64_t offset = cheri_offset_get(ptr);
+
+	int is_executable = cheri_perms_get(ptr) & CHERI_PERM_EXECUTE;
+	int is_read = cheri_perms_get(ptr) & CHERI_PERM_LOAD;
+	int is_write = cheri_perms_get(ptr) & CHERI_PERM_STORE;
+	int is_invoke = cheri_perms_get(ptr) & CHERI_PERM_INVOKE;
+
+	int is_aligned = __builtin_is_aligned(ptr, 16);
+
+	printf("Executable: %d, Read: %d, Write: %d invoke: %d\n", is_executable, is_read, is_write, is_invoke);
+	printf("%s: %p\n", name, ptr);
+    printf("Capability: %#lp\n", ptr);
+	printf("Is aligned: %d\n", is_aligned);
+
+    printf("Tag: %d, Perms: %04lx, Type: %lx, Address: %04lx, Base: %04lx, End: %04lx, Flags: %lx, "
+           "Length: %04lx, Offset: %04lx\n\n",
+           tag, perms, type, address, base, base + length, flags, length, offset);
+}
+#endif
+
+
+
+struct rb_execution_context_struct {
+    VALUE *vm_stack;		/* must free, must mark */
+    size_t vm_stack_size;       /* size in word (byte size / sizeof(VALUE)) */
+    const VALUE *root_lep;
+    VALUE root_svar;
+    uint8_t raised_flag; /* only 3 bits needed */
+    struct {
+        VALUE *stack_start;
+        VALUE *stack_end;
+        size_t stack_maxsize;
+    } machine;
+};
+
+typedef struct rb_execution_context_struct rb_execution_context_t;
+rb_execution_context_t *ruby_current_ec;
+
+int main() {
+int *ptr = (int *)malloc(sizeof(int));
+	VALUE value = (VALUE)ptr;
+	VALUE* value_ptr = &value;
+
+	ruby_current_ec = (rb_execution_context_t *)malloc(sizeof(rb_execution_context_t));
+	ruby_current_ec->vm_stack = value_ptr; // Assigning the VALUE pointer to the vm_stack
+	ruby_current_ec->vm_stack_size = 16;
+	ruby_current_ec->root_lep = NULL;
+	ruby_current_ec->root_svar = (VALUE) ptr;
+	ruby_current_ec->raised_flag = 3;
+	ruby_current_ec->machine.stack_start = (VALUE *)malloc(16 * sizeof(VALUE));
+	ruby_current_ec->machine.stack_end = ruby_current_ec->machine.stack_start + 16;
+	ruby_current_ec->machine.stack_maxsize = 16;
+
+	rb_execution_context_t ** current_ec_ptr = &ruby_current_ec;
+
+	if (fork() == 0) {
+		// Child process
+		int a = 0; 
+		ruby_current_ec = (rb_execution_context_t *)cheri_tag_clear((void*)ruby_current_ec); // Clear the tag of the current execution context pointer
+		exit(0);
+	} else {
+		// Parent process
+		pp_cap(ruby_current_ec->vm_stack, "Parent vm_stack");
+		pp_cap(ruby_current_ec->machine.stack_start, "Parent stack_start");
+		pp_cap(ruby_current_ec->machine.stack_end, "Parent stack_end");
+		pp_cap(ruby_current_ec->root_lep, "Parent root_lep");
+		pp_cap((void *)ruby_current_ec->root_svar, "Parent root_svar");
+	}
+
+	return 0;
+}	
+
+
+// cheri support
+#if defined(__CHERI_PURE_CAPABILITY__) 
+#else
+#endif

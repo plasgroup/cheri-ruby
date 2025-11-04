@@ -1,0 +1,2927 @@
+root@cheribsd-riscv64-purecap:~/ruby341e/build # ./trun.sh
+Running unprocessed tests only
+Current!: ../test/-ext-
+Run options:
+  --seed=3331
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[567/803] TestPostponed_job#test_legacy_register_one_same = 22.77 s
+  1) Failure:
+TestPostponed_job#test_legacy_register_one_same [/root/ruby341e/test/-ext-/postponed_job/test_postpo
+ned_job.rb:54]:
+pid 1205 killed by signal 34 (core dumped)
+
+[568/803] TestPostponed_job#test_legacy_register_in_c_thread = 17.65 s
+  2) Failure:
+TestPostponed_job#test_legacy_register_in_c_thread [/root/ruby341e/test/-ext-/postponed_job/test_pos
+tponed_job.rb:67]:
+<[1]> expected but was
+<[]>.
+
+[569/803] TestPostponed_job#test_multiple_preregistration_with_new_data = 21.86 s
+  3) Failure:
+TestPostponed_job#test_multiple_preregistration_with_new_data [/root/ruby341e/test/-ext-/postponed_j
+ob/test_postponed_job.rb:29]:
+pid 1207 killed by signal 34 (core dumped)
+
+[570/803] TestPostponed_job#test_legacy_register = 21.63 s
+  4) Failure:
+TestPostponed_job#test_legacy_register [/root/ruby341e/test/-ext-/postponed_job/test_postponed_job.r
+b:46]:
+<[3]> expected but was
+<[]>.
+
+[572/803] TestPostponed_job#test_preregister_and_trigger = 17.65 s
+  5) Failure:
+TestPostponed_job#test_preregister_and_trigger [/root/ruby341e/test/-ext-/postponed_job/test_postpon
+ed_job.rb:11]:
+<[3]> expected but was
+<[]>.
+
+[610/803] Test_TypedData#test_deferred_freeOct 22 04:51:15 cheribsd-riscv64-purecap kernel: Failed t
+o write core file for process ruby (error 4)
+ = 122.31 s
+  6) Timeout:
+Test_TypedData#test_deferred_free
+
+[631/803] TestBignum_Pack#test_unpack_argument_check = 0.26 s
+  7) Failure:
+TestBignum_Pack#test_unpack_argument_check [/root/ruby341e/test/-ext-/bignum/test_pack.rb:252]:
+[ArgumentError] exception expected, not #<RangeError: bignum too big to convert into 'unsigned long
+long'>.
+
+[665/803] Test_StrSetLen#test_shared = 0.17 s
+  8) Failure:
+Test_StrSetLen#test_shared [/root/ruby341e/test/-ext-/string/test_set_len.rb:24]:
+RuntimeError expected but nothing was raised.
+
+[696/803] Test_Load_stringify_symbols#test_load_stringify_symbol_statically_linked = 0.47 s
+  9) Failure:
+Test_Load_stringify_symbols#test_load_stringify_symbol_statically_linked [/root/ruby341e/test/-ext-/
+load/test_stringify_symbols.rb:21]:
+<4275568> expected but was
+<nil>.
+
+[706/803] TestTracepointObj#test_after_gc_start_hook_with_GC_stress = 8.68 s
+ 10) Failure:
+TestTracepointObj#test_after_gc_start_hook_with_GC_stress [/root/ruby341e/test/-ext-/tracepoint/test
+_tracepoint.rb:64]:
+pid 1228 killed by signal 34 (core dumped).
+
+1. [1/2] Assertion for "stdout"
+   | Expected /\A[1-9]/ to match "".
+
+[719/803] TestBugReporter#test_bug_reporter_add = 7.52 s
+ 11) Failure:
+TestBugReporter#test_bug_reporter_add [/root/ruby341e/test/-ext-/bug_reporter/test_bug_reporter.rb:3
+0]:
+pid 1232 killed by signal 34
+| -:1: [BUG] Segmentation fault at 0x00000000000000000000000000000000
+| ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+|
+| -- Control frame information -----------------------------------------------
+| c:0003 p:---- s:0012 e:000011 CFUNC  :kill
+| c:0002 p:0022 s:0006 e:000005 EVAL   -:1 [FINISH]
+| c:0001 p:0000 s:0003 E:001c90 DUMMY  [FINISH]
+|
+| -- Ruby level backtrace information ----------------------------------------
+| -:1:in '<main>'
+| -:1:in 'kill'
+|
+| -- Threading information ---------------------------------------------------
+| Total ractor count: 1
+| Ruby thread count for this ractor: 1
+|
+| -- C level backtrace information -------------------------------------------
+.
+
+1. [2/2] Assertion for "stderr"
+   | Expected /Sample bug reporter: 12345/
+   | to match
+   |   "-- Control frame information -----------------------------------------------\n"+
+   |   "c:0003 p:---- s:0012 e:000011 CFUNC  :kill\n"+
+   |   "c:0002 p:0022 s:0006 e:000005 EVAL   -:1 [FINISH]\n"+
+   |   "c:0001 p:0000 s:0003 E:001c90 DUMMY  [FINISH]\n\n"+
+   |   "-- Ruby level backtrace information ----------------------------------------\n"+
+   |   "-:1:in '<main>'\n"+
+   |   "-:1:in 'kill'\n\n"+
+   |   "-- Threading information ---------------------------------------------------\n"+
+   |   "Total ractor count: 1\n"+
+   |   "Ruby thread count for this ractor: 1\n\n"+
+   |   "-- C level backtrace information -------------------------------------------\n"
+   | after 4 patterns with 138 characters.
+
+[738/803] Test_StringCapacity#test_capacity_frozen = 0.22 s
+ 12) Failure:
+Test_StringCapacity#test_capacity_frozen [/root/ruby341e/test/-ext-/string/test_capacity.rb:52]:
+<92> expected but was
+<1231>.
+
+[770/803] TestThreadInstrumentation#test_multi_thread_timelineIn-address space security exception (c
+ore dumped)
+fail!
+Fin! ../test/-ext-
+Current!: ../test/benchmark
+Run options:
+  --seed=56511
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 16.225610s, 0.8628 tests/s, 3.8828 assertions/s.
+14 tests, 63 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/benchmark
+Current!: ../test/cgi
+Run options:
+  --seed=37514
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 123.444126s, 3.7993 tests/s, 15.7966 assertions/s.
+469 tests, 1950 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/cgi
+Current!: ../test/coverage
+Run options:
+  --seed=8865
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 352.151130s, 0.1193 tests/s, 0.6474 assertions/s.
+42 tests, 228 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/coverage
+Current!: ../test/date
+Run options:
+  --seed=14931
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 736.937976s, 0.1913 tests/s, 221.0077 assertions/s.
+141 tests, 162869 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/date
+Current!: ../test/did_you_mean
+/root/ruby341e/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML ou
+tput).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+../test/did_you_mean/test_tree_spell_checker.rb: cannot load such file -- psych
+Run options:
+  --seed=19573
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 292.394849s, 0.2189 tests/s, 1.1970 assertions/s.
+64 tests, 350 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/did_you_mean
+Current!: ../test/digest
+Run options:
+  --seed=26176
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 161.831434s, 0.6797 tests/s, 3.0031 assertions/s.
+110 tests, 486 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/digest
+Current!: ../test/dtrace
+Run options:
+  --seed=48511
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1.975858s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/dtrace
+Current!: ../test/erb
+Run options:
+  --seed=47053
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 39.598932s, 1.9698 tests/s, 11.6670 assertions/s.
+78 tests, 462 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/erb
+Current!: ../test/error_highlight
+Run options:
+  --seed=61498
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 950.366749s, 0.1105 tests/s, 0.4493 assertions/s.
+105 tests, 427 assertions, 0 failures, 0 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/error_highlight
+Current!: ../test/etc
+Run options:
+  --seed=1265
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 6.661486s, 2.2517 tests/s, 84.9660 assertions/s.
+15 tests, 566 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/etc
+Current!: ../test/fiber
+Run options:
+  --seed=42533
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 114.125043s, 0.7273 tests/s, 3.0931 assertions/s.
+83 tests, 353 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/fiber
+Current!: ../test/fiddle
+Run options:
+  --seed=37251
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 2.443459s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/fiddle
+Current!: ../test/fileutils
+Run options:
+  --seed=37217
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[269/428] TestFileUtils#test_rm_r_no_permissions = 1.10 s
+  1) Error:
+TestFileUtils#test_rm_r_no_permissions:
+Errno::ENOENT: No such file or directory @ rb_file_s_stat - tmpdatadir
+    /root/ruby341e/lib/fileutils.rb:1674:in 'File.stat'
+    /root/ruby341e/lib/fileutils.rb:1674:in 'FileUtils#symbolic_modes_to_i'
+    /root/ruby341e/lib/fileutils.rb:1723:in 'FileUtils#fu_mode'
+    /root/ruby341e/lib/fileutils.rb:1809:in 'block in FileUtils#chmod'
+    /root/ruby341e/lib/fileutils.rb:1808:in 'Array#each'
+    /root/ruby341e/lib/fileutils.rb:1808:in 'FileUtils#chmod'
+    /root/ruby341e/test/fileutils/test_fileutils.rb:783:in 'TestFileUtils#test_rm_r_no_permissions'
+
+Finished tests in 193.689549s, 2.2097 tests/s, 10.4084 assertions/s.
+428 tests, 2016 assertions, 0 failures, 1 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/fileutils
+Current!: ../test/io
+Run options:
+  --seed=6091
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 91.828103s, 0.6643 tests/s, 3.1036 assertions/s.
+61 tests, 285 assertions, 0 failures, 0 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/io
+Current!: ../test/irb
+Run options:
+  --seed=18248
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 91/368] TestIRB::ContextTest#test_yaml_inspect_mode_successful = 0.22 s
+  1) Error:
+TestIRB::ContextTest#test_yaml_inspect_mode_successful:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/yaml.rb:4:in '<top (required)>'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/irb/inspector.rb:119:in 'block in <module:IRB>'
+    /root/ruby341e/lib/irb/inspector.rb:92:in 'IRB::Inspector#init'
+    /root/ruby341e/lib/irb/context.rb:554:in 'IRB::Context#inspect_mode='
+    /root/ruby341e/test/irb/test_context.rb:142:in 'block (3 levels) in <class:ContextTest>'
+
+[ 95/368] TestIRB::ContextTest#test_yaml_inspect_mode_failed = 0.23 s
+  2) Error:
+TestIRB::ContextTest#test_yaml_inspect_mode_failed:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/yaml.rb:4:in '<top (required)>'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/irb/inspector.rb:119:in 'block in <module:IRB>'
+    /root/ruby341e/lib/irb/inspector.rb:92:in 'IRB::Inspector#init'
+    /root/ruby341e/lib/irb/context.rb:554:in 'IRB::Context#inspect_mode='
+    /root/ruby341e/test/irb/test_context.rb:142:in 'block (3 levels) in <class:ContextTest>'
+
+Finished tests in 1380.562392s, 0.2666 tests/s, 1.9702 assertions/s.
+368 tests, 2720 assertions, 0 failures, 2 errors, 99 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/irb
+Current!: ../test/json
+Run options:
+  --seed=23037
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 120.485073s, 1.0873 tests/s, 20.2930 assertions/s.
+131 tests, 2445 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/json
+Current!: ../test/lib
+Run options:
+  --seed=58391
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1.961242s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/lib
+Current!: ../test/logger
+Run options:
+  --seed=58009
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 376.972512s, 0.1565 tests/s, 1.1486 assertions/s.
+59 tests, 433 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/logger
+Current!: ../test/mkmf
+Run options:
+  --seed=65225
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[  1/143] TestMkmfSizeof#test_sizeof_builtin = 0.80 s
+  1) Error:
+TestMkmfSizeof#test_sizeof_builtin:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/test/mkmf/base.rb:141:in 'TestMkmf::Base#config_value'
+    /root/ruby341e/test/mkmf/test_sizeof.rb:7:in 'TestMkmfSizeof#setup'
+
+[  2/143] TestMkmfSizeof#test_sizeof_struct = 0.68 s
+  2) Error:
+TestMkmfSizeof#test_sizeof_struct:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/test/mkmf/base.rb:141:in 'TestMkmf::Base#config_value'
+    /root/ruby341e/test/mkmf/test_sizeof.rb:7:in 'TestMkmfSizeof#setup'
+
+[  3/143] TestMkmfHaveLibrary#test_not_have_library_with_name = 0.83 s
+  3) Failure:
+TestMkmfHaveLibrary#test_not_have_library_with_name [/root/ruby341e/test/mkmf/test_have_library.rb:1
+8]:
+compile failed: /cheriv92/src/output/sdk/bin/clang -I. -I/root/ruby341e/build/.ext/include/riscv64-f
+reebsd -I/root/ruby341e/include -I../test -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include
+   -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax
+-march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/includ
+e -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb
+3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit
+-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-
+definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -
+Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -W
+no-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-inden
+tation -Wundef   -c conftest.c
+
+[  4/143] TestMkmfHaveLibrary#test_have_library = 0.81 s
+  4) Failure:
+TestMkmfHaveLibrary#test_have_library [/root/ruby341e/test/mkmf/test_have_library.rb:18]:
+compile failed: /cheriv92/src/output/sdk/bin/clang -I. -I/root/ruby341e/build/.ext/include/riscv64-f
+reebsd -I/root/ruby341e/include -I../test -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include
+   -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax
+-march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/includ
+e -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb
+3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit
+-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-
+definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -
+Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -W
+no-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-inden
+tation -Wundef   -c conftest.c
+
+[  5/143] TestMkmfHaveLibrary#test_not_have_library = 1.82 s
+  5) Error:
+TestMkmfHaveLibrary#test_not_have_library:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:621:in 'MakeMakefile#try_link0'
+    /root/ruby341e/lib/mkmf.rb:639:in 'MakeMakefile#try_link'
+    /root/ruby341e/lib/mkmf.rb:888:in 'MakeMakefile#try_func'
+    /root/ruby341e/lib/mkmf.rb:1147:in 'block in MakeMakefile#have_library'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1142:in 'MakeMakefile#have_library'
+    /root/ruby341e/test/mkmf/test_have_library.rb:33:in 'TestMkmfHaveLibrary#assert_not_have_library
+'
+    /root/ruby341e/test/mkmf/test_have_library.rb:47:in 'TestMkmfHaveLibrary#test_not_have_library'
+
+[  6/143] TestMkmfHaveLibrary#test_have_library_with_name = 0.85 s
+  6) Failure:
+TestMkmfHaveLibrary#test_have_library_with_name [/root/ruby341e/test/mkmf/test_have_library.rb:18]:
+compile failed: /cheriv92/src/output/sdk/bin/clang -I. -I/root/ruby341e/build/.ext/include/riscv64-f
+reebsd -I/root/ruby341e/include -I../test -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include
+   -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax
+-march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/src/output/rootfs-riscv64-purecap/usr/includ
+e -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb
+3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit
+-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-
+definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -
+Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -W
+no-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-inden
+tation -Wundef   -c conftest.c
+
+[  7/143] TestMkmfHaveMacro#test_not_have_macro_opt = 0.56 s
+  7) Error:
+TestMkmfHaveMacro#test_not_have_macro_opt:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:955:in 'MakeMakefile#macro_defined?'
+    /root/ruby341e/lib/mkmf.rb:1124:in 'block in MakeMakefile#have_macro'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1123:in 'MakeMakefile#have_macro'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:23:in 'TestMkmfHaveMacro#test_not_have_macro_opt'
+
+[  8/143] TestMkmfHaveMacro#test_not_have_macro_header = 0.57 s
+  8) Error:
+TestMkmfHaveMacro#test_not_have_macro_header:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:955:in 'MakeMakefile#macro_defined?'
+    /root/ruby341e/lib/mkmf.rb:1124:in 'block in MakeMakefile#have_macro'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1123:in 'MakeMakefile#have_macro'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:31:in 'block in TestMkmfHaveMacro#test_not_have_macr
+o_header'
+    /root/ruby341e/lib/tempfile.rb:576:in 'Tempfile.create_with_filename'
+    /root/ruby341e/lib/tempfile.rb:562:in 'Tempfile.create'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:27:in 'TestMkmfHaveMacro#test_not_have_macro_header'
+
+[  9/143] TestMkmfHaveMacro#test_have_macro_header = 0.58 s
+  9) Error:
+TestMkmfHaveMacro#test_have_macro_header:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:955:in 'MakeMakefile#macro_defined?'
+    /root/ruby341e/lib/mkmf.rb:1124:in 'block in MakeMakefile#have_macro'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1123:in 'MakeMakefile#have_macro'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:18:in 'block in TestMkmfHaveMacro#test_have_macro_he
+ader'
+    /root/ruby341e/lib/tempfile.rb:576:in 'Tempfile.create_with_filename'
+    /root/ruby341e/lib/tempfile.rb:562:in 'Tempfile.create'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:13:in 'TestMkmfHaveMacro#test_have_macro_header'
+
+[ 10/143] TestMkmfHaveMacro#test_have_macro_opt = 1.19 s
+ 10) Error:
+TestMkmfHaveMacro#test_have_macro_opt:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:955:in 'MakeMakefile#macro_defined?'
+    /root/ruby341e/lib/mkmf.rb:1124:in 'block in MakeMakefile#have_macro'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1123:in 'MakeMakefile#have_macro'
+    /root/ruby341e/test/mkmf/test_have_macro.rb:9:in 'TestMkmfHaveMacro#test_have_macro_opt'
+
+[ 11/143] TestMkmfHaveFunc#test_have_func = 0.58 s
+ 11) Error:
+TestMkmfHaveFunc#test_have_func:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:621:in 'MakeMakefile#try_link0'
+    /root/ruby341e/lib/mkmf.rb:639:in 'MakeMakefile#try_link'
+    /root/ruby341e/lib/mkmf.rb:881:in 'MakeMakefile#try_func'
+    /root/ruby341e/lib/mkmf.rb:1201:in 'block in MakeMakefile#have_func'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1200:in 'MakeMakefile#have_func'
+    /root/ruby341e/test/mkmf/test_have_func.rb:7:in 'TestMkmfHaveFunc#test_have_func'
+
+[ 12/143] TestMkmfHaveFunc#test_not_have_func = 0.56 s
+ 12) Error:
+TestMkmfHaveFunc#test_not_have_func:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:621:in 'MakeMakefile#try_link0'
+    /root/ruby341e/lib/mkmf.rb:639:in 'MakeMakefile#try_link'
+    /root/ruby341e/lib/mkmf.rb:881:in 'MakeMakefile#try_func'
+    /root/ruby341e/lib/mkmf.rb:1201:in 'block in MakeMakefile#have_func'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1200:in 'MakeMakefile#have_func'
+    /root/ruby341e/test/mkmf/test_have_func.rb:12:in 'TestMkmfHaveFunc#test_not_have_func'
+
+[ 13/143] TestMkmfTryConstant#test_large_unsigned = 0.50 s
+ 13) Error:
+TestMkmfTryConstant#test_large_unsigned:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:786:in 'MakeMakefile#try_constant'
+    /root/ruby341e/test/mkmf/test_constant.rb:42:in 'block in TestMkmfTryConstant#test_large_unsigne
+d'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_constant.rb:42:in 'TestMkmfTryConstant#test_large_unsigned'
+
+[ 14/143] TestMkmfTryConstant#test_long = 0.67 s
+ 14) Error:
+TestMkmfTryConstant#test_long:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/test/mkmf/base.rb:141:in 'TestMkmf::Base#config_value'
+    /root/ruby341e/test/mkmf/test_constant.rb:27:in 'TestMkmfTryConstant#test_long'
+
+[ 15/143] TestMkmfTryConstant#test_simple = 1.11 s
+ 15) Error:
+TestMkmfTryConstant#test_simple:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:786:in 'MakeMakefile#try_constant'
+    /root/ruby341e/test/mkmf/test_constant.rb:14:in 'block in TestMkmfTryConstant#test_simple'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_constant.rb:14:in 'TestMkmfTryConstant#test_simple'
+
+[ 16/143] TestMkmfTryConstant#test_sizeof = 0.68 s
+ 16) Error:
+TestMkmfTryConstant#test_sizeof:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/test/mkmf/base.rb:141:in 'TestMkmf::Base#config_value'
+    /root/ruby341e/test/mkmf/test_constant.rb:20:in 'TestMkmfTryConstant#test_sizeof'
+
+[ 17/143] TestMkmfEgrepCpp#test_egrep_cpp = 0.73 s
+ 17) Error:
+TestMkmfEgrepCpp#test_egrep_cpp:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:926:in 'MakeMakefile#egrep_cpp'
+    /root/ruby341e/test/mkmf/test_egrep_cpp.rb:7:in 'TestMkmfEgrepCpp#test_egrep_cpp'
+
+[ 18/143] TestMkmfEgrepCpp#test_not_have_func = 0.92 s
+ 18) Error:
+TestMkmfEgrepCpp#test_not_have_func:
+Errno::ENOENT: No such file or directory - /cheriv92/src/output/sdk/bin/clang
+    /root/ruby341e/lib/mkmf.rb:468:in 'IO.popen'
+    /root/ruby341e/lib/mkmf.rb:468:in 'block in MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:461:in 'MakeMakefile#xpopen'
+    /root/ruby341e/lib/mkmf.rb:926:in 'MakeMakefile#egrep_cpp'
+    /root/ruby341e/test/mkmf/test_egrep_cpp.rb:11:in 'TestMkmfEgrepCpp#test_not_have_func'
+
+[ 20/143] TestMkmfSignedness#test_typeof_builtin = 0.62 s
+ 19) Error:
+TestMkmfSignedness#test_typeof_builtin:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:1461:in 'MakeMakefile#try_signedness'
+    /root/ruby341e/lib/mkmf.rb:1514:in 'block in MakeMakefile#check_signedness'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1513:in 'MakeMakefile#check_signedness'
+    /root/ruby341e/test/mkmf/test_signedness.rb:9:in 'block (3 levels) in TestMkmfSignedness#test_ty
+peof_builtin'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_signedness.rb:9:in 'block (2 levels) in TestMkmfSignedness#test_ty
+peof_builtin'
+    /root/ruby341e/test/mkmf/test_signedness.rb:8:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_signedness.rb:8:in 'block in TestMkmfSignedness#test_typeof_builti
+n'
+    /root/ruby341e/test/mkmf/test_signedness.rb:7:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_signedness.rb:7:in 'TestMkmfSignedness#test_typeof_builtin'
+
+[ 21/143] TestMkmfSignedness#test_typeof_typedef = 0.56 s
+ 20) Error:
+TestMkmfSignedness#test_typeof_typedef:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:1461:in 'MakeMakefile#try_signedness'
+    /root/ruby341e/lib/mkmf.rb:1514:in 'block in MakeMakefile#check_signedness'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1513:in 'MakeMakefile#check_signedness'
+    /root/ruby341e/test/mkmf/test_signedness.rb:21:in 'block (3 levels) in TestMkmfSignedness#test_t
+ypeof_typedef'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_signedness.rb:21:in 'block (2 levels) in TestMkmfSignedness#test_t
+ypeof_typedef'
+    /root/ruby341e/test/mkmf/test_signedness.rb:16:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_signedness.rb:16:in 'block in TestMkmfSignedness#test_typeof_typed
+ef'
+    /root/ruby341e/test/mkmf/test_signedness.rb:15:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_signedness.rb:15:in 'TestMkmfSignedness#test_typeof_typedef'
+
+[138/143] TestMkmfConvertible#test_typeof_builtin = 0.67 s
+ 21) Error:
+TestMkmfConvertible#test_typeof_builtin:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:1461:in 'MakeMakefile#try_signedness'
+    /root/ruby341e/lib/mkmf.rb:1558:in 'block in MakeMakefile#convertible_int'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1547:in 'MakeMakefile#convertible_int'
+    /root/ruby341e/test/mkmf/test_convertible.rb:9:in 'block (3 levels) in TestMkmfConvertible#test_
+typeof_builtin'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_convertible.rb:9:in 'block (2 levels) in TestMkmfConvertible#test_
+typeof_builtin'
+    /root/ruby341e/test/mkmf/test_convertible.rb:7:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_convertible.rb:7:in 'block in TestMkmfConvertible#test_typeof_buil
+tin'
+    /root/ruby341e/test/mkmf/test_convertible.rb:6:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_convertible.rb:6:in 'TestMkmfConvertible#test_typeof_builtin'
+
+[139/143] TestMkmfConvertible#test_typeof_typedef = 0.54 s
+ 22) Error:
+TestMkmfConvertible#test_typeof_typedef:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:777:in 'MakeMakefile#try_static_assert'
+    /root/ruby341e/lib/mkmf.rb:1461:in 'MakeMakefile#try_signedness'
+    /root/ruby341e/lib/mkmf.rb:1558:in 'block in MakeMakefile#convertible_int'
+    /root/ruby341e/lib/mkmf.rb:1070:in 'block in MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block (2 levels) in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:370:in 'block in MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:340:in 'MakeMakefile::Logging.open'
+    /root/ruby341e/lib/mkmf.rb:366:in 'MakeMakefile::Logging.postpone'
+    /root/ruby341e/lib/mkmf.rb:1069:in 'MakeMakefile#checking_for'
+    /root/ruby341e/lib/mkmf.rb:1547:in 'MakeMakefile#convertible_int'
+    /root/ruby341e/test/mkmf/test_convertible.rb:22:in 'block (3 levels) in TestMkmfConvertible#test
+_typeof_typedef'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'BasicObject#instance_eval'
+    /root/ruby341e/test/mkmf/base.rb:133:in 'TestMkmf::Base#mkmf'
+    /root/ruby341e/test/mkmf/test_convertible.rb:22:in 'block (2 levels) in TestMkmfConvertible#test
+_typeof_typedef'
+    /root/ruby341e/test/mkmf/test_convertible.rb:16:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_convertible.rb:16:in 'block in TestMkmfConvertible#test_typeof_typ
+edef'
+    /root/ruby341e/test/mkmf/test_convertible.rb:15:in 'Array#each'
+    /root/ruby341e/test/mkmf/test_convertible.rb:15:in 'TestMkmfConvertible#test_typeof_typedef'
+
+[140/143] TestMkmfFlags#test_try_cppflag_invalid_opt = 27.64 s
+ 23) Error:
+TestMkmfFlags#test_try_cppflag_invalid_opt:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:706:in 'MakeMakefile#try_cppflags'
+    /root/ruby341e/test/mkmf/base.rb:154:in '<main>'
+    /root/ruby341e/test/mkmf/base.rb:151:in 'TestMkmf#assert_separately'
+    /root/ruby341e/test/mkmf/test_flags.rb:50:in 'TestMkmfFlags#test_try_cppflag_invalid_opt'
+
+[141/143] TestMkmfFlags#test_try_ldflag_invalid_opt = 27.70 s
+ 24) Error:
+TestMkmfFlags#test_try_ldflag_invalid_opt:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:621:in 'MakeMakefile#try_link0'
+    /root/ruby341e/lib/mkmf.rb:639:in 'MakeMakefile#try_link'
+    /root/ruby341e/lib/mkmf.rb:753:in 'MakeMakefile#try_ldflags'
+    /root/ruby341e/test/mkmf/base.rb:154:in '<main>'
+    /root/ruby341e/test/mkmf/base.rb:151:in 'TestMkmf#assert_separately'
+    /root/ruby341e/test/mkmf/test_flags.rb:36:in 'TestMkmfFlags#test_try_ldflag_invalid_opt'
+
+[142/143] TestMkmfFlags#test_try_cflag_invalid_opt = 27.71 s
+ 25) Error:
+TestMkmfFlags#test_try_cflag_invalid_opt:
+RuntimeError: The compiler failed to generate an executable file.
+You have to install development tools first.
+
+    /root/ruby341e/lib/mkmf.rb:528:in 'MakeMakefile#try_do'
+    /root/ruby341e/lib/mkmf.rb:655:in 'MakeMakefile#try_compile'
+    /root/ruby341e/lib/mkmf.rb:737:in 'MakeMakefile#try_cflags'
+    /root/ruby341e/test/mkmf/base.rb:154:in '<main>'
+    /root/ruby341e/test/mkmf/base.rb:151:in 'TestMkmf#assert_separately'
+    /root/ruby341e/test/mkmf/test_flags.rb:43:in 'TestMkmfFlags#test_try_cflag_invalid_opt'
+
+Finished tests in 351.888907s, 0.4064 tests/s, 1.5971 assertions/s.
+143 tests, 562 assertions, 3 failures, 22 errors, 4 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/mkmf
+Current!: ../test/monitor
+Run options:
+  --seed=22131
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 10.218019s, 1.3701 tests/s, 6.4592 assertions/s.
+14 tests, 66 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/monitor
+Current!: ../test/net
+Run options:
+  --seed=44860
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 99/191] TestNetHTTPLocalBind#test_bind_to_local_host = 0.22 s
+  1) Error:
+TestNetHTTPLocalBind#test_bind_to_local_host:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:52663 (Connection refused - connect(
+2) for "localhost" port 52663)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1303:in 'TestNetHTTPLocalBind#test_bind_to_local_host'
+
+[100/191] TestNetHTTPLocalBind#test_bind_to_local_port = 0.19 s
+  2) Error:
+TestNetHTTPLocalBind#test_bind_to_local_port:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:38274 (Connection refused - connect(
+2) for "localhost" port 38274)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1318:in 'TestNetHTTPLocalBind#test_bind_to_local_port'
+
+[115/191] TestNetHTTPForceEncoding#test_response_body_encoding_string_without_content_type = 0.20 s
+  3) Error:
+TestNetHTTPForceEncoding#test_response_body_encoding_string_without_content_type:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:20714 (Connection refused - connect(
+2) for "localhost" port 20714)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1344:in 'TestNetHTTPForceEncoding#fe_request'
+    /root/ruby341e/test/net/http/test_http.rb:1366:in 'TestNetHTTPForceEncoding#test_response_body_e
+ncoding_string_without_content_type'
+
+[116/191] TestNetHTTPForceEncoding#test_response_body_encoding_false = 0.17 s
+  4) Error:
+TestNetHTTPForceEncoding#test_response_body_encoding_false:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:59995 (Connection refused - connect(
+2) for "localhost" port 59995)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1344:in 'TestNetHTTPForceEncoding#fe_request'
+    /root/ruby341e/test/net/http/test_http.rb:1348:in 'TestNetHTTPForceEncoding#test_response_body_e
+ncoding_false'
+
+[117/191] TestNetHTTPForceEncoding#test_response_body_encoding_encoding_without_content_type = 0.17
+  5) Error:
+TestNetHTTPForceEncoding#test_response_body_encoding_encoding_without_content_type:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:44809 (Connection refused - connect(
+2) for "localhost" port 44809)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1344:in 'TestNetHTTPForceEncoding#fe_request'
+    /root/ruby341e/test/net/http/test_http.rb:1372:in 'TestNetHTTPForceEncoding#test_response_body_e
+ncoding_encoding_without_content_type'
+
+[118/191] TestNetHTTPForceEncoding#test_response_body_encoding_true_with_content_type = 0.18 s
+  6) Error:
+TestNetHTTPForceEncoding#test_response_body_encoding_true_with_content_type:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:12193 (Connection refused - connect(
+2) for "localhost" port 12193)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1344:in 'TestNetHTTPForceEncoding#fe_request'
+    /root/ruby341e/test/net/http/test_http.rb:1360:in 'TestNetHTTPForceEncoding#test_response_body_e
+ncoding_true_with_content_type'
+
+[119/191] TestNetHTTPForceEncoding#test_response_body_encoding_true_without_content_type = 0.17 s
+  7) Error:
+TestNetHTTPForceEncoding#test_response_body_encoding_true_without_content_type:
+Errno::ECONNREFUSED: Failed to open TCP connection to localhost:61270 (Connection refused - connect(
+2) for "localhost" port 61270)
+    /root/ruby341e/lib/net/http.rb:1659:in 'TCPSocket#initialize'
+    /root/ruby341e/lib/net/http.rb:1659:in 'IO.open'
+    /root/ruby341e/lib/net/http.rb:1659:in 'block in Net::HTTP#connect'
+    /root/ruby341e/lib/timeout.rb:185:in 'block in Timeout.timeout'
+    /root/ruby341e/lib/timeout.rb:192:in 'Timeout.timeout'
+    /root/ruby341e/lib/net/http.rb:1657:in 'Net::HTTP#connect'
+    /root/ruby341e/lib/net/http.rb:1636:in 'Net::HTTP#do_start'
+    /root/ruby341e/lib/net/http.rb:1625:in 'Net::HTTP#start'
+    /root/ruby341e/lib/net/http.rb:2369:in 'Net::HTTP#request'
+    /root/ruby341e/lib/net/http.rb:1984:in 'Net::HTTP#get'
+    /root/ruby341e/test/net/http/test_http.rb:1344:in 'TestNetHTTPForceEncoding#fe_request'
+    /root/ruby341e/test/net/http/test_http.rb:1354:in 'TestNetHTTPForceEncoding#test_response_body_e
+ncoding_true_without_content_type'
+
+Finished tests in 139.738500s, 1.3668 tests/s, 8.7664 assertions/s.
+191 tests, 1225 assertions, 0 failures, 7 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/net
+Current!: ../test/objspace
+Run options:
+  --seed=61027
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[27/59] TestObjSpace#test_trace_object_allocations_compaction_freed_pages = 102.34 s
+  1) Timeout:
+TestObjSpace#test_trace_object_allocations_compaction_freed_pages
+
+[55/59] TestObjSpace#test_dump_object = 0.22 s
+  2) Failure:
+TestObjSpace#test_dump_object [/root/ruby341e/test/objspace/test_objspace.rb:445]:
+Expected "{\"address\":\"0x495f0660\", \"type\":\"OBJECT\", \"shape_id\":180, \"slot_size\":80, \"cl
+ass\":\"0x490902b0\", \"ivars\":0, \"memsize\":208, \"flags\":{\"wb_protected\":true}}\n" to include
+ "\"ivars\":5".
+
+Finished tests in 1680.708989s, 0.0351 tests/s, 38.6480 assertions/s.
+59 tests, 64956 assertions, 1 failures, 1 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/objspace
+Current!: ../test/open-uri
+Run options:
+  --seed=6917
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 80.016228s, 0.6624 tests/s, 3.8867 assertions/s.
+53 tests, 311 assertions, 0 failures, 0 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/open-uri
+Current!: ../test/openssl
+Run options:
+  --seed=62446
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1916.472774s, 0.2943 tests/s, 2.7347 assertions/s.
+564 tests, 5241 assertions, 0 failures, 0 errors, 2 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/openssl
+Current!: ../test/optparse
+Run options:
+  --seed=56451
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 493.315353s, 0.4358 tests/s, 5.9029 assertions/s.
+215 tests, 2912 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/optparse
+Current!: ../test/ostruct
+/root/ruby341e/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML ou
+tput).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+../test/ostruct/test_ostruct.rb: cannot load such file -- psych
+Run options:
+  --seed=36369
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 2.012475s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/ostruct
+Current!: ../test/pathname
+Run options:
+  --seed=8495
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 95.826622s, 2.9950 tests/s, 11.7400 assertions/s.
+287 tests, 1125 assertions, 0 failures, 0 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/pathname
+Current!: ../test/prism
+Run options:
+  --seed=34347
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 991/9068] Prism::WarningsTest#test_unused_local_variables = 0.40 s
+  1) Failure:
+Prism::WarningsTest#test_unused_local_variables [/root/ruby341e/test/prism/result/warnings_test.rb:2
+36]:
+Expected "(none):1: warning: assigned but unused variable - bar\n" to be empty.
+
+Finished tests in 5987.906196s, 1.5144 tests/s, 121.0288 assertions/s.
+9068 tests, 724709 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/prism
+Current!: ../test/psych
+../test/psych/handlers/test_recorder.rb: cannot load such file -- psych
+Run options:
+  --seed=22240
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 3.507920s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/psych
+Current!: ../test/rdoc
+Run options:
+  --seed=25074
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 205/2454] TestRDocParserRubyWithPrismRubyTestCases#test_read_directive_linear_performanceIn-addres
+s space security exception (core dumped)
+fail!
+Fin! ../test/rdoc
+Current!: ../test/reline
+Run options:
+  --seed=45679
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1059.078632s, 0.3730 tests/s, 2.4899 assertions/s.
+395 tests, 2637 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/reline
+Current!: ../test/resolv
+Run options:
+  --seed=27576
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 190.230709s, 0.2418 tests/s, 30.0267 assertions/s.
+46 tests, 5712 assertions, 0 failures, 0 errors, 1 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/resolv
+Current!: ../test/ripper
+Run options:
+  --seed=54620
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 38/459] TestRipper::ParserEvents#test_warning_duplicated_when_clause = 0.27 s
+  1) Failure:
+TestRipper::ParserEvents#test_warning_duplicated_when_clause [/root/ruby341e/test/ripper/test_parser
+_events.rb:1698]:
+<[4, 3]> expected but was
+<[0, 3]>.
+
+[159/459] TestRipper::ParserEvents#test_warn_duplicated_hash_keys = 0.23 s
+  2) Failure:
+TestRipper::ParserEvents#test_warn_duplicated_hash_keys [/root/ruby341e/test/ripper/test_parser_even
+ts.rb:1704]:
+<[:a, 1]> expected but was
+<[:a, 0]>.
+
+Finished tests in 7408.286437s, 0.0620 tests/s, 0.4143 assertions/s.
+459 tests, 3069 assertions, 2 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/ripper
+Skipping ../test/ruby as already processed
+Current!: ../test/rubygems
+../test/rubygems/test_gem_safe_yaml.rb: cannot load such file -- psych
+Run options:
+  --seed=1655
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[  47/2651] TestGemInstallUpdateOptions#test_user_install_enabled = 1.17 s
+  1) Error:
+TestGemInstallUpdateOptions#test_user_install_enabled:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/test_gem_install_update_options.rb:119:in 'TestGemInstallUpdateOpti
+ons#test_user_install_enabled'
+
+[  88/2651] TestGemCommandsQueryCommandWithInstalledGems#test_execute_details_cleans_text = 4.31 s
+  2) Error:
+TestGemCommandsQueryCommandWithInstalledGems#test_execute_details_cleans_text:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/specification.rb:1246:in 'Gem::Specification._load'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:358:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#call_method'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:187:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#visit_Gem_SafeMarshal_Elements_UserDefined'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/visitor.rb:6:in 'Gem::SafeMarshal::Visitors::V
+isitor#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:28:in 'Gem::SafeMarshal::Visitors::
+ToRuby#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:71:in 'Gem::SafeMarshal.load'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:61:in 'Gem::SafeMarshal.safe_load'
+    /root/ruby341e/lib/rubygems/source.rb:162:in 'Gem::Source#fetch_spec'
+    /root/ruby341e/lib/rubygems/query_utils.rb:228:in 'Gem::QueryUtils#entry_details'
+    /root/ruby341e/lib/rubygems/query_utils.rb:279:in 'Gem::QueryUtils#make_entry'
+    /root/ruby341e/lib/rubygems/query_utils.rb:219:in 'block in Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:193:in 'Gem::QueryUtils#output_query_results'
+    /root/ruby341e/lib/rubygems/query_utils.rb:157:in 'Gem::QueryUtils#show_remote_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:124:in 'Gem::QueryUtils#show_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'block in Gem::QueryUtils#execute'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Gem::QueryUtils#execute'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:142:in 'block in TestGemCommands
+QueryCommandWithInstalledGems#test_execute_details_cleans_text'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:141:in 'TestGemCommandsQueryComm
+andWithInstalledGems#test_execute_details_cleans_text'
+
+[  92/2651] TestGemCommandsQueryCommandWithInstalledGems#test_execute_details_truncates_summary = 7.
+  3) Error:
+TestGemCommandsQueryCommandWithInstalledGems#test_execute_details_truncates_summary:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/specification.rb:1246:in 'Gem::Specification._load'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:358:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#call_method'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:187:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#visit_Gem_SafeMarshal_Elements_UserDefined'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/visitor.rb:6:in 'Gem::SafeMarshal::Visitors::V
+isitor#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:28:in 'Gem::SafeMarshal::Visitors::
+ToRuby#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:71:in 'Gem::SafeMarshal.load'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:61:in 'Gem::SafeMarshal.safe_load'
+    /root/ruby341e/lib/rubygems/source.rb:162:in 'Gem::Source#fetch_spec'
+    /root/ruby341e/lib/rubygems/query_utils.rb:228:in 'Gem::QueryUtils#entry_details'
+    /root/ruby341e/lib/rubygems/query_utils.rb:279:in 'Gem::QueryUtils#make_entry'
+    /root/ruby341e/lib/rubygems/query_utils.rb:219:in 'block in Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:193:in 'Gem::QueryUtils#output_query_results'
+    /root/ruby341e/lib/rubygems/query_utils.rb:157:in 'Gem::QueryUtils#show_remote_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:124:in 'Gem::QueryUtils#show_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'block in Gem::QueryUtils#execute'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Gem::QueryUtils#execute'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:182:in 'block in TestGemCommands
+QueryCommandWithInstalledGems#test_execute_details_truncates_summary'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:181:in 'TestGemCommandsQueryComm
+andWithInstalledGems#test_execute_details_truncates_summary'
+
+[ 109/2651] TestGemCommandsQueryCommandWithInstalledGems#test_execute_details = 4.55 s
+  4) Error:
+TestGemCommandsQueryCommandWithInstalledGems#test_execute_details:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/specification.rb:1246:in 'Gem::Specification._load'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:358:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#call_method'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:187:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#visit_Gem_SafeMarshal_Elements_UserDefined'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/visitor.rb:6:in 'Gem::SafeMarshal::Visitors::V
+isitor#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:28:in 'Gem::SafeMarshal::Visitors::
+ToRuby#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:71:in 'Gem::SafeMarshal.load'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:61:in 'Gem::SafeMarshal.safe_load'
+    /root/ruby341e/lib/rubygems/source.rb:162:in 'Gem::Source#fetch_spec'
+    /root/ruby341e/lib/rubygems/query_utils.rb:228:in 'Gem::QueryUtils#entry_details'
+    /root/ruby341e/lib/rubygems/query_utils.rb:279:in 'Gem::QueryUtils#make_entry'
+    /root/ruby341e/lib/rubygems/query_utils.rb:219:in 'block in Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:199:in 'Gem::QueryUtils#output_versions'
+    /root/ruby341e/lib/rubygems/query_utils.rb:193:in 'Gem::QueryUtils#output_query_results'
+    /root/ruby341e/lib/rubygems/query_utils.rb:157:in 'Gem::QueryUtils#show_remote_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:124:in 'Gem::QueryUtils#show_gems'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'block in Gem::QueryUtils#execute'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Array#each'
+    /root/ruby341e/lib/rubygems/query_utils.rb:68:in 'Gem::QueryUtils#execute'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:102:in 'block in TestGemCommands
+QueryCommandWithInstalledGems#test_execute_details'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:101:in 'TestGemCommandsQueryComm
+andWithInstalledGems#test_execute_details'
+
+[ 110/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_local_details = 1.01 s
+  5) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_local_details:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 111/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_platform = 0.98 s
+  6) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_platform:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 112/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_multiple = 0.98 s
+  7) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_multiple:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 113/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_depprecated = 0.98 s
+  8) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_depprecated:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 114/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_default_details = 0.98 s
+  9) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_default_details:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 115/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_local = 0.98 s
+ 10) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_local:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 116/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_show_default_gems_with_plat
+ 11) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_show_default_gems_with_platform:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 117/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_show_default_gems = 0.98 s
+ 12) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_show_default_gems:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 118/2651] TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_remote = 0.98 s
+ 13) Error:
+TestGemCommandsQueryCommandWithoutInstalledGems#test_execute_exact_remote:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/utilities.rb:325:in 'block in Gem::TestCase::SpecFetcherSetup#execu
+te_operations'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Array#each'
+    /root/ruby341e/test/rubygems/utilities.rb:314:in 'Gem::TestCase::SpecFetcherSetup#execute_operat
+ions'
+    /root/ruby341e/test/rubygems/utilities.rb:306:in 'Gem::TestCase::SpecFetcherSetup#execute'
+    /root/ruby341e/test/rubygems/utilities.rb:275:in 'Gem::TestCase::SpecFetcherSetup.declare'
+    /root/ruby341e/test/rubygems/helper.rb:1361:in 'Gem::TestCase#spec_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:824:in 'TestGemCommandsQueryComm
+andWithoutInstalledGems#add_gems_to_fetcher'
+    /root/ruby341e/test/rubygems/test_gem_commands_query_command.rb:12:in 'TestGemCommandsQueryComma
+ndSetup#setup'
+
+[ 124/2651] TestGemSourceLock#test_spaceship_specific_file = 0.94 s
+ 14) Error:
+TestGemSourceLock#test_spaceship_specific_file:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/package.rb:295:in 'Gem::Package#build'
+    /root/ruby341e/lib/rubygems/package.rb:136:in 'Gem::Package.build'
+    /root/ruby341e/test/rubygems/helper.rb:764:in 'block (2 levels) in Gem::TestCase#util_build_gem'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:46:in 'Gem::DefaultUserInteraction.use_ui'
+    /root/ruby341e/lib/rubygems/user_interaction.rb:69:in 'Gem::DefaultUserInteraction#use_ui'
+    /root/ruby341e/test/rubygems/helper.rb:763:in 'block in Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Dir.chdir'
+    /root/ruby341e/test/rubygems/helper.rb:753:in 'Gem::TestCase#util_build_gem'
+    /root/ruby341e/test/rubygems/helper.rb:901:in 'Gem::TestCase#util_gem'
+    /root/ruby341e/test/rubygems/test_gem_source_lock.rb:92:in 'TestGemSourceLock#test_spaceship_spe
+cific_file'
+
+[ 127/2651] TestGemSourceLock#test_fetch_spec = 1.21 s
+ 15) Error:
+TestGemSourceLock#test_fetch_spec:
+LoadError: cannot load such file -- psych
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    <internal:/root/ruby341e/lib/rubygems/core_ext/kernel_require.rb>:136:in 'Kernel#require'
+    /root/ruby341e/lib/rubygems.rb:614:in 'Gem.load_yaml'
+    /root/ruby341e/lib/rubygems/specification.rb:1246:in 'Gem::Specification._load'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:358:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#call_method'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:187:in 'Gem::SafeMarshal::Visitors:
+:ToRuby#visit_Gem_SafeMarshal_Elements_UserDefined'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/visitor.rb:6:in 'Gem::SafeMarshal::Visitors::V
+isitor#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal/visitors/to_ruby.rb:28:in 'Gem::SafeMarshal::Visitors::
+ToRuby#visit'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:71:in 'Gem::SafeMarshal.load'
+    /root/ruby341e/lib/rubygems/safe_marshal.rb:61:in 'Gem::SafeMarshal.safe_load'
+    /root/ruby341e/lib/rubygems/source.rb:162:in 'Gem::Source#fetch_spec'
+    /root/ruby341e/lib/rubygems/source/lock.rb:43:in 'Gem::Source::Lock#fetch_spec'
+    /root/ruby341e/test/rubygems/test_gem_source_lock.rb:16:in 'TestGemSourceLock#test_fetch_spec'
+
+[ 129/2651] WebauthnListenerTest#test_wait_for_otp_code_get_requestIn-address space security excepti
+on (core dumped)
+fail!
+Fin! ../test/rubygems
+Current!: ../test/runner.rb
+Run options:
+  --seed=26999
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1.948498s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/runner.rb
+Current!: ../test/set
+Run options:
+  --seed=45663
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 58.379453s, 0.8736 tests/s, 7.9309 assertions/s.
+51 tests, 463 assertions, 0 failures, 0 errors, 2 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/set
+Current!: ../test/socket
+Run options:
+  --seed=61340
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 260.392332s, 0.7566 tests/s, 5.4149 assertions/s.
+197 tests, 1410 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/socket
+Current!: ../test/stringio
+Run options:
+  --seed=20424
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 45.913716s, 2.0691 tests/s, 17.5982 assertions/s.
+95 tests, 808 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/stringio
+Current!: ../test/strscan
+Run options:
+  --seed=17648
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 25.903216s, 5.4819 tests/s, 46.1333 assertions/s.
+142 tests, 1195 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/strscan
+Current!: ../test/test_bundled_gems.rb
+Run options:
+  --seed=57700
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 6.424161s, 0.6226 tests/s, 2.4906 assertions/s.
+4 tests, 16 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_bundled_gems.rb
+Current!: ../test/test_delegate.rb
+Run options:
+  --seed=1700
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 8.427068s, 4.1533 tests/s, 18.9864 assertions/s.
+35 tests, 160 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_delegate.rb
+Current!: ../test/test_extlibs.rb
+Run options:
+  --seed=65290
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 6/29] TestExtLibs#test_existence_of_fiddle = 17.38 s
+  1) Failure:
+TestExtLibs#test_existence_of_fiddle [/root/ruby341e/test/test_extlibs.rb:20]:
+extension library `fiddle' is not found
+checking for --enable-debug-build option... -------------------- no
+
+--------------------
+
+pkg_config: checking for pkg-config for libffi... -------------------- not found
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --exists libffi
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --libs libffi |
+=> "-lffi\n"
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I
+/cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot
+=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri
+-I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fde
+clspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-
+declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpoint
+er-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-func
+tion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overleng
+th-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-paramete
+r -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/che
+riv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purec
+ap/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+ -fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/
+lib -rdynamic     -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/build -lr
+uby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I
+/cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot
+=/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri
+-I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fde
+clspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-
+declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpoint
+er-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-func
+tion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overleng
+th-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-paramete
+r -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/che
+riv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purec
+ap/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+ -fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/
+lib -rdynamic -lffi    -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/buil
+d -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+riscv64-unknown-freebsd-ld.lld: error: unable to find library -lffi
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+package configuration for libffi is not found
+--------------------
+
+have_header: checking for ffi.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/s
+rc/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/
+src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0
+-fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+ -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Ws
+horten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -W
+no-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -
+Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unuse
+d-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'ffi.h' file not found
+    3 | #include <ffi.h>
+      |          ^~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_header: checking for ffi/ffi.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/fiddle -I/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/s
+rc/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/
+src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0
+-fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+ -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Ws
+horten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -W
+no-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -
+Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unuse
+d-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'ffi/ffi.h' file not found
+    3 | #include <ffi/ffi.h>
+      |          ^~~~~~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <ffi/ffi.h>
+/* end */
+
+--------------------
+
+/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/ext/fiddle/extconf.rb:86: missing libf
+fi. Please install libffi or use --with-libffi-source-dir with libffi source location.
+        /cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/ext/fiddle/extconf.rb:86:in '<
+top (required)>'
+        ../ext/extmk.rb:233:in 'Kernel#load'
+        ../ext/extmk.rb:233:in 'block in Object#extmake'
+        /cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/lib/mkmf.rb:340:in 'MakeMakefi
+le::Logging.open'
+        ../ext/extmk.rb:229:in 'Object#extmake'
+        ../ext/extmk.rb:659:in 'block in <main>'
+        ../ext/extmk.rb:653:in 'Array#each'
+        ../ext/extmk.rb:653:in '<main>'
+.
+Exception raised:
+<#<LoadError: cannot load such file -- fiddle>>
+Backtrace:
+  -:13:in 'Kernel#require'
+  -:13:in 'block in <main>'.
+
+[17/29] TestExtLibs#test_existence_of_psych = 17.35 s
+  2) Failure:
+TestExtLibs#test_existence_of_psych [/root/ruby341e/test/test_extlibs.rb:20]:
+extension library `psych' is not found
+pkg_config: checking for pkg-config for yaml-0.1... -------------------- not found
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --exists yaml-0.1
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --libs yaml-0.1 |
+=> "-lyaml\n"
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/
+cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=
+/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -
+I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdec
+lspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-d
+eclarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointe
+r-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-funct
+ion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlengt
+h-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter
+ -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/cher
+iv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-pureca
+p/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+-fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/l
+ib -rdynamic     -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/build -lru
+by-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -o conftest -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/
+cheriv92/src/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=
+/cheriv92/src/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -
+I/cheriv92/src/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdec
+lspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-d
+eclarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointe
+r-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-funct
+ion-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlengt
+h-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter
+ -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/cher
+iv92/src/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-pureca
+p/usr/lib -L. -target riscv64-unknown-freebsd --sysroot=/cheriv92/src/output/rootfs-riscv64-purecap
+-fuse-ld=lld -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -lpthread -Wl,--gdb-index -L/cheriv92/sr
+c/output/rootfs-riscv64-purecap/usr/lib -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/usr/l
+ib -rdynamic -lyaml    -Wl,-rpath,/cheriv92/src/output/rootfs-riscv64-purecap/research/ruby341e/buil
+d -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+3 warnings generated.
+riscv64-unknown-freebsd-ld.lld: error: unable to find library -lyaml
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+package configuration for yaml-0.1 is not found
+--------------------
+
+find_header: checking for yaml.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/cheriv92/src/output/sdk/bi
+n/clang -I../../.ext/include/riscv64-freebsd -I../../../include -I../../../ext/psych -I/cheriv92/src
+/output/rootfs-riscv64-purecap/usr/include    -target riscv64-unknown-freebsd --sysroot=/cheriv92/sr
+c/output/rootfs-riscv64-purecap -mno-relax -march=rv64gcxcheri -mabi=l64pc128d -Wcheri -I/cheriv92/s
+rc/output/rootfs-riscv64-purecap/usr/include -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -
+fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations
+-Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wsh
+orten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wn
+o-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -W
+no-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused
+-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:23:
+In file included from ../../../include/ruby/internal/arithmetic/int.h:26:
+In file included from ../../../include/ruby/internal/arithmetic/long.h:42:
+../../../include/ruby/internal/special_consts.h:231:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  231 |     return (obj & mask) == common_bits;
+      |             ~~~ ^ ~~~~
+../../../include/ruby/internal/special_consts.h:271:17: warning: binary expression on capability typ
+es 'VALUE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source
+ of provenance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  271 |     return (obj & mask) == RUBY_SYMBOL_FLAG;
+      |             ~~~ ^ ~~~~
+In file included from conftest.c:1:
+In file included from ../../../include/ruby.h:38:
+In file included from ../../../include/ruby/ruby.h:28:
+In file included from ../../../include/ruby/internal/arithmetic.h:24:
+In file included from ../../../include/ruby/internal/arithmetic/char.h:29:
+In file included from ../../../include/ruby/internal/core/rstring.h:30:
+../../../include/ruby/internal/fl_type.h:472:31: warning: binary expression on capability types 'VAL
+UE' (aka 'unsigned __intcap') and 'VALUE'; it is not clear which should be used as the source of pro
+venance; currently provenance is inherited from the left-hand side [-Wcheri-provenance]
+  472 |     return RBASIC(obj)->flags & flags;
+      |            ~~~~~~~~~~~~~~~~~~ ^ ~~~~~
+conftest.c:3:10: fatal error: 'yaml.h' file not found
+    3 | #include <yaml.h>
+      |          ^~~~~~~~
+3 warnings and 1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2:
+3: #include <yaml.h>
+/* end */
+
+--------------------
+
+.
+Exception raised:
+<#<LoadError: cannot load such file -- psych>>
+Backtrace:
+  -:13:in 'Kernel#require'
+  -:13:in 'block in <main>'.
+
+Finished tests in 522.571011s, 0.0555 tests/s, 0.2736 assertions/s.
+29 tests, 143 assertions, 2 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/test_extlibs.rb
+Current!: ../test/test_find.rb
+Run options:
+  --seed=53545
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 6.257392s, 3.0364 tests/s, 9.9083 assertions/s.
+19 tests, 62 assertions, 0 failures, 0 errors, 2 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_find.rb
+Current!: ../test/test_forwardable.rb
+Run options:
+  --seed=19954
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 8.947219s, 3.0177 tests/s, 16.3179 assertions/s.
+27 tests, 146 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_forwardable.rb
+Current!: ../test/test_ipaddr.rb
+Run options:
+  --seed=19101
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[18/30] TC_Operator#test_hash = 0.29 s
+  1) Failure:
+TC_Operator#test_hash [/root/ruby341e/test/test_ipaddr.rb:558]:
+<5> expected but was
+<4>.
+
+Finished tests in 15.200152s, 1.9737 tests/s, 33.6181 assertions/s.
+30 tests, 511 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/test_ipaddr.rb
+Current!: ../test/test_open3.rb
+Run options:
+  --seed=8503
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 777.183305s, 0.0399 tests/s, 0.2290 assertions/s.
+31 tests, 178 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_open3.rb
+Current!: ../test/test_pp.rb
+Run options:
+  --seed=25839
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[14/31] PPTestModule::PPCycleTest#test_object = 0.29 s
+  1) Failure:
+PPTestModule::PPCycleTest#test_object [/root/ruby341e/test/test_pp.rb:192]:
+<"#<Object:0x00000000000000000000000047ba3e10 @a=#<Object:0x00000000000000000000000047ba3e10 ...>>\n
+"> expected but was
+<"#<Object:0x00000000000000000000000047ba3e10\n" +
+" @a=#<Object:0x00000000000000000000000047ba3e10 ...>>\n">.
+
+Finished tests in 12.064512s, 2.5695 tests/s, 9.3663 assertions/s.
+31 tests, 113 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/test_pp.rb
+Current!: ../test/test_prettyprint.rb
+Run options:
+  --seed=36993
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 11.142331s, 2.8719 tests/s, 10.3210 assertions/s.
+32 tests, 115 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_prettyprint.rb
+Current!: ../test/test_pstore.rb
+Run options:
+  --seed=52145
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 24.293095s, 0.4940 tests/s, 2.0170 assertions/s.
+12 tests, 49 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_pstore.rb
+Current!: ../test/test_pty.rb
+Run options:
+  --seed=33004
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 63.638485s, 0.2357 tests/s, 1.0842 assertions/s.
+15 tests, 69 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_pty.rb
+Current!: ../test/test_rbconfig.rb
+Run options:
+  --seed=43831
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 3.049292s, 1.6397 tests/s, 8.5266 assertions/s.
+5 tests, 26 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_rbconfig.rb
+Current!: ../test/test_securerandom.rb
+Run options:
+  --seed=53794
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 10.235095s, 0.2931 tests/s, 7.2300 assertions/s.
+3 tests, 74 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_securerandom.rb
+Current!: ../test/test_shellwords.rb
+Run options:
+  --seed=2311
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 3.819066s, 2.8803 tests/s, 14.9251 assertions/s.
+11 tests, 57 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_shellwords.rb
+Current!: ../test/test_singleton.rb
+Run options:
+  --seed=20379
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 3.771937s, 3.4465 tests/s, 11.4000 assertions/s.
+13 tests, 43 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_singleton.rb
+Current!: ../test/test_tempfile.rb
+Run options:
+  --seed=48106
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 93.635244s, 0.4806 tests/s, 1.5379 assertions/s.
+45 tests, 144 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_tempfile.rb
+Current!: ../test/test_time.rb
+Run options:
+  --seed=43112
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 50.627677s, 0.8296 tests/s, 17.4806 assertions/s.
+42 tests, 885 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_time.rb
+Current!: ../test/test_timeout.rb
+Run options:
+  --seed=57038
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 42.261202s, 0.5916 tests/s, 2.3662 assertions/s.
+25 tests, 100 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_timeout.rb
+Current!: ../test/test_tmpdir.rb
+Run options:
+  --seed=46529
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 7/10] TestTmpdir#test_world_writable = 0.29 s
+  1) Failure:
+TestTmpdir#test_world_writable [/root/ruby341e/test/test_tmpdir.rb:31]:
+expected: /\ATMPDIR is not writable/
+actual: "".
+
+Finished tests in 26.071033s, 0.3836 tests/s, 1.6110 assertions/s.
+10 tests, 42 assertions, 1 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/test_tmpdir.rb
+Current!: ../test/test_trick.rb
+Run options:
+  --seed=44262
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[ 5/22] TestTRICK2013#test_mame = 601.34 s
+  1) Timeout:
+TestTRICK2013#test_mame
+
+Finished tests in 1303.058930s, 0.0169 tests/s, 0.0821 assertions/s.
+22 tests, 107 assertions, 0 failures, 1 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/test_trick.rb
+Current!: ../test/test_tsort.rb
+Run options:
+  --seed=59117
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 3.399851s, 2.3530 tests/s, 9.7063 assertions/s.
+8 tests, 33 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_tsort.rb
+Current!: ../test/test_unicode_normalize.rb
+Run options:
+  --seed=49432
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 4.496814s, 2.0014 tests/s, 10.4518 assertions/s.
+9 tests, 47 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_unicode_normalize.rb
+Current!: ../test/test_weakref.rb
+Run options:
+  --seed=2516
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 25.252100s, 0.1584 tests/s, 0.6336 assertions/s.
+4 tests, 16 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/test_weakref.rb
+Current!: ../test/uri
+Run options:
+  --seed=26568
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+[82/87] URI::TestCommon#test_parse_timeoutIn-address space security exception (core dumped)
+fail!
+Fin! ../test/uri
+Current!: ../test/win32
+Run options:
+  --seed=19153
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1.964763s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/win32
+Current!: ../test/win32ole
+Run options:
+  --seed=33814
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 2.981525s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/win32ole
+Current!: ../test/yaml
+/root/ruby341e/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML ou
+tput).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+../test/yaml/test_dbm.rb: cannot load such file -- psych
+/root/ruby341e/lib/yaml.rb:3: warning: It seems your ruby installation is missing psych (for YAML ou
+tput).
+To eliminate this warning, please install libyaml and reinstall your ruby.
+Run options:
+  --seed=19311
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 1.986099s, 0.0000 tests/s, 0.0000 assertions/s.
+0 tests, 0 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+fail!
+Fin! ../test/yaml
+Current!: ../test/zlib
+Run options:
+  --seed=23683
+  "--ruby=./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems
+"
+  --excludes-dir=../test/.excludes
+  --name=!/memory_leak/
+  --timeout-scale
+  10
+  --worker-timeout=1000
+
+# Running tests:
+
+Finished tests in 238.629872s, 0.3939 tests/s, 3.0424 assertions/s.
+94 tests, 726 assertions, 0 failures, 0 errors, 0 skips
+
+ruby -v: ruby 3.4.1 (2025-10-18 revision 65efcc199e) +PRISM [riscv64-freebsd]
+Fin! ../test/zlib
+root@cheribsd-riscv64-purecap:~/ruby341e/build #

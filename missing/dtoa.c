@@ -235,6 +235,7 @@ extern void FREE(void*);
 #define NO_SANITIZE(x, y) y
 #endif
 
+#define Omit_Private_Memory
 #ifndef Omit_Private_Memory
 #ifndef PRIVATE_MEM
 #define PRIVATE_MEM 2304

@@ -91,6 +91,8 @@ static const void *const condattr_monotonic = NULL;
   #endif
 #endif
 
+#include <cheriintrin.h>
+
 // native thread wrappers
 
 #define NATIVE_MUTEX_LOCK_DEBUG 0
@@ -2039,8 +2041,8 @@ native_thread_init_stack(rb_thread_t *th, void *local_in_parent_frame)
             size_t size;
 
             if (get_stack(&start, &size) == 0) {
-                uintptr_t diff = (uintptr_t)start - (uintptr_t)local_in_parent_frame;
-                th->ec->machine.stack_start = local_in_parent_frame;
+                size_t diff = (ptraddr_t)start - (ptraddr_t)local_in_parent_frame;
+                th->ec->machine.stack_start = cheri_address_set(start, (ptraddr_t)local_in_parent_frame);
                 th->ec->machine.stack_maxsize = size - diff;
             }
         }
@@ -2818,7 +2820,7 @@ static rb_thread_t *
 thread_sched_waiting_thread(struct rb_thread_sched_waiting *w)
 {
     if (w) {
-        return (rb_thread_t *)((size_t)w - offsetof(rb_thread_t, sched.waiting_reason));
+        return (rb_thread_t *)((uintptr_t)w - offsetof(rb_thread_t, sched.waiting_reason));
     }
     else {
         return NULL;

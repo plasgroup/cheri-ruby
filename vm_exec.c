@@ -32,7 +32,7 @@ static void vm_analysis_insn(int insn);
 #elif defined(__GNUC__) && (defined(__powerpc64__) || defined(__POWERPC__))
 #define DECL_SC_REG(type, r, reg) register type reg_##r __asm__("r" reg)
 
-#elif defined(__GNUC__) && defined(__aarch64__)
+#elif defined(__GNUC__) && defined(__aarch64__) && !defined(__CHERI_PURE_CAPABILITY__)
 #define DECL_SC_REG(type, r, reg) register type reg_##r __asm__("x" reg)
 
 #else
@@ -59,7 +59,7 @@ vm_exec_core(rb_execution_context_t *ec)
     DECL_SC_REG(rb_control_frame_t *, cfp, "15");
 #define USE_MACHINE_REGS 1
 
-#elif defined(__GNUC__) && defined(__aarch64__)
+#elif defined(__GNUC__) && defined(__aarch64__) && !defined(__CHERI_PURE_CAPABILITY__)
     DECL_SC_REG(const VALUE *, pc, "19");
     DECL_SC_REG(rb_control_frame_t *, cfp, "20");
 #define USE_MACHINE_REGS 1

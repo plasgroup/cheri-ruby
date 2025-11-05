@@ -367,7 +367,7 @@ pathobj_realpath(VALUE pathobj)
 /* Forward declarations */
 struct rb_rjit_unit;
 
-typedef uintptr_t iseq_bits_t;
+typedef uint64_t iseq_bits_t;
 
 #define ISEQ_IS_SIZE(body) (body->ic_size + body->ivc_size + body->ise_size + body->icvarc_size)
 

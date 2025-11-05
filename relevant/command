@@ -64,7 +64,8 @@ LDFLAGS="-march=morello -mabi=purecap -fuse-ld=lld -lpthread" \
 CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/path/to/usr/include/c++/v1" \
 --with-opt-dir="/path/to/usr" \
 --prefix="/path/to/.rubies/ruby-master" \
---with-thread="pthread" 
+--with-thread="pthread" \
+--with-coroutine="ucontext" 
 
 
 # benchmark 
@@ -80,7 +81,3 @@ CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/path/to/usr/include/c++/v1"
 
 
 -target aarch64-unknown-freebsd13 --sysroot=/morello/src/output/rootfs-morello-purecap -B/morello/src/output/morello-sdk/bin -mcpu=rainier -march=morello -mabi=purecap -Xclang -morello-vararg=new -Xclang -morello-bounded-memargs
-
-
-
-

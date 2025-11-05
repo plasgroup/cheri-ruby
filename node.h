@@ -71,11 +71,11 @@ VALUE rb_node_set_type(NODE *n, enum node_type t);
 RUBY_SYMBOL_EXPORT_END
 
 #define NODE_LSHIFT (NODE_TYPESHIFT+7)
-#define NODE_LMASK  (((SIGNED_VALUE)1<<(sizeof(VALUE)*CHAR_BIT-NODE_LSHIFT))-1)
+#define NODE_LMASK  (((SIGNED_VALUE)1<<(sizeof(ULVALUE)*CHAR_BIT-NODE_LSHIFT))-1)
 
 #define nd_line(n) (int)(((SIGNED_VALUE)(n)->flags)>>NODE_LSHIFT)
 #define nd_set_line(n,l) \
-    (n)->flags=(((n)->flags&~((VALUE)(-1)<<NODE_LSHIFT))|((VALUE)((l)&NODE_LMASK)<<NODE_LSHIFT))
+    (n)->flags=(((n)->flags&~((ULVALUE)(-1)<<NODE_LSHIFT))|((ULVALUE)((l)&NODE_LMASK)<<NODE_LSHIFT))
 
 
 #define NODE_SPECIAL_REQUIRED_KEYWORD ((NODE *)-1)

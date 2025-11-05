@@ -274,3 +274,4 @@ lcov*.info
 /default_gems.json
 /gems/default_gems
 configure
+*.zip

@@ -28,7 +28,7 @@ cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1"
 -target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/morello-sdk/sysroot-morello-purecap -fuse-ld=lld -Wcheri
 
 
-./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./riscv64-freebsd-fake --disable-gems" 
+./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./aarch64-freebsd-fake --disable-gems" 
 
 
 # test-all 

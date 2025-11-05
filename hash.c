@@ -318,11 +318,11 @@ objid_hash(VALUE obj)
     if (!FIXNUM_P(object_id))
         object_id = rb_big_hash(object_id);
 
-#if SIZEOF_LONG == SIZEOF_VOIDP
+// #if SIZEOF_LONG == SIZEOF_VOIDP
     return (st_index_t)st_index_hash((st_index_t)NUM2LONG(object_id));
-#elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
-    return (st_index_t)st_index_hash((st_index_t)NUM2LL(object_id));
-#endif
+// #elif SIZEOF_LONG_LONG == SIZEOF_VOIDP
+//     return (st_index_t)st_index_hash((st_index_t)NUM2LL(object_id));
+// #endif
 }
 
 /**

@@ -671,7 +671,7 @@ VALUE rb_fs;
 static inline const char *
 search_nonascii(const char *p, const char *e)
 {
-    const uintptr_t *s, *t;
+    const uint64_t *s, *t;
 
 #if defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)
 # if SIZEOF_UINTPTR_T == 8
@@ -683,7 +683,7 @@ search_nonascii(const char *p, const char *e)
 # endif
 #else
 # if SIZEOF_UINTPTR_T == 8
-#  define NONASCII_MASK ((uintptr_t)0x80808080UL << 32 | (uintptr_t)0x80808080UL)
+#  define NONASCII_MASK ((uint64_t)0x80808080UL << 32 | (uint64_t)0x80808080UL)
 # elif SIZEOF_UINTPTR_T == 4
 #  define NONASCII_MASK 0x80808080UL /* or...? */
 # else
@@ -691,14 +691,14 @@ search_nonascii(const char *p, const char *e)
 # endif
 #endif
 
-    if (UNALIGNED_WORD_ACCESS || e - p >= SIZEOF_VOIDP) {
+    if (UNALIGNED_WORD_ACCESS || e - p >= 8) {
 #if !UNALIGNED_WORD_ACCESS
-        if ((uintptr_t)p % SIZEOF_VOIDP) {
-            int l = SIZEOF_VOIDP - (uintptr_t)p % SIZEOF_VOIDP;
+        if ((uint64_t)p % 8) {
+            int l = 8 - (uint64_t)p % 8;
             p += l;
             switch (l) {
               default: UNREACHABLE;
-#if SIZEOF_VOIDP > 4
+#if 8 > 4
               case 7: if (p[-7]&0x80) return p-7;
               case 6: if (p[-6]&0x80) return p-6;
               case 5: if (p[-5]&0x80) return p-5;
@@ -713,12 +713,12 @@ search_nonascii(const char *p, const char *e)
 #endif
 #if defined(HAVE_BUILTIN___BUILTIN_ASSUME_ALIGNED) &&! UNALIGNED_WORD_ACCESS
 #define aligned_ptr(value) \
-        __builtin_assume_aligned((value), sizeof(uintptr_t))
+        __builtin_assume_aligned((value), sizeof(uint64_t))
 #else
-#define aligned_ptr(value) (uintptr_t *)(value)
+#define aligned_ptr(value) (uint64_t *)(value)
 #endif
         s = aligned_ptr(p);
-        t = (uintptr_t *)(e - (SIZEOF_VOIDP-1));
+        t = (uint64_t *)(e - (8-1));
 #undef aligned_ptr
         for (;s < t; s++) {
             if (*s & NONASCII_MASK) {
@@ -734,7 +734,7 @@ search_nonascii(const char *p, const char *e)
 
     switch (e - p) {
       default: UNREACHABLE;
-#if SIZEOF_VOIDP > 4
+#if 8 > 4
       case 7: if (e[-7]&0x80) return e-7;
       case 6: if (e[-6]&0x80) return e-6;
       case 5: if (e[-5]&0x80) return e-5;

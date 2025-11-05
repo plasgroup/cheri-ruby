@@ -2149,27 +2149,27 @@ rb_str_s_new(int argc, VALUE *argv, VALUE klass)
  * in the argument word by concurrently using the above logic, and then
  * adds up the number of leading bytes in the word.
  */
-static inline uintptr_t
-count_utf8_lead_bytes_with_word(const uintptr_t *s)
+static inline uint64_t
+count_utf8_lead_bytes_with_word(const uint64_t *s)
 {
-    uintptr_t d = *s;
+    uint64_t d = *s;
 
     /* Transform so that bit0 indicates whether we have a UTF-8 leading byte or not. */
     d = (d>>6) | (~d>>7);
     d &= NONASCII_MASK >> 7;
 
     /* Gather all bytes. */
-#if defined(HAVE_BUILTIN___BUILTIN_POPCOUNT) && defined(__POPCNT__)
-    /* use only if it can use POPCNT */
-    return rb_popcount_intptr(d);
-#else
+// #if defined(HAVE_BUILTIN___BUILTIN_POPCOUNT) && defined(__POPCNT__)
+//     /* use only if it can use POPCNT */
+//     return rb_popcount_intptr(d);
+// #else
     d += (d>>8);
     d += (d>>16);
-# if SIZEOF_VOIDP == 8
+// # if SIZEOF_VOIDP == 8
     d += (d>>32);
-# endif
+// # endif
     return (d&0xF);
-#endif
+// #endif
 }
 #endif
 
@@ -2185,12 +2185,11 @@ enc_strlen(const char *p, const char *e, rb_encoding *enc, int cr)
     }
 #ifdef NONASCII_MASK
     else if (cr == ENC_CODERANGE_VALID && enc == rb_utf8_encoding()) {
-        uintptr_t len = 0;
-        if ((int)sizeof(uintptr_t) * 2 < e - p) {
-            const uintptr_t *s, *t;
-            const uintptr_t lowbits = sizeof(uintptr_t) - 1;
-            s = (const uintptr_t*)(~lowbits & ((uintptr_t)p + lowbits));
-            t = (const uintptr_t*)(~lowbits & (uintptr_t)e);
+        uint64_t len = 0;
+        if ((int)sizeof(uint64_t) * 2 < e - p) {
+            const uint64_t *s, *t;
+            s = (const uint64_t*)__builtin_align_up(p, 8); 
+            t = (const uint64_t*)__builtin_align_down(e, 8);
             while (p < (const char *)s) {
                 if (is_utf8_lead_byte(*p)) len++;
                 p++;
@@ -2962,11 +2961,10 @@ static char *
 str_utf8_nth(const char *p, const char *e, long *nthp)
 {
     long nth = *nthp;
-    if ((int)SIZEOF_VOIDP * 2 < e - p && (int)SIZEOF_VOIDP * 2 < nth) {
-        const uintptr_t *s, *t;
-        const uintptr_t lowbits = SIZEOF_VOIDP - 1;
-        s = (const uintptr_t*)(~lowbits & ((uintptr_t)p + lowbits));
-        t = (const uintptr_t*)(~lowbits & (uintptr_t)e);
+    if ((int)8 * 2 < e - p && (int)8 * 2 < nth) {
+        const uint64_t *s, *t;
+        s = (const uint64_t*)__builtin_align_up(p, 8); 
+        t = (const uint64_t*)__builtin_align_down(e, 8);
         while (p < (const char *)s) {
             if (is_utf8_lead_byte(*p)) nth--;
             p++;
@@ -2974,7 +2972,7 @@ str_utf8_nth(const char *p, const char *e, long *nthp)
         do {
             nth -= count_utf8_lead_bytes_with_word(s);
             s++;
-        } while (s < t && (int)SIZEOF_VOIDP <= nth);
+        } while (s < t && (int)8 <= nth);
         p = (char *)s;
     }
     while (p < e) {

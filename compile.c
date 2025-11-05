@@ -1036,6 +1036,8 @@ rb_iseq_original_iseq(const rb_iseq_t *iseq) /* cold path */
 #if defined(__sparc) && SIZEOF_VOIDP == 4 && defined(__GNUC__)
   #define STRICT_ALIGNMENT
 #endif
+  #define STRICT_ALIGNMENT
+
 
 /*
  * Some OpenBSD platforms (including sparc64) require strict alignment.

@@ -130,6 +130,8 @@
 #include "builtin.h"
 #include "shape.h"
 
+#include <cheriintrin.h>
+
 unsigned int
 rb_gc_vm_lock(void)
 {
@@ -2307,7 +2309,9 @@ each_location(register const VALUE *x, register long n, void (*cb)(VALUE, void *
     VALUE v;
     while (n--) {
         v = *x;
-        cb(v, data);
+		if (cheri_is_valid(v)) {
+			cb(v, data);
+		}
         x++;
     }
 }

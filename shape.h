@@ -28,7 +28,7 @@ typedef uint32_t redblack_id_t;
 # define SHAPE_MASK (((uintptr_t)1 << SHAPE_ID_NUM_BITS) - 1)
 # define SHAPE_FLAG_MASK (((VALUE)-1) >> SHAPE_ID_NUM_BITS)
 
-# define SHAPE_FLAG_SHIFT ((SIZEOF_VALUE * 8) - SHAPE_ID_NUM_BITS)
+# define SHAPE_FLAG_SHIFT ((8 * 8) - SHAPE_ID_NUM_BITS)
 
 # define SHAPE_MAX_VARIATIONS 8
 

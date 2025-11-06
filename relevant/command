@@ -8,9 +8,9 @@ OBJCOPY=/morello/src/output/morello-sdk/bin/llvm-objcopy \
 OBJDUMP=/morello/src/output/morello-sdk/bin/llvm-objdump \
 RANLIB=/morello/src/output/morello-sdk/bin/llvm-ranlib \
 STRIP=/morello/src/output/morello-sdk/bin/llvm-strip \
-CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include" \
-LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index" \
-CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1" \
+CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include -I/morello/src/output/rootfs-morello-purecap/usr/local/include" \
+LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index -L/morello/src/output/rootfs-morello-purecap/usr/local/lib -lyaml" \
+CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1 -I/morello/src/output/rootfs-morello-purecap/usr/local/include" \
 --build=x86_64-pc-linux-gnu \
 --host=aarch64-unknown-freebsd \
 --target=aarch64-unknown-freebsd \

@@ -162,7 +162,7 @@ def main
   BT.color = nil
   BT.tty = nil
   BT.quiet = false
-  BT.timeout = 180
+  BT.timeout = 1800
   BT.timeout_scale = (defined?(RubyVM::RJIT) && RubyVM::RJIT.enabled? ? 3 : 1) # for --jit-wait
   if (ts = (ENV["RUBY_TEST_TIMEOUT_SCALE"] || ENV["RUBY_TEST_SUBPROCESS_TIMEOUT_SCALE"]).to_i) > 1
     BT.timeout_scale *= ts

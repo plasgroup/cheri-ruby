@@ -8,13 +8,14 @@ OBJCOPY=/morello/src/output/morello-sdk/bin/llvm-objcopy \
 OBJDUMP=/morello/src/output/morello-sdk/bin/llvm-objdump \
 RANLIB=/morello/src/output/morello-sdk/bin/llvm-ranlib \
 STRIP=/morello/src/output/morello-sdk/bin/llvm-strip \
-CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include -I/morello/src/output/rootfs-morello-purecap/usr/local/include" \
-LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index -L/morello/src/output/rootfs-morello-purecap/usr/local/lib -lyaml" \
-CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1 -I/morello/src/output/rootfs-morello-purecap/usr/local/include" \
+CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include" \
+LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index" \
+CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1" \
 --build=x86_64-pc-linux-gnu \
 --host=aarch64-unknown-freebsd \
 --target=aarch64-unknown-freebsd \
 --with-opt-dir="/morello/src/output/rootfs-morello-purecap/usr" \
+--with-libyaml-dir="/morello/src/output/rootfs-morello-purecap/usr/local" \
 --prefix="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master" \
 --with-thread="pthread" \
 --with-coroutine="ucontext" \
@@ -28,10 +29,9 @@ cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1"
 -target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/morello-sdk/sysroot-morello-purecap -fuse-ld=lld -Wcheri
 
 
-./ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./aarch64-freebsd-fake --disable-gems" 
+ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./aarch64-freebsd-fake --disable-gems" 
 
-
-# test-all 
+# test-all
 ## debug
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
 "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
@@ -81,3 +81,31 @@ CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/path/to/usr/include/c++/v1"
 
 
 -target aarch64-unknown-freebsd13 --sysroot=/morello/src/output/rootfs-morello-purecap -B/morello/src/output/morello-sdk/bin -mcpu=rainier -march=morello -mabi=purecap -Xclang -morello-vararg=new -Xclang -morello-bounded-memargs
+
+
+
+
+# hybrid 
+## test
+### btest 
+# original 
+exec /usr/bin/ruby --disable=gems  "../bootstraptest/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  -r./x86_64-linux-fake --disable-gems" 
+
+# on host 
+../tool/git-refresh -C ../benchmark -q \
+	--branch v0.16.3 \
+	https://github.com/benchmark-driver/benchmark-driver benchmark-driver 
+
+ruby --disable=gems -rrubygems -I../benchmark/lib ../benchmark/benchmark-driver/exe/benchmark-driver \
+--executables="built-ruby::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem" \
+--output=markdown --output-compare -v $(find ../benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) 
+
+
+#
+exec ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems "../bootstraptest/runner.rb" --ruby="ruby --disable-gems"   ../KNOWNBUGS.rb
+
+exec ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems "../basictest/runner.rb" --run-opt=--disable-gems  
+
+./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/ 

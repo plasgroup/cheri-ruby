@@ -1,0 +1,221 @@
+run'
+        from ../benchmark/benchmark-driver/exe/benchmark-driver:157:in `<main>'
+root@cheribsd-morello-purecap:~/morello-ruby341/build # ruby --disable=gems -rrubygems -I../benchmar
+k/lib ../benchmark/benchmark-driver/exe/benchmark-driver \
+> --executables="built-ruby::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext
+  -- --disable-gems --disable-gem" \
+> --output=markdown --output-compare -v $(find ../benchmark -maxdepth 1 -name '' -o -name '**.yml' -
+o -name '**.rb' | sort)
+built-ruby: ruby 3.4.1 (2025-11-06 revision cfb1f59f40) +PRISM [aarch64-freebsd]
+last_commit=[other]
+warming up..........................................................................................
+....................................................................................................
+....................................................................................................
+........................................................................
+# Iteration per second (i/s)
+
+|                                                               |built-ruby|
+|:--------------------------------------------------------------|---------:|
+|app_answer                                                     |     0.039|
+|app_aobench                                                    |     0.023|
+|app_erb                                                        |    33.573|
+|app_factorial                                                  |     0.004|
+|app_fib                                                        |     0.003|
+|app_lc_fizzbuzz                                                |     0.047|
+|app_mandelbrot                                                 |     0.002|
+|app_pentomino                                                  |     0.083|
+|app_raise                                                      |     0.006|
+|app_strconcat                                                  |     0.007|
+|app_tak                                                        |     0.002|
+|app_tarai                                                      |     0.003|
+|app_uri                                                        |     0.003|
+|small_flat_ary.flatten                                         |    3.869k|
+|small_flat_ary.flatten!                                        |    5.041k|
+|large_flat_ary.flatten                                         |   318.318|
+|large_flat_ary.flatten!                                        |   326.178|
+|small_pairs_ary.flatten                                        |   694.659|
+|small_pairs_ary.flatten!                                       |   549.750|
+|large_pairs_ary.flatten                                        |    47.710|
+|large_pairs_ary.flatten!                                       |    47.092|
+|mostly_flat_ary.flatten                                        |   252.029|
+|mostly_flat_ary.flatten!                                       |   231.863|
+|small-&                                                        |    2.495k|
+|small-intersection                                             |    2.401k|
+|big-&                                                          |   107.772|
+|big-intersection                                               |   102.456|
+|array_100                                                      |    3.189k|
+|array_1000                                                     |   316.750|
+|array_10000                                                    |    17.161|
+|array_100000                                                   |     1.223|
+|ary2.max                                                       |   22.955k|
+|ary10.max                                                      |    8.550k|
+|ary100.max                                                     |    1.112k|
+|ary500.max                                                     |   228.212|
+|ary1000.max                                                    |   114.764|
+|ary2000.max                                                    |    46.074|
+|ary3000.max                                                    |    46.074|
+|ary5000.max                                                    |    23.041|
+|ary10000.max                                                   |    11.539|
+|ary20000.max                                                   |     5.764|
+|ary50000.max                                                   |     2.312|
+|ary100000.max                                                  |     1.152|
+|ary2.max                                                       |   31.431k|
+|ary10.max                                                      |   22.569k|
+|ary100.max                                                     |    5.643k|
+|ary500.max                                                     |    1.300k|
+|ary1000.max                                                    |   661.397|
+|ary2000.max                                                    |   268.560|
+|ary3000.max                                                    |   267.673|
+|ary5000.max                                                    |   134.631|
+|ary10000.max                                                   |    67.553|
+|ary20000.max                                                   |    33.916|
+|ary50000.max                                                   |    13.574|
+|ary100000.max                                                  |     6.798|
+|ary1000000.max                                                 |     0.678|
+|ary2.max                                                       |   22.883k|
+|ary10.max                                                      |    9.651k|
+|ary100.max                                                     |    1.291k|
+|ary500.max                                                     |   267.421|
+|ary1000.max                                                    |   134.145|
+|ary2000.max                                                    |    53.855|
+|ary3000.max                                                    |    53.785|
+|ary5000.max                                                    |    26.942|
+|ary10000.max                                                   |    13.275|
+|ary20000.max                                                   |     6.657|
+|ary50000.max                                                   |     2.645|
+|ary100000.max                                                  |     1.323|
+|ary2.min                                                       |   31.323k|
+|ary10.min                                                      |   22.685k|
+|ary100.min                                                     |    5.673k|
+|ary500.min                                                     |    1.296k|
+|ary1000.min                                                    |   663.191|
+|ary2000.min                                                    |   268.890|
+|ary3000.min                                                    |   269.305|
+|ary5000.min                                                    |   135.496|
+|ary10000.min                                                   |    68.179|
+|ary20000.min                                                   |    34.191|
+|ary50000.min                                                   |    13.718|
+|ary100000.min                                                  |     6.868|
+|ary1000000.min                                                 |     0.688|
+|ary.sample                                                     |   26.874k|
+|ary.sample(2)                                                  |    7.377k|
+|array_sample_100k_10                                           |     0.173|
+|array_sample_100k_11                                           |     0.118|
+|array_sample_100k__100                                         |     0.032|
+|array_sample_100k__1k                                          |     0.004|
+|array_sample_100k__6k                                          |     0.001|
+|array_sample_100k___10k                                        |     0.001|
+|array_sample_100k___50k                                        |     0.262|
+|array_shift                                                    Nov  9 08:12:31 cheribsd-morello-pur
+ecap kernel: pid 7446 (ruby), jid 0, uid 0, was killed: failed to reclaim memory
+|     ERROR|
+|array_small_and                                                |     0.074|
+|array_small_diff                                               |     0.070|
+|array_small_or                                                 |     0.061|
+|array_sort_block                                               |     0.167|
+|array_sort_float                                               |     0.001|
+|ary2.sort                                                      |    6.185k|
+|ary10.sort                                                     |    4.642k|
+|ary100.sort                                                    |   630.973|
+|ary1000.sort                                                   |    54.052|
+|ary10000.sort                                                  |     4.361|
+|array_values_at_int                                            |     0.078|
+|array_values_at_range                                          |     0.009|
+|attr_reader                                                    |   323.606|
+|attr_writer                                                    |   233.953|
+|attr_reader_method                                             |    82.976|
+|attr_writer_method                                             |    72.180|
+|bighash                                                        |     0.002|
+|string.each_byte                                               |   253.423|
+|array.each                                                     |   252.097|
+|buffer.each                                                    |   242.598|
+|buffer.each_byte                                               |   259.319|
+|string.unpack1                                                 |    4.443k|
+|buffer.get_value                                               |    6.681k|
+|buffer.get_values                                              |    5.742k|
+|string.unpack                                                  |    3.859k|
+|CGI.escapeHTML("")                                             |   12.056k|
+|CGI.escapeHTML("abcde")                                        |   11.732k|
+|CGI.escapeHTML("abcd<")                                        |    9.558k|
+|CGI.escapeHTML("'&\"<>")                                       |    9.328k|
+|CGI.escapeHTML(long_no_escape)                                 |   726.555|
+|CGI.escapeHTML(long_all_escape)                                |    6.623k|
+|CGI.escapeHTML(example_html)                                   |    2.240k|
+|complex_float_add                                              |    8.357k|
+|complex_float_div                                              |    3.965k|
+|complex_float_mul                                              |    4.738k|
+|complex_float_new                                              |    1.657k|
+|complex_float_power                                            |    2.892k|
+|complex_float_sub                                              |    6.338k|
+|constant_invalidation                                          |     0.007|
+|dir_empty_p                                                    |     0.008|
+|num3                                                           |   204.908|
+|num10                                                          |   198.751|
+|ary2                                                           |   213.684|
+|ary10                                                          |   222.967|
+|ary20                                                          |   222.050|
+|ary50                                                          |   222.169|
+|ary100                                                         |   222.725|
+|enum_lazy_grep_v_100                                           |     0.003|
+|enum_lazy_grep_v_20                                            |     0.006|
+|enum_lazy_grep_v_50                                            |     0.005|
+|enum_lazy_uniq_100                                             |     0.003|
+|enum_lazy_uniq_20                                              |     0.005|
+|enum_lazy_uniq_50                                              |     0.004|
+|first_ary                                                      |   418.984|
+|first_nonary                                                   |   183.483|
+|first_noarg                                                    |   440.438|
+|take3_ary                                                      |   256.141|
+|take3_nonary                                                   |   122.903|
+|take3_noarg                                                    |   274.275|
+|chain-first_ary                                                |   402.390|
+|chain-first_nonary                                             |   178.819|
+|chain-first_noarg                                              |   445.804|
+|chain-take3_ary                                                |   239.423|
+|chain-take3_nonary                                             |   117.995|
+|chain-take3_noarg                                              |   255.056|
+|block                                                          |   203.185|
+|set2.min                                                       |    2.949k|
+|set10.min                                                      |    2.123k|
+|set100.min                                                     |   502.129|
+|set1000.min                                                    |    58.507|
+|set10000.min                                                   |     5.959|
+|set2.max                                                       |    2.938k|
+|set10.max                                                      |    2.126k|
+|set100.max                                                     |   500.013|
+|set1000.max                                                    |    58.386|
+|set10000.max                                                   |     5.946|
+|set2.minmax                                                    |    2.599k|
+|set10.minmax                                                   |    1.906k|
+|set100.minmax                                                  |   471.923|
+|set1000.minmax                                                 |    55.831|
+|set10000.minmax                                                |     5.704|
+|set2.sort_by                                                   |    1.322k|
+|set10.sort_by                                                  |   757.285|
+|set100.sort_by                                                 |   121.490|
+|set1000.sort_by                                                |    13.301|
+|set10000.sort_by                                               |     1.379|
+|fixnum_array2.sort_by                                          |    2.255k|
+|float_array2.sort_by                                           |    2.150k|
+|string_length2.sort_by                                         |    83.053|
+|mix_array2.sort_by                                             |    2.244k|
+|all_zero2.sort_by                                              |    2.290k|
+|fixnum_array10.sort_by                                         |   974.852|
+|float_array10.sort_by                                          |   791.172|
+|string_length10.sort_by                                        |   841.962|
+|mix_array10.sort_by                                            |   875.829|
+|all_zero10.sort_by                                             |   991.073|
+|fixnum_array1000.sort_by                                       |    12.514|
+|float_array1000.sort_by                                        |     6.198|
+|string_length1000.sort_by                                      |    10.467|
+|mix_array1000.sort_by                                          |     6.701|
+|all_zero1000.sort_by                                           |    13.941|
+|fixnum_array100000.sort_by                                     |
+warming up.
+# Iteration per second (i/s)
+
+|                   |built-ruby|
+|:------------------|---------:|
+|ractor_const       |  277.063k|
+|ractor_float_to_s  |     1.813|
+root@cheribsd-morello-purecap:~/morello-ruby341/build #

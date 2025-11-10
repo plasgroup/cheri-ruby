@@ -16,7 +16,8 @@
 		"*.rbinc": "c",
 		"stdio.h": "c",
 		"ucontext.h": "c",
-		"cheri.h": "c"
+		"cheri.h": "c",
+		"fiddle.h": "c"
 	},
 	"git.ignoreLimitWarning": true
 }

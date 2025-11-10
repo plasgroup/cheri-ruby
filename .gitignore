@@ -169,7 +169,7 @@ lcov*.info
 !/coroutine/**/*.S
 
 # /enc/trans/
-/enc/trans/*.c
+# /enc/trans/*.c
 /enc/trans/*.def
 /enc/trans/*.exp
 /enc/trans/*.lib

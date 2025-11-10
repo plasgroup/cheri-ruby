@@ -20,7 +20,9 @@
 # define USE_MODULAR_GC 0
 #endif
 
-#if defined(__x86_64__) && !defined(_ILP32) && defined(__GNUC__)
+#if defined(__CHERI_PURE_CAPABILITY__) && defined(__GNUC__)
+#define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("mov\t%0, csp" : "=C" (*(p)))
+#elif defined(__x86_64__) && !defined(_ILP32) && defined(__GNUC__)
 #define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("movq\t%%rsp, %0" : "=r" (*(p)))
 #elif defined(__i386) && defined(__GNUC__)
 #define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("movl\t%%esp, %0" : "=r" (*(p)))
@@ -32,8 +34,6 @@
 #define SET_MACHINE_STACK_END(p) __asm__ volatile("mr %0, r1" : "=r" (*(p)))
 #elif defined(__aarch64__) && defined(__GNUC__)
 #define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("mov\t%0, sp" : "=r" (*(p)))
-#elif defined(__CHERI_PURE_CAPABILITY__)
-#define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("cmove\t%0, csp" : "=C" (*(p)))
 #else
 NOINLINE(void rb_gc_set_stack_end(VALUE **stack_end_p));
 #define SET_MACHINE_STACK_END(p) rb_gc_set_stack_end(p)

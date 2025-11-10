@@ -56,8 +56,17 @@ static inline void coroutine_initialize(
     context->state.uc_link = NULL;
 
     makecontext(&context->state, (void(*)(void))coroutine_trampoline, 2, (void*)start, (void*)context);
-	context->state.uc_mcontext.mc_capregs.cp_ca[0] = (__uintcap_t) start;
-	context->state.uc_mcontext.mc_capregs.cp_ca[1] = (__uintcap_t) context;
+#if defined(__CHERI_PURE_CAPABILITY__)
+#if defined(__riscv)
+    context->state.uc_mcontext.mc_capregs.cp_ca[0] = (__uintcap_t) start;
+    context->state.uc_mcontext.mc_capregs.cp_ca[1] = (__uintcap_t) context;
+#elif defined(__aarch64__)
+    context->state.uc_mcontext.mc_capregs.cap_x[0] = (__uintcap_t) start;
+    context->state.uc_mcontext.mc_capregs.cap_x[1] = (__uintcap_t) context;
+#else
+#error "Unsupported CHERI architecture for coroutine arguments"
+#endif
+#endif
 }
 
 static inline struct coroutine_context * coroutine_transfer(struct coroutine_context * current, struct coroutine_context * target)

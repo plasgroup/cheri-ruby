@@ -1144,7 +1144,7 @@ check_int_precision(VALUE v)
 #elif SIZEOF_VALUE <= SIZEOF_LONG_LONG
     n = (SIGNED_VALUE)NUM2LL(v);
 #else
-#   error SIZEOF_VALUE is too large
+    n = (SIGNED_VALUE)NUM2LONG(v);
 #endif
     if (n < 0) {
 	rb_raise(rb_eArgError, "negative precision");

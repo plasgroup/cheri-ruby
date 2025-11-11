@@ -92,13 +92,13 @@ llabs(LONG_LONG const x)
 #ifdef vabs
 # undef vabs
 #endif
-#if SIZEOF_VALUE <= SIZEOF_INT
-# define vabs abs
-#elif SIZEOF_VALUE <= SIZEOF_LONG
+// #if SIZEOF_VALUE <= SIZEOF_INT
+// # define vabs abs
+// #elif SIZEOF_VALUE <= SIZEOF_LONG
 # define vabs labs
-#elif SIZEOF_VALUE <= SIZEOF_LONG_LONG
-# define vabs llabs
-#endif
+// #elif SIZEOF_VALUE <= SIZEOF_LONG_LONG
+// # define vabs llabs
+// #endif
 
 /* finite */
 

@@ -109,3 +109,51 @@ exec ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  --
 ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
 "../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
 --excludes-dir=../test/.excludes --name=!/memory_leak/ 
+
+
+
+
+../configure  CC=/usr/local64/bin/clang 
+CXX=/usr/local64/bin/clang++ 
+LD=/usr/bin/ld.lld 
+AR=/usr/local64/bin/llvm-ar 
+AS=/usr/local64/bin/llvm-as 
+NM=/usr/local64/bin/llvm-nm  
+OBJCOPY=/usr/local64/bin/llvm-objcopy  
+OBJDUMP=/usr/local64/bin/llvm-objdump  
+RANLIB=/usr/local64/bin/llvm-ranlib  
+STRIP=/usr/local64/bin/llvm-strip  
+CFLAGS="-march=morello -mabi=purecap -I/usr/include"  
+CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/usr/include/c++/v1"  
+LDFLAGS="-march=morello -mabi=purecap -fuse-ld=lld -L/usr/local/lib -lpthread"  
+--with-opt-dir="/usr/local"  
+--prefix="/home/kai/.rubies/ruby-master" 
+--with-thread="pthread" 
+--with-baseruby=/usr/local64/bin/ruby32 
+--with-coroutine="ucontext"
+
+../configure  CC=/home/kai/cheri/output/morello-sdk/bin/clang  
+LD=/home/kai/cheri/output/morello-sdk/bin/ld.lld  
+AR=/home/kai/cheri/output/morello-sdk/bin/llvm-ar  
+AS=/home/kai/cheri/output/morello-sdk/bin/llvm-as  
+CXX=/home/kai/cheri/output/morello-sdk/bin/clang++  
+NM=/home/kai/cheri/output/morello-sdk/bin/llvm-nm  
+OBJCOPY=/home/kai/cheri/output/morello-sdk/bin/llvm-objcopy  
+OBJDUMP=/home/kai/cheri/output/morello-sdk/bin/llvm-objdump  
+RANLIB=/home/kai/cheri/output/morello-sdk/bin/llvm-ranlib  
+STRIP=/home/kai/cheri/output/morello-sdk/bin/llvm-strip  
+CFLAGS="--target=aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/home/kai/cheri/output/rootfs-morello-purecap -Wcheri -I/home/kai/cheri/output/rootfs-morello-purecap/usr/include"  
+LDFLAGS="--target=aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/home/kai/cheri/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index"  
+CXXFLAGS="--target=aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/home/kai/cheri/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/home/kai/cheri/output/rootfs-morello-purecap/usr/include/c++/v1"  
+--build=x86_64-pc-linux-gnu  
+--host=aarch64-unknown-freebsd  
+--target=aarch64-unknown-freebsd  
+--with-opt-dir="/home/kai/cheri/output/rootfs-morello-purecap/usr"  
+--prefix="/home/kai/cheri/output/rootfs-morello-purecap/.rubies/ruby-master"  
+--with-thread=pthread  
+--with-coroutine=ucontext  
+--enable-mkmf-verbose  
+--with-destdir="/home/kai/cheri/output/rootfs-morello-purecap/.rubies/ruby-master"  
+--enable-debug-env  
+optflags="-O0 -fno-omit-frame-pointer"  
+cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1” 

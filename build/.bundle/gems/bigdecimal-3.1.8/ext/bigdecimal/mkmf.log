@@ -1,0 +1,1189 @@
+have_builtin_func: checking for __builtin_clz()... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int foo;
+4: int main() { __builtin_clz(0); return 0; }
+/* end */
+
+--------------------
+
+have_builtin_func: checking for __builtin_clzl()... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int foo;
+4: int main() { __builtin_clzl(0); return 0; }
+/* end */
+
+--------------------
+
+have_builtin_func: checking for __builtin_clzll()... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int foo;
+4: int main() { __builtin_clzll(0); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for float.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <float.h>
+/* end */
+
+--------------------
+
+have_header: checking for math.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <math.h>
+/* end */
+
+--------------------
+
+have_header: checking for stdbool.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <stdbool.h>
+/* end */
+
+--------------------
+
+have_header: checking for stdlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <stdlib.h>
+/* end */
+
+--------------------
+
+have_header: checking for x86intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:17:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86gprintrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:21:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:54:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   54 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:133:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  133 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:163:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  163 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:193:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  193 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:220:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  220 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:243:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  243 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:264:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  264 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:291:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  291 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:314:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  314 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:335:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  335 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:356:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  356 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:377:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  377 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:398:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  398 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:420:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  420 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:443:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  443 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:465:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  465 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <x86intrin.h>
+/* end */
+
+--------------------
+
+have_func: checking for _lzcnt_u32() in x86intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:17:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86gprintrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:21:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:54:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   54 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:133:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  133 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:163:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  163 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:193:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  193 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:220:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  220 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:243:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  243 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:264:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  264 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:291:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  291 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:314:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  314 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:335:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  335 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:356:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  356 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:377:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  377 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:398:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  398 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:420:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  420 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:443:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  443 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:465:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  465 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <x86intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))_lzcnt_u32; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:17:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86gprintrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:21:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:54:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   54 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:133:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  133 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:163:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  163 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:193:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  193 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:220:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  220 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:243:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  243 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:264:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  264 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:291:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  291 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:314:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  314 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:335:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  335 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:356:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  356 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:377:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  377 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:398:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  398 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:420:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  420 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:443:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  443 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:465:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  465 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <x86intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void _lzcnt_u32();
+17: int t(void) { _lzcnt_u32(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for _lzcnt_u64() in x86intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:17:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86gprintrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:21:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:54:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   54 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:133:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  133 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:163:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  163 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:193:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  193 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:220:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  220 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:243:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  243 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:264:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  264 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:291:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  291 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:314:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  314 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:335:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  335 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:356:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  356 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:377:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  377 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:398:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  398 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:420:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  420 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:443:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  443 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:465:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  465 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <x86intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))_lzcnt_u64; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:17:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86gprintrin.h:15:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from conftest.c:3:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/x86intrin.h:15:
+In file included from /morello-hybrid/src/output/sdk/lib/clang/17/include/immintrin.h:21:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:54:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   54 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:133:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  133 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:163:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  163 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:193:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  193 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:220:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  220 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:243:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  243 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:264:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  264 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:291:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  291 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:314:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  314 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:335:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  335 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:356:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  356 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:377:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  377 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:398:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  398 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:420:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  420 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:443:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  443 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/morello-hybrid/src/output/sdk/lib/clang/17/include/mmintrin.h:465:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  465 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <x86intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void _lzcnt_u64();
+17: int t(void) { _lzcnt_u64(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <intrin.h>
+/* end */
+
+--------------------
+
+have_func: checking for __lzcnt() in intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))__lzcnt; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void __lzcnt();
+17: int t(void) { __lzcnt(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for __lzcnt64() in intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))__lzcnt64; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void __lzcnt64();
+17: int t(void) { __lzcnt64(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for _BitScanReverse() in intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))_BitScanReverse; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void _BitScanReverse();
+17: int t(void) { _BitScanReverse(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for _BitScanReverse64() in intrin.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))_BitScanReverse64; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+In file included from conftest.c:3:
+/morello-hybrid/src/output/sdk/lib/clang/17/include/intrin.h:12:15: fatal error: 'intrin.h' file not found
+   12 | #include_next <intrin.h>
+      |               ^~~~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <intrin.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void _BitScanReverse64();
+17: int t(void) { _BitScanReverse64(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for labs() in stdlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for llabs() in stdlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for finite() in math.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <math.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))finite; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for isfinite() in math.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+conftest.c:16:57: error: use of undeclared identifier 'isfinite'
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))isfinite; return !p; }
+      |                                                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <math.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))isfinite; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+conftest.c:16:13: error: expected identifier or '('
+   16 | extern void isfinite();
+      |             ^
+/morello-hybrid/src/output/rootfs-aarch64/usr/include/math.h:93:21: note: expanded from macro 'isfinite'
+   93 | #define isfinite(x) __fp_type_select(x, __isfinitef, __isfinite, __isfinitel)
+      |                     ^
+/morello-hybrid/src/output/rootfs-aarch64/usr/include/math.h:73:39: note: expanded from macro '__fp_type_select'
+   73 | #define __fp_type_select(x, f, d, ld) __extension__ _Generic((x),       \
+      |                                       ^
+conftest.c:17:15: error: expected expression
+   17 | int t(void) { isfinite(); return 0; }
+      |               ^
+/morello-hybrid/src/output/rootfs-aarch64/usr/include/math.h:93:21: note: expanded from macro 'isfinite'
+   93 | #define isfinite(x) __fp_type_select(x, __isfinitef, __isfinite, __isfinitel)
+      |                     ^
+/morello-hybrid/src/output/rootfs-aarch64/usr/include/math.h:73:64: note: expanded from macro '__fp_type_select'
+   73 | #define __fp_type_select(x, f, d, ld) __extension__ _Generic((x),       \
+      |                                                                ^
+2 errors generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <math.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void isfinite();
+17: int t(void) { isfinite(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for ruby/atomic.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/atomic.h>
+/* end */
+
+--------------------
+
+have_header: checking for ruby/internal/has/builtin.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/internal/has/builtin.h>
+/* end */
+
+--------------------
+
+have_header: checking for ruby/internal/static_assert.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby/internal/static_assert.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_num() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_num; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_den() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_den; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_complex_real() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_complex_real; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_complex_imag() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_complex_imag; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_opts_exception_p() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+conftest.c:16:57: error: use of undeclared identifier 'rb_opts_exception_p'
+   16 | int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_opts_exception_p; return !p; }
+      |                                                         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_opts_exception_p; return !p; }
+/* end */
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: extern void rb_opts_exception_p();
+17: int t(void) { rb_opts_exception_p(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_category_warn() in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../../../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <ruby.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_category_warn; return !p; }
+/* end */
+
+--------------------
+
+have_const: checking for RB_WARN_CATEGORY_DEPRECATED in ruby.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../../../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../../../../.ext/include/aarch64-freebsd -I../../../../../../include -I../../../../../../.bundle/gems/bigdecimal-3.1.8/ext/bigdecimal -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby.h>
+4: 
+5: /*top*/
+6: typedef int conftest_type;
+7: conftest_type conftestval = (int)RB_WARN_CATEGORY_DEPRECATED;
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+ 1: #ifndef EXTCONF_H
+ 2: #define EXTCONF_H
+ 3: #define HAVE_BUILTIN___BUILTIN_CLZ 1
+ 4: #define HAVE_BUILTIN___BUILTIN_CLZL 1
+ 5: #define HAVE_BUILTIN___BUILTIN_CLZLL 1
+ 6: #define HAVE_FLOAT_H 1
+ 7: #define HAVE_MATH_H 1
+ 8: #define HAVE_STDBOOL_H 1
+ 9: #define HAVE_STDLIB_H 1
+10: #define HAVE_LABS 1
+11: #define HAVE_LLABS 1
+12: #define HAVE_FINITE 1
+13: #define HAVE_RUBY_ATOMIC_H 1
+14: #define HAVE_RUBY_INTERNAL_HAS_BUILTIN_H 1
+15: #define HAVE_RUBY_INTERNAL_STATIC_ASSERT_H 1
+16: #define HAVE_RB_RATIONAL_NUM 1
+17: #define HAVE_RB_RATIONAL_DEN 1
+18: #define HAVE_RB_COMPLEX_REAL 1
+19: #define HAVE_RB_COMPLEX_IMAG 1
+20: #define HAVE_RB_OPTS_EXCEPTION_P 1
+21: #define HAVE_RB_CATEGORY_WARN 1
+22: #define HAVE_CONST_RB_WARN_CATEGORY_DEPRECATED 1
+23: #endif
+/* end */
+

@@ -1,0 +1,48 @@
+pkg_config: checking for pkg-config for yaml-0.1... -------------------- not found
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --exists yaml-0.1
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 pkg-config --libs yaml-0.1 |
+=> "-lyaml\n"
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/psych -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/psych -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic -lyaml    -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+aarch64-unknown-freebsd-ld.lld: error: unable to find library -lyaml
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+package configuration for yaml-0.1 is not found
+--------------------
+
+find_header: checking for yaml.h... -------------------- no
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/psych -I/morello-hybrid/src/output/rootfs-aarch64/usr/local/include -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+conftest.c:3:10: fatal error: 'yaml.h' file not found
+    3 | #include <yaml.h>
+      |          ^~~~~~~~
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <yaml.h>
+/* end */
+
+--------------------
+

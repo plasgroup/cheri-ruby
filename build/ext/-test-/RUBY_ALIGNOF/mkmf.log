@@ -1,0 +1,18 @@
+LD_LIBRARY_PATH=.:../../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang++ -o conftest -I../../../.ext/include/aarch64-freebsd -I../../../../include -I../../../../ext/-test-/RUBY_ALIGNOF -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -std=c++17 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include/c++/v1 -fdeclspec conftest.cc -L. -L../../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+extconf.h is:
+/* begin */
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #endif
+/* end */
+

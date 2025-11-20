@@ -1,0 +1,184 @@
+have_library: checking for deflateReset(NULL) in -lz... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr   -lm -lthr  -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic     -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr  -lz  -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: 
+17: int t(void) { deflateReset(NULL); return 0; }
+/* end */
+
+--------------------
+
+checking for kind of operating system... Unix
+have_func: checking for crc32_combine() in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic    -lz  -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr  -lz  -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))crc32_combine; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for adler32_combine() in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic    -lz  -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr  -lz  -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))adler32_combine; return !p; }
+/* end */
+
+--------------------
+
+have_type: checking for z_crc_t in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <zlib.h>
+4: 
+5: /*top*/
+6: typedef z_crc_t conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for z_size_t in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <zlib.h>
+4: 
+5: /*top*/
+6: typedef z_size_t conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_func: checking for crc32_z() in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic    -lz  -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr  -lz  -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))crc32_z; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for adler32_z() in zlib.h... -------------------- yes
+
+LD_LIBRARY_PATH=.:../..:/snap/ruby/438/lib: ASAN_OPTIONS=detect_leaks=0 "/morello-hybrid/src/output/sdk/bin/clang -o conftest -I../../.ext/include/aarch64-freebsd -I../../../include -I../../../ext/zlib -I/morello-hybrid/src/output/rootfs-aarch64/usr/include    -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -I/morello-hybrid/src/output/rootfs-aarch64/usr/include -mbranch-protection=pac-ret -fstack-protector-strong -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fdeclspec  -O0 -fno-omit-frame-pointer -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef conftest.c -L. -L../.. -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -L. -target aarch64-unknown-freebsd -march=armv8 --sysroot=/morello-hybrid/src/output/rootfs-aarch64 -fuse-ld=lld -lpthread -Wl,--gdb-index -fstack-protector-strong -L/morello-hybrid/src/output/rootfs-aarch64/usr/lib -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/usr/lib -rdynamic    -lz  -Wl,-rpath,/morello-hybrid/src/output/rootfs-aarch64/research/ruby-3.4.1/build -lruby-static -lexecinfo -lprocstat -lz -lrt -lrt -ldl -lcrypt -lm -lthr  -lz  -lm -lthr  -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))adler32_z; return !p; }
+/* end */
+
+--------------------
+
+extconf.h is:
+/* begin */
+ 1: #ifndef EXTCONF_H
+ 2: #define EXTCONF_H
+ 3: #define HAVE_CRC32_COMBINE 1
+ 4: #define HAVE_ADLER32_COMBINE 1
+ 5: #define HAVE_TYPE_Z_CRC_T 1
+ 6: #define HAVE_TYPE_Z_SIZE_T 1
+ 7: #define HAVE_CRC32_Z 1
+ 8: #define HAVE_ADLER32_Z 1
+ 9: #define HAVE_ZLIB_SIZE_T_FUNCS 1
+10: #endif
+/* end */
+

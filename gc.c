@@ -1047,7 +1047,7 @@ newobj_of(rb_ractor_t *cr, VALUE klass, VALUE flags, VALUE v1, VALUE v2, VALUE v
         RB_VM_LOCK_LEAVE_CR_LEV(cr, &lev);
     }
 
-    return obj;
+    return cheri_bounds_set(obj, rb_gc_obj_slot_size(obj));
 }
 
 VALUE

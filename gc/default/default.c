@@ -783,7 +783,9 @@ heap_page_in_global_empty_pages_pool(rb_objspace_t *objspace, struct heap_page *
     }
 }
 
-#define GET_PAGE_BODY(x)   ((struct heap_page_body *)((uintptr_t)(x) & ~(HEAP_PAGE_ALIGN_MASK)))
+PUREFUNC(static inline struct heap_page *heap_page_for_ptr(rb_objspace_t *objspace, uintptr_t ptr);)
+
+#define GET_PAGE_BODY(x)   (heap_page_for_ptr(rb_gc_get_objspace(), (x))->body)
 #define GET_PAGE_HEADER(x) (&GET_PAGE_BODY(x)->header)
 #define GET_HEAP_PAGE(x)   (GET_PAGE_HEADER(x)->page)
 
@@ -2557,7 +2559,6 @@ ptr_in_page_body_p(const void *ptr, const void *memb)
     }
 }
 
-PUREFUNC(static inline struct heap_page *heap_page_for_ptr(rb_objspace_t *objspace, uintptr_t ptr);)
 static inline struct heap_page *
 heap_page_for_ptr(rb_objspace_t *objspace, uintptr_t ptr)
 {

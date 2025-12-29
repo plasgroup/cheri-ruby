@@ -16,14 +16,39 @@ CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -
 --target=aarch64-unknown-freebsd \
 --with-opt-dir="/morello/src/output/rootfs-morello-purecap/usr" \
 --with-libyaml-dir="/morello/src/output/rootfs-morello-purecap/usr/local" \
+--prefix="/home/luih/bench/installpure/.rubies/ruby-master" \
+--with-thread="pthread" \
+--with-coroutine="ucontext" \
+--enable-mkmf-verbose \
+--with-destdir="/home/luih/bench/installpure/.rubies/ruby-master" \
+--enable-debug-env \
+optflags="-O0 -fno-omit-frame-pointer" \
+cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1"
+
+
+../configure CC=/morello/src/output/morello-sdk/bin/clang \
+LD=/morello/src/output/morello-sdk/bin/ld.lld \
+AR=/morello/src/output/morello-sdk/bin/llvm-ar \
+AS=/morello/src/output/morello-sdk/bin/llvm-as \
+CXX=/morello/src/output/morello-sdk/bin/clang++ \
+NM=/morello/src/output/morello-sdk/bin/llvm-nm \
+OBJCOPY=/morello/src/output/morello-sdk/bin/llvm-objcopy \
+OBJDUMP=/morello/src/output/morello-sdk/bin/llvm-objdump \
+RANLIB=/morello/src/output/morello-sdk/bin/llvm-ranlib \
+STRIP=/morello/src/output/morello-sdk/bin/llvm-strip \
+CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include" \
+LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread" \
+CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1" \
+--build=x86_64-pc-linux-gnu \
+--host=aarch64-unknown-freebsd \
+--target=aarch64-unknown-freebsd \
+--with-opt-dir="/morello/src/output/rootfs-morello-purecap/usr" \
+--with-libyaml-dir="/morello/src/output/rootfs-morello-purecap/usr/local" \
 --prefix="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master" \
 --with-thread="pthread" \
 --with-coroutine="ucontext" \
 --enable-mkmf-verbose \
---with-destdir="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master" \
---enable-debug-env \
-optflags="-O0 -fno-omit-frame-pointer" \
-cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1"
+--with-destdir="/morello/src/output/rootfs-morello-purecap/.rubies/ruby-master"
 
 
 -target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/morello-sdk/sysroot-morello-purecap -fuse-ld=lld -Wcheri
@@ -65,7 +90,7 @@ CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/path/to/usr/include/c++/v1"
 --with-opt-dir="/path/to/usr" \
 --prefix="/path/to/.rubies/ruby-master" \
 --with-thread="pthread" \
---with-coroutine="ucontext" 
+--with-coroutine="ucontext"
 
 
 # benchmark 
@@ -83,7 +108,33 @@ CXXFLAGS="-march=morello -mabi=purecap -std=c++17 -I/path/to/usr/include/c++/v1"
 -target aarch64-unknown-freebsd13 --sysroot=/morello/src/output/rootfs-morello-purecap -B/morello/src/output/morello-sdk/bin -mcpu=rainier -march=morello -mabi=purecap -Xclang -morello-vararg=new -Xclang -morello-bounded-memargs
 
 
+/usr/local64/bin/ruby --disable=gems -rrubygems -I../benchmark/lib ../benchmark/benchmark-driver/exe/benchmark-driver  
+--executables="hybrid::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem"  
+--executables="pure-ruby::/home/luih/bench/purecap/build/miniruby -I/home/luih/bench/purecap/lib -I/home/luih/bench/purecap/build -I/home/luih/bench/purecap/build/.ext/common  /home/luih/bench/purecap/tool/runruby.rb --extout=/home/luih/bench/purecap/build/.ext  -- --disable-gems --disable-gem"  
+--executables="hybrid::/home/luih/ruby-3.4.1/build/miniruby -I/home/luih/ruby-3.4.1/lib -I/home/luih/ruby-3.4.1/build -I/home/luih/ruby-3.4.1/build/.ext/common  /home/luih/ruby-3.4.1/tool/runruby.rb --extout=/home/luih/ruby-3.4.1/build/.ext  -- --disable-gems --disable-gem"  
+--executables="pure-ruby::/home/luih/bench/purecap/build/ruby -I/home/luih/bench/purecap/build/.ext/aarch64-freebsd -I/home/luih/bench/purecap/lib -I/home/luih/bench/purecap/build -I/home/luih/bench/purecap/build/.ext/common  /home/luih/bench/purecap/tool/runruby.rb --extout=/home/luih/bench/purecap/build/.ext  -- --disable-gems --disable-gem"  
+--output=markdown --output-compare -v $(find ../benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) 
 
+
+benchmark-driver --executables="hybrid::/home/luih/ruby-3.4.1/build/miniruby -I/home/luih/ruby-3.4.1/lib -I/home/luih/ruby-3.4.1/build -I/home/luih/ruby-3.4.1/build/.ext/common  /home/luih/ruby-3.4.1/tool/runruby.rb --extout=/home/luih/ruby-3.4.1/build/.ext  -- --disable-gems --disable-gem"  --executables="pure::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem" -v ~/ruby-3.4.1/benchmark/bighash.rb 
+benchmark-driver --executables="hybrid::/home/luih/ruby-3.4.1/build/miniruby -I/home/luih/ruby-3.4.1/lib -I/home/luih/ruby-3.4.1/build -I/home/luih/ruby-3.4.1/build/.ext/common  /home/luih/ruby-3.4.1/tool/runruby.rb --extout=/home/luih/ruby-3.4.1/build/.ext  -- --disable-gems --disable-gem"  --executables="pure::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem" -v ~/ruby-3.4.1/benchmark/bighash.rb 
+
+
+benchmark-driver -e 'hybrid::/home/luih/ruby-3.4.1/build/miniruby; pure-ruby::/home/luih/bench/purecap/build/miniruby' \
+--output=markdown --output-compare -v $(find ./benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) > bench/result.md 2>&1
+
+benchmark-driver -e 'hybrid::/home/luih/ruby-3.4.1/build/miniruby; pure-ruby::/home/luih/bench/purecap/build/miniruby' 
+--output=markdown --output-compare -v $(find ./benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) > "bench/result${i}.md" 2>&1
+
+# bench in pure build 
+benchmark-driver -e 'hybrid::/home/luih/bench/installhybrid/.rubies/ruby-master/bin/ruby; pure-ruby::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem' \
+--output=markdown --output-compare -v $(find /home/luih/benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) 
+
+# bench ref 
+/usr/local64/bin/ruby --disable=gems -rrubygems -I../benchmark/lib ../benchmark/benchmark-driver/exe/benchmark-driver  
+--executables="compare-ruby::/usr/local64/bin/ruby --disable=gems -I.ext/common --disable-gem"  
+--executables="built-ruby::./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems --disable-gem"  
+--output=markdown --output-compare -v $(find ../benchmark -maxdepth 1 -name '' -o -name '**.yml' -o -name '**.rb' | sort) 
 
 # hybrid 
 ## test
@@ -157,3 +208,85 @@ CXXFLAGS="--target=aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang 
 --enable-debug-env  
 optflags="-O0 -fno-omit-frame-pointer"  
 cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1” 
+
+
+
+
+
+
+# clang -E -DRUBY_EXPORT -I. -I.ext/include/aarch64-freebsd15.0 -I../include -I.. -I../prism -I../enc/unicode/15.0.0     "../version.c" |  /usr/local64/bin/ruby --disable=gems  "../tool/generic_erb.rb" -o aarch64-freebsd15.0-fake.rb "../template/fake.rb.in"  i=- srcdir=".." BASERUBY="/usr/local64/bin/ruby --disable=gems"  LIBPATHENV="LD_LIBRARY_PATH" PRELOADENV="LD_PRELOAD" LIBRUBY_SO="libruby.so.3.4.1"
+# echo generating enc.mk
+# /usr/local64/bin/ruby --disable=gems  -r./aarch64-freebsd15.0-fake ../enc/make_encmake.rb  --builtin-encs="enc/ascii.o enc/us_ascii.o enc/unicode.o enc/utf_8.o" --builtin-transes="enc/trans/newline.o" --module  enc.mk
+# echo making srcs under enc
+# make -f enc.mk V="0" UNICODE_HDR_DIR="../enc/unicode/15.0.0"  RUBY="/usr/local64/bin/ruby --disable=gems " MINIRUBY="/usr/local64/bin/ruby --disable=gems "   -n srcs
+# echo generating transdb.h
+# /usr/local64/bin/ruby --disable=gems  ../tool/generic_erb.rb -c -o transdb.h ../template/transdb.h.tmpl ../enc/trans enc/trans
+# echo generating makefiles ext/configure-ext.mk
+# mkdir -p ext
+# ./miniruby -I../lib -I. -I.ext/common  ../tool/generic_erb.rb -o ext/configure-ext.mk -c  ../template/configure-ext.mk.tmpl --srcdir=".."  --miniruby="./miniruby -I../lib -I. -I.ext/common " --script-args='--dest-dir=""  --extout=".ext"  --ext-build-dir="./ext"  --mflags="  -n"  --make-flags=" -n "'
+# make -f ext/configure-ext.mk   -n V=0 EXTSTATIC=  gnumake= MINIRUBY="./miniruby -I../lib -I. -I.ext/common "  EXTLDFLAGS="" srcdir=".."
+# echo generating makefile exts.mk
+# ./miniruby -I../lib -I. -I.ext/common  ../tool/generic_erb.rb -o exts.mk -c  ../template/exts.mk.tmpl --gnumake= --configure-exts=ext/configure-ext.mk
+# make -f exts.mk   -n libdir="/home/luih/.rubies/ruby-master/lib" LIBRUBY_EXTS=./.libruby-with-ext.time  EXTENCS="dmyenc.o" BASERUBY="/usr/local64/bin/ruby --disable=gems" MINIRUBY="./miniruby -I../lib -I. -I.ext/common "  
+# make -f exts.mk   -n RUBY="./miniruby -I../lib -I. -I.ext/common " top_srcdir=".." note
+# echo making enc
+# make -f enc.mk V="0" UNICODE_HDR_DIR="../enc/unicode/15.0.0"  RUBY="/usr/local64/bin/ruby --disable=gems " MINIRUBY="/usr/local64/bin/ruby --disable=gems "   -n enc
+# echo making trans
+# make -f enc.mk V="0" UNICODE_HDR_DIR="../enc/unicode/15.0.0"  RUBY="/usr/local64/bin/ruby --disable=gems " MINIRUBY="/usr/local64/bin/ruby --disable=gems "   -n trans
+# echo making encs
+# make -f enc.mk V="0" UNICODE_HDR_DIR="../enc/unicode/15.0.0"  RUBY="/usr/local64/bin/ruby --disable=gems " MINIRUBY="/usr/local64/bin/ruby --disable=gems "   -n encs
+# :
+# > .installed.list set MAKE="make"
+# echo > /dev/null
+# echo Downloading bundled gem files...
+# /usr/local64/bin/ruby --disable=gems -C ".."  -I./tool -rdownloader -answ  -e 'gem, ver = *$F'  -e 'next if !ver or /^#/=~gem'  -e 'old = Dir.glob("gems/#{gem}-*.gem")'  -e 'gem = "#{gem}-#{ver}.gem"'  -e 'Downloader::RubyGems.download(gem, "gems", nil) and'  -e '(old.delete("gems/#{gem}"); !old.empty?) and'  -e 'File.unlink(*old) and'  -e 'FileUtils.rm_rf(old.map{'"|n|"'n.chomp(".gem")})'  gems/bundled_gems
+# /usr/local64/bin/ruby --disable=gems -C ".."  -Itool/lib -rbundled_gem -answ  -e 'BEGIN {git = $git}'  -e 'gem, _, repo, rev = *$F'  -e 'next if !rev or /^#/=~gem'  -e 'gemdir = "gems/src/#{gem}"'  -e 'BundledGem.checkout(gemdir, repo, rev, git: git)'  -e 'BundledGem.dummy_gemspec("#{gemdir}/#{gem}.gemspec")'  -- -git="git"  gems/bundled_gems
+# echo Extracting bundled gem files...
+# /usr/local64/bin/ruby --disable=gems -C ".."  -Itool/lib -rfileutils -rbundled_gem -answ  -e 'BEGIN {d = ".bundle/gems"}'  -e 'gem, ver, _, rev = *$F'  -e 'next if !ver or /^#/=~gem'  -e 'g = "#{gem}-#{ver}"'  -e 'unless File.directory?("#{d}/#{g}")'  -e   'if rev and File.exist?(gs = "gems/src/#{gem}/#{gem}.gemspec")'  -e     'BundledGem.build(gs, ver, "gems")'  -e   'end'  -e   'BundledGem.unpack("gems/#{g}.gem", ".bundle")'  -e 'end'  gems/bundled_gems
+# echo Generating RDoc documentation
+# ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems "../tool/rdoc-srcdir" --ri --op ".ext/rdoc" --no-force-update    .
+# ./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r./aarch64-freebsd15.0-fake ../tool/rbinstall.rb --make="make" --dest-dir=""  --extout=".ext"  --ext-build-dir="./ext"  --mflags="  -n"  --make-flags=" -n "  --data-mode=0644  --prog-mode=0755  --installed-list .installed.list  --mantype="doc"   --install=all --rdoc-output=".ext/rdoc" --html-output=".ext/html"
+
+
+
+# native hybrid 
+
+../configure CC=/usr/local64/bin/clang \
+LD=/usr/local64/bin/ld.lld \
+AR=/usr/local64/bin/llvm-ar \
+AS=/usr/local64/bin/llvm-as \
+CXX=/usr/local64/bin/clang++ \
+NM=/usr/local64/bin/llvm-nm \
+OBJCOPY=/usr/local64/bin/llvm-objcopy \
+OBJDUMP=/usr/local64/bin/llvm-objdump \
+RANLIB=/usr/local64/bin/llvm-ranlib \
+STRIP=/usr/local64/bin/llvm-strip \
+
+CFLAGS="-march=morello -mabi=aapcs"
+
+
+# native hybrid build 
+../configure CC=/usr/local64/bin/clang \
+LD=/usr/local64/bin/ld.lld \
+AR=/usr/local64/bin/llvm-ar \
+AS=/usr/local64/bin/llvm-as \
+CXX=/usr/local64/bin/clang++ \
+NM=/usr/local64/bin/llvm-nm \
+OBJCOPY=/usr/local64/bin/llvm-objcopy \
+OBJDUMP=/usr/local64/bin/llvm-objdump \
+RANLIB=/usr/local64/bin/llvm-ranlib \
+STRIP=/usr/local64/bin/llvm-strip \
+CFLAGS="-march=morello -mabi=aapcs -I/usr/local64/include" \
+LDFLAGS="-march=morello -mabi=aapcs -fuse-ld=lld -lpthread" \
+CXXFLAGS="-march=morello -mabi=aapcs" \
+--build=aarch64-unknown-freebsd \
+--host=aarch64-unknown-freebsd \
+--target=aarch64-unknown-freebsd \
+--with-libyaml-dir="/usr/local64" \
+--prefix="/home/luih/bench/installhybrid/.rubies/ruby-master" \
+--with-thread="pthread" \
+--with-coroutine="ucontext" \
+optflags="-O0 -fno-omit-frame-pointer" 
+
+
+--with-destdir="/home/luih/bench/installhybrid/.rubies/ruby-master" \

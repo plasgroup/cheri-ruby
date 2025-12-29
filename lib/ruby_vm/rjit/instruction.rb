@@ -12,97 +12,97 @@ module RubyVM::RJIT # :nodoc: all
       name: :getlocal,
       bin: 1, # BIN(getlocal)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}, {:decl=>"rb_num_t level", :type=>"rb_num_t", :name=>"level"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}, {decl: "rb_num_t level", type: "rb_num_t", name: "level"}],
     ),
     2 => Instruction.new(
       name: :setlocal,
       bin: 2, # BIN(setlocal)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}, {:decl=>"rb_num_t level", :type=>"rb_num_t", :name=>"level"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}, {decl: "rb_num_t level", type: "rb_num_t", name: "level"}],
     ),
     3 => Instruction.new(
       name: :getblockparam,
       bin: 3, # BIN(getblockparam)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}, {:decl=>"rb_num_t level", :type=>"rb_num_t", :name=>"level"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}, {decl: "rb_num_t level", type: "rb_num_t", name: "level"}],
     ),
     4 => Instruction.new(
       name: :setblockparam,
       bin: 4, # BIN(setblockparam)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}, {:decl=>"rb_num_t level", :type=>"rb_num_t", :name=>"level"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}, {decl: "rb_num_t level", type: "rb_num_t", name: "level"}],
     ),
     5 => Instruction.new(
       name: :getblockparamproxy,
       bin: 5, # BIN(getblockparamproxy)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}, {:decl=>"rb_num_t level", :type=>"rb_num_t", :name=>"level"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}, {decl: "rb_num_t level", type: "rb_num_t", name: "level"}],
     ),
     6 => Instruction.new(
       name: :getspecial,
       bin: 6, # BIN(getspecial)
       len: 3, # insn_len
-      operands: [{:decl=>"rb_num_t key", :type=>"rb_num_t", :name=>"key"}, {:decl=>"rb_num_t type", :type=>"rb_num_t", :name=>"type"}],
+      operands: [{decl: "rb_num_t key", type: "rb_num_t", name: "key"}, {decl: "rb_num_t type", type: "rb_num_t", name: "type"}],
     ),
     7 => Instruction.new(
       name: :setspecial,
       bin: 7, # BIN(setspecial)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t key", :type=>"rb_num_t", :name=>"key"}],
+      operands: [{decl: "rb_num_t key", type: "rb_num_t", name: "key"}],
     ),
     8 => Instruction.new(
       name: :getinstancevariable,
       bin: 8, # BIN(getinstancevariable)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"IVC ic", :type=>"IVC", :name=>"ic"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "IVC ic", type: "IVC", name: "ic"}],
     ),
     9 => Instruction.new(
       name: :setinstancevariable,
       bin: 9, # BIN(setinstancevariable)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"IVC ic", :type=>"IVC", :name=>"ic"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "IVC ic", type: "IVC", name: "ic"}],
     ),
     10 => Instruction.new(
       name: :getclassvariable,
       bin: 10, # BIN(getclassvariable)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"ICVARC ic", :type=>"ICVARC", :name=>"ic"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "ICVARC ic", type: "ICVARC", name: "ic"}],
     ),
     11 => Instruction.new(
       name: :setclassvariable,
       bin: 11, # BIN(setclassvariable)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"ICVARC ic", :type=>"ICVARC", :name=>"ic"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "ICVARC ic", type: "ICVARC", name: "ic"}],
     ),
     12 => Instruction.new(
       name: :opt_getconstant_path,
       bin: 12, # BIN(opt_getconstant_path)
       len: 2, # insn_len
-      operands: [{:decl=>"IC ic", :type=>"IC", :name=>"ic"}],
+      operands: [{decl: "IC ic", type: "IC", name: "ic"}],
     ),
     13 => Instruction.new(
       name: :getconstant,
       bin: 13, # BIN(getconstant)
       len: 2, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}],
     ),
     14 => Instruction.new(
       name: :setconstant,
       bin: 14, # BIN(setconstant)
       len: 2, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}],
     ),
     15 => Instruction.new(
       name: :getglobal,
       bin: 15, # BIN(getglobal)
       len: 2, # insn_len
-      operands: [{:decl=>"ID gid", :type=>"ID", :name=>"gid"}],
+      operands: [{decl: "ID gid", type: "ID", name: "gid"}],
     ),
     16 => Instruction.new(
       name: :setglobal,
       bin: 16, # BIN(setglobal)
       len: 2, # insn_len
-      operands: [{:decl=>"ID gid", :type=>"ID", :name=>"gid"}],
+      operands: [{decl: "ID gid", type: "ID", name: "gid"}],
     ),
     17 => Instruction.new(
       name: :putnil,
@@ -120,31 +120,31 @@ module RubyVM::RJIT # :nodoc: all
       name: :putobject,
       bin: 19, # BIN(putobject)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE val", :type=>"VALUE", :name=>"val"}],
+      operands: [{decl: "VALUE val", type: "VALUE", name: "val"}],
     ),
     20 => Instruction.new(
       name: :putspecialobject,
       bin: 20, # BIN(putspecialobject)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t value_type", :type=>"rb_num_t", :name=>"value_type"}],
+      operands: [{decl: "rb_num_t value_type", type: "rb_num_t", name: "value_type"}],
     ),
     21 => Instruction.new(
       name: :putstring,
       bin: 21, # BIN(putstring)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE str", :type=>"VALUE", :name=>"str"}],
+      operands: [{decl: "VALUE str", type: "VALUE", name: "str"}],
     ),
     22 => Instruction.new(
       name: :putchilledstring,
       bin: 22, # BIN(putchilledstring)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE str", :type=>"VALUE", :name=>"str"}],
+      operands: [{decl: "VALUE str", type: "VALUE", name: "str"}],
     ),
     23 => Instruction.new(
       name: :concatstrings,
       bin: 23, # BIN(concatstrings)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}],
     ),
     24 => Instruction.new(
       name: :anytostring,
@@ -156,7 +156,7 @@ module RubyVM::RJIT # :nodoc: all
       name: :toregexp,
       bin: 25, # BIN(toregexp)
       len: 3, # insn_len
-      operands: [{:decl=>"rb_num_t opt", :type=>"rb_num_t", :name=>"opt"}, {:decl=>"rb_num_t cnt", :type=>"rb_num_t", :name=>"cnt"}],
+      operands: [{decl: "rb_num_t opt", type: "rb_num_t", name: "opt"}, {decl: "rb_num_t cnt", type: "rb_num_t", name: "cnt"}],
     ),
     26 => Instruction.new(
       name: :intern,
@@ -168,7 +168,7 @@ module RubyVM::RJIT # :nodoc: all
       name: :newarray,
       bin: 27, # BIN(newarray)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}],
     ),
     28 => Instruction.new(
       name: :pushtoarraykwsplat,
@@ -180,19 +180,19 @@ module RubyVM::RJIT # :nodoc: all
       name: :duparray,
       bin: 29, # BIN(duparray)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE ary", :type=>"VALUE", :name=>"ary"}],
+      operands: [{decl: "VALUE ary", type: "VALUE", name: "ary"}],
     ),
     30 => Instruction.new(
       name: :duphash,
       bin: 30, # BIN(duphash)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE hash", :type=>"VALUE", :name=>"hash"}],
+      operands: [{decl: "VALUE hash", type: "VALUE", name: "hash"}],
     ),
     31 => Instruction.new(
       name: :expandarray,
       bin: 31, # BIN(expandarray)
       len: 3, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}, {:decl=>"rb_num_t flag", :type=>"rb_num_t", :name=>"flag"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}, {decl: "rb_num_t flag", type: "rb_num_t", name: "flag"}],
     ),
     32 => Instruction.new(
       name: :concatarray,
@@ -210,13 +210,13 @@ module RubyVM::RJIT # :nodoc: all
       name: :pushtoarray,
       bin: 34, # BIN(pushtoarray)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}],
     ),
     35 => Instruction.new(
       name: :splatarray,
       bin: 35, # BIN(splatarray)
       len: 2, # insn_len
-      operands: [{:decl=>"VALUE flag", :type=>"VALUE", :name=>"flag"}],
+      operands: [{decl: "VALUE flag", type: "VALUE", name: "flag"}],
     ),
     36 => Instruction.new(
       name: :splatkw,
@@ -228,13 +228,13 @@ module RubyVM::RJIT # :nodoc: all
       name: :newhash,
       bin: 37, # BIN(newhash)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}],
     ),
     38 => Instruction.new(
       name: :newrange,
       bin: 38, # BIN(newrange)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t flag", :type=>"rb_num_t", :name=>"flag"}],
+      operands: [{decl: "rb_num_t flag", type: "rb_num_t", name: "flag"}],
     ),
     39 => Instruction.new(
       name: :pop,
@@ -252,7 +252,7 @@ module RubyVM::RJIT # :nodoc: all
       name: :dupn,
       bin: 41, # BIN(dupn)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t n", :type=>"rb_num_t", :name=>"n"}],
+      operands: [{decl: "rb_num_t n", type: "rb_num_t", name: "n"}],
     ),
     42 => Instruction.new(
       name: :swap,
@@ -264,157 +264,157 @@ module RubyVM::RJIT # :nodoc: all
       name: :opt_reverse,
       bin: 43, # BIN(opt_reverse)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t n", :type=>"rb_num_t", :name=>"n"}],
+      operands: [{decl: "rb_num_t n", type: "rb_num_t", name: "n"}],
     ),
     44 => Instruction.new(
       name: :topn,
       bin: 44, # BIN(topn)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t n", :type=>"rb_num_t", :name=>"n"}],
+      operands: [{decl: "rb_num_t n", type: "rb_num_t", name: "n"}],
     ),
     45 => Instruction.new(
       name: :setn,
       bin: 45, # BIN(setn)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t n", :type=>"rb_num_t", :name=>"n"}],
+      operands: [{decl: "rb_num_t n", type: "rb_num_t", name: "n"}],
     ),
     46 => Instruction.new(
       name: :adjuststack,
       bin: 46, # BIN(adjuststack)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t n", :type=>"rb_num_t", :name=>"n"}],
+      operands: [{decl: "rb_num_t n", type: "rb_num_t", name: "n"}],
     ),
     47 => Instruction.new(
       name: :defined,
       bin: 47, # BIN(defined)
       len: 4, # insn_len
-      operands: [{:decl=>"rb_num_t op_type", :type=>"rb_num_t", :name=>"op_type"}, {:decl=>"VALUE obj", :type=>"VALUE", :name=>"obj"}, {:decl=>"VALUE pushval", :type=>"VALUE", :name=>"pushval"}],
+      operands: [{decl: "rb_num_t op_type", type: "rb_num_t", name: "op_type"}, {decl: "VALUE obj", type: "VALUE", name: "obj"}, {decl: "VALUE pushval", type: "VALUE", name: "pushval"}],
     ),
     48 => Instruction.new(
       name: :definedivar,
       bin: 48, # BIN(definedivar)
       len: 4, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"IVC ic", :type=>"IVC", :name=>"ic"}, {:decl=>"VALUE pushval", :type=>"VALUE", :name=>"pushval"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "IVC ic", type: "IVC", name: "ic"}, {decl: "VALUE pushval", type: "VALUE", name: "pushval"}],
     ),
     49 => Instruction.new(
       name: :checkmatch,
       bin: 49, # BIN(checkmatch)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t flag", :type=>"rb_num_t", :name=>"flag"}],
+      operands: [{decl: "rb_num_t flag", type: "rb_num_t", name: "flag"}],
     ),
     50 => Instruction.new(
       name: :checkkeyword,
       bin: 50, # BIN(checkkeyword)
       len: 3, # insn_len
-      operands: [{:decl=>"lindex_t kw_bits_index", :type=>"lindex_t", :name=>"kw_bits_index"}, {:decl=>"lindex_t keyword_index", :type=>"lindex_t", :name=>"keyword_index"}],
+      operands: [{decl: "lindex_t kw_bits_index", type: "lindex_t", name: "kw_bits_index"}, {decl: "lindex_t keyword_index", type: "lindex_t", name: "keyword_index"}],
     ),
     51 => Instruction.new(
       name: :checktype,
       bin: 51, # BIN(checktype)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t type", :type=>"rb_num_t", :name=>"type"}],
+      operands: [{decl: "rb_num_t type", type: "rb_num_t", name: "type"}],
     ),
     52 => Instruction.new(
       name: :defineclass,
       bin: 52, # BIN(defineclass)
       len: 4, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"ISEQ class_iseq", :type=>"ISEQ", :name=>"class_iseq"}, {:decl=>"rb_num_t flags", :type=>"rb_num_t", :name=>"flags"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "ISEQ class_iseq", type: "ISEQ", name: "class_iseq"}, {decl: "rb_num_t flags", type: "rb_num_t", name: "flags"}],
     ),
     53 => Instruction.new(
       name: :definemethod,
       bin: 53, # BIN(definemethod)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"ISEQ iseq", :type=>"ISEQ", :name=>"iseq"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "ISEQ iseq", type: "ISEQ", name: "iseq"}],
     ),
     54 => Instruction.new(
       name: :definesmethod,
       bin: 54, # BIN(definesmethod)
       len: 3, # insn_len
-      operands: [{:decl=>"ID id", :type=>"ID", :name=>"id"}, {:decl=>"ISEQ iseq", :type=>"ISEQ", :name=>"iseq"}],
+      operands: [{decl: "ID id", type: "ID", name: "id"}, {decl: "ISEQ iseq", type: "ISEQ", name: "iseq"}],
     ),
     55 => Instruction.new(
       name: :send,
       bin: 55, # BIN(send)
       len: 3, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}, {:decl=>"ISEQ blockiseq", :type=>"ISEQ", :name=>"blockiseq"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}, {decl: "ISEQ blockiseq", type: "ISEQ", name: "blockiseq"}],
     ),
     56 => Instruction.new(
       name: :sendforward,
       bin: 56, # BIN(sendforward)
       len: 3, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}, {:decl=>"ISEQ blockiseq", :type=>"ISEQ", :name=>"blockiseq"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}, {decl: "ISEQ blockiseq", type: "ISEQ", name: "blockiseq"}],
     ),
     57 => Instruction.new(
       name: :opt_send_without_block,
       bin: 57, # BIN(opt_send_without_block)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     58 => Instruction.new(
       name: :objtostring,
       bin: 58, # BIN(objtostring)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     59 => Instruction.new(
       name: :opt_ary_freeze,
       bin: 59, # BIN(opt_ary_freeze)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE ary", :type=>"VALUE", :name=>"ary"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE ary", type: "VALUE", name: "ary"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     60 => Instruction.new(
       name: :opt_hash_freeze,
       bin: 60, # BIN(opt_hash_freeze)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE hash", :type=>"VALUE", :name=>"hash"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE hash", type: "VALUE", name: "hash"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     61 => Instruction.new(
       name: :opt_str_freeze,
       bin: 61, # BIN(opt_str_freeze)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE str", :type=>"VALUE", :name=>"str"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE str", type: "VALUE", name: "str"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     62 => Instruction.new(
       name: :opt_nil_p,
       bin: 62, # BIN(opt_nil_p)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     63 => Instruction.new(
       name: :opt_str_uminus,
       bin: 63, # BIN(opt_str_uminus)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE str", :type=>"VALUE", :name=>"str"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE str", type: "VALUE", name: "str"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     64 => Instruction.new(
       name: :opt_duparray_send,
       bin: 64, # BIN(opt_duparray_send)
       len: 4, # insn_len
-      operands: [{:decl=>"VALUE ary", :type=>"VALUE", :name=>"ary"}, {:decl=>"ID method", :type=>"ID", :name=>"method"}, {:decl=>"rb_num_t argc", :type=>"rb_num_t", :name=>"argc"}],
+      operands: [{decl: "VALUE ary", type: "VALUE", name: "ary"}, {decl: "ID method", type: "ID", name: "method"}, {decl: "rb_num_t argc", type: "rb_num_t", name: "argc"}],
     ),
     65 => Instruction.new(
       name: :opt_newarray_send,
       bin: 65, # BIN(opt_newarray_send)
       len: 3, # insn_len
-      operands: [{:decl=>"rb_num_t num", :type=>"rb_num_t", :name=>"num"}, {:decl=>"rb_num_t method", :type=>"rb_num_t", :name=>"method"}],
+      operands: [{decl: "rb_num_t num", type: "rb_num_t", name: "num"}, {decl: "rb_num_t method", type: "rb_num_t", name: "method"}],
     ),
     66 => Instruction.new(
       name: :invokesuper,
       bin: 66, # BIN(invokesuper)
       len: 3, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}, {:decl=>"ISEQ blockiseq", :type=>"ISEQ", :name=>"blockiseq"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}, {decl: "ISEQ blockiseq", type: "ISEQ", name: "blockiseq"}],
     ),
     67 => Instruction.new(
       name: :invokesuperforward,
       bin: 67, # BIN(invokesuperforward)
       len: 3, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}, {:decl=>"ISEQ blockiseq", :type=>"ISEQ", :name=>"blockiseq"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}, {decl: "ISEQ blockiseq", type: "ISEQ", name: "blockiseq"}],
     ),
     68 => Instruction.new(
       name: :invokeblock,
       bin: 68, # BIN(invokeblock)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     69 => Instruction.new(
       name: :leave,
@@ -426,229 +426,229 @@ module RubyVM::RJIT # :nodoc: all
       name: :throw,
       bin: 70, # BIN(throw)
       len: 2, # insn_len
-      operands: [{:decl=>"rb_num_t throw_state", :type=>"rb_num_t", :name=>"throw_state"}],
+      operands: [{decl: "rb_num_t throw_state", type: "rb_num_t", name: "throw_state"}],
     ),
     71 => Instruction.new(
       name: :jump,
       bin: 71, # BIN(jump)
       len: 2, # insn_len
-      operands: [{:decl=>"OFFSET dst", :type=>"OFFSET", :name=>"dst"}],
+      operands: [{decl: "OFFSET dst", type: "OFFSET", name: "dst"}],
     ),
     72 => Instruction.new(
       name: :branchif,
       bin: 72, # BIN(branchif)
       len: 2, # insn_len
-      operands: [{:decl=>"OFFSET dst", :type=>"OFFSET", :name=>"dst"}],
+      operands: [{decl: "OFFSET dst", type: "OFFSET", name: "dst"}],
     ),
     73 => Instruction.new(
       name: :branchunless,
       bin: 73, # BIN(branchunless)
       len: 2, # insn_len
-      operands: [{:decl=>"OFFSET dst", :type=>"OFFSET", :name=>"dst"}],
+      operands: [{decl: "OFFSET dst", type: "OFFSET", name: "dst"}],
     ),
     74 => Instruction.new(
       name: :branchnil,
       bin: 74, # BIN(branchnil)
       len: 2, # insn_len
-      operands: [{:decl=>"OFFSET dst", :type=>"OFFSET", :name=>"dst"}],
+      operands: [{decl: "OFFSET dst", type: "OFFSET", name: "dst"}],
     ),
     75 => Instruction.new(
       name: :once,
       bin: 75, # BIN(once)
       len: 3, # insn_len
-      operands: [{:decl=>"ISEQ iseq", :type=>"ISEQ", :name=>"iseq"}, {:decl=>"ISE ise", :type=>"ISE", :name=>"ise"}],
+      operands: [{decl: "ISEQ iseq", type: "ISEQ", name: "iseq"}, {decl: "ISE ise", type: "ISE", name: "ise"}],
     ),
     76 => Instruction.new(
       name: :opt_case_dispatch,
       bin: 76, # BIN(opt_case_dispatch)
       len: 3, # insn_len
-      operands: [{:decl=>"CDHASH hash", :type=>"CDHASH", :name=>"hash"}, {:decl=>"OFFSET else_offset", :type=>"OFFSET", :name=>"else_offset"}],
+      operands: [{decl: "CDHASH hash", type: "CDHASH", name: "hash"}, {decl: "OFFSET else_offset", type: "OFFSET", name: "else_offset"}],
     ),
     77 => Instruction.new(
       name: :opt_plus,
       bin: 77, # BIN(opt_plus)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     78 => Instruction.new(
       name: :opt_minus,
       bin: 78, # BIN(opt_minus)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     79 => Instruction.new(
       name: :opt_mult,
       bin: 79, # BIN(opt_mult)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     80 => Instruction.new(
       name: :opt_div,
       bin: 80, # BIN(opt_div)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     81 => Instruction.new(
       name: :opt_mod,
       bin: 81, # BIN(opt_mod)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     82 => Instruction.new(
       name: :opt_eq,
       bin: 82, # BIN(opt_eq)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     83 => Instruction.new(
       name: :opt_neq,
       bin: 83, # BIN(opt_neq)
       len: 3, # insn_len
-      operands: [{:decl=>"CALL_DATA cd_eq", :type=>"CALL_DATA", :name=>"cd_eq"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd_eq", type: "CALL_DATA", name: "cd_eq"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     84 => Instruction.new(
       name: :opt_lt,
       bin: 84, # BIN(opt_lt)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     85 => Instruction.new(
       name: :opt_le,
       bin: 85, # BIN(opt_le)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     86 => Instruction.new(
       name: :opt_gt,
       bin: 86, # BIN(opt_gt)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     87 => Instruction.new(
       name: :opt_ge,
       bin: 87, # BIN(opt_ge)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     88 => Instruction.new(
       name: :opt_ltlt,
       bin: 88, # BIN(opt_ltlt)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     89 => Instruction.new(
       name: :opt_and,
       bin: 89, # BIN(opt_and)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     90 => Instruction.new(
       name: :opt_or,
       bin: 90, # BIN(opt_or)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     91 => Instruction.new(
       name: :opt_aref,
       bin: 91, # BIN(opt_aref)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     92 => Instruction.new(
       name: :opt_aset,
       bin: 92, # BIN(opt_aset)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     93 => Instruction.new(
       name: :opt_aset_with,
       bin: 93, # BIN(opt_aset_with)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE key", :type=>"VALUE", :name=>"key"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE key", type: "VALUE", name: "key"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     94 => Instruction.new(
       name: :opt_aref_with,
       bin: 94, # BIN(opt_aref_with)
       len: 3, # insn_len
-      operands: [{:decl=>"VALUE key", :type=>"VALUE", :name=>"key"}, {:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "VALUE key", type: "VALUE", name: "key"}, {decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     95 => Instruction.new(
       name: :opt_length,
       bin: 95, # BIN(opt_length)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     96 => Instruction.new(
       name: :opt_size,
       bin: 96, # BIN(opt_size)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     97 => Instruction.new(
       name: :opt_empty_p,
       bin: 97, # BIN(opt_empty_p)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     98 => Instruction.new(
       name: :opt_succ,
       bin: 98, # BIN(opt_succ)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     99 => Instruction.new(
       name: :opt_not,
       bin: 99, # BIN(opt_not)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     100 => Instruction.new(
       name: :opt_regexpmatch2,
       bin: 100, # BIN(opt_regexpmatch2)
       len: 2, # insn_len
-      operands: [{:decl=>"CALL_DATA cd", :type=>"CALL_DATA", :name=>"cd"}],
+      operands: [{decl: "CALL_DATA cd", type: "CALL_DATA", name: "cd"}],
     ),
     101 => Instruction.new(
       name: :invokebuiltin,
       bin: 101, # BIN(invokebuiltin)
       len: 2, # insn_len
-      operands: [{:decl=>"RB_BUILTIN bf", :type=>"RB_BUILTIN", :name=>"bf"}],
+      operands: [{decl: "RB_BUILTIN bf", type: "RB_BUILTIN", name: "bf"}],
     ),
     102 => Instruction.new(
       name: :opt_invokebuiltin_delegate,
       bin: 102, # BIN(opt_invokebuiltin_delegate)
       len: 3, # insn_len
-      operands: [{:decl=>"RB_BUILTIN bf", :type=>"RB_BUILTIN", :name=>"bf"}, {:decl=>"rb_num_t index", :type=>"rb_num_t", :name=>"index"}],
+      operands: [{decl: "RB_BUILTIN bf", type: "RB_BUILTIN", name: "bf"}, {decl: "rb_num_t index", type: "rb_num_t", name: "index"}],
     ),
     103 => Instruction.new(
       name: :opt_invokebuiltin_delegate_leave,
       bin: 103, # BIN(opt_invokebuiltin_delegate_leave)
       len: 3, # insn_len
-      operands: [{:decl=>"RB_BUILTIN bf", :type=>"RB_BUILTIN", :name=>"bf"}, {:decl=>"rb_num_t index", :type=>"rb_num_t", :name=>"index"}],
+      operands: [{decl: "RB_BUILTIN bf", type: "RB_BUILTIN", name: "bf"}, {decl: "rb_num_t index", type: "rb_num_t", name: "index"}],
     ),
     104 => Instruction.new(
       name: :getlocal_WC_0,
       bin: 104, # BIN(getlocal_WC_0)
       len: 2, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}],
     ),
     105 => Instruction.new(
       name: :getlocal_WC_1,
       bin: 105, # BIN(getlocal_WC_1)
       len: 2, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}],
     ),
     106 => Instruction.new(
       name: :setlocal_WC_0,
       bin: 106, # BIN(setlocal_WC_0)
       len: 2, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}],
     ),
     107 => Instruction.new(
       name: :setlocal_WC_1,
       bin: 107, # BIN(setlocal_WC_1)
       len: 2, # insn_len
-      operands: [{:decl=>"lindex_t idx", :type=>"lindex_t", :name=>"idx"}],
+      operands: [{decl: "lindex_t idx", type: "lindex_t", name: "idx"}],
     ),
     108 => Instruction.new(
       name: :putobject_INT2FIX_0_,

@@ -30,7 +30,7 @@
 #define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("mr %0,1" : "=r" (*(p)))
 #elif defined(__POWERPC__) && defined(__APPLE__) // Darwin ppc and ppc64
 #define SET_MACHINE_STACK_END(p) __asm__ volatile("mr %0, r1" : "=r" (*(p)))
-#elif defined(__aarch64__) && defined(__GNUC__) //&& !defined(__CHERI_PURE_CAPABILITY__)
+#elif defined(__aarch64__) && defined(__GNUC__) || defined(__CHERI_PURE_CAPABILITY__)
 #define SET_MACHINE_STACK_END(p) __asm__ __volatile__ ("mov\t%0, csp" : "=C" (*(p)))
 #else
 NOINLINE(void rb_gc_set_stack_end(VALUE **stack_end_p));

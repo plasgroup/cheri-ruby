@@ -58,7 +58,7 @@
 # if defined(__i386) || defined(__i386__) || defined(_M_IX86) || \
      defined(__x86_64) || defined(__x86_64__) || defined(_M_AMD64) || \
      defined(__powerpc64__) || defined(__POWERPC__) || defined(__aarch64__) || \
-     defined(__mc68020__)
+     defined(__mc68020__) && !defined(__CHERI_PURE_CAPABILITY__)
 #  define UNALIGNED_WORD_ACCESS 1
 # else
 #  define UNALIGNED_WORD_ACCESS 0

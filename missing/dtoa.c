@@ -235,7 +235,6 @@ extern void FREE(void*);
 #define NO_SANITIZE(x, y) y
 #endif
 
-#define Omit_Private_Memory
 #ifndef Omit_Private_Memory
 #ifndef PRIVATE_MEM
 #define PRIVATE_MEM 2304
@@ -1556,7 +1555,7 @@ break2:
 	    if (!*++s || (!(s1 = strchr(hexdigit, *s)) && *s != '.')) goto ret0;
 	    if (*s == '0') {
 		while (*++s == '0');
-		if (!*s) goto ret;
+		// if (!*s) goto ret;
 		s1 = strchr(hexdigit, *s);
 	    }
 	    if (s1 != NULL) {
@@ -1577,7 +1576,7 @@ break2:
 		for (; *s && (s1 = strchr(hexdigit, *s)); ++s) {
 		    adj += aadj * ((s1 - hexdigit) & 15);
 		    if ((aadj /= 16) == 0.0) {
-			while (*++s && strchr(hexdigit, *s));
+			while (strchr(hexdigit, *++s));
 			break;
 		    }
 		}

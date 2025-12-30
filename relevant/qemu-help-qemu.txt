@@ -1,0 +1,1414 @@
+                     [--qemu-gdb-break-on-cheri-trap | --no-qemu-gdb-break-on-cheri-trap]
+                     [--qemu-gdb-debug-userspace-program QEMU-GDB-DEBUG-USERSPACE-PROGRAM]
+                     [--benchmark-iterations BENCHMARK-ITERATIONS] [--benchmark-with-qemu | --no-benchmark-with-qemu]
+                     [--bsdtar/cmake-options OPTIONS] [--morello-qemu-tests/clean | --morello-qemu-tests/no-clean]
+                     [--morello-qemu-tests/source-directory DIR] [--morello-qemu-tests/build-directory DIR]
+                     [--morello-qemu-tests/use-asan | --morello-qemu-tests/no-use-asan]
+                     [--morello-qemu-tests/use-msan | --morello-qemu-tests/no-use-msan]
+                     [--morello-qemu-tests/auto-var-init {none,zero,pattern}]
+                     [--morello-qemu-tests/skip-update | --morello-qemu-tests/no-skip-update]
+                     [--morello-qemu-tests/reconfigure | --morello-qemu-tests/no-reconfigure | --morello-qemu-tests/force-configure | --morello-qemu-tests/no-force-configure]
+                     [--morello-qemu-tests/install-directory DIR] [--morello-qemu-tests/git-revision REVISION]
+                     [--morello-qemu-tests/repository REPOSITORY]
+                     [--morello-qemu-tests/use-lto | --morello-qemu-tests/no-use-lto]
+                     [--morello-qemu-tests/use-cfi | --morello-qemu-tests/no-use-cfi]
+                     [--morello-qemu-tests/linkage {default,static,dynamic}]
+                     [--morello-qemu-tests/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--upstream-qemu/clean | --upstream-qemu/no-clean]
+                     [--upstream-qemu/use-smbd | --upstream-qemu/no-use-smbd]
+                     [--upstream-qemu/gui | --upstream-qemu/no-gui]
+                     [--upstream-qemu/build-profiler | --upstream-qemu/no-build-profiler]
+                     [--upstream-qemu/enable-plugins | --upstream-qemu/no-enable-plugins]
+                     [--upstream-qemu/full-lto | --upstream-qemu/no-full-lto] [--upstream-qemu/source-directory DIR]
+                     [--upstream-qemu/build-directory DIR] [--upstream-qemu/use-asan | --upstream-qemu/no-use-asan]
+                     [--upstream-qemu/use-msan | --upstream-qemu/no-use-msan]
+                     [--upstream-qemu/auto-var-init {none,zero,pattern}]
+                     [--upstream-qemu/skip-update | --upstream-qemu/no-skip-update]
+                     [--upstream-qemu/reconfigure | --upstream-qemu/no-reconfigure | --upstream-qemu/force-configure | --upstream-qemu/no-force-configure]
+                     [--upstream-qemu/install-directory DIR] [--upstream-qemu/git-revision REVISION]
+                     [--upstream-qemu/repository REPOSITORY] [--upstream-qemu/use-lto | --upstream-qemu/no-use-lto]
+                     [--upstream-qemu/use-cfi | --upstream-qemu/no-use-cfi]
+                     [--upstream-qemu/linkage {default,static,dynamic}]
+                     [--upstream-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--upstream-qemu/configure-options OPTIONS] [--upstream-qemu/targets UPSTREAM-QEMU/TARGETS]
+                     [--qemu/clean | --qemu/no-clean] [--qemu/use-smbd | --qemu/no-use-smbd]
+                     [--qemu/gui | --qemu/no-gui] [--qemu/build-profiler | --qemu/no-build-profiler]
+                     [--qemu/enable-plugins | --qemu/no-enable-plugins] [--qemu/full-lto | --qemu/no-full-lto]
+                     [--qemu/statistics | --qemu/no-statistics] [--qemu/unaligned | --qemu/no-unaligned]
+                     [--qemu/source-directory DIR] [--qemu/build-directory DIR] [--qemu/use-asan | --qemu/no-use-asan]
+                     [--qemu/use-msan | --qemu/no-use-msan] [--qemu/auto-var-init {none,zero,pattern}]
+                     [--qemu/skip-update | --qemu/no-skip-update]
+                     [--qemu/reconfigure | --qemu/no-reconfigure | --qemu/force-configure | --qemu/no-force-configure]
+                     [--qemu/install-directory DIR] [--qemu/git-revision REVISION] [--qemu/repository REPOSITORY]
+                     [--qemu/use-lto | --qemu/no-use-lto] [--qemu/use-cfi | --qemu/no-use-cfi]
+                     [--qemu/linkage {default,static,dynamic}]
+                     [--qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--qemu/configure-options OPTIONS] [--qemu/targets QEMU/TARGETS]
+                     [--cheri-std093-qemu/source-directory DIR] [--cheri-std093-qemu/build-directory DIR]
+                     [--cheri-std093-qemu/use-asan | --cheri-std093-qemu/no-use-asan]
+                     [--cheri-std093-qemu/use-msan | --cheri-std093-qemu/no-use-msan]
+                     [--cheri-std093-qemu/auto-var-init {none,zero,pattern}]
+                     [--cheri-std093-qemu/skip-update | --cheri-std093-qemu/no-skip-update]
+                     [--cheri-std093-qemu/reconfigure | --cheri-std093-qemu/no-reconfigure | --cheri-std093-qemu/force-configure | --cheri-std093-qemu/no-force-configure]
+                     [--cheri-std093-qemu/install-directory DIR] [--cheri-std093-qemu/git-revision REVISION]
+                     [--cheri-std093-qemu/repository REPOSITORY]
+                     [--cheri-std093-qemu/use-lto | --cheri-std093-qemu/no-use-lto]
+                     [--cheri-std093-qemu/use-cfi | --cheri-std093-qemu/no-use-cfi]
+                     [--cheri-std093-qemu/linkage {default,static,dynamic}]
+                     [--cheri-std093-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--cheri-std093-qemu/configure-options OPTIONS]
+                     [--cheri-std093-qemu/targets CHERI-STD093-QEMU/TARGETS] [--llvm/clean | --llvm/no-clean]
+                     [--run-riscv64-purecap/cvtrace | --run-riscv64-purecap/no-cvtrace] [--run/use-qemu RUN/USE-QEMU]
+                     [--run-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run/custom-qemu-path RUN/CUSTOM-QEMU-PATH]
+                     [--run-riscv64-purecap/custom-qemu-path RUN-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-riscv64-hybrid/custom-qemu-path RUN-RISCV64-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-riscv64/custom-qemu-path RUN-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-aarch64/custom-qemu-path RUN-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-amd64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-amd64/custom-qemu-path RUN-AMD64/CUSTOM-QEMU-PATH] [--run-amd64/extra-options QEMU_OPTIONS]
+                     [--run-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-morello-purecap/custom-qemu-path RUN-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-morello-hybrid/custom-qemu-path RUN-MORELLO-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-dm/use-qemu RUN-DM/USE-QEMU]
+                     [--run-dm-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm/custom-qemu-path RUN-DM/CUSTOM-QEMU-PATH]
+                     [--run-dm-riscv64-purecap/custom-qemu-path RUN-DM-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-dm-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-riscv64-hybrid/custom-qemu-path RUN-DM-RISCV64-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-dm-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-riscv64/custom-qemu-path RUN-DM-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-dm-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-aarch64/custom-qemu-path RUN-DM-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-dm-amd64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-amd64/custom-qemu-path RUN-DM-AMD64/CUSTOM-QEMU-PATH]
+                     [--run-dm-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-morello-purecap/custom-qemu-path RUN-DM-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-dm-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-dm-morello-hybrid/custom-qemu-path RUN-DM-MORELLO-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-freebsd/use-qemu RUN-FREEBSD/USE-QEMU]
+                     [--run-freebsd-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd/custom-qemu-path RUN-FREEBSD/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-aarch64/custom-qemu-path RUN-FREEBSD-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-amd64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-amd64/custom-qemu-path RUN-FREEBSD-AMD64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-i386/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-i386/custom-qemu-path RUN-FREEBSD-I386/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-riscv64/custom-qemu-path RUN-FREEBSD-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-mips64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-mips64/custom-qemu-path RUN-FREEBSD-MIPS64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options/use-qemu RUN-FREEBSD-WITH-DEFAULT-OPTIONS/USE-QEMU]
+                     [--run-freebsd-with-default-options-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-with-default-options/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options-aarch64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options-amd64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-with-default-options-amd64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-AMD64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options-i386/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-with-default-options-i386/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-I386/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-with-default-options-riscv64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-freebsd-with-default-options-mips64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freebsd-with-default-options-mips64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-MIPS64/CUSTOM-QEMU-PATH]
+                     [--run-minimal/use-qemu RUN-MINIMAL/USE-QEMU]
+                     [--run-minimal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal/custom-qemu-path RUN-MINIMAL/CUSTOM-QEMU-PATH]
+                     [--run-minimal-riscv64-purecap/custom-qemu-path RUN-MINIMAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-minimal-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-riscv64-hybrid/custom-qemu-path RUN-MINIMAL-RISCV64-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-minimal-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-riscv64/custom-qemu-path RUN-MINIMAL-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-minimal-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-aarch64/custom-qemu-path RUN-MINIMAL-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-minimal-amd64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-amd64/custom-qemu-path RUN-MINIMAL-AMD64/CUSTOM-QEMU-PATH]
+                     [--run-minimal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-morello-purecap/custom-qemu-path RUN-MINIMAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-minimal-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-morello-hybrid/custom-qemu-path RUN-MINIMAL-MORELLO-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-mfs-root/use-qemu RUN-MFS-ROOT/USE-QEMU]
+                     [--run-mfs-root-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-mfs-root/custom-qemu-path RUN-MFS-ROOT/CUSTOM-QEMU-PATH]
+                     [--run-mfs-root-riscv64/custom-qemu-path RUN-MFS-ROOT-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-mfs-root-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-mfs-root-riscv64-hybrid/custom-qemu-path RUN-MFS-ROOT-RISCV64-HYBRID/CUSTOM-QEMU-PATH]
+                     [--run-mfs-root-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-mfs-root-riscv64-purecap/custom-qemu-path RUN-MFS-ROOT-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-cherios/use-qemu RUN-CHERIOS/USE-QEMU]
+                     [--run-cherios-mips64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-cherios/custom-qemu-path RUN-CHERIOS/CUSTOM-QEMU-PATH]
+                     [--run-cherios-mips64/custom-qemu-path RUN-CHERIOS-MIPS64/CUSTOM-QEMU-PATH]
+                     [--run-cherios-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-cherios-riscv64/custom-qemu-path RUN-CHERIOS-RISCV64/CUSTOM-QEMU-PATH]
+                     [--testrig-sail-qemu-cheri-rv64/clean | --testrig-sail-qemu-cheri-rv64/no-clean]
+                     [--testrig-sail-qemu-cheri-rv64/test-implementation-port TESTRIG-SAIL-QEMU-CHERI-RV64/TEST-IMPLEMENTATION-PORT]
+                     [--testrig-sail-qemu-cheri-rv64/non-interactive | --testrig-sail-qemu-cheri-rv64/no-non-interactive]
+                     [--testrig-sail-qemu-cheri-rv64/stop-on-error | --testrig-sail-qemu-cheri-rv64/no-stop-on-error]
+                     [--testrig-sail-qemu-cheri-rv64/rerun-last-failure | --testrig-sail-qemu-cheri-rv64/no-rerun-last-failure]
+                     [--testrig-sail-qemu-cheri-rv64/reduce-last-failure | --testrig-sail-qemu-cheri-rv64/no-reduce-last-failure]
+                     [--testrig-sail-qemu-cheri-rv64/replay-current-traces | --testrig-sail-qemu-cheri-rv64/no-replay-current-traces]
+                     [--testrig-sail-qemu-cheri-rv64/number-of-runs TESTRIG-SAIL-QEMU-CHERI-RV64/NUMBER-OF-RUNS]
+                     [--testrig-sail-qemu-cheri-rv64/test-cheri-only | --testrig-sail-qemu-cheri-rv64/no-test-cheri-only]
+                     [--testrig-sail-qemu-cheri-rv64/extra-vengine-options OPTIONS]
+                     [--testrig-sail-qemu-cheri-rv64/replay-trace TESTRIG-SAIL-QEMU-CHERI-RV64/REPLAY-TRACE]
+                     [--testrig-regression-sail-qemu-cheri-rv64/clean | --testrig-regression-sail-qemu-cheri-rv64/no-clean]
+                     [--testrig-regression-sail-qemu-cheri-rv64/test-implementation-port TESTRIG-REGRESSION-SAIL-QEMU-CHERI-RV64/TEST-IMPLEMENTATION-PORT]
+                     [--testrig-regression-sail-qemu-cheri-rv64/stop-on-error | --testrig-regression-sail-qemu-cheri-rv64/no-stop-on-error]
+                     [--testrig-regression-sail-qemu-cheri-rv64/rerun-last-failure | --testrig-regression-sail-qemu-cheri-rv64/no-rerun-last-failure]
+                     [--testrig-regression-sail-qemu-cheri-rv64/reduce-last-failure | --testrig-regression-sail-qemu-cheri-rv64/no-reduce-last-failure]
+                     [--testrig-regression-sail-qemu-cheri-rv64/extra-vengine-options OPTIONS]
+                     [--run-cheri-microkit/use-qemu RUN-CHERI-MICROKIT/USE-QEMU]
+                     [--run-cheri-microkit-baremetal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-cheri-microkit/custom-qemu-path RUN-CHERI-MICROKIT/CUSTOM-QEMU-PATH]
+                     [--run-cheri-microkit-baremetal-morello-purecap/custom-qemu-path RUN-CHERI-MICROKIT-BAREMETAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-cheri-microkit-baremetal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-cheri-microkit-baremetal-riscv64-purecap/custom-qemu-path RUN-CHERI-MICROKIT-BAREMETAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--cheritest-qemu/clean | --cheritest-qemu/no-clean]
+                     [--cheritest-qemu/run-tests-with-build | --cheritest-qemu/no-run-tests-with-build]
+                     [--cheritest-qemu/source-directory DIR] [--cheritest-qemu/build-directory DIR]
+                     [--cheritest-qemu/use-asan | --cheritest-qemu/no-use-asan]
+                     [--cheritest-qemu/use-msan | --cheritest-qemu/no-use-msan]
+                     [--cheritest-qemu/auto-var-init {none,zero,pattern}]
+                     [--cheritest-qemu/skip-update | --cheritest-qemu/no-skip-update]
+                     [--cheritest-qemu/reconfigure | --cheritest-qemu/no-reconfigure | --cheritest-qemu/force-configure | --cheritest-qemu/no-force-configure]
+                     [--cheritest-qemu/install-directory DIR] [--cheritest-qemu/git-revision REVISION]
+                     [--cheritest-qemu/repository REPOSITORY] [--cheritest-qemu/use-lto | --cheritest-qemu/no-use-lto]
+                     [--cheritest-qemu/use-cfi | --cheritest-qemu/no-use-cfi]
+                     [--cheritest-qemu/linkage {default,static,dynamic}]
+                     [--cheritest-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--cheritest-qemu/single-test CHERITEST-QEMU/SINGLE-TEST]
+                     [--run-freertos/use-qemu RUN-FREERTOS/USE-QEMU]
+                     [--run-freertos-baremetal-newlib-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freertos/custom-qemu-path RUN-FREERTOS/CUSTOM-QEMU-PATH]
+                     [--run-freertos-baremetal-newlib-riscv64-purecap/custom-qemu-path RUN-FREERTOS-BAREMETAL-NEWLIB-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-freertos-baremetal-newlib-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-freertos-baremetal-newlib-riscv64/custom-qemu-path RUN-FREERTOS-BAREMETAL-NEWLIB-RISCV64/CUSTOM-QEMU-PATH]
+                     [--libcxx/nfs-mounted-path-in-qemu LIBCXX/NFS-MOUNTED-PATH-IN-QEMU]
+                     [--libcxx-riscv64/nfs-mounted-path-in-qemu PATH] [--libcxx/ssh-host LIBCXX/SSH-HOST]
+                     [--libcxx-aarch64/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-amd64/nfs-mounted-path-in-qemu PATH] [--libcxx-amd64/ssh-host LIBCXX-AMD64/SSH-HOST]
+                     [--libcxx-riscv64-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-morello-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-native/nfs-mounted-path-in-qemu PATH] [--libcxx-native/ssh-host LIBCXX-NATIVE/SSH-HOST]
+                     [--libcxx-baremetal-newlib-mips64/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-mips64-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv32/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv32-hybrid/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv32-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv64/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv64-hybrid/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-baremetal-newlib-riscv64-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-picolibc-arm32/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-picolibc-riscv32/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-picolibc-riscv64/nfs-mounted-path-in-qemu PATH]
+                     [--libcxx-picolibc-riscv64-purecap/nfs-mounted-path-in-qemu PATH]
+                     [--libunwind/test-against-running-qemu-instance | --libunwind/no-test-against-running-qemu-instance]
+                     [--libunwind-riscv64/test-against-running-qemu-instance | --libunwind-riscv64/no-test-against-running-qemu-instance]
+                     [--libunwind/parallel-qemu-test-jobs LIBUNWIND/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-riscv64/parallel-qemu-test-jobs LIBUNWIND-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-aarch64/test-against-running-qemu-instance | --libunwind-aarch64/no-test-against-running-qemu-instance]
+                     [--libunwind-aarch64/parallel-qemu-test-jobs LIBUNWIND-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-amd64/test-against-running-qemu-instance | --libunwind-amd64/no-test-against-running-qemu-instance]
+                     [--libunwind-amd64/parallel-qemu-test-jobs LIBUNWIND-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-riscv64-purecap/test-against-running-qemu-instance | --libunwind-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-morello-purecap/test-against-running-qemu-instance | --libunwind-morello-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-morello-purecap/parallel-qemu-test-jobs LIBUNWIND-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-native/parallel-qemu-test-jobs LIBUNWIND-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-mips64/test-against-running-qemu-instance | --libunwind-baremetal-newlib-mips64/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-mips64/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-MIPS64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-mips64-purecap/test-against-running-qemu-instance | --libunwind-baremetal-newlib-mips64-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-mips64-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-MIPS64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv32/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv32/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv32/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv32-hybrid/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv32-hybrid/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv32-hybrid/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32-HYBRID/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv32-purecap/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv32-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv32-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv64/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv64/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv64/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv64-hybrid/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv64-hybrid/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv64-hybrid/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64-HYBRID/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-baremetal-newlib-riscv64-purecap/test-against-running-qemu-instance | --libunwind-baremetal-newlib-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-baremetal-newlib-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-picolibc-arm32/test-against-running-qemu-instance | --libunwind-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--libunwind-picolibc-arm32/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-picolibc-riscv32/test-against-running-qemu-instance | --libunwind-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--libunwind-picolibc-riscv32/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-picolibc-riscv64/test-against-running-qemu-instance | --libunwind-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--libunwind-picolibc-riscv64/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-picolibc-riscv64-purecap/test-against-running-qemu-instance | --libunwind-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--libunwind-picolibc-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-freebsd-aarch64/test-against-running-qemu-instance | --libunwind-freebsd-aarch64/no-test-against-running-qemu-instance]
+                     [--libunwind-freebsd-aarch64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-freebsd-amd64/test-against-running-qemu-instance | --libunwind-freebsd-amd64/no-test-against-running-qemu-instance]
+                     [--libunwind-freebsd-amd64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-freebsd-i386/test-against-running-qemu-instance | --libunwind-freebsd-i386/no-test-against-running-qemu-instance]
+                     [--libunwind-freebsd-i386/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-freebsd-riscv64/test-against-running-qemu-instance | --libunwind-freebsd-riscv64/no-test-against-running-qemu-instance]
+                     [--libunwind-freebsd-riscv64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-with-host-compiler/parallel-qemu-test-jobs LIBUNWIND-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--libunwind-with-host-compiler-native/parallel-qemu-test-jobs LIBUNWIND-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-native/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind/test-against-running-qemu-instance | --upstream-libunwind/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-picolibc-arm32/test-against-running-qemu-instance | --upstream-libunwind-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-picolibc-riscv32/test-against-running-qemu-instance | --upstream-libunwind-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-picolibc-riscv64/test-against-running-qemu-instance | --upstream-libunwind-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-picolibc-riscv64-purecap/test-against-running-qemu-instance | --upstream-libunwind-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-freebsd-aarch64/test-against-running-qemu-instance | --upstream-libunwind-freebsd-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-freebsd-amd64/test-against-running-qemu-instance | --upstream-libunwind-freebsd-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-freebsd-i386/test-against-running-qemu-instance | --upstream-libunwind-freebsd-i386/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-freebsd-riscv64/test-against-running-qemu-instance | --upstream-libunwind-freebsd-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-riscv64/test-against-running-qemu-instance | --upstream-libunwind-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-aarch64/test-against-running-qemu-instance | --upstream-libunwind-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-aarch64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-amd64/test-against-running-qemu-instance | --upstream-libunwind-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-amd64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-libunwind-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-riscv64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-libunwind-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-libunwind-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-libunwind-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build/test-against-running-qemu-instance | --compiler-rt-runtimes-build/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-riscv64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-riscv64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-aarch64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-aarch64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-aarch64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-amd64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-amd64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-amd64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-riscv64-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-morello-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-morello-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-morello-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-native/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-mips64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-mips64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-mips64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-MIPS64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-MIPS64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv32/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32-HYBRID/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64-HYBRID/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-picolibc-arm32/test-against-running-qemu-instance | --compiler-rt-runtimes-build-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-picolibc-arm32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-picolibc-riscv32/test-against-running-qemu-instance | --compiler-rt-runtimes-build-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-picolibc-riscv32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-picolibc-riscv64/test-against-running-qemu-instance | --compiler-rt-runtimes-build-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-picolibc-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-picolibc-riscv64-purecap/test-against-running-qemu-instance | --compiler-rt-runtimes-build-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--compiler-rt-runtimes-build-picolibc-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-with-host-compiler/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--compiler-rt-runtimes-build-with-host-compiler-native/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-native/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-arm32/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv32/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-aarch64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-freebsd-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-amd64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-freebsd-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-i386/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-freebsd-i386/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-riscv64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-freebsd-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-riscv64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-aarch64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-aarch64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-amd64/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-amd64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-compiler-rt-runtimes-build-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs/test-against-running-qemu-instance | --llvm-libs/no-test-against-running-qemu-instance]
+                     [--llvm-libs-riscv64/test-against-running-qemu-instance | --llvm-libs-riscv64/no-test-against-running-qemu-instance]
+                     [--llvm-libs/parallel-qemu-test-jobs LLVM-LIBS/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-riscv64/parallel-qemu-test-jobs LLVM-LIBS-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-aarch64/test-against-running-qemu-instance | --llvm-libs-aarch64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-aarch64/parallel-qemu-test-jobs LLVM-LIBS-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-amd64/test-against-running-qemu-instance | --llvm-libs-amd64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-amd64/parallel-qemu-test-jobs LLVM-LIBS-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-riscv64-purecap/test-against-running-qemu-instance | --llvm-libs-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--llvm-libs-riscv64-purecap/parallel-qemu-test-jobs LLVM-LIBS-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-morello-purecap/test-against-running-qemu-instance | --llvm-libs-morello-purecap/no-test-against-running-qemu-instance]
+                     [--llvm-libs-morello-purecap/parallel-qemu-test-jobs LLVM-LIBS-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-native/parallel-qemu-test-jobs LLVM-LIBS-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-picolibc-arm32/test-against-running-qemu-instance | --llvm-libs-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--llvm-libs-picolibc-arm32/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-picolibc-riscv32/test-against-running-qemu-instance | --llvm-libs-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--llvm-libs-picolibc-riscv32/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-picolibc-riscv64/test-against-running-qemu-instance | --llvm-libs-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-picolibc-riscv64/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-picolibc-riscv64-purecap/test-against-running-qemu-instance | --llvm-libs-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--llvm-libs-picolibc-riscv64-purecap/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-freebsd-aarch64/test-against-running-qemu-instance | --llvm-libs-freebsd-aarch64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-freebsd-aarch64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-freebsd-amd64/test-against-running-qemu-instance | --llvm-libs-freebsd-amd64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-freebsd-amd64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-freebsd-i386/test-against-running-qemu-instance | --llvm-libs-freebsd-i386/no-test-against-running-qemu-instance]
+                     [--llvm-libs-freebsd-i386/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-freebsd-riscv64/test-against-running-qemu-instance | --llvm-libs-freebsd-riscv64/no-test-against-running-qemu-instance]
+                     [--llvm-libs-freebsd-riscv64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-with-host-compiler/parallel-qemu-test-jobs LLVM-LIBS-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--llvm-libs-with-host-compiler-native/parallel-qemu-test-jobs LLVM-LIBS-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-native/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs/test-against-running-qemu-instance | --upstream-llvm-libs/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-picolibc-arm32/test-against-running-qemu-instance | --upstream-llvm-libs-picolibc-arm32/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-picolibc-riscv32/test-against-running-qemu-instance | --upstream-llvm-libs-picolibc-riscv32/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-picolibc-riscv64/test-against-running-qemu-instance | --upstream-llvm-libs-picolibc-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-picolibc-riscv64-purecap/test-against-running-qemu-instance | --upstream-llvm-libs-picolibc-riscv64-purecap/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-freebsd-aarch64/test-against-running-qemu-instance | --upstream-llvm-libs-freebsd-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-freebsd-amd64/test-against-running-qemu-instance | --upstream-llvm-libs-freebsd-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-freebsd-i386/test-against-running-qemu-instance | --upstream-llvm-libs-freebsd-i386/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-freebsd-riscv64/test-against-running-qemu-instance | --upstream-llvm-libs-freebsd-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-riscv64/test-against-running-qemu-instance | --upstream-llvm-libs-riscv64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-RISCV64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-aarch64/test-against-running-qemu-instance | --upstream-llvm-libs-aarch64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-aarch64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-AARCH64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-amd64/test-against-running-qemu-instance | --upstream-llvm-libs-amd64/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-amd64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-AMD64/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-riscv64-for-purecap-rootfs/test-against-running-qemu-instance | --upstream-llvm-libs-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance]
+                     [--upstream-llvm-libs-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS]
+                     [--upstream-llvm-libs-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS]
+                     [--run-minimal-linux-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-linux-morello-purecap/custom-qemu-path RUN-MINIMAL-LINUX-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-minimal-linux-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-linux-riscv64-purecap/custom-qemu-path RUN-MINIMAL-LINUX-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-minimal-linux-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-linux-riscv64/custom-qemu-path RUN-MINIMAL-LINUX-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-minimal-linux-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-minimal-linux-aarch64/custom-qemu-path RUN-MINIMAL-LINUX-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel/use-qemu RUN-LITTLEKERNEL/USE-QEMU]
+                     [--run-littlekernel-baremetal-arm32/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel/custom-qemu-path RUN-LITTLEKERNEL/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-arm32/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-ARM32/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-aarch64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-morello-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-morello-aarch64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-MORELLO-AARCH64/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-morello-purecap/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-riscv32/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-riscv32/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV32/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-riscv64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV64/CUSTOM-QEMU-PATH]
+                     [--run-littlekernel-baremetal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-littlekernel-baremetal-riscv64-purecap/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH]
+                     [--run-rtems/use-qemu {default,cheri,morello,upstream,system,custom}]
+                     [--run-rtems/custom-qemu-path RUN-RTEMS/CUSTOM-QEMU-PATH] [--run-rtems/extra-options QEMU_OPTIONS]
+  --run/use-qemu RUN/USE-QEMU
+  --run/custom-qemu-path RUN/CUSTOM-QEMU-PATH
+  --run-dm/use-qemu RUN-DM/USE-QEMU
+  --run-dm/custom-qemu-path RUN-DM/CUSTOM-QEMU-PATH
+  --run-freebsd/use-qemu RUN-FREEBSD/USE-QEMU
+  --run-freebsd/custom-qemu-path RUN-FREEBSD/CUSTOM-QEMU-PATH
+  --run-freebsd-with-default-options/use-qemu RUN-FREEBSD-WITH-DEFAULT-OPTIONS/USE-QEMU
+  --run-freebsd-with-default-options/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS/CUSTOM-QEMU-PATH
+  --run-minimal/use-qemu RUN-MINIMAL/USE-QEMU
+  --run-minimal/custom-qemu-path RUN-MINIMAL/CUSTOM-QEMU-PATH
+  --run-mfs-root/use-qemu RUN-MFS-ROOT/USE-QEMU
+  --run-mfs-root/custom-qemu-path RUN-MFS-ROOT/CUSTOM-QEMU-PATH
+  --run-cherios/use-qemu RUN-CHERIOS/USE-QEMU
+  --run-cherios/custom-qemu-path RUN-CHERIOS/CUSTOM-QEMU-PATH
+  --run-cheri-microkit/use-qemu RUN-CHERI-MICROKIT/USE-QEMU
+  --run-cheri-microkit/custom-qemu-path RUN-CHERI-MICROKIT/CUSTOM-QEMU-PATH
+  --run-freertos/use-qemu RUN-FREERTOS/USE-QEMU
+  --run-freertos/custom-qemu-path RUN-FREERTOS/CUSTOM-QEMU-PATH
+  --libcxx/nfs-mounted-path-in-qemu LIBCXX/NFS-MOUNTED-PATH-IN-QEMU
+  --libunwind/test-against-running-qemu-instance, --libunwind/no-test-against-running-qemu-instance
+  --libunwind/parallel-qemu-test-jobs LIBUNWIND/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-with-host-compiler/parallel-qemu-test-jobs LIBUNWIND-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind/test-against-running-qemu-instance, --upstream-libunwind/no-test-against-running-qemu-instance
+  --upstream-libunwind-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build/test-against-running-qemu-instance, --compiler-rt-runtimes-build/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-with-host-compiler/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs/test-against-running-qemu-instance, --llvm-libs/no-test-against-running-qemu-instance
+  --llvm-libs/parallel-qemu-test-jobs LLVM-LIBS/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-with-host-compiler/parallel-qemu-test-jobs LLVM-LIBS-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs/test-against-running-qemu-instance, --upstream-llvm-libs/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-with-host-compiler/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-WITH-HOST-COMPILER/PARALLEL-QEMU-TEST-JOBS
+  --run-littlekernel/use-qemu RUN-LITTLEKERNEL/USE-QEMU
+  --run-littlekernel/custom-qemu-path RUN-LITTLEKERNEL/CUSTOM-QEMU-PATH
+  --benchmark-with-qemu, --no-benchmark-with-qemu
+  --qemu-gdb-break-on-cheri-trap, --no-qemu-gdb-break-on-cheri-trap
+  --qemu-gdb-debug-userspace-program QEMU-GDB-DEBUG-USERSPACE-PROGRAM
+Options for target 'morello-qemu-tests':
+  --morello-qemu-tests/clean, --morello-qemu-tests/no-clean
+  --morello-qemu-tests/source-directory DIR
+                        Override default source directory for morello-qemu-tests (default: '$SOURCE_ROOT/morello-qemu-
+  --morello-qemu-tests/build-directory DIR
+                        Override default source directory for morello-qemu-tests (default: '$BUILD_ROOT/morello-qemu-
+  --morello-qemu-tests/use-asan, --morello-qemu-tests/no-use-asan
+  --morello-qemu-tests/use-msan, --morello-qemu-tests/no-use-msan
+  --morello-qemu-tests/auto-var-init {none,zero,pattern}
+  --morello-qemu-tests/skip-update, --morello-qemu-tests/no-skip-update
+  --morello-qemu-tests/reconfigure, --morello-qemu-tests/no-reconfigure, --morello-qemu-tests/force-configure, --morello-qemu-tests/no-force-configure
+  --morello-qemu-tests/install-directory DIR
+                        Override default install directory for morello-qemu-tests (default: 'Should not be installed')
+  --morello-qemu-tests/git-revision REVISION
+  --morello-qemu-tests/repository REPOSITORY
+  --morello-qemu-tests/use-lto, --morello-qemu-tests/no-use-lto
+  --morello-qemu-tests/use-cfi, --morello-qemu-tests/no-use-cfi
+  --morello-qemu-tests/linkage {default,static,dynamic}
+  --morello-qemu-tests/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+Options for target 'upstream-qemu':
+  --upstream-qemu/clean, --upstream-qemu/no-clean
+  --upstream-qemu/use-smbd, --upstream-qemu/no-use-smbd
+  --upstream-qemu/gui, --upstream-qemu/no-gui
+  --upstream-qemu/build-profiler, --upstream-qemu/no-build-profiler
+  --upstream-qemu/enable-plugins, --upstream-qemu/no-enable-plugins
+  --upstream-qemu/full-lto, --upstream-qemu/no-full-lto
+  --upstream-qemu/source-directory DIR
+                        Override default source directory for upstream-qemu (default: '$SOURCE_ROOT/upstream-qemu')
+  --upstream-qemu/build-directory DIR
+                        Override default source directory for upstream-qemu (default: '$BUILD_ROOT/upstream-qemu-build')
+  --upstream-qemu/use-asan, --upstream-qemu/no-use-asan
+  --upstream-qemu/use-msan, --upstream-qemu/no-use-msan
+  --upstream-qemu/auto-var-init {none,zero,pattern}
+  --upstream-qemu/skip-update, --upstream-qemu/no-skip-update
+  --upstream-qemu/reconfigure, --upstream-qemu/no-reconfigure, --upstream-qemu/force-configure, --upstream-qemu/no-force-configure
+  --upstream-qemu/install-directory DIR
+                        Override default install directory for upstream-qemu (default: '$INSTALL_ROOT/upstream-qemu')
+  --upstream-qemu/git-revision REVISION
+  --upstream-qemu/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/qemu/qemu.git')
+  --upstream-qemu/use-lto, --upstream-qemu/no-use-lto
+  --upstream-qemu/use-cfi, --upstream-qemu/no-use-cfi
+  --upstream-qemu/linkage {default,static,dynamic}
+  --upstream-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --upstream-qemu/configure-options OPTIONS
+  --upstream-qemu/targets UPSTREAM-QEMU/TARGETS
+Options for target 'qemu':
+  --qemu/clean, --qemu/no-clean
+  --qemu/use-smbd, --qemu/no-use-smbd
+  --qemu/gui, --qemu/no-gui
+  --qemu/build-profiler, --qemu/no-build-profiler
+  --qemu/enable-plugins, --qemu/no-enable-plugins
+  --qemu/full-lto, --qemu/no-full-lto
+  --qemu/statistics, --qemu/no-statistics
+  --qemu/unaligned, --qemu/no-unaligned
+  --qemu/source-directory DIR
+                        Override default source directory for qemu (default: '$SOURCE_ROOT/qemu')
+  --qemu/build-directory DIR
+                        Override default source directory for qemu (default: '$BUILD_ROOT/qemu-build')
+  --qemu/use-asan, --qemu/no-use-asan
+  --qemu/use-msan, --qemu/no-use-msan
+  --qemu/auto-var-init {none,zero,pattern}
+  --qemu/skip-update, --qemu/no-skip-update
+  --qemu/reconfigure, --qemu/no-reconfigure, --qemu/force-configure, --qemu/no-force-configure
+  --qemu/install-directory DIR
+                        Override default install directory for qemu (default: 'The CHERI SDK directory')
+  --qemu/git-revision REVISION
+  --qemu/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/CTSRD-CHERI/qemu.git')
+  --qemu/use-lto, --qemu/no-use-lto
+  --qemu/use-cfi, --qemu/no-use-cfi
+  --qemu/linkage {default,static,dynamic}
+  --qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --qemu/configure-options OPTIONS
+  --qemu/targets QEMU/TARGETS
+Options for target 'cheri-std093-qemu':
+  --cheri-std093-qemu/source-directory DIR
+                        Override default source directory for cheri-std093-qemu (default: '$SOURCE_ROOT/cheri-
+                        std093-qemu')
+  --cheri-std093-qemu/build-directory DIR
+                        Override default source directory for cheri-std093-qemu (default: '$BUILD_ROOT/cheri-
+                        std093-qemu-build')
+  --cheri-std093-qemu/use-asan, --cheri-std093-qemu/no-use-asan
+  --cheri-std093-qemu/use-msan, --cheri-std093-qemu/no-use-msan
+  --cheri-std093-qemu/auto-var-init {none,zero,pattern}
+  --cheri-std093-qemu/skip-update, --cheri-std093-qemu/no-skip-update
+  --cheri-std093-qemu/reconfigure, --cheri-std093-qemu/no-reconfigure, --cheri-std093-qemu/force-configure, --cheri-std093-qemu/no-force-configure
+  --cheri-std093-qemu/install-directory DIR
+                        Override default install directory for cheri-std093-qemu (default: 'The CHERI Alliance SDK
+  --cheri-std093-qemu/git-revision REVISION
+  --cheri-std093-qemu/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/CHERI-Alliance/qemu.git')
+  --cheri-std093-qemu/use-lto, --cheri-std093-qemu/no-use-lto
+  --cheri-std093-qemu/use-cfi, --cheri-std093-qemu/no-use-cfi
+  --cheri-std093-qemu/linkage {default,static,dynamic}
+  --cheri-std093-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --cheri-std093-qemu/configure-options OPTIONS
+  --cheri-std093-qemu/targets CHERI-STD093-QEMU/TARGETS
+  --run-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-riscv64-purecap/custom-qemu-path RUN-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-riscv64-hybrid/custom-qemu-path RUN-RISCV64-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-riscv64/custom-qemu-path RUN-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-aarch64/custom-qemu-path RUN-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-amd64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-amd64/custom-qemu-path RUN-AMD64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-morello-purecap/custom-qemu-path RUN-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-morello-hybrid/custom-qemu-path RUN-MORELLO-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-riscv64-purecap/custom-qemu-path RUN-DM-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-riscv64-hybrid/custom-qemu-path RUN-DM-RISCV64-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-riscv64/custom-qemu-path RUN-DM-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-aarch64/custom-qemu-path RUN-DM-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-amd64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-amd64/custom-qemu-path RUN-DM-AMD64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-morello-purecap/custom-qemu-path RUN-DM-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-dm-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-dm-morello-hybrid/custom-qemu-path RUN-DM-MORELLO-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-aarch64/custom-qemu-path RUN-FREEBSD-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-amd64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-amd64/custom-qemu-path RUN-FREEBSD-AMD64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-i386/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-i386/custom-qemu-path RUN-FREEBSD-I386/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-riscv64/custom-qemu-path RUN-FREEBSD-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-mips64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-mips64/custom-qemu-path RUN-FREEBSD-MIPS64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-with-default-options-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-with-default-options-aarch64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-with-default-options-amd64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-with-default-options-amd64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-AMD64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-with-default-options-i386/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-with-default-options-i386/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-I386/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-with-default-options-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-with-default-options-riscv64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-freebsd-with-default-options-mips64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freebsd-with-default-options-mips64/custom-qemu-path RUN-FREEBSD-WITH-DEFAULT-OPTIONS-MIPS64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-riscv64-purecap/custom-qemu-path RUN-MINIMAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-riscv64-hybrid/custom-qemu-path RUN-MINIMAL-RISCV64-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-riscv64/custom-qemu-path RUN-MINIMAL-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-aarch64/custom-qemu-path RUN-MINIMAL-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-amd64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-amd64/custom-qemu-path RUN-MINIMAL-AMD64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-morello-purecap/custom-qemu-path RUN-MINIMAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-minimal-morello-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-morello-hybrid/custom-qemu-path RUN-MINIMAL-MORELLO-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-mfs-root-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-mfs-root-riscv64/custom-qemu-path RUN-MFS-ROOT-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-mfs-root-riscv64-hybrid/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-mfs-root-riscv64-hybrid/custom-qemu-path RUN-MFS-ROOT-RISCV64-HYBRID/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-mfs-root-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-mfs-root-riscv64-purecap/custom-qemu-path RUN-MFS-ROOT-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-cherios-mips64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-cherios-mips64/custom-qemu-path RUN-CHERIOS-MIPS64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+  --run-cherios-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-cherios-riscv64/custom-qemu-path RUN-CHERIOS-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Run qemu in 'snapshot' mode, changes to the disk image are non-persistent (default: 'False')
+Options for target 'testrig-sail-qemu-cheri-rv64':
+  --testrig-sail-qemu-cheri-rv64/clean, --testrig-sail-qemu-cheri-rv64/no-clean
+  --testrig-sail-qemu-cheri-rv64/test-implementation-port TESTRIG-SAIL-QEMU-CHERI-RV64/TEST-IMPLEMENTATION-PORT
+  --testrig-sail-qemu-cheri-rv64/non-interactive, --testrig-sail-qemu-cheri-rv64/no-non-interactive
+  --testrig-sail-qemu-cheri-rv64/stop-on-error, --testrig-sail-qemu-cheri-rv64/no-stop-on-error
+  --testrig-sail-qemu-cheri-rv64/rerun-last-failure, --testrig-sail-qemu-cheri-rv64/no-rerun-last-failure
+  --testrig-sail-qemu-cheri-rv64/reduce-last-failure, --testrig-sail-qemu-cheri-rv64/no-reduce-last-failure
+  --testrig-sail-qemu-cheri-rv64/replay-current-traces, --testrig-sail-qemu-cheri-rv64/no-replay-current-traces
+  --testrig-sail-qemu-cheri-rv64/number-of-runs TESTRIG-SAIL-QEMU-CHERI-RV64/NUMBER-OF-RUNS
+  --testrig-sail-qemu-cheri-rv64/test-cheri-only, --testrig-sail-qemu-cheri-rv64/no-test-cheri-only
+  --testrig-sail-qemu-cheri-rv64/extra-vengine-options OPTIONS
+  --testrig-sail-qemu-cheri-rv64/replay-trace TESTRIG-SAIL-QEMU-CHERI-RV64/REPLAY-TRACE
+Options for target 'testrig-regression-sail-qemu-cheri-rv64':
+  --testrig-regression-sail-qemu-cheri-rv64/clean, --testrig-regression-sail-qemu-cheri-rv64/no-clean
+  --testrig-regression-sail-qemu-cheri-rv64/test-implementation-port TESTRIG-REGRESSION-SAIL-QEMU-CHERI-RV64/TEST-IMPLEMENTATION-PORT
+  --testrig-regression-sail-qemu-cheri-rv64/stop-on-error, --testrig-regression-sail-qemu-cheri-rv64/no-stop-on-error
+  --testrig-regression-sail-qemu-cheri-rv64/rerun-last-failure, --testrig-regression-sail-qemu-cheri-rv64/no-rerun-last-failure
+  --testrig-regression-sail-qemu-cheri-rv64/reduce-last-failure, --testrig-regression-sail-qemu-cheri-rv64/no-reduce-last-failure
+  --testrig-regression-sail-qemu-cheri-rv64/extra-vengine-options OPTIONS
+  --run-cheri-microkit-baremetal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-cheri-microkit-baremetal-morello-purecap/custom-qemu-path RUN-CHERI-MICROKIT-BAREMETAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-cheri-microkit-baremetal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-cheri-microkit-baremetal-riscv64-purecap/custom-qemu-path RUN-CHERI-MICROKIT-BAREMETAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+Options for target 'cheritest-qemu':
+  --cheritest-qemu/clean, --cheritest-qemu/no-clean
+  --cheritest-qemu/run-tests-with-build, --cheritest-qemu/no-run-tests-with-build
+  --cheritest-qemu/source-directory DIR
+                        Override default source directory for cheritest-qemu (default: '$SOURCE_ROOT/cheritest')
+  --cheritest-qemu/build-directory DIR
+                        Override default source directory for cheritest-qemu (default: '$BUILD_ROOT/cheritest-build')
+  --cheritest-qemu/use-asan, --cheritest-qemu/no-use-asan
+  --cheritest-qemu/use-msan, --cheritest-qemu/no-use-msan
+  --cheritest-qemu/auto-var-init {none,zero,pattern}
+  --cheritest-qemu/skip-update, --cheritest-qemu/no-skip-update
+  --cheritest-qemu/reconfigure, --cheritest-qemu/no-reconfigure, --cheritest-qemu/force-configure, --cheritest-qemu/no-force-configure
+  --cheritest-qemu/install-directory DIR
+                        Override default install directory for cheritest-qemu (default: 'Should not be installed')
+  --cheritest-qemu/git-revision REVISION
+  --cheritest-qemu/repository REPOSITORY
+  --cheritest-qemu/use-lto, --cheritest-qemu/no-use-lto
+  --cheritest-qemu/use-cfi, --cheritest-qemu/no-use-cfi
+  --cheritest-qemu/linkage {default,static,dynamic}
+  --cheritest-qemu/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --cheritest-qemu/single-test CHERITEST-QEMU/SINGLE-TEST
+  --run-freertos-baremetal-newlib-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freertos-baremetal-newlib-riscv64-purecap/custom-qemu-path RUN-FREERTOS-BAREMETAL-NEWLIB-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-freertos-baremetal-newlib-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-freertos-baremetal-newlib-riscv64/custom-qemu-path RUN-FREERTOS-BAREMETAL-NEWLIB-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --libcxx-riscv64/nfs-mounted-path-in-qemu PATH
+  --libcxx-aarch64/nfs-mounted-path-in-qemu PATH
+  --libcxx-amd64/nfs-mounted-path-in-qemu PATH
+  --libcxx-riscv64-purecap/nfs-mounted-path-in-qemu PATH
+  --libcxx-morello-purecap/nfs-mounted-path-in-qemu PATH
+  --libcxx-native/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-mips64/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-mips64-purecap/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv32/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv32-hybrid/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv32-purecap/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv64/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv64-hybrid/nfs-mounted-path-in-qemu PATH
+  --libcxx-baremetal-newlib-riscv64-purecap/nfs-mounted-path-in-qemu PATH
+  --libcxx-picolibc-arm32/nfs-mounted-path-in-qemu PATH
+  --libcxx-picolibc-riscv32/nfs-mounted-path-in-qemu PATH
+  --libcxx-picolibc-riscv64/nfs-mounted-path-in-qemu PATH
+  --libcxx-picolibc-riscv64-purecap/nfs-mounted-path-in-qemu PATH
+  --libunwind-riscv64/test-against-running-qemu-instance, --libunwind-riscv64/no-test-against-running-qemu-instance
+  --libunwind-riscv64/parallel-qemu-test-jobs LIBUNWIND-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-aarch64/test-against-running-qemu-instance, --libunwind-aarch64/no-test-against-running-qemu-instance
+  --libunwind-aarch64/parallel-qemu-test-jobs LIBUNWIND-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-amd64/test-against-running-qemu-instance, --libunwind-amd64/no-test-against-running-qemu-instance
+  --libunwind-amd64/parallel-qemu-test-jobs LIBUNWIND-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-riscv64-purecap/test-against-running-qemu-instance, --libunwind-riscv64-purecap/no-test-against-running-qemu-instance
+  --libunwind-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-morello-purecap/test-against-running-qemu-instance, --libunwind-morello-purecap/no-test-against-running-qemu-instance
+  --libunwind-morello-purecap/parallel-qemu-test-jobs LIBUNWIND-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-native/parallel-qemu-test-jobs LIBUNWIND-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-mips64/test-against-running-qemu-instance, --libunwind-baremetal-newlib-mips64/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-mips64/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-MIPS64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-mips64-purecap/test-against-running-qemu-instance, --libunwind-baremetal-newlib-mips64-purecap/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-mips64-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-MIPS64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv32/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv32/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv32/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv32-hybrid/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv32-hybrid/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv32-hybrid/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32-HYBRID/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv32-purecap/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv32-purecap/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv32-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV32-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv64/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv64/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv64/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv64-hybrid/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv64-hybrid/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv64-hybrid/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64-HYBRID/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-baremetal-newlib-riscv64-purecap/test-against-running-qemu-instance, --libunwind-baremetal-newlib-riscv64-purecap/no-test-against-running-qemu-instance
+  --libunwind-baremetal-newlib-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-BAREMETAL-NEWLIB-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-picolibc-arm32/test-against-running-qemu-instance, --libunwind-picolibc-arm32/no-test-against-running-qemu-instance
+  --libunwind-picolibc-arm32/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-picolibc-riscv32/test-against-running-qemu-instance, --libunwind-picolibc-riscv32/no-test-against-running-qemu-instance
+  --libunwind-picolibc-riscv32/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-picolibc-riscv64/test-against-running-qemu-instance, --libunwind-picolibc-riscv64/no-test-against-running-qemu-instance
+  --libunwind-picolibc-riscv64/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-picolibc-riscv64-purecap/test-against-running-qemu-instance, --libunwind-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --libunwind-picolibc-riscv64-purecap/parallel-qemu-test-jobs LIBUNWIND-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-freebsd-aarch64/test-against-running-qemu-instance, --libunwind-freebsd-aarch64/no-test-against-running-qemu-instance
+  --libunwind-freebsd-aarch64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-freebsd-amd64/test-against-running-qemu-instance, --libunwind-freebsd-amd64/no-test-against-running-qemu-instance
+  --libunwind-freebsd-amd64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-freebsd-i386/test-against-running-qemu-instance, --libunwind-freebsd-i386/no-test-against-running-qemu-instance
+  --libunwind-freebsd-i386/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-freebsd-riscv64/test-against-running-qemu-instance, --libunwind-freebsd-riscv64/no-test-against-running-qemu-instance
+  --libunwind-freebsd-riscv64/parallel-qemu-test-jobs LIBUNWIND-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --libunwind-with-host-compiler-native/parallel-qemu-test-jobs LIBUNWIND-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-native/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-picolibc-arm32/test-against-running-qemu-instance, --upstream-libunwind-picolibc-arm32/no-test-against-running-qemu-instance
+  --upstream-libunwind-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-picolibc-riscv32/test-against-running-qemu-instance, --upstream-libunwind-picolibc-riscv32/no-test-against-running-qemu-instance
+  --upstream-libunwind-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-picolibc-riscv64/test-against-running-qemu-instance, --upstream-libunwind-picolibc-riscv64/no-test-against-running-qemu-instance
+  --upstream-libunwind-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-picolibc-riscv64-purecap/test-against-running-qemu-instance, --upstream-libunwind-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --upstream-libunwind-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-freebsd-aarch64/test-against-running-qemu-instance, --upstream-libunwind-freebsd-aarch64/no-test-against-running-qemu-instance
+  --upstream-libunwind-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-freebsd-amd64/test-against-running-qemu-instance, --upstream-libunwind-freebsd-amd64/no-test-against-running-qemu-instance
+  --upstream-libunwind-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-freebsd-i386/test-against-running-qemu-instance, --upstream-libunwind-freebsd-i386/no-test-against-running-qemu-instance
+  --upstream-libunwind-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-freebsd-riscv64/test-against-running-qemu-instance, --upstream-libunwind-freebsd-riscv64/no-test-against-running-qemu-instance
+  --upstream-libunwind-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-riscv64/test-against-running-qemu-instance, --upstream-libunwind-riscv64/no-test-against-running-qemu-instance
+  --upstream-libunwind-riscv64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-aarch64/test-against-running-qemu-instance, --upstream-libunwind-aarch64/no-test-against-running-qemu-instance
+  --upstream-libunwind-aarch64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-amd64/test-against-running-qemu-instance, --upstream-libunwind-amd64/no-test-against-running-qemu-instance
+  --upstream-libunwind-amd64/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-libunwind-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-libunwind-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-riscv64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-libunwind-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-libunwind-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-libunwind-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-LIBUNWIND-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-riscv64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-riscv64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-aarch64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-aarch64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-aarch64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-amd64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-amd64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-amd64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-riscv64-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-riscv64-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-morello-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-morello-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-morello-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-native/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-mips64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-mips64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-mips64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-MIPS64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-mips64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-MIPS64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv32/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32-hybrid/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32-HYBRID/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv32-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV32-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64-hybrid/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64-HYBRID/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-baremetal-newlib-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-BAREMETAL-NEWLIB-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-picolibc-arm32/test-against-running-qemu-instance, --compiler-rt-runtimes-build-picolibc-arm32/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-picolibc-arm32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-picolibc-riscv32/test-against-running-qemu-instance, --compiler-rt-runtimes-build-picolibc-riscv32/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-picolibc-riscv32/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-picolibc-riscv64/test-against-running-qemu-instance, --compiler-rt-runtimes-build-picolibc-riscv64/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-picolibc-riscv64/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-picolibc-riscv64-purecap/test-against-running-qemu-instance, --compiler-rt-runtimes-build-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --compiler-rt-runtimes-build-picolibc-riscv64-purecap/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --compiler-rt-runtimes-build-with-host-compiler-native/parallel-qemu-test-jobs COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-native/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-picolibc-arm32/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-picolibc-arm32/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv32/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-picolibc-riscv32/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-picolibc-riscv64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-freebsd-aarch64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-freebsd-aarch64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-freebsd-amd64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-freebsd-amd64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-freebsd-i386/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-freebsd-i386/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-freebsd-riscv64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-freebsd-riscv64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-riscv64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-riscv64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-riscv64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-aarch64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-aarch64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-aarch64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-amd64/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-amd64/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-amd64/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-compiler-rt-runtimes-build-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-compiler-rt-runtimes-build-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-COMPILER-RT-RUNTIMES-BUILD-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-riscv64/test-against-running-qemu-instance, --llvm-libs-riscv64/no-test-against-running-qemu-instance
+  --llvm-libs-riscv64/parallel-qemu-test-jobs LLVM-LIBS-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-aarch64/test-against-running-qemu-instance, --llvm-libs-aarch64/no-test-against-running-qemu-instance
+  --llvm-libs-aarch64/parallel-qemu-test-jobs LLVM-LIBS-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-amd64/test-against-running-qemu-instance, --llvm-libs-amd64/no-test-against-running-qemu-instance
+  --llvm-libs-amd64/parallel-qemu-test-jobs LLVM-LIBS-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-riscv64-purecap/test-against-running-qemu-instance, --llvm-libs-riscv64-purecap/no-test-against-running-qemu-instance
+  --llvm-libs-riscv64-purecap/parallel-qemu-test-jobs LLVM-LIBS-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-morello-purecap/test-against-running-qemu-instance, --llvm-libs-morello-purecap/no-test-against-running-qemu-instance
+  --llvm-libs-morello-purecap/parallel-qemu-test-jobs LLVM-LIBS-MORELLO-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-native/parallel-qemu-test-jobs LLVM-LIBS-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-picolibc-arm32/test-against-running-qemu-instance, --llvm-libs-picolibc-arm32/no-test-against-running-qemu-instance
+  --llvm-libs-picolibc-arm32/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-picolibc-riscv32/test-against-running-qemu-instance, --llvm-libs-picolibc-riscv32/no-test-against-running-qemu-instance
+  --llvm-libs-picolibc-riscv32/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-picolibc-riscv64/test-against-running-qemu-instance, --llvm-libs-picolibc-riscv64/no-test-against-running-qemu-instance
+  --llvm-libs-picolibc-riscv64/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-picolibc-riscv64-purecap/test-against-running-qemu-instance, --llvm-libs-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --llvm-libs-picolibc-riscv64-purecap/parallel-qemu-test-jobs LLVM-LIBS-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-freebsd-aarch64/test-against-running-qemu-instance, --llvm-libs-freebsd-aarch64/no-test-against-running-qemu-instance
+  --llvm-libs-freebsd-aarch64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-freebsd-amd64/test-against-running-qemu-instance, --llvm-libs-freebsd-amd64/no-test-against-running-qemu-instance
+  --llvm-libs-freebsd-amd64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-freebsd-i386/test-against-running-qemu-instance, --llvm-libs-freebsd-i386/no-test-against-running-qemu-instance
+  --llvm-libs-freebsd-i386/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-freebsd-riscv64/test-against-running-qemu-instance, --llvm-libs-freebsd-riscv64/no-test-against-running-qemu-instance
+  --llvm-libs-freebsd-riscv64/parallel-qemu-test-jobs LLVM-LIBS-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --llvm-libs-with-host-compiler-native/parallel-qemu-test-jobs LLVM-LIBS-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-native/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-picolibc-arm32/test-against-running-qemu-instance, --upstream-llvm-libs-picolibc-arm32/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-picolibc-arm32/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-ARM32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-picolibc-riscv32/test-against-running-qemu-instance, --upstream-llvm-libs-picolibc-riscv32/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-picolibc-riscv32/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV32/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-picolibc-riscv64/test-against-running-qemu-instance, --upstream-llvm-libs-picolibc-riscv64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-picolibc-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-picolibc-riscv64-purecap/test-against-running-qemu-instance, --upstream-llvm-libs-picolibc-riscv64-purecap/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-picolibc-riscv64-purecap/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-PICOLIBC-RISCV64-PURECAP/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-freebsd-aarch64/test-against-running-qemu-instance, --upstream-llvm-libs-freebsd-aarch64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-freebsd-aarch64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-freebsd-amd64/test-against-running-qemu-instance, --upstream-llvm-libs-freebsd-amd64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-freebsd-amd64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-freebsd-i386/test-against-running-qemu-instance, --upstream-llvm-libs-freebsd-i386/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-freebsd-i386/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-I386/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-freebsd-riscv64/test-against-running-qemu-instance, --upstream-llvm-libs-freebsd-riscv64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-freebsd-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-FREEBSD-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-riscv64/test-against-running-qemu-instance, --upstream-llvm-libs-riscv64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-riscv64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-RISCV64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-aarch64/test-against-running-qemu-instance, --upstream-llvm-libs-aarch64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-aarch64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-AARCH64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-amd64/test-against-running-qemu-instance, --upstream-llvm-libs-amd64/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-amd64/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-AMD64/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-morello-aarch64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-MORELLO-AARCH64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-riscv64-for-purecap-rootfs/test-against-running-qemu-instance, --upstream-llvm-libs-riscv64-for-purecap-rootfs/no-test-against-running-qemu-instance
+  --upstream-llvm-libs-riscv64-for-purecap-rootfs/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-RISCV64-FOR-PURECAP-ROOTFS/PARALLEL-QEMU-TEST-JOBS
+  --upstream-llvm-libs-with-host-compiler-native/parallel-qemu-test-jobs UPSTREAM-LLVM-LIBS-WITH-HOST-COMPILER-NATIVE/PARALLEL-QEMU-TEST-JOBS
+  --run-minimal-linux-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-linux-morello-purecap/custom-qemu-path RUN-MINIMAL-LINUX-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-minimal-linux-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-linux-riscv64-purecap/custom-qemu-path RUN-MINIMAL-LINUX-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-minimal-linux-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-linux-riscv64/custom-qemu-path RUN-MINIMAL-LINUX-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-minimal-linux-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-minimal-linux-aarch64/custom-qemu-path RUN-MINIMAL-LINUX-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-arm32/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-arm32/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-ARM32/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-aarch64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-morello-aarch64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-morello-aarch64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-MORELLO-AARCH64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-morello-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-morello-purecap/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-MORELLO-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-riscv32/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-riscv32/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV32/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-riscv64/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-riscv64/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV64/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-littlekernel-baremetal-riscv64-purecap/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-littlekernel-baremetal-riscv64-purecap/custom-qemu-path RUN-LITTLEKERNEL-BAREMETAL-RISCV64-PURECAP/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+  --run-rtems/use-qemu {default,cheri,morello,upstream,system,custom}
+                        The QEMU type to run with. When set to 'custom', the 'custom-qemu-path' option must also be set.
+  --run-rtems/custom-qemu-path RUN-RTEMS/CUSTOM-QEMU-PATH
+                        Additional command line flags to pass to qemu-system (default: '[]')
+                        If set QEMU will provide this directory over smb with the name //10.0.2.4/qemu for use with
+                        Custom script to source to setup PATH and quartus, default to using cheri-cpu/cheri/setup.sh
+                     [--dlmalloc/zero-memory | --dlmalloc/no-zero-memory]
+                     [--dlmalloc-riscv64/zero-memory | --dlmalloc-riscv64/no-zero-memory]
+                     [--dlmalloc-aarch64/zero-memory | --dlmalloc-aarch64/no-zero-memory]
+                     [--dlmalloc-amd64/zero-memory | --dlmalloc-amd64/no-zero-memory]
+                     [--dlmalloc-riscv64-purecap/zero-memory | --dlmalloc-riscv64-purecap/no-zero-memory]
+                     [--dlmalloc-morello-purecap/zero-memory | --dlmalloc-morello-purecap/no-zero-memory]
+                     [--dlmalloc-native/zero-memory | --dlmalloc-native/no-zero-memory]
+                     [--libevent-native/cmake-options OPTIONS] [--libmemwalk/clean | --libmemwalk/no-clean]
+                     [--libmemwalk-riscv64/clean | --libmemwalk-riscv64/no-clean]
+                     [--libmemwalk/source-directory LIBMEMWALK/SOURCE-DIRECTORY]
+                     [--libmemwalk-riscv64/source-directory DIR] [--libmemwalk-riscv64/build-directory DIR]
+                     [--libmemwalk/use-asan | --libmemwalk/no-use-asan]
+                     [--libmemwalk-riscv64/use-asan | --libmemwalk-riscv64/no-use-asan]
+                     [--libmemwalk/auto-var-init LIBMEMWALK/AUTO-VAR-INIT]
+                     [--libmemwalk-riscv64/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk/skip-update | --libmemwalk/no-skip-update]
+                     [--libmemwalk-riscv64/skip-update | --libmemwalk-riscv64/no-skip-update]
+                     [--libmemwalk/reconfigure | --libmemwalk/no-reconfigure]
+                     [--libmemwalk-riscv64/reconfigure | --libmemwalk-riscv64/no-reconfigure | --libmemwalk-riscv64/force-configure | --libmemwalk-riscv64/no-force-configure]
+                     [--libmemwalk/install-directory LIBMEMWALK/INSTALL-DIRECTORY]
+                     [--libmemwalk-riscv64/install-directory DIR] [--libmemwalk/git-revision LIBMEMWALK/GIT-REVISION]
+                     [--libmemwalk-riscv64/git-revision REVISION] [--libmemwalk/repository LIBMEMWALK/REPOSITORY]
+                     [--libmemwalk-riscv64/repository REPOSITORY] [--libmemwalk/use-lto | --libmemwalk/no-use-lto]
+                     [--libmemwalk-riscv64/use-lto | --libmemwalk-riscv64/no-use-lto]
+                     [--libmemwalk/use-cfi | --libmemwalk/no-use-cfi]
+                     [--libmemwalk-riscv64/use-cfi | --libmemwalk-riscv64/no-use-cfi]
+                     [--libmemwalk/linkage LIBMEMWALK/LINKAGE] [--libmemwalk-riscv64/linkage {default,static,dynamic}]
+                     [--libmemwalk/build-type LIBMEMWALK/BUILD-TYPE]
+                     [--libmemwalk-riscv64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk/cmake-options LIBMEMWALK/CMAKE-OPTIONS] [--libmemwalk-riscv64/cmake-options OPTIONS]
+                     [--libmemwalk-aarch64/clean | --libmemwalk-aarch64/no-clean]
+                     [--libmemwalk-aarch64/source-directory DIR] [--libmemwalk-aarch64/build-directory DIR]
+                     [--libmemwalk-aarch64/use-asan | --libmemwalk-aarch64/no-use-asan]
+                     [--libmemwalk-aarch64/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk-aarch64/skip-update | --libmemwalk-aarch64/no-skip-update]
+                     [--libmemwalk-aarch64/reconfigure | --libmemwalk-aarch64/no-reconfigure | --libmemwalk-aarch64/force-configure | --libmemwalk-aarch64/no-force-configure]
+                     [--libmemwalk-aarch64/install-directory DIR] [--libmemwalk-aarch64/git-revision REVISION]
+                     [--libmemwalk-aarch64/repository REPOSITORY]
+                     [--libmemwalk-aarch64/use-lto | --libmemwalk-aarch64/no-use-lto]
+                     [--libmemwalk-aarch64/use-cfi | --libmemwalk-aarch64/no-use-cfi]
+                     [--libmemwalk-aarch64/linkage {default,static,dynamic}]
+                     [--libmemwalk-aarch64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk-aarch64/cmake-options OPTIONS]
+                     [--libmemwalk-amd64/clean | --libmemwalk-amd64/no-clean] [--libmemwalk-amd64/source-directory DIR]
+                     [--libmemwalk-amd64/build-directory DIR]
+                     [--libmemwalk-amd64/use-asan | --libmemwalk-amd64/no-use-asan]
+                     [--libmemwalk-amd64/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk-amd64/skip-update | --libmemwalk-amd64/no-skip-update]
+                     [--libmemwalk-amd64/reconfigure | --libmemwalk-amd64/no-reconfigure | --libmemwalk-amd64/force-configure | --libmemwalk-amd64/no-force-configure]
+                     [--libmemwalk-amd64/install-directory DIR] [--libmemwalk-amd64/git-revision REVISION]
+                     [--libmemwalk-amd64/repository REPOSITORY]
+                     [--libmemwalk-amd64/use-lto | --libmemwalk-amd64/no-use-lto]
+                     [--libmemwalk-amd64/use-cfi | --libmemwalk-amd64/no-use-cfi]
+                     [--libmemwalk-amd64/linkage {default,static,dynamic}]
+                     [--libmemwalk-amd64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk-amd64/cmake-options OPTIONS]
+                     [--libmemwalk-riscv64-purecap/clean | --libmemwalk-riscv64-purecap/no-clean]
+                     [--libmemwalk-riscv64-purecap/source-directory DIR]
+                     [--libmemwalk-riscv64-purecap/build-directory DIR]
+                     [--libmemwalk-riscv64-purecap/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk-riscv64-purecap/skip-update | --libmemwalk-riscv64-purecap/no-skip-update]
+                     [--libmemwalk-riscv64-purecap/reconfigure | --libmemwalk-riscv64-purecap/no-reconfigure | --libmemwalk-riscv64-purecap/force-configure | --libmemwalk-riscv64-purecap/no-force-configure]
+                     [--libmemwalk-riscv64-purecap/install-directory DIR]
+                     [--libmemwalk-riscv64-purecap/git-revision REVISION]
+                     [--libmemwalk-riscv64-purecap/repository REPOSITORY]
+                     [--libmemwalk-riscv64-purecap/use-lto | --libmemwalk-riscv64-purecap/no-use-lto]
+                     [--libmemwalk-riscv64-purecap/linkage {default,static,dynamic}]
+                     [--libmemwalk-riscv64-purecap/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk-riscv64-purecap/cmake-options OPTIONS]
+                     [--libmemwalk-morello-purecap/clean | --libmemwalk-morello-purecap/no-clean]
+                     [--libmemwalk-morello-purecap/source-directory DIR]
+                     [--libmemwalk-morello-purecap/build-directory DIR]
+                     [--libmemwalk-morello-purecap/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk-morello-purecap/skip-update | --libmemwalk-morello-purecap/no-skip-update]
+                     [--libmemwalk-morello-purecap/reconfigure | --libmemwalk-morello-purecap/no-reconfigure | --libmemwalk-morello-purecap/force-configure | --libmemwalk-morello-purecap/no-force-configure]
+                     [--libmemwalk-morello-purecap/install-directory DIR]
+                     [--libmemwalk-morello-purecap/git-revision REVISION]
+                     [--libmemwalk-morello-purecap/repository REPOSITORY]
+                     [--libmemwalk-morello-purecap/use-lto | --libmemwalk-morello-purecap/no-use-lto]
+                     [--libmemwalk-morello-purecap/linkage {default,static,dynamic}]
+                     [--libmemwalk-morello-purecap/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk-morello-purecap/cmake-options OPTIONS]
+                     [--libmemwalk-native/clean | --libmemwalk-native/no-clean]
+                     [--libmemwalk-native/source-directory DIR] [--libmemwalk-native/build-directory DIR]
+                     [--libmemwalk-native/use-asan | --libmemwalk-native/no-use-asan]
+                     [--libmemwalk/use-msan | --libmemwalk/no-use-msan]
+                     [--libmemwalk-native/use-msan | --libmemwalk-native/no-use-msan]
+                     [--libmemwalk-native/auto-var-init {none,zero,pattern}]
+                     [--libmemwalk-native/skip-update | --libmemwalk-native/no-skip-update]
+                     [--libmemwalk-native/reconfigure | --libmemwalk-native/no-reconfigure | --libmemwalk-native/force-configure | --libmemwalk-native/no-force-configure]
+                     [--libmemwalk-native/install-directory DIR] [--libmemwalk-native/git-revision REVISION]
+                     [--libmemwalk-native/repository REPOSITORY]
+                     [--libmemwalk-native/use-lto | --libmemwalk-native/no-use-lto]
+                     [--libmemwalk-native/use-cfi | --libmemwalk-native/no-use-cfi]
+                     [--libmemwalk-native/linkage {default,static,dynamic}]
+                     [--libmemwalk-native/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}]
+                     [--libmemwalk-native/cmake-options OPTIONS] [--libtiff/clean | --libtiff/no-clean]
+  --dlmalloc/zero-memory, --dlmalloc/no-zero-memory
+  --libmemwalk/clean, --libmemwalk/no-clean
+  --libmemwalk/source-directory LIBMEMWALK/SOURCE-DIRECTORY
+  --libmemwalk/use-asan, --libmemwalk/no-use-asan
+  --libmemwalk/auto-var-init LIBMEMWALK/AUTO-VAR-INIT
+  --libmemwalk/skip-update, --libmemwalk/no-skip-update
+  --libmemwalk/reconfigure, --libmemwalk/no-reconfigure
+  --libmemwalk/install-directory LIBMEMWALK/INSTALL-DIRECTORY
+  --libmemwalk/git-revision LIBMEMWALK/GIT-REVISION
+  --libmemwalk/repository LIBMEMWALK/REPOSITORY
+  --libmemwalk/use-lto, --libmemwalk/no-use-lto
+  --libmemwalk/use-cfi, --libmemwalk/no-use-cfi
+  --libmemwalk/linkage LIBMEMWALK/LINKAGE
+  --libmemwalk/build-type LIBMEMWALK/BUILD-TYPE
+  --libmemwalk/cmake-options LIBMEMWALK/CMAKE-OPTIONS
+  --libmemwalk/use-msan, --libmemwalk/no-use-msan
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-riscv64/zero-memory, --dlmalloc-riscv64/no-zero-memory
+                        Zero allocated memory (default: 'False')
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-aarch64/zero-memory, --dlmalloc-aarch64/no-zero-memory
+                        Zero allocated memory (default: 'False')
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-amd64/zero-memory, --dlmalloc-amd64/no-zero-memory
+                        Zero allocated memory (default: 'False')
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-riscv64-purecap/zero-memory, --dlmalloc-riscv64-purecap/no-zero-memory
+                        Zero allocated memory (default: 'False')
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-morello-purecap/zero-memory, --dlmalloc-morello-purecap/no-zero-memory
+                        Zero allocated memory (default: 'False')
+                        Quarantine memory absolute threshold
+                        Quarantine memory ratio threshold
+                        Consolidate memory when quarantining (default: 'True')
+  --dlmalloc-native/zero-memory, --dlmalloc-native/no-zero-memory
+                        Zero allocated memory (default: 'False')
+Options for target 'libmemwalk-riscv64':
+  --libmemwalk-riscv64/clean, --libmemwalk-riscv64/no-clean
+  --libmemwalk-riscv64/source-directory DIR
+                        Override default source directory for libmemwalk-riscv64 (default: '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-riscv64/build-directory DIR
+                        Override default source directory for libmemwalk-riscv64 (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-riscv64/use-asan, --libmemwalk-riscv64/no-use-asan
+  --libmemwalk-riscv64/auto-var-init {none,zero,pattern}
+  --libmemwalk-riscv64/skip-update, --libmemwalk-riscv64/no-skip-update
+  --libmemwalk-riscv64/reconfigure, --libmemwalk-riscv64/no-reconfigure, --libmemwalk-riscv64/force-configure, --libmemwalk-riscv64/no-force-configure
+  --libmemwalk-riscv64/install-directory DIR
+                        Override default install directory for libmemwalk-riscv64 (default: 'The rootfs for this target
+  --libmemwalk-riscv64/git-revision REVISION
+  --libmemwalk-riscv64/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-riscv64/use-lto, --libmemwalk-riscv64/no-use-lto
+  --libmemwalk-riscv64/use-cfi, --libmemwalk-riscv64/no-use-cfi
+  --libmemwalk-riscv64/linkage {default,static,dynamic}
+  --libmemwalk-riscv64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-riscv64/cmake-options OPTIONS
+Options for target 'libmemwalk-aarch64':
+  --libmemwalk-aarch64/clean, --libmemwalk-aarch64/no-clean
+  --libmemwalk-aarch64/source-directory DIR
+                        Override default source directory for libmemwalk-aarch64 (default: '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-aarch64/build-directory DIR
+                        Override default source directory for libmemwalk-aarch64 (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-aarch64/use-asan, --libmemwalk-aarch64/no-use-asan
+  --libmemwalk-aarch64/auto-var-init {none,zero,pattern}
+  --libmemwalk-aarch64/skip-update, --libmemwalk-aarch64/no-skip-update
+  --libmemwalk-aarch64/reconfigure, --libmemwalk-aarch64/no-reconfigure, --libmemwalk-aarch64/force-configure, --libmemwalk-aarch64/no-force-configure
+  --libmemwalk-aarch64/install-directory DIR
+                        Override default install directory for libmemwalk-aarch64 (default: 'The rootfs for this target
+  --libmemwalk-aarch64/git-revision REVISION
+  --libmemwalk-aarch64/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-aarch64/use-lto, --libmemwalk-aarch64/no-use-lto
+  --libmemwalk-aarch64/use-cfi, --libmemwalk-aarch64/no-use-cfi
+  --libmemwalk-aarch64/linkage {default,static,dynamic}
+  --libmemwalk-aarch64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-aarch64/cmake-options OPTIONS
+Options for target 'libmemwalk-amd64':
+  --libmemwalk-amd64/clean, --libmemwalk-amd64/no-clean
+  --libmemwalk-amd64/source-directory DIR
+                        Override default source directory for libmemwalk-amd64 (default: '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-amd64/build-directory DIR
+                        Override default source directory for libmemwalk-amd64 (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-amd64/use-asan, --libmemwalk-amd64/no-use-asan
+  --libmemwalk-amd64/auto-var-init {none,zero,pattern}
+  --libmemwalk-amd64/skip-update, --libmemwalk-amd64/no-skip-update
+  --libmemwalk-amd64/reconfigure, --libmemwalk-amd64/no-reconfigure, --libmemwalk-amd64/force-configure, --libmemwalk-amd64/no-force-configure
+  --libmemwalk-amd64/install-directory DIR
+                        Override default install directory for libmemwalk-amd64 (default: 'The rootfs for this target
+  --libmemwalk-amd64/git-revision REVISION
+  --libmemwalk-amd64/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-amd64/use-lto, --libmemwalk-amd64/no-use-lto
+  --libmemwalk-amd64/use-cfi, --libmemwalk-amd64/no-use-cfi
+  --libmemwalk-amd64/linkage {default,static,dynamic}
+  --libmemwalk-amd64/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-amd64/cmake-options OPTIONS
+Options for target 'libmemwalk-riscv64-purecap':
+  --libmemwalk-riscv64-purecap/clean, --libmemwalk-riscv64-purecap/no-clean
+  --libmemwalk-riscv64-purecap/source-directory DIR
+                        Override default source directory for libmemwalk-riscv64-purecap (default:
+                        '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-riscv64-purecap/build-directory DIR
+                        Override default source directory for libmemwalk-riscv64-purecap (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-riscv64-purecap/auto-var-init {none,zero,pattern}
+  --libmemwalk-riscv64-purecap/skip-update, --libmemwalk-riscv64-purecap/no-skip-update
+  --libmemwalk-riscv64-purecap/reconfigure, --libmemwalk-riscv64-purecap/no-reconfigure, --libmemwalk-riscv64-purecap/force-configure, --libmemwalk-riscv64-purecap/no-force-configure
+  --libmemwalk-riscv64-purecap/install-directory DIR
+                        Override default install directory for libmemwalk-riscv64-purecap (default: 'The rootfs for this
+  --libmemwalk-riscv64-purecap/git-revision REVISION
+  --libmemwalk-riscv64-purecap/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-riscv64-purecap/use-lto, --libmemwalk-riscv64-purecap/no-use-lto
+  --libmemwalk-riscv64-purecap/linkage {default,static,dynamic}
+  --libmemwalk-riscv64-purecap/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-riscv64-purecap/cmake-options OPTIONS
+Options for target 'libmemwalk-morello-purecap':
+  --libmemwalk-morello-purecap/clean, --libmemwalk-morello-purecap/no-clean
+  --libmemwalk-morello-purecap/source-directory DIR
+                        Override default source directory for libmemwalk-morello-purecap (default:
+                        '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-morello-purecap/build-directory DIR
+                        Override default source directory for libmemwalk-morello-purecap (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-morello-purecap/auto-var-init {none,zero,pattern}
+  --libmemwalk-morello-purecap/skip-update, --libmemwalk-morello-purecap/no-skip-update
+  --libmemwalk-morello-purecap/reconfigure, --libmemwalk-morello-purecap/no-reconfigure, --libmemwalk-morello-purecap/force-configure, --libmemwalk-morello-purecap/no-force-configure
+  --libmemwalk-morello-purecap/install-directory DIR
+                        Override default install directory for libmemwalk-morello-purecap (default: 'The rootfs for this
+  --libmemwalk-morello-purecap/git-revision REVISION
+  --libmemwalk-morello-purecap/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-morello-purecap/use-lto, --libmemwalk-morello-purecap/no-use-lto
+  --libmemwalk-morello-purecap/linkage {default,static,dynamic}
+  --libmemwalk-morello-purecap/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-morello-purecap/cmake-options OPTIONS
+Options for target 'libmemwalk-native':
+  --libmemwalk-native/clean, --libmemwalk-native/no-clean
+  --libmemwalk-native/source-directory DIR
+                        Override default source directory for libmemwalk-native (default: '$SOURCE_ROOT/libmemwalk')
+  --libmemwalk-native/build-directory DIR
+                        Override default source directory for libmemwalk-native (default:
+                        '$BUILD_ROOT/libmemwalk-$TARGET-build')
+  --libmemwalk-native/use-asan, --libmemwalk-native/no-use-asan
+  --libmemwalk-native/use-msan, --libmemwalk-native/no-use-msan
+  --libmemwalk-native/auto-var-init {none,zero,pattern}
+  --libmemwalk-native/skip-update, --libmemwalk-native/no-skip-update
+  --libmemwalk-native/reconfigure, --libmemwalk-native/no-reconfigure, --libmemwalk-native/force-configure, --libmemwalk-native/no-force-configure
+  --libmemwalk-native/install-directory DIR
+                        Override default install directory for libmemwalk-native (default: 'The sysroot for this target
+  --libmemwalk-native/git-revision REVISION
+  --libmemwalk-native/repository REPOSITORY
+                        The URL of the git repository (default: 'https://github.com/zxombie/libmemwalk.git')
+  --libmemwalk-native/use-lto, --libmemwalk-native/no-use-lto
+  --libmemwalk-native/use-cfi, --libmemwalk-native/no-use-cfi
+  --libmemwalk-native/linkage {default,static,dynamic}
+  --libmemwalk-native/build-type {Default,Debug,Release,RelWithDebInfo,MinSizeRel,MinSizeRelWithDebInfo}
+  --libmemwalk-native/cmake-options OPTIONS
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')
+                        Quarantine physical memory per allocator threshold
+                        Specify memory decommit policy
+                        Specify memory decommit policy (default: 'False')

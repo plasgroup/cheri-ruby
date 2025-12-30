@@ -25,6 +25,29 @@ CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -
 optflags="-O0 -fno-omit-frame-pointer" \
 cppflags="-DRUBY_DEBUG=1 -DUSE_RUBY_DEBUG_LOG=1"
 
+# cross pure build morello qemu 
+../configure CC=/morello/src/output/morello-sdk/bin/clang \
+LD=/morello/src/output/morello-sdk/bin/ld.lld \
+AR=/morello/src/output/morello-sdk/bin/llvm-ar \
+AS=/morello/src/output/morello-sdk/bin/llvm-as \
+CXX=/morello/src/output/morello-sdk/bin/clang++ \
+NM=/morello/src/output/morello-sdk/bin/llvm-nm \
+OBJCOPY=/morello/src/output/morello-sdk/bin/llvm-objcopy \
+OBJDUMP=/morello/src/output/morello-sdk/bin/llvm-objdump \
+RANLIB=/morello/src/output/morello-sdk/bin/llvm-ranlib \
+STRIP=/morello/src/output/morello-sdk/bin/llvm-strip \
+CFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -I/morello/src/output/rootfs-morello-purecap/usr/include" \
+LDFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -fuse-ld=lld -lpthread -Wl,--gdb-index" \
+CXXFLAGS="-target aarch64-unknown-freebsd -march=morello -mabi=purecap -Xclang -morello-vararg=new --sysroot=/morello/src/output/rootfs-morello-purecap -Wcheri -std=c++17 -I/morello/src/output/rootfs-morello-purecap/usr/include/c++/v1" \
+--build=x86_64-pc-linux-gnu \
+--host=aarch64-unknown-freebsd \
+--target=aarch64-unknown-freebsd \
+--with-opt-dir="/morello/src/output/rootfs-morello-purecap/usr" \
+--with-libyaml-dir="/morello/src/output/rootfs-morello-purecap/usr/local" \
+--prefix="/root/.rubies/ruby-master" \
+--with-thread="pthread" \
+--with-coroutine="ucontext"
+
 
 ../configure CC=/morello/src/output/morello-sdk/bin/clang \
 LD=/morello/src/output/morello-sdk/bin/ld.lld \
@@ -290,3 +313,44 @@ optflags="-O0 -fno-omit-frame-pointer"
 
 
 --with-destdir="/home/luih/bench/installhybrid/.rubies/ruby-master" \
+
+
+# native pure build qemu morello 
+../configure CC=/usr/local64/bin/clang-morello \
+LD=/usr/local64/bin/ld.lld-morello \
+AR=/usr/local64/bin/llvm-ar-morello \
+AS=/usr/local64/bin/llvm-as-morello \
+CXX=/usr/local64/bin/clang++-morello \
+NM=/usr/local64/bin/llvm-nm-morello \
+OBJCOPY=/usr/local64/bin/llvm-objcopy-morello \
+OBJDUMP=/usr/local64/bin/llvm-objdump-morello \
+RANLIB=/usr/local64/bin/llvm-ranlib-morello \
+STRIP=/usr/local64/bin/llvm-strip-morello \
+CFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -I/usr/include" \
+LDFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -fuse-ld=lld -lpthread" \
+CXXFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -std=c++17 -I/usr/include/c++/v1" \
+--build=aarch64-unknown-freebsd \
+--host=aarch64-unknown-freebsd \
+--target=aarch64-unknown-freebsd \
+--with-opt-dir="/usr" \
+--with-libyaml-dir="/usr/local" \
+--prefix="/root/.rubies/ruby-master" \
+--with-thread="pthread" \
+--with-coroutine="ucontext" \
+optflags="-O0 -fno-omit-frame-pointer" 
+
+
+../configure CC=/usr/local64/bin/clang-morello LD=/usr/local64/bin/ld.lld-morello 
+AR=/usr/local64/bin/llvm-ar-morello AS=/usr/local64/bin/llvm-as-morello 
+CXX=/usr/local64/bin/clang++-morello NM=/usr/local64/bin/llvm-nm-morello OBJCOPY=/usr/local64/bin/llvm-objcopy-morello 
+OBJDUMP=/usr/local64/bin/llvm-objdump-morello 
+RANLIB=/usr/local64/bin/llvm-ranlib-morello STRIP=/usr/local64/bin/llvm-strip-morello 
+CFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -I/usr/include" 
+LDFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -fuse-ld=lld -lpthread" 
+CXXFLAGS="-march=morello -mabi=purecap -Xclang -morello-vararg=new -std=c++17 -I/usr/include/c++/v1" 
+--build=aarch64-unknown-freebsd --host=aarch64-unknown-freebsd --target=aarch64-unknown-freebsd 
+--with-opt-dir="/usr" --with-libyaml-dir="/usr/local" --prefix="/root/.rubies/ruby-master" 
+--with-thread="pthread" --with-coroutine="ucontext"
+
+# poc
+./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- ../relevant/json.rb

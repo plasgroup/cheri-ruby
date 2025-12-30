@@ -1,39 +1,25 @@
-# frozen_string_literal: true
-
+#frozen_string_literal: false
 require 'json/version'
+require 'json/generic_object'
 
 module JSON
-  autoload :GenericObject, 'json/generic_object'
-
-  NOT_SET = Object.new.freeze
-  private_constant :NOT_SET
-
   class << self
-    # :call-seq:
-    #   JSON[object] -> new_array or new_string
+    # If _object_ is string-like, parse the string and return the parsed
+    # result as a Ruby data structure. Otherwise generate a JSON text from the
+    # Ruby data structure object and return it.
     #
-    # If +object+ is a \String,
-    # calls JSON.parse with +object+ and +opts+ (see method #parse):
-    #   json = '[0, 1, null]'
-    #   JSON[json]# => [0, 1, nil]
-    #
-    # Otherwise, calls JSON.generate with +object+ and +opts+ (see method #generate):
-    #   ruby = [0, 1, nil]
-    #   JSON[ruby] # => '[0,1,null]'
+    # The _opts_ argument is passed through to generate/parse respectively.
+    # See generate and parse for their documentation.
     def [](object, opts = {})
-      if object.is_a?(String)
-        return JSON.parse(object, opts)
-      elsif object.respond_to?(:to_str)
-        str = object.to_str
-        if str.is_a?(String)
-          return JSON.parse(str, opts)
-        end
+      if object.respond_to? :to_str
+        JSON.parse(object.to_str, opts)
+      else
+        JSON.generate(object, opts)
       end
-
-      JSON.generate(object, opts)
     end
 
-    # Returns the JSON parser class that is used by JSON.
+    # Returns the JSON parser class that is used by JSON. This is either
+    # JSON::Ext::Parser or JSON::Pure::Parser.
     attr_reader :parser
 
     # Set the JSON parser class _parser_ to be used by JSON.
@@ -48,9 +34,18 @@ module JSON
     # level (absolute namespace path?). If there doesn't exist a constant at
     # the given path, an ArgumentError is raised.
     def deep_const_get(path) # :nodoc:
-      Object.const_get(path)
-    rescue NameError => e
-      raise ArgumentError, "can't get const #{path}: #{e}"
+      path.to_s.split(/::/).inject(Object) do |p, c|
+        case
+        when c.empty?                  then p
+        when p.const_defined?(c, true) then p.const_get(c)
+        else
+          begin
+            p.const_missing(c)
+          rescue NameError => e
+            raise ArgumentError, "can't get const #{path}: #{e}"
+          end
+        end
+      end
     end
 
     # Set the module _generator_ to be used by JSON.
@@ -59,7 +54,7 @@ module JSON
       @generator = generator
       generator_methods = generator::GeneratorMethods
       for const in generator_methods.constants
-        klass = const_get(const)
+        klass = deep_const_get(const)
         modul = generator_methods.const_get(const)
         klass.class_eval do
           instance_methods(false).each do |m|
@@ -70,51 +65,37 @@ module JSON
       end
       self.state = generator::State
       const_set :State, self.state
-      const_set :SAFE_STATE_PROTOTYPE, State.new # for JRuby
-      const_set :FAST_STATE_PROTOTYPE, create_fast_state
-      const_set :PRETTY_STATE_PROTOTYPE, create_pretty_state
-    ensure
-      $VERBOSE = old
-    end
-
-    def create_fast_state
-      State.new(
+      const_set :SAFE_STATE_PROTOTYPE, State.new
+      const_set :FAST_STATE_PROTOTYPE, State.new(
         :indent         => '',
         :space          => '',
         :object_nl      => "",
         :array_nl       => "",
         :max_nesting    => false
       )
-    end
-
-    def create_pretty_state
-      State.new(
+      const_set :PRETTY_STATE_PROTOTYPE, State.new(
         :indent         => '  ',
         :space          => ' ',
         :object_nl      => "\n",
         :array_nl       => "\n"
       )
+    ensure
+      $VERBOSE = old
     end
 
-    # Returns the JSON generator module that is used by JSON.
+    # Returns the JSON generator module that is used by JSON. This is
+    # either JSON::Ext::Generator or JSON::Pure::Generator.
     attr_reader :generator
 
-    # Sets or Returns the JSON generator state class that is used by JSON.
+    # Returns the JSON generator state class that is used by JSON. This is
+    # either JSON::Ext::Generator::State or JSON::Pure::Generator::State.
     attr_accessor :state
-  end
 
-  # Sets create identifier, which is used to decide if the _json_create_
-  # hook of a class should be called; initial value is +json_class+:
-  #   JSON.create_id # => 'json_class'
-  def self.create_id=(new_value)
-    Thread.current[:"JSON.create_id"] = new_value.dup.freeze
+    # This is create identifier, which is used to decide if the _json_create_
+    # hook of a class should be called. It defaults to 'json_class'.
+    attr_accessor :create_id
   end
-
-  # Returns the current create identifier.
-  # See also JSON.create_id=.
-  def self.create_id
-    Thread.current[:"JSON.create_id"] || 'json_class'
-  end
+  self.create_id = 'json_class'
 
   NaN           = 0.0/0
 
@@ -143,25 +124,9 @@ module JSON
   # :startdoc:
 
   # This exception is raised if a generator or unparser error occurs.
-  class GeneratorError < JSONError
-    attr_reader :invalid_object
-
-    def initialize(message, invalid_object = nil)
-      super(message)
-      @invalid_object = invalid_object
-    end
-
-    def detailed_message(...)
-      if @invalid_object.nil?
-        super
-      else
-        "#{super}\nInvalid object: #{@invalid_object.inspect}"
-      end
-    end
-  end
-
+  class GeneratorError < JSONError; end
   # For backwards compatibility
-  UnparserError = GeneratorError # :nodoc:
+  UnparserError = GeneratorError
 
   # This exception is raised if the required unicode support is missing on the
   # system. Usually this means that the iconv library is not installed.
@@ -169,141 +134,94 @@ module JSON
 
   module_function
 
-  # :call-seq:
-  #   JSON.parse(source, opts) -> object
+  # Parse the JSON document _source_ into a Ruby data structure and return it.
   #
-  # Returns the Ruby objects created by parsing the given +source+.
-  #
-  # Argument +source+ contains the \String to be parsed.
-  #
-  # Argument +opts+, if given, contains a \Hash of options for the parsing.
-  # See {Parsing Options}[#module-JSON-label-Parsing+Options].
-  #
-  # ---
-  #
-  # When +source+ is a \JSON array, returns a Ruby \Array:
-  #   source = '["foo", 1.0, true, false, null]'
-  #   ruby = JSON.parse(source)
-  #   ruby # => ["foo", 1.0, true, false, nil]
-  #   ruby.class # => Array
-  #
-  # When +source+ is a \JSON object, returns a Ruby \Hash:
-  #   source = '{"a": "foo", "b": 1.0, "c": true, "d": false, "e": null}'
-  #   ruby = JSON.parse(source)
-  #   ruby # => {"a"=>"foo", "b"=>1.0, "c"=>true, "d"=>false, "e"=>nil}
-  #   ruby.class # => Hash
-  #
-  # For examples of parsing for all \JSON data types, see
-  # {Parsing \JSON}[#module-JSON-label-Parsing+JSON].
-  #
-  # Parses nested JSON objects:
-  #   source = <<~JSON
-  #     {
-  #     "name": "Dave",
-  #       "age" :40,
-  #       "hats": [
-  #         "Cattleman's",
-  #         "Panama",
-  #         "Tophat"
-  #       ]
-  #     }
-  #   JSON
-  #   ruby = JSON.parse(source)
-  #   ruby # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # ---
-  #
-  # Raises an exception if +source+ is not valid JSON:
-  #   # Raises JSON::ParserError (783: unexpected token at ''):
-  #   JSON.parse('')
-  #
-  def parse(source, opts = nil)
-    Parser.parse(source, opts)
+  # _opts_ can have the following
+  # keys:
+  # * *max_nesting*: The maximum depth of nesting allowed in the parsed data
+  #   structures. Disable depth checking with :max_nesting => false. It
+  #   defaults to 100.
+  # * *allow_nan*: If set to true, allow NaN, Infinity and -Infinity in
+  #   defiance of RFC 7159 to be parsed by the Parser. This option defaults
+  #   to false.
+  # * *symbolize_names*: If set to true, returns symbols for the names
+  #   (keys) in a JSON object. Otherwise strings are returned. Strings are
+  #   the default.
+  # * *create_additions*: If set to false, the Parser doesn't create
+  #   additions even if a matching class and create_id was found. This option
+  #   defaults to false.
+  # * *object_class*: Defaults to Hash
+  # * *array_class*: Defaults to Array
+  def parse(source, opts = {})
+    Parser.new(source, opts).parse
   end
 
-  # :call-seq:
-  #   JSON.parse!(source, opts) -> object
+  # Parse the JSON document _source_ into a Ruby data structure and return it.
+  # The bang version of the parse method defaults to the more dangerous values
+  # for the _opts_ hash, so be sure only to parse trusted _source_ documents.
   #
-  # Calls
-  #   parse(source, opts)
-  # with +source+ and possibly modified +opts+.
-  #
-  # Differences from JSON.parse:
-  # - Option +max_nesting+, if not provided, defaults to +false+,
-  #   which disables checking for nesting depth.
-  # - Option +allow_nan+, if not provided, defaults to +true+.
+  # _opts_ can have the following keys:
+  # * *max_nesting*: The maximum depth of nesting allowed in the parsed data
+  #   structures. Enable depth checking with :max_nesting => anInteger. The
+  #   parse! methods defaults to not doing max depth checking: This can be
+  #   dangerous if someone wants to fill up your stack.
+  # * *allow_nan*: If set to true, allow NaN, Infinity, and -Infinity in
+  #   defiance of RFC 7159 to be parsed by the Parser. This option defaults
+  #   to true.
+  # * *create_additions*: If set to false, the Parser doesn't create
+  #   additions even if a matching class and create_id was found. This option
+  #   defaults to false.
   def parse!(source, opts = {})
     opts = {
       :max_nesting  => false,
       :allow_nan    => true
     }.merge(opts)
-    Parser.new(source, **(opts||{})).parse
+    Parser.new(source, opts).parse
   end
 
-  # :call-seq:
-  #   JSON.load_file(path, opts={}) -> object
+  # Generate a JSON document from the Ruby data structure _obj_ and return
+  # it. _state_ is * a JSON::State object,
+  # * or a Hash like object (responding to to_hash),
+  # * an object convertible into a hash by a to_h method,
+  # that is used as or to configure a State object.
   #
-  # Calls:
-  #   parse(File.read(path), opts)
+  # It defaults to a state object, that creates the shortest possible JSON text
+  # in one line, checks for circular data structures and doesn't allow NaN,
+  # Infinity, and -Infinity.
   #
-  # See method #parse.
-  def load_file(filespec, opts = nil)
-    parse(File.read(filespec, encoding: Encoding::UTF_8), opts)
-  end
-
-  # :call-seq:
-  #   JSON.load_file!(path, opts = {})
+  # A _state_ hash can have the following keys:
+  # * *indent*: a string used to indent levels (default: ''),
+  # * *space*: a string that is put after, a : or , delimiter (default: ''),
+  # * *space_before*: a string that is put before a : pair delimiter (default: ''),
+  # * *object_nl*: a string that is put at the end of a JSON object (default: ''),
+  # * *array_nl*: a string that is put at the end of a JSON array (default: ''),
+  # * *allow_nan*: true if NaN, Infinity, and -Infinity should be
+  #   generated, otherwise an exception is thrown if these values are
+  #   encountered. This options defaults to false.
+  # * *max_nesting*: The maximum depth of nesting allowed in the data
+  #   structures from which JSON is to be generated. Disable depth checking
+  #   with :max_nesting => false, it defaults to 100.
   #
-  # Calls:
-  #   JSON.parse!(File.read(path, opts))
-  #
-  # See method #parse!
-  def load_file!(filespec, opts = {})
-    parse!(File.read(filespec, encoding: Encoding::UTF_8), opts)
-  end
-
-  # :call-seq:
-  #   JSON.generate(obj, opts = nil) -> new_string
-  #
-  # Returns a \String containing the generated \JSON data.
-  #
-  # See also JSON.fast_generate, JSON.pretty_generate.
-  #
-  # Argument +obj+ is the Ruby object to be converted to \JSON.
-  #
-  # Argument +opts+, if given, contains a \Hash of options for the generation.
-  # See {Generating Options}[#module-JSON-label-Generating+Options].
-  #
-  # ---
-  #
-  # When +obj+ is an \Array, returns a \String containing a \JSON array:
-  #   obj = ["foo", 1.0, true, false, nil]
-  #   json = JSON.generate(obj)
-  #   json # => '["foo",1.0,true,false,null]'
-  #
-  # When +obj+ is a \Hash, returns a \String containing a \JSON object:
-  #   obj = {foo: 0, bar: 's', baz: :bat}
-  #   json = JSON.generate(obj)
-  #   json # => '{"foo":0,"bar":"s","baz":"bat"}'
-  #
-  # For examples of generating from other Ruby objects, see
-  # {Generating \JSON from Other Objects}[#module-JSON-label-Generating+JSON+from+Other+Objects].
-  #
-  # ---
-  #
-  # Raises an exception if any formatting option is not a \String.
-  #
-  # Raises an exception if +obj+ contains circular references:
-  #   a = []; b = []; a.push(b); b.push(a)
-  #   # Raises JSON::NestingError (nesting of 100 is too deep):
-  #   JSON.generate(a)
-  #
+  # See also the fast_generate for the fastest creation method with the least
+  # amount of sanity checks, and the pretty_generate method for some
+  # defaults for pretty output.
   def generate(obj, opts = nil)
     if State === opts
-      opts.generate(obj)
+      state, opts = opts, nil
     else
-      State.generate(obj, opts, nil)
+      state = SAFE_STATE_PROTOTYPE.dup
     end
+    if opts
+      if opts.respond_to? :to_hash
+        opts = opts.to_hash
+      elsif opts.respond_to? :to_h
+        opts = opts.to_h
+      else
+        raise TypeError, "can't convert #{opts.class} into Hash"
+      end
+      state = state.configure(opts)
+    end
+    state.generate(obj)
   end
 
   # :stopdoc:
@@ -313,24 +231,26 @@ module JSON
   module_function :unparse
   # :startdoc:
 
-  # :call-seq:
-  #   JSON.fast_generate(obj, opts) -> new_string
+  # Generate a JSON document from the Ruby data structure _obj_ and return it.
+  # This method disables the checks for circles in Ruby objects.
   #
-  # Arguments +obj+ and +opts+ here are the same as
-  # arguments +obj+ and +opts+ in JSON.generate.
-  #
-  # By default, generates \JSON data without checking
-  # for circular references in +obj+ (option +max_nesting+ set to +false+, disabled).
-  #
-  # Raises an exception if +obj+ contains circular references:
-  #   a = []; b = []; a.push(b); b.push(a)
-  #   # Raises SystemStackError (stack level too deep):
-  #   JSON.fast_generate(a)
+  # *WARNING*: Be careful not to pass any Ruby data structures with circles as
+  # _obj_ argument because this will cause JSON to go into an infinite loop.
   def fast_generate(obj, opts = nil)
     if State === opts
-      state = opts
+      state, opts = opts, nil
     else
-      state = JSON.create_fast_state.configure(opts)
+      state = FAST_STATE_PROTOTYPE.dup
+    end
+    if opts
+      if opts.respond_to? :to_hash
+        opts = opts.to_hash
+      elsif opts.respond_to? :to_h
+        opts = opts.to_h
+      else
+        raise TypeError, "can't convert #{opts.class} into Hash"
+      end
+      state.configure(opts)
     end
     state.generate(obj)
   end
@@ -341,41 +261,17 @@ module JSON
   module_function :fast_unparse
   # :startdoc:
 
-  # :call-seq:
-  #   JSON.pretty_generate(obj, opts = nil) -> new_string
+  # Generate a JSON document from the Ruby data structure _obj_ and return it.
+  # The returned document is a prettier form of the document returned by
+  # #unparse.
   #
-  # Arguments +obj+ and +opts+ here are the same as
-  # arguments +obj+ and +opts+ in JSON.generate.
-  #
-  # Default options are:
-  #   {
-  #     indent: '  ',   # Two spaces
-  #     space: ' ',     # One space
-  #     array_nl: "\n", # Newline
-  #     object_nl: "\n" # Newline
-  #   }
-  #
-  # Example:
-  #   obj = {foo: [:bar, :baz], bat: {bam: 0, bad: 1}}
-  #   json = JSON.pretty_generate(obj)
-  #   puts json
-  # Output:
-  #   {
-  #     "foo": [
-  #       "bar",
-  #       "baz"
-  #     ],
-  #     "bat": {
-  #       "bam": 0,
-  #       "bad": 1
-  #     }
-  #   }
-  #
+  # The _opts_ argument can be used to configure the generator. See the
+  # generate method for a more detailed explanation.
   def pretty_generate(obj, opts = nil)
     if State === opts
       state, opts = opts, nil
     else
-      state = JSON.create_pretty_state
+      state = PRETTY_STATE_PROTOTYPE.dup
     end
     if opts
       if opts.respond_to? :to_hash
@@ -397,337 +293,42 @@ module JSON
   # :startdoc:
 
   class << self
-    # Sets or returns default options for the JSON.unsafe_load method.
-    # Initially:
-    #   opts = JSON.load_default_options
-    #   opts # => {:max_nesting=>false, :allow_nan=>true, :allow_blank=>true, :create_additions=>true}
-    attr_accessor :unsafe_load_default_options
-  end
-  self.unsafe_load_default_options = {
-    :max_nesting      => false,
-    :allow_nan        => true,
-    :allow_blank      => true,
-    :create_additions => true,
-  }
-
-  class << self
-    # Sets or returns default options for the JSON.load method.
-    # Initially:
-    #   opts = JSON.load_default_options
-    #   opts # => {:max_nesting=>false, :allow_nan=>true, :allow_blank=>true, :create_additions=>true}
+    # The global default options for the JSON.load method:
+    #  :max_nesting: false
+    #  :allow_nan:   true
+    #  :allow_blank:  true
     attr_accessor :load_default_options
   end
   self.load_default_options = {
+    :max_nesting      => false,
     :allow_nan        => true,
-    :allow_blank      => true,
-    :create_additions => nil,
+    :allow_blank       => true,
+    :create_additions => true,
   }
-  # :call-seq:
-  #   JSON.unsafe_load(source, proc = nil, options = {}) -> object
-  #
-  # Returns the Ruby objects created by parsing the given +source+.
+
+  # Load a ruby data structure from a JSON _source_ and return it. A source can
+  # either be a string-like object, an IO-like object, or an object responding
+  # to the read method. If _proc_ was given, it will be called with any nested
+  # Ruby object as an argument recursively in depth first order. To modify the
+  # default options pass in the optional _options_ argument as well.
   #
   # BEWARE: This method is meant to serialise data from trusted user input,
   # like from your own database server or clients under your control, it could
-  # be dangerous to allow untrusted users to pass JSON sources into it.
+  # be dangerous to allow untrusted users to pass JSON sources into it. The
+  # default options for the parser can be changed via the load_default_options
+  # method.
   #
-  # - Argument +source+ must be, or be convertible to, a \String:
-  #   - If +source+ responds to instance method +to_str+,
-  #     <tt>source.to_str</tt> becomes the source.
-  #   - If +source+ responds to instance method +to_io+,
-  #     <tt>source.to_io.read</tt> becomes the source.
-  #   - If +source+ responds to instance method +read+,
-  #     <tt>source.read</tt> becomes the source.
-  #   - If both of the following are true, source becomes the \String <tt>'null'</tt>:
-  #     - Option +allow_blank+ specifies a truthy value.
-  #     - The source, as defined above, is +nil+ or the empty \String <tt>''</tt>.
-  #   - Otherwise, +source+ remains the source.
-  # - Argument +proc+, if given, must be a \Proc that accepts one argument.
-  #   It will be called recursively with each result (depth-first order).
-  #   See details below.
-  # - Argument +opts+, if given, contains a \Hash of options for the parsing.
-  #   See {Parsing Options}[#module-JSON-label-Parsing+Options].
-  #   The default options can be changed via method JSON.unsafe_load_default_options=.
-  #
-  # ---
-  #
-  # When no +proc+ is given, modifies +source+ as above and returns the result of
-  # <tt>parse(source, opts)</tt>;  see #parse.
-  #
-  # Source for following examples:
-  #   source = <<~JSON
-  #     {
-  #       "name": "Dave",
-  #       "age" :40,
-  #       "hats": [
-  #         "Cattleman's",
-  #         "Panama",
-  #         "Tophat"
-  #       ]
-  #     }
-  #   JSON
-  #
-  # Load a \String:
-  #   ruby = JSON.unsafe_load(source)
-  #   ruby # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # Load an \IO object:
-  #   require 'stringio'
-  #   object = JSON.unsafe_load(StringIO.new(source))
-  #   object # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # Load a \File object:
-  #   path = 't.json'
-  #   File.write(path, source)
-  #   File.open(path) do |file|
-  #     JSON.unsafe_load(file)
-  #   end # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # ---
-  #
-  # When +proc+ is given:
-  # - Modifies +source+ as above.
-  # - Gets the +result+ from calling <tt>parse(source, opts)</tt>.
-  # - Recursively calls <tt>proc(result)</tt>.
-  # - Returns the final result.
-  #
-  # Example:
-  #   require 'json'
-  #
-  #   # Some classes for the example.
-  #   class Base
-  #     def initialize(attributes)
-  #       @attributes = attributes
-  #     end
-  #   end
-  #   class User    < Base; end
-  #   class Account < Base; end
-  #   class Admin   < Base; end
-  #   # The JSON source.
-  #   json = <<-EOF
-  #   {
-  #     "users": [
-  #         {"type": "User", "username": "jane", "email": "jane@example.com"},
-  #         {"type": "User", "username": "john", "email": "john@example.com"}
-  #     ],
-  #     "accounts": [
-  #         {"account": {"type": "Account", "paid": true, "account_id": "1234"}},
-  #         {"account": {"type": "Account", "paid": false, "account_id": "1235"}}
-  #     ],
-  #     "admins": {"type": "Admin", "password": "0wn3d"}
-  #   }
-  #   EOF
-  #   # Deserializer method.
-  #   def deserialize_obj(obj, safe_types = %w(User Account Admin))
-  #     type = obj.is_a?(Hash) && obj["type"]
-  #     safe_types.include?(type) ? Object.const_get(type).new(obj) : obj
-  #   end
-  #   # Call to JSON.unsafe_load
-  #   ruby = JSON.unsafe_load(json, proc {|obj|
-  #     case obj
-  #     when Hash
-  #       obj.each {|k, v| obj[k] = deserialize_obj v }
-  #     when Array
-  #       obj.map! {|v| deserialize_obj v }
-  #     end
-  #   })
-  #   pp ruby
-  # Output:
-  #   {"users"=>
-  #      [#<User:0x00000000064c4c98
-  #        @attributes=
-  #          {"type"=>"User", "username"=>"jane", "email"=>"jane@example.com"}>,
-  #        #<User:0x00000000064c4bd0
-  #        @attributes=
-  #          {"type"=>"User", "username"=>"john", "email"=>"john@example.com"}>],
-  #    "accounts"=>
-  #      [{"account"=>
-  #          #<Account:0x00000000064c4928
-  #          @attributes={"type"=>"Account", "paid"=>true, "account_id"=>"1234"}>},
-  #       {"account"=>
-  #          #<Account:0x00000000064c4680
-  #          @attributes={"type"=>"Account", "paid"=>false, "account_id"=>"1235"}>}],
-  #    "admins"=>
-  #      #<Admin:0x00000000064c41f8
-  #      @attributes={"type"=>"Admin", "password"=>"0wn3d"}>}
-  #
-  def unsafe_load(source, proc = nil, options = nil)
-    opts = if options.nil?
-      unsafe_load_default_options
-    else
-      unsafe_load_default_options.merge(options)
+  # This method is part of the implementation of the load/dump interface of
+  # Marshal and YAML.
+  def load(source, proc = nil, options = {})
+    opts = load_default_options.merge options
+    if source.respond_to? :to_str
+      source = source.to_str
+    elsif source.respond_to? :to_io
+      source = source.to_io.read
+    elsif source.respond_to?(:read)
+      source = source.read
     end
-
-    unless source.is_a?(String)
-      if source.respond_to? :to_str
-        source = source.to_str
-      elsif source.respond_to? :to_io
-        source = source.to_io.read
-      elsif source.respond_to?(:read)
-        source = source.read
-      end
-    end
-
-    if opts[:allow_blank] && (source.nil? || source.empty?)
-      source = 'null'
-    end
-    result = parse(source, opts)
-    recurse_proc(result, &proc) if proc
-    result
-  end
-
-  # :call-seq:
-  #   JSON.load(source, proc = nil, options = {}) -> object
-  #
-  # Returns the Ruby objects created by parsing the given +source+.
-  #
-  # BEWARE: This method is meant to serialise data from trusted user input,
-  # like from your own database server or clients under your control, it could
-  # be dangerous to allow untrusted users to pass JSON sources into it.
-  # If you must use it, use JSON.unsafe_load instead to make it clear.
-  #
-  # Since JSON version 2.8.0, `load` emits a deprecation warning when a
-  # non native type is deserialized, without `create_additions` being explicitly
-  # enabled, and in JSON version 3.0, `load` will have `create_additions` disabled
-  # by default.
-  #
-  # - Argument +source+ must be, or be convertible to, a \String:
-  #   - If +source+ responds to instance method +to_str+,
-  #     <tt>source.to_str</tt> becomes the source.
-  #   - If +source+ responds to instance method +to_io+,
-  #     <tt>source.to_io.read</tt> becomes the source.
-  #   - If +source+ responds to instance method +read+,
-  #     <tt>source.read</tt> becomes the source.
-  #   - If both of the following are true, source becomes the \String <tt>'null'</tt>:
-  #     - Option +allow_blank+ specifies a truthy value.
-  #     - The source, as defined above, is +nil+ or the empty \String <tt>''</tt>.
-  #   - Otherwise, +source+ remains the source.
-  # - Argument +proc+, if given, must be a \Proc that accepts one argument.
-  #   It will be called recursively with each result (depth-first order).
-  #   See details below.
-  # - Argument +opts+, if given, contains a \Hash of options for the parsing.
-  #   See {Parsing Options}[#module-JSON-label-Parsing+Options].
-  #   The default options can be changed via method JSON.load_default_options=.
-  #
-  # ---
-  #
-  # When no +proc+ is given, modifies +source+ as above and returns the result of
-  # <tt>parse(source, opts)</tt>;  see #parse.
-  #
-  # Source for following examples:
-  #   source = <<~JSON
-  #     {
-  #       "name": "Dave",
-  #       "age" :40,
-  #       "hats": [
-  #         "Cattleman's",
-  #         "Panama",
-  #         "Tophat"
-  #       ]
-  #     }
-  #   JSON
-  #
-  # Load a \String:
-  #   ruby = JSON.load(source)
-  #   ruby # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # Load an \IO object:
-  #   require 'stringio'
-  #   object = JSON.load(StringIO.new(source))
-  #   object # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # Load a \File object:
-  #   path = 't.json'
-  #   File.write(path, source)
-  #   File.open(path) do |file|
-  #     JSON.load(file)
-  #   end # => {"name"=>"Dave", "age"=>40, "hats"=>["Cattleman's", "Panama", "Tophat"]}
-  #
-  # ---
-  #
-  # When +proc+ is given:
-  # - Modifies +source+ as above.
-  # - Gets the +result+ from calling <tt>parse(source, opts)</tt>.
-  # - Recursively calls <tt>proc(result)</tt>.
-  # - Returns the final result.
-  #
-  # Example:
-  #   require 'json'
-  #
-  #   # Some classes for the example.
-  #   class Base
-  #     def initialize(attributes)
-  #       @attributes = attributes
-  #     end
-  #   end
-  #   class User    < Base; end
-  #   class Account < Base; end
-  #   class Admin   < Base; end
-  #   # The JSON source.
-  #   json = <<-EOF
-  #   {
-  #     "users": [
-  #         {"type": "User", "username": "jane", "email": "jane@example.com"},
-  #         {"type": "User", "username": "john", "email": "john@example.com"}
-  #     ],
-  #     "accounts": [
-  #         {"account": {"type": "Account", "paid": true, "account_id": "1234"}},
-  #         {"account": {"type": "Account", "paid": false, "account_id": "1235"}}
-  #     ],
-  #     "admins": {"type": "Admin", "password": "0wn3d"}
-  #   }
-  #   EOF
-  #   # Deserializer method.
-  #   def deserialize_obj(obj, safe_types = %w(User Account Admin))
-  #     type = obj.is_a?(Hash) && obj["type"]
-  #     safe_types.include?(type) ? Object.const_get(type).new(obj) : obj
-  #   end
-  #   # Call to JSON.load
-  #   ruby = JSON.load(json, proc {|obj|
-  #     case obj
-  #     when Hash
-  #       obj.each {|k, v| obj[k] = deserialize_obj v }
-  #     when Array
-  #       obj.map! {|v| deserialize_obj v }
-  #     end
-  #   })
-  #   pp ruby
-  # Output:
-  #   {"users"=>
-  #      [#<User:0x00000000064c4c98
-  #        @attributes=
-  #          {"type"=>"User", "username"=>"jane", "email"=>"jane@example.com"}>,
-  #        #<User:0x00000000064c4bd0
-  #        @attributes=
-  #          {"type"=>"User", "username"=>"john", "email"=>"john@example.com"}>],
-  #    "accounts"=>
-  #      [{"account"=>
-  #          #<Account:0x00000000064c4928
-  #          @attributes={"type"=>"Account", "paid"=>true, "account_id"=>"1234"}>},
-  #       {"account"=>
-  #          #<Account:0x00000000064c4680
-  #          @attributes={"type"=>"Account", "paid"=>false, "account_id"=>"1235"}>}],
-  #    "admins"=>
-  #      #<Admin:0x00000000064c41f8
-  #      @attributes={"type"=>"Admin", "password"=>"0wn3d"}>}
-  #
-  def load(source, proc = nil, options = nil)
-    opts = if options.nil?
-      load_default_options
-    else
-      load_default_options.merge(options)
-    end
-
-    unless source.is_a?(String)
-      if source.respond_to? :to_str
-        source = source.to_str
-      elsif source.respond_to? :to_io
-        source = source.to_io.read
-      elsif source.respond_to?(:read)
-        source = source.read
-      end
-    end
-
     if opts[:allow_blank] && (source.nil? || source.empty?)
       source = 'null'
     end
@@ -737,7 +338,7 @@ module JSON
   end
 
   # Recursively calls passed _Proc_ if the parsed data structure is an _Array_ or _Hash_
-  def recurse_proc(result, &proc) # :nodoc:
+  def recurse_proc(result, &proc)
     case result
     when Array
       result.each { |x| recurse_proc x, &proc }
@@ -754,10 +355,10 @@ module JSON
   module_function :restore
 
   class << self
-    # Sets or returns the default options for the JSON.dump method.
-    # Initially:
-    #   opts = JSON.dump_default_options
-    #   opts # => {:max_nesting=>false, :allow_nan=>true}
+    # The global default options for the JSON.dump method:
+    #  :max_nesting: false
+    #  :allow_nan:   true
+    #  :allow_blank: true
     attr_accessor :dump_default_options
   end
   self.dump_default_options = {
@@ -765,81 +366,45 @@ module JSON
     :allow_nan   => true,
   }
 
-  # :call-seq:
-  #   JSON.dump(obj, io = nil, limit = nil)
+  # Dumps _obj_ as a JSON string, i.e. calls generate on the object and returns
+  # the result.
   #
-  # Dumps +obj+ as a \JSON string, i.e. calls generate on the object and returns the result.
+  # If anIO (an IO-like object or an object that responds to the write method)
+  # was given, the resulting JSON is written to it.
   #
-  # The default options can be changed via method JSON.dump_default_options.
+  # If the number of nested arrays or objects exceeds _limit_, an ArgumentError
+  # exception is raised. This argument is similar (but not exactly the
+  # same!) to the _limit_ argument in Marshal.dump.
   #
-  # - Argument +io+, if given, should respond to method +write+;
-  #   the \JSON \String is written to +io+, and +io+ is returned.
-  #   If +io+ is not given, the \JSON \String is returned.
-  # - Argument +limit+, if given, is passed to JSON.generate as option +max_nesting+.
+  # The default options for the generator can be changed via the
+  # dump_default_options method.
   #
-  # ---
-  #
-  # When argument +io+ is not given, returns the \JSON \String generated from +obj+:
-  #   obj = {foo: [0, 1], bar: {baz: 2, bat: 3}, bam: :bad}
-  #   json = JSON.dump(obj)
-  #   json # => "{\"foo\":[0,1],\"bar\":{\"baz\":2,\"bat\":3},\"bam\":\"bad\"}"
-  #
-  # When argument +io+ is given, writes the \JSON \String to +io+ and returns +io+:
-  #   path = 't.json'
-  #   File.open(path, 'w') do |file|
-  #     JSON.dump(obj, file)
-  #   end # => #<File:t.json (closed)>
-  #   puts File.read(path)
-  # Output:
-  #   {"foo":[0,1],"bar":{"baz":2,"bat":3},"bam":"bad"}
-  def dump(obj, anIO = nil, limit = nil, kwargs = nil)
-    if kwargs.nil?
-      if limit.nil?
-        if anIO.is_a?(Hash)
-          kwargs = anIO
-          anIO = nil
-        end
-      elsif limit.is_a?(Hash)
-        kwargs = limit
-        limit = nil
+  # This method is part of the implementation of the load/dump interface of
+  # Marshal and YAML.
+  def dump(obj, anIO = nil, limit = nil)
+    if anIO and limit.nil?
+      anIO = anIO.to_io if anIO.respond_to?(:to_io)
+      unless anIO.respond_to?(:write)
+        limit = anIO
+        anIO = nil
       end
     end
-
-    unless anIO.nil?
-      if anIO.respond_to?(:to_io)
-        anIO = anIO.to_io
-      elsif limit.nil? && !anIO.respond_to?(:write)
-        anIO, limit = nil, anIO
-      end
-    end
-
     opts = JSON.dump_default_options
     opts = opts.merge(:max_nesting => limit) if limit
-    opts = merge_dump_options(opts, **kwargs) if kwargs
-
-    begin
-      if State === opts
-        opts.generate(obj, anIO)
-      else
-        State.generate(obj, opts, anIO)
-      end
-    rescue JSON::NestingError
-      raise ArgumentError, "exceed depth limit"
+    result = generate(obj, opts)
+    if anIO
+      anIO.write result
+      anIO
+    else
+      result
     end
+  rescue JSON::NestingError
+    raise ArgumentError, "exceed depth limit"
   end
 
-  # Encodes string using String.encode.
+  # Encodes string using Ruby's _String.encode_
   def self.iconv(to, from, string)
     string.encode(to, from)
-  end
-
-  def merge_dump_options(opts, strict: NOT_SET)
-    opts = opts.merge(strict: strict) if NOT_SET != strict
-    opts
-  end
-
-  class << self
-    private :merge_dump_options
   end
 end
 
@@ -871,16 +436,11 @@ module ::Kernel
   # The _opts_ argument is passed through to generate/parse respectively. See
   # generate and parse for their documentation.
   def JSON(object, *args)
-    if object.is_a?(String)
-      return JSON.parse(object, args.first)
-    elsif object.respond_to?(:to_str)
-      str = object.to_str
-      if str.is_a?(String)
-        return JSON.parse(object.to_str, args.first)
-      end
+    if object.respond_to? :to_str
+      JSON.parse(object.to_str, args.first)
+    else
+      JSON.generate(object, args.first)
     end
-
-    JSON.generate(object, args.first)
   end
 end
 

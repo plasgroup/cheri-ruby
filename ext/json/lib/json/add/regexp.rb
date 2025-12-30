@@ -1,30 +1,19 @@
-# frozen_string_literal: true
+#frozen_string_literal: false
 unless defined?(::JSON::JSON_LOADED) and ::JSON::JSON_LOADED
   require 'json'
 end
 
 class Regexp
 
-  # See #as_json.
+  # Deserializes JSON string by constructing new Regexp object with source
+  # <tt>s</tt> (Regexp or String) and options <tt>o</tt> serialized by
+  # <tt>to_json</tt>
   def self.json_create(object)
     new(object['s'], object['o'])
   end
 
-  # Methods <tt>Regexp#as_json</tt> and +Regexp.json_create+ may be used
-  # to serialize and deserialize a \Regexp object;
-  # see Marshal[rdoc-ref:Marshal].
-  #
-  # \Method <tt>Regexp#as_json</tt> serializes +self+,
-  # returning a 2-element hash representing +self+:
-  #
-  #   require 'json/add/regexp'
-  #   x = /foo/.as_json
-  #   # => {"json_class"=>"Regexp", "o"=>0, "s"=>"foo"}
-  #
-  # \Method +JSON.create+ deserializes such a hash, returning a \Regexp object:
-  #
-  #   Regexp.json_create(x) # => /foo/
-  #
+  # Returns a hash, that will be turned into a JSON object and represent this
+  # object.
   def as_json(*)
     {
       JSON.create_id => self.class.name,
@@ -33,16 +22,9 @@ class Regexp
     }
   end
 
-  # Returns a JSON string representing +self+:
-  #
-  #   require 'json/add/regexp'
-  #   puts /foo/.to_json
-  #
-  # Output:
-  #
-  #    {"json_class":"Regexp","o":0,"s":"foo"}
-  #
-  def to_json(*args)
-    as_json.to_json(*args)
+  # Stores class name (Regexp) with options <tt>o</tt> and source <tt>s</tt>
+  # (Regexp or String) as JSON string
+  def to_json(*)
+    as_json.to_json
   end
 end

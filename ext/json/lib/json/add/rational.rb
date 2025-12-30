@@ -1,31 +1,18 @@
-# frozen_string_literal: true
+#frozen_string_literal: false
 unless defined?(::JSON::JSON_LOADED) and ::JSON::JSON_LOADED
   require 'json'
 end
+defined?(::Rational) or require 'rational'
 
 class Rational
-
-  # See #as_json.
+  # Deserializes JSON string by converting numerator value <tt>n</tt>,
+  # denominator value <tt>d</tt>, to a Rational object.
   def self.json_create(object)
     Rational(object['n'], object['d'])
   end
 
-  # Methods <tt>Rational#as_json</tt> and +Rational.json_create+ may be used
-  # to serialize and deserialize a \Rational object;
-  # see Marshal[rdoc-ref:Marshal].
-  #
-  # \Method <tt>Rational#as_json</tt> serializes +self+,
-  # returning a 2-element hash representing +self+:
-  #
-  #   require 'json/add/rational'
-  #   x = Rational(2, 3).as_json
-  #   # => {"json_class"=>"Rational", "n"=>2, "d"=>3}
-  #
-  # \Method +JSON.create+ deserializes such a hash, returning a \Rational object:
-  #
-  #   Rational.json_create(x)
-  #   # => (2/3)
-  #
+  # Returns a hash, that will be turned into a JSON object and represent this
+  # object.
   def as_json(*)
     {
       JSON.create_id => self.class.name,
@@ -34,16 +21,8 @@ class Rational
     }
   end
 
-  # Returns a JSON string representing +self+:
-  #
-  #   require 'json/add/rational'
-  #   puts Rational(2, 3).to_json
-  #
-  # Output:
-  #
-  #   {"json_class":"Rational","n":2,"d":3}
-  #
-  def to_json(*args)
-    as_json.to_json(*args)
+  # Stores class name (Rational) along with numerator value <tt>n</tt> and denominator value <tt>d</tt> as JSON string
+  def to_json(*)
+    as_json.to_json
   end
 end

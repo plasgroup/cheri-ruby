@@ -1,9 +1,5 @@
-# frozen_string_literal: true
-begin
-  require 'ostruct'
-rescue LoadError
-  warn "JSON::GenericObject requires 'ostruct'. Please install it with `gem install ostruct`."
-end
+#frozen_string_literal: false
+require 'ostruct'
 
 module JSON
   class GenericObject < OpenStruct
@@ -71,5 +67,5 @@ module JSON
     def to_json(*a)
       as_json.to_json(*a)
     end
-  end if defined?(::OpenStruct)
+  end
 end

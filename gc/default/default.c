@@ -785,7 +785,7 @@ heap_page_in_global_empty_pages_pool(rb_objspace_t *objspace, struct heap_page *
 
 PUREFUNC(static inline struct heap_page *heap_page_for_ptr(rb_objspace_t *objspace, uintptr_t ptr);)
 
-#define GET_PAGE_BODY(x)   (heap_page_for_ptr(rb_gc_get_objspace(), (x))->body)
+#define GET_PAGE_BODY(x)   ((struct heap_page_body *)((uintptr_t)(x) & ~(HEAP_PAGE_ALIGN_MASK)))
 #define GET_PAGE_HEADER(x) (&GET_PAGE_BODY(x)->header)
 #define GET_HEAP_PAGE(x)   (GET_PAGE_HEADER(x)->page)
 

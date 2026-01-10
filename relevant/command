@@ -290,3 +290,9 @@ optflags="-O0 -fno-omit-frame-pointer"
 
 
 --with-destdir="/home/luih/bench/installhybrid/.rubies/ruby-master" \
+
+
+./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems -r../tool/lib/_tmpdir \
+"../test/runner.rb" --ruby="./miniruby -I../lib -I. -I.ext/common  ../tool/runruby.rb --extout=.ext  -- --disable-gems" \
+--excludes-dir=../test/.excludes --name=!/memory_leak/  ../test/ruby/test_gc_compact.rb \
+--name=TestGCCompact#test_moving_arrays_up_heaps  --timeout-scale 10 --worker-timeout=1000
